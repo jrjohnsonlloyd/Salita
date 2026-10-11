@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Salita</title>
+<meta name="description" content="Daily Tagalog and Taglish practice: spaced repetition, typed answers, verb aspect drills, listening, and progress tracking. Works offline on your phone.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#0e8a78">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b3b35">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Salita">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* Salita: phone-first, one column, bottom tab bar. Study mode takes over the screen. */
+:root{
+  --bg:#f3f6f4; --surface:#ffffff; --surface-2:#f6faf8; --fg:#15201e; --fg-2:#4f615d; --muted:#7f918c; --line:#dde6e2; --grid:#e8efec;
+  --accent:#0e8a78; --accent-2:#0b5f53; --accent-fg:#ffffff; --accent-soft:#dff3ee;
+  --hot:#d9640a; --hot-fg:#ffffff; --hot-soft:#fdeadb;
+  --s1:#0e8a78; --s2:#d9640a; --s3:#4a3aa7;
+  --heat1:#cfeee8; --heat2:#7fd0c1; --heat3:#23a88f; --heat4:#0b5f53;
+  --good:#0f8a3c; --warn:#b8860b; --critical:#d03b3b; --good-soft:#e3f5e9; --critical-soft:#fde8e8; --warn-soft:#fff4d6;
+  --shadow:0 8px 24px rgba(11,95,83,.12);
+  --display:"Outfit",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f1716; --surface:#15201e; --surface-2:#1b2927; --fg:#eef4f2; --fg-2:#aebcb8; --muted:#7d8d89; --line:#263431; --grid:#22302d;
+    --accent:#23a88f; --accent-2:#0b3b35; --accent-fg:#06201c; --accent-soft:#163b35;
+    --hot:#d96a22; --hot-fg:#ffffff; --hot-soft:#3b2416;
+    --s1:#23a88f; --s2:#d96a22; --s3:#9085e9;
+    --heat1:#16403a; --heat2:#1f6b5e; --heat3:#23a88f; --heat4:#6ad7c2;
+    --good:#3ccf6e; --warn:#e2b23a; --critical:#ff6b6b; --good-soft:#163a24; --critical-soft:#3d1d1d; --warn-soft:#3a2f12;
+    --shadow:0 8px 24px rgba(0,0,0,.45);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f1716; --surface:#15201e; --surface-2:#1b2927; --fg:#eef4f2; --fg-2:#aebcb8; --muted:#7d8d89; --line:#263431; --grid:#22302d;
+  --accent:#23a88f; --accent-2:#0b3b35; --accent-fg:#06201c; --accent-soft:#163b35;
+  --hot:#d96a22; --hot-fg:#ffffff; --hot-soft:#3b2416;
+  --s1:#23a88f; --s2:#d96a22; --s3:#9085e9;
+  --heat1:#16403a; --heat2:#1f6b5e; --heat3:#23a88f; --heat4:#6ad7c2;
+  --good:#3ccf6e; --warn:#e2b23a; --critical:#ff6b6b; --good-soft:#163a24; --critical-soft:#3d1d1d; --warn-soft:#3a2f12;
+  --shadow:0 8px 24px rgba(0,0,0,.45);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;padding-top:env(safe-area-inset-top,0px);background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.45;-webkit-tap-highlight-color:transparent;min-height:100vh}
+.wrap{max-width:720px;margin:0 auto;padding-inline:16px;padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+.top{background:linear-gradient(135deg,var(--accent) 0%,var(--accent-2) 100%);color:#fff;margin-inline:-16px;padding:22px 16px 18px;border-radius:0 0 22px 22px;display:flex;align-items:flex-end;justify-content:space-between;gap:12px;box-shadow:var(--shadow)}
+.top .eyebrow{color:rgba(255,255,255,.75)}
+.top h1{color:#fff}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--display);font-weight:800;font-size:34px;line-height:.95;margin:4px 0 0;text-wrap:balance}
+h2{font-family:var(--display);font-weight:700;font-size:22px;line-height:1.05;margin:0 0 10px;text-wrap:balance}
+h3{font-size:14px;font-weight:700;margin:0 0 6px}
+p{margin:0 0 10px}
+.lede{color:var(--fg-2);max-width:60ch}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:2px solid var(--hot);outline-offset:2px}
+section{margin-block:20px}
+.btn{font:inherit;font-weight:600;padding:11px 16px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+.btn.primary{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
+.btn.hot{background:var(--hot);color:var(--hot-fg);border-color:var(--hot)}
+.btn.big{width:100%;font-family:var(--display);font-size:24px;font-weight:800;padding:18px;box-shadow:var(--shadow)}
+.btn.danger{color:var(--critical)}
+.btn.small{padding:7px 11px;font-size:13px;font-weight:600;border-radius:9px}
+.btn.ghost{background:transparent}
+.btn:disabled{opacity:.5;cursor:default}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.btn-row .btn{flex:1 1 140px}
+input,select,textarea{font:inherit;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;min-width:0;width:100%}
+textarea{resize:vertical;min-height:56px}
+label.f{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--fg-2);font-weight:600}
+label.t{display:flex;gap:10px;align-items:center;font-size:14px;padding:8px 0;border-bottom:1px solid var(--line)}
+label.t:last-child{border-bottom:0}
+label.t input{width:auto;flex:none}
+label.t span{flex:1}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.row>*{flex:1 1 130px;min-width:0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px}
+.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media (min-width:560px){.tiles{grid-template-columns:repeat(4,1fr)}}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;min-width:0;position:relative;overflow:hidden}
+.tile::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:linear-gradient(90deg,var(--accent),var(--hot))}
+.tile .v{font-family:var(--display);font-size:34px;font-weight:800;line-height:1;margin-top:6px;color:var(--accent)}
+.tile .v small{font-size:14px;font-weight:700;color:var(--fg-2);margin-left:3px;font-family:var(--body)}
+.tile .c{font-size:12px;color:var(--muted);margin-top:4px}
+.status{font-size:13px;color:var(--fg-2);padding-block:10px 0;min-height:1.2em}
+.status.warn{color:var(--critical)} .status.ok{color:var(--good);font-weight:600}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.chip{font:inherit;font-size:13px;font-weight:600;padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface-2);color:var(--fg);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
+.pill{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.pill.hot{background:var(--hot-soft);color:var(--hot)}
+.pill.muted{background:var(--surface-2);color:var(--muted)}
+.hero{display:flex;gap:16px;align-items:center;justify-content:space-between}
+.hero .txt{flex:1;min-width:0}
+.ring{flex:none}
+.ring-bg{fill:none;stroke:var(--grid);stroke-width:8}
+.ring-fg{fill:none;stroke:var(--accent);stroke-width:8;stroke-linecap:round}
+.ring-fg.hit{stroke:var(--good)}
+.ring-t{font-family:var(--display);font-weight:800;font-size:22px;fill:var(--fg)}
+.ring-s{font-size:9px;font-weight:700;letter-spacing:.1em;fill:var(--muted);text-transform:uppercase}
+/* tab bar */
+.tabs{position:fixed;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:6px 8px calc(6px + env(safe-area-inset-bottom,0px));z-index:20}
+.tabs button{font:inherit;font-size:11px;font-weight:700;border:0;background:transparent;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 10px;border-radius:10px;cursor:pointer;flex:1;max-width:120px}
+.tabs button svg{width:22px;height:22px}
+.tabs button[aria-selected="true"]{color:var(--accent)}
+/* study */
+.study{position:fixed;inset:0;background:var(--bg);z-index:30;overflow:auto;padding-top:env(safe-area-inset-top,0px)}
+.study .wrap{padding-bottom:24px}
+.sbar{display:flex;align-items:center;gap:12px;padding:12px 0}
+.sbar .x{font:inherit;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:10px;width:40px;height:40px;cursor:pointer;font-size:18px;flex:none}
+.prog{flex:1;height:8px;background:var(--grid);border-radius:999px;overflow:hidden}
+.prog i{display:block;height:100%;background:var(--accent);border-radius:999px;transition:width .25s}
+.sbar .n{font-variant-numeric:tabular-nums;font-size:13px;color:var(--fg-2);font-weight:600;min-width:52px;text-align:right}
+.qcard{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:var(--shadow);position:relative;overflow:hidden;min-height:200px}
+.qcard::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:linear-gradient(90deg,var(--accent),var(--hot))}
+.qcard.intro::before{background:linear-gradient(90deg,var(--hot),var(--accent))}
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.qhead .pill{white-space:nowrap}
+.prompt{font-family:var(--display);font-weight:700;font-size:30px;line-height:1.1;margin:6px 0 4px;overflow-wrap:anywhere}
+.prompt.small{font-size:22px}
+.prompt .blank{display:inline-block;min-width:3ch;border-bottom:3px solid var(--hot);color:var(--hot);padding:0 4px}
+.sub{color:var(--fg-2);font-size:15px;margin-top:4px}
+.hint{display:inline-block;margin-top:8px;font-size:13px;color:var(--muted);background:var(--surface-2);border-radius:8px;padding:4px 10px}
+.answer-row{display:flex;gap:8px;margin-top:16px}
+.answer-row input{font-size:18px;padding:12px 14px;border-radius:12px;flex:1}
+.speak{font:inherit;border:1px solid var(--line);background:var(--surface-2);color:var(--accent);border-radius:12px;width:48px;height:48px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;flex:none}
+.speak svg{width:22px;height:22px}
+.speak.big{width:100%;height:84px;margin-top:10px;font-size:15px;font-weight:600;gap:10px}
+.verdict{margin-top:14px;border-radius:12px;padding:12px 14px;font-weight:600;display:flex;gap:10px;align-items:flex-start}
+.verdict.ok{background:var(--good-soft);color:var(--good)} .verdict.close{background:var(--warn-soft);color:var(--warn)} .verdict.bad{background:var(--critical-soft);color:var(--critical)}
+.verdict .you{font-weight:500;color:var(--fg-2);font-size:13px;display:block;margin-top:2px}
+.back{margin-top:14px;border-top:1px dashed var(--line);padding-top:14px}
+.back .ans{font-family:var(--display);font-weight:800;font-size:28px;line-height:1.1;color:var(--accent);overflow-wrap:anywhere}
+.back .ans small{font-size:14px;color:var(--muted);font-weight:600;font-family:var(--body);margin-left:6px}
+.back .meaning{font-size:16px;color:var(--fg);margin-top:4px}
+.back .alts{font-size:13px;color:var(--muted);margin-top:4px}
+.ex{margin-top:12px;background:var(--surface-2);border-radius:12px;padding:10px 12px}
+.ex .tl{font-weight:600}
+.ex .en{color:var(--fg-2);font-size:14px}
+.ex .tg{color:var(--hot);font-size:14px;margin-top:3px}
+.ex .tg::before{content:"Taglish · ";font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.note{font-size:13px;color:var(--fg-2);margin-top:10px}
+.asp{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin-top:10px;font-size:13px}
+.asp div{background:var(--surface-2);border-radius:8px;padding:6px 8px}
+.asp b{display:block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.grades{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:16px}
+.grades button{font:inherit;font-weight:700;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:12px;padding:12px 6px;cursor:pointer;display:flex;flex-direction:column;gap:2px;align-items:center}
+.grades button small{font-weight:500;color:var(--muted);font-size:11px}
+.grades button.sug{outline:2px solid var(--accent);outline-offset:-2px;background:var(--accent-soft)}
+.grades button[data-g="1"]{color:var(--critical)} .grades button[data-g="2"]{color:var(--warn)} .grades button[data-g="3"]{color:var(--accent)} .grades button[data-g="4"]{color:var(--good)}
+.done{text-align:center;padding:30px 0}
+.done .big-n{font-family:var(--display);font-size:64px;font-weight:800;line-height:1;color:var(--accent)}
+kbd{font:inherit;font-size:11px;border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:0 5px;color:var(--muted)}
+/* browse */
+.search{display:flex;gap:8px}
+.list{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.item{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.item summary{list-style:none;display:flex;gap:10px;align-items:center;cursor:pointer}
+.item summary::-webkit-details-marker{display:none}
+.item .w{font-weight:700;flex:1;min-width:0}
+.item .m{color:var(--fg-2);font-size:13px;flex:1;min-width:0}
+.item .st{font-size:11px;font-weight:700;color:var(--muted);white-space:nowrap}
+.item .body{border-top:1px solid var(--line);margin-top:10px;padding-top:10px;font-size:14px}
+.facets{display:grid;grid-template-columns:1fr auto auto;gap:4px 10px;font-size:12px;margin-top:8px;color:var(--fg-2)}
+.facets b{color:var(--fg)}
+/* charts */
+.chart{display:block;max-width:100%}
+.chart .grid{stroke:var(--grid);stroke-width:1}
+.chart .base{stroke:var(--line);stroke-width:1}
+.chart .tick{fill:var(--muted);font-size:11px;font-family:var(--body)}
+.chart .lbl{fill:var(--fg-2);font-size:11px;font-weight:600;font-family:var(--body)}
+.chart .bar{fill:var(--s1)}
+.chart .bar.hl{fill:var(--hot)}
+.cap{font-size:12px;color:var(--muted);min-height:1.2em;margin-top:6px}
+.heat{display:grid;grid-auto-flow:column;grid-template-rows:repeat(7,1fr);gap:3px;overflow-x:auto;padding-bottom:4px}
+.heat i{width:12px;height:12px;border-radius:3px;background:var(--grid);display:block}
+.heat i.l1{background:var(--heat1)} .heat i.l2{background:var(--heat2)} .heat i.l3{background:var(--heat3)} .heat i.l4{background:var(--heat4)}
+.legend{display:flex;gap:6px;align-items:center;font-size:11px;color:var(--muted);margin-top:6px}
+.legend i{width:12px;height:12px;border-radius:3px;display:inline-block}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line)}
+th{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+td.n{font-variant-numeric:tabular-nums;text-align:right}
+th.n{text-align:right}
+.bar-cell{display:flex;align-items:center;gap:8px}
+.bar-cell i{height:8px;background:var(--s2);border-radius:4px;display:inline-block}
+.toast{position:fixed;left:50%;bottom:calc(92px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:10px 16px;border-radius:999px;font-size:13px;font-weight:600;z-index:50;box-shadow:var(--shadow);max-width:90vw;text-align:center}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+</style>
+</head>
+<body>
+<div class="wrap" id="app">
+  <header class="top">
+    <div><div class="eyebrow" id="eyebrow">Tagalog · Taglish</div><h1 id="title">Salita</h1></div>
+    <button class="btn small ghost" id="btnHelp" style="color:#fff;border-color:rgba(255,255,255,.4)" type="button">How it works</button>
+  </header>
+  <main id="main"></main>
+</div>
+<nav class="tabs" role="tablist" aria-label="Sections">
+  <button role="tab" data-tab="today" aria-selected="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v14H4z"/><path d="M4 9h16M9 5v4"/></svg>Today</button>
+  <button role="tab" data-tab="browse" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg>Browse</button>
+  <button role="tab" data-tab="stats" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Stats</button>
+  <button role="tab" data-tab="settings" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a7.9 7.9 0 0 0 .1-6l2-1.5-2-3.5-2.4 1a8 8 0 0 0-5.2-3L11.5 0h-4l-.4 2a8 8 0 0 0-5.2 3L-.5 4 -2.5 7.5l2 1.5a7.9 7.9 0 0 0 .1 6" transform="translate(2.5 2)"/></svg>Settings</button>
+</nav>
+<div id="study" class="study" hidden></div>
+<div id="toast" class="toast" hidden></div>
+<script>
+'use strict';
+/* ===================== storage ===================== */
+const LS = 'sl.';
+function lsGet(k, d){ try { const v = localStorage.getItem(LS + k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } }
+function lsPut(k, v){ try { if (v == null) localStorage.removeItem(LS + k); else localStorage.setItem(LS + k, JSON.stringify(v)); } catch (e) { throw new Error('this device refused to store it (storage full or blocked)'); } }
+const DAY = 86400000;
+const DEFAULT_SETTINGS = { newPerDay: 15, maxReviews: 200, retention: 0.9, typing: true, tts: true, ttsRate: 0.9, voice: '', theme: 'auto',
+  facets: { r: true, p: true, l: false, t: true, a: true, c: true, g: true }, topics: {} };
+const FACET_NAMES = { r: 'Recognize', p: 'Produce', l: 'Listen', t: 'Taglish', a: 'Verb aspect', c: 'Fill the blank', g: 'Grammar' };
+const FACET_HELP = { r: 'Tagalog shown, you give the English.', p: 'English shown, you type the Tagalog.', l: 'Hear it, type what you heard (needs a Filipino voice).', t: 'English shown, you say it the casual Taglish way (self-graded).', a: 'Conjugate verbs: completed / incompleted / contemplated.', c: 'Fill the missing word in a sentence.', g: 'Grammar drills: particle order, markers, pronouns.' };
+const TOPIC_LABEL = { core: 'Core words', daily: 'Daily life', food: 'Food', money: 'Money & admin', travel: 'Getting around', people: 'People & feelings', time: 'Time & numbers', chat: 'Taglish chat', verbs: 'Verbs', grammar: 'Grammar', phrases: 'Phrases', mine: 'My cards' };
+const ASPECT_LABEL = { completed: 'completed (did / have done)', incompleted: 'incompleted (doing / do regularly)', contemplated: 'contemplated (will do)' };
+const state = {
+  deck: { name: 'deck', version: '', notes: [] }, extra: lsGet('extra', []), hidden: lsGet('hidden', {}),
+  cards: lsGet('cards', {}), log: lsGet('log', []), daily: lsGet('daily', { day: '', newCount: 0 }),
+  settings: Object.assign({}, DEFAULT_SETTINGS, lsGet('settings', {})), tab: 'today', notes: [], byId: {}, sess: null, voices: [], browse: { q: '', topic: '', type: '' }
+};
+state.settings.facets = Object.assign({}, DEFAULT_SETTINGS.facets, state.settings.facets || {});
+function save(k){ const map = { cards: state.cards, log: state.log, daily: state.daily, settings: state.settings, extra: state.extra, hidden: state.hidden }; lsPut(k, map[k]); }
+function todayKey(d){ d = d || new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
+function endOfToday(){ const d = new Date(); d.setHours(23, 59, 59, 999); return d.getTime(); }
+function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+function toast(msg){ const t = document.getElementById('toast'); t.textContent = msg; t.hidden = false; clearTimeout(toast._t); toast._t = setTimeout(() => { t.hidden = true; }, 2600); }
+function shuffle(a){ for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); const t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+
+/* ===================== FSRS-4.5 ===================== */
+const W = [0.4872, 1.4003, 3.7145, 13.8206, 5.1618, 1.2298, 0.8975, 0.0310, 1.6474, 0.1367, 1.0461, 2.1072, 0.0793, 0.3246, 1.5870, 0.2272, 2.8755];
+const DECAY = -0.5, FACTOR = 19 / 81;
+const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
+function retrievability(tDays, s){ return Math.pow(1 + FACTOR * tDays / s, DECAY); }
+function intervalDays(s, r){ return s / FACTOR * (Math.pow(r, 1 / DECAY) - 1); }
+function initS(g){ return W[g - 1]; }
+function initD(g){ return clamp(W[4] - (g - 3) * W[5], 1, 10); }
+function nextD(d, g){ const nd = d - W[6] * (g - 3); return clamp(W[7] * initD(3) + (1 - W[7]) * nd, 1, 10); }
+function recallS(d, s, r, g){ const hard = g === 2 ? W[15] : 1, easy = g === 4 ? W[16] : 1; return s * (Math.exp(W[8]) * (11 - d) * Math.pow(s, -W[9]) * (Math.exp(W[10] * (1 - r)) - 1) * hard * easy + 1); }
+function forgetS(d, s, r){ return Math.min(s, W[11] * Math.pow(d, -W[12]) * (Math.pow(s + 1, W[13]) - 1) * Math.exp(W[14] * (1 - r))); }
+function scheduleDays(s){ return Math.max(1, Math.round(intervalDays(s, state.settings.retention))); }
+/* card record: st 0 new, 1 learning, 2 review, 3 relearning; s stability (days); d difficulty; due ms; last ms */
+function rate(card, g, now){
+  now = now || Date.now();
+  let requeue = false;
+  if (!card.st) { card.s = initS(g); card.d = initD(g); card.reps = 1; card.lapses = 0;
+    if (g <= 2) { card.st = 1; requeue = true; } else { card.st = 2; }
+  } else if (card.st === 1 || card.st === 3) {
+    card.reps++; if (g <= 2) { requeue = true; if (g === 1) card.s = Math.max(0.3, card.s * 0.8); }
+    else { if (g === 4) card.s = recallS(card.d, card.s, 0.98, 4); card.st = 2; }
+  } else {
+    const t = Math.max(0, (now - (card.last || now)) / DAY), r = retrievability(t, card.s); card.reps++;
+    const d0 = card.d; card.d = nextD(card.d, g);
+    if (g === 1) { card.s = forgetS(d0, card.s, r); card.lapses = (card.lapses || 0) + 1; card.st = 3; requeue = true; }
+    else card.s = recallS(d0, card.s, r, g);
+  }
+  card.last = now;
+  card.due = requeue ? now + 10 * 60000 : now + scheduleDays(card.s) * DAY;
+  return requeue;
+}
+function fmtDays(ms){ const d = Math.round((ms - Date.now()) / DAY); if (d <= 0) return 'today'; if (d === 1) return 'tomorrow'; if (d < 30) return d + ' days'; if (d < 365) return Math.round(d / 30) + ' mo'; return (d / 365).toFixed(1) + ' yr'; }
+function previewInterval(card, g){ const c = Object.assign({}, card); const rq = rate(c, g, Date.now()); return rq ? 'soon' : fmtDays(c.due); }
+
+/* ===================== deck → cards ===================== */
+function facetsOf(n){
+  const f = [];
+  if (n.type === 'cloze') f.push('c');
+  else if (n.type === 'grammar') f.push('g');
+  else { f.push('r', 'p', 'l'); if (n.type === 'verb' && n.aspects) f.push('a1', 'a2', 'a3'); if (hasTaglish(n)) f.push('t'); }
+  return f;
+}
+function hasTaglish(n){ return !!(n.taglish || (n.examples || []).some(e => e.taglish)); }
+function facetKind(f){ return f[0]; }
+function cardId(n, f){ return n.id + ':' + f; }
+function splitId(id){ const i = id.lastIndexOf(':'); return [id.slice(0, i), id.slice(i + 1)]; }
+function rebuildNotes(){
+  const map = {}; state.deck.notes.forEach(n => { map[n.id] = n; }); state.extra.forEach(n => { map[n.id] = Object.assign({}, n, { mine: true }); });
+  state.notes = Object.values(map); state.byId = map;
+  const topics = {}; state.notes.forEach(n => { topics[n.topic || 'other'] = true; });
+  Object.keys(topics).forEach(t => { if (state.settings.topics[t] === undefined) state.settings.topics[t] = true; });
+}
+function topicLabel(t){ return TOPIC_LABEL[t] || (t.charAt(0).toUpperCase() + t.slice(1)); }
+function ttsAvailable(){ return state.settings.tts && !!pickVoice(); }
+function facetEnabled(n, f){
+  const k = facetKind(f), s = state.settings;
+  if (!s.facets[k]) return false;
+  if (k === 'l' && !ttsAvailable()) return false;
+  if (!s.topics[n.topic || 'other']) return false;
+  if (state.hidden[cardId(n, f)] || state.hidden[n.id]) return false;
+  return true;
+}
+function prereqMet(n, f){ const k = facetKind(f); if (k === 'r' || k === 'c' || k === 'g') return true; const r = state.cards[cardId(n, 'r')]; return !!(r && r.st === 2); }
+function allCards(){ const out = []; state.notes.forEach(n => facetsOf(n).forEach(f => { if (facetEnabled(n, f)) out.push({ n: n, f: f, id: cardId(n, f), c: state.cards[cardId(n, f)] }); })); return out; }
+function dueCards(limit){ const eod = endOfToday(); return allCards().filter(x => x.c && x.c.st && x.c.due <= eod).sort((a, b) => a.c.due - b.c.due); }
+function newEligible(){
+  const tierOf = n => n.tier || 3;
+  const pool = allCards().filter(x => !x.c && prereqMet(x.n, x.f));
+  pool.sort((a, b) => tierOf(a.n) - tierOf(b.n) || (facetKind(a.f) === 'r' ? 0 : 1) - (facetKind(b.f) === 'r' ? 0 : 1));
+  const byTopic = {}; pool.forEach(x => { (byTopic[x.n.topic] = byTopic[x.n.topic] || []).push(x); });
+  const out = []; const keys = Object.keys(byTopic); let more = true;
+  while (more) { more = false; keys.forEach(k => { const x = byTopic[k].shift(); if (x) { out.push(x); more = true; } }); }
+  return out;
+}
+function newBudget(){ const tk = todayKey(); if (state.daily.day !== tk) { state.daily = { day: tk, newCount: 0 }; save('daily'); } return Math.max(0, state.settings.newPerDay - state.daily.newCount); }
+
+/* ===================== answer grading ===================== */
+function strip(s){ return String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[’']/g, '').replace(/[^a-z0-9ñ\s-]/g, ' ').replace(/\s+/g, ' ').trim(); }
+function normEn(s){ let t = strip(s).replace(/\(.*?\)/g, ' ').replace(/\b(to|the|a|an|is|are|be|am)\b/g, ' ').replace(/\s+/g, ' ').trim(); return t; }
+function normTl(s){ return strip(s).replace(/\bpo\b/g, '').replace(/\bho\b/g, '').replace(/\s+/g, ' ').trim(); }
+function lev(a, b){ if (a === b) return 0; const m = a.length, n = b.length; if (!m) return n; if (!n) return m; let prev = Array.from({ length: n + 1 }, (_, i) => i), cur = new Array(n + 1);
+  for (let i = 1; i <= m; i++) { cur[0] = i; for (let j = 1; j <= n; j++) { cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1)); } const t = prev; prev = cur; cur = t; } return prev[n]; }
+function similar(a, b){ const L = Math.max(a.length, b.length); return L ? 1 - lev(a, b) / L : 1; }
+/* returns 'ok' | 'close' | 'bad' */
+function gradeAnswer(typed, answers, lang){
+  const norm = lang === 'tl' ? normTl : normEn; const t = norm(typed); if (!t) return 'bad';
+  let best = 0; const cands = [];
+  answers.forEach(a => { cands.push(a); String(a).split(/[;,/]|\bor\b/).forEach(p => cands.push(p)); });
+  cands.forEach(a => { const n = norm(a); if (!n) return; if (n === t) best = Math.max(best, 1); else best = Math.max(best, similar(n, t)); });
+  if (best >= 1) return 'ok';
+  if (best >= 0.85 || (t.length >= 4 && cands.some(a => { const n = norm(a); return n.length >= 4 && lev(n, t) <= 1; }))) return 'close';
+  if (lang === 'en' && cands.some(a => { const n = norm(a); const words = n.split(' '); return words.length > 1 && words.includes(t) && t.length > 3; })) return 'close';
+  return 'bad';
+}
+
+/* ===================== speech ===================== */
+function loadVoices(){ try { state.voices = speechSynthesis.getVoices() || []; } catch (e) { state.voices = []; } }
+function voiceCandidates(){ return state.voices.filter(v => /^(fil|tl)/i.test(v.lang) || /filipino|tagalog/i.test(v.name)).concat(state.voices.filter(v => /^id/i.test(v.lang))); }
+function pickVoice(){ if (!('speechSynthesis' in window)) return null; const c = voiceCandidates(); if (!c.length) return null; if (state.settings.voice) { const v = c.find(v => v.voiceURI === state.settings.voice || v.name === state.settings.voice); if (v) return v; } return c[0]; }
+function speak(text){ if (!('speechSynthesis' in window)) return false; const v = pickVoice(); if (!v) return false; try { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(String(text).replace(/\{\{|\}\}/g, '')); u.voice = v; u.lang = v.lang; u.rate = state.settings.ttsRate || 0.9; speechSynthesis.speak(u); return true; } catch (e) { return false; } }
+if ('speechSynthesis' in window) { loadVoices(); speechSynthesis.addEventListener('voiceschanged', () => { loadVoices(); if (state.tab === 'settings' && !state.sess) render(); }); }
+
+/* ===================== session ===================== */
+function buildSession(extraNew){
+  const s = state.settings; const due = dueCards().slice(0, s.maxReviews);
+  const budget = extraNew != null ? extraNew : newBudget(); const fresh = newEligible().slice(0, budget);
+  const q = shuffle(due.map(x => ({ id: x.id, mode: 'test' })));
+  /* weave new items in: intro first, test ~5 later (facets other than recognize/grammar skip the intro) */
+  const introFacet = f => facetKind(f) === 'r' || facetKind(f) === 'g';
+  let pos = Math.min(2, q.length); const pending = [];
+  fresh.forEach(x => {
+    if (introFacet(x.f)) { const at = Math.min(pos, q.length); q.splice(at, 0, { id: x.id, mode: 'intro' }); pending.push({ at: at, item: { id: x.id, mode: 'test', fresh: true } }); }
+    else q.splice(Math.min(pos + 2, q.length), 0, { id: x.id, mode: 'test', fresh: true });
+    pos += 4;
+  });
+  /* tests for introduced cards go ~6 slots after their intro; insert back-to-front so earlier indexes stay valid */
+  pending.reverse().forEach(p => { q.splice(Math.min(p.at + 6, q.length), 0, p.item); });
+  state.sess = { q: q, i: 0, done: 0, ok: 0, started: Date.now(), newIntroduced: 0, revealed: false, typed: '', verdict: null, countedNew: {}, shown: 0 };
+  return q.length;
+}
+function current(){ const s = state.sess; return s && s.q[s.i]; }
+function cardOf(id){ const [nid, f] = splitId(id); const n = state.byId[nid]; return n ? { n: n, f: f, id: id, c: state.cards[id] } : null; }
+function answerFor(x){
+  const n = x.n, k = facetKind(x.f);
+  if (k === 'r') return { lang: 'en', answers: [n.en].concat(n.accept || []) };
+  if (k === 'p' || k === 'l') return { lang: 'tl', answers: [n.tl].concat(n.accept_tl || []) };
+  if (k === 'a') { const asp = ['completed', 'incompleted', 'contemplated'][Number(x.f[1]) - 1]; return { lang: 'tl', answers: [n.aspects[asp]], aspect: asp }; }
+  if (k === 'c') { const m = /\{\{(.+?)\}\}/.exec(n.tl); return { lang: 'tl', answers: [m ? m[1] : n.tl].concat(n.accept_tl || []) }; }
+  if (k === 'g') return { lang: 'tl', answers: [n.tl].concat(n.accept_tl || []) };
+  return { lang: 'tl', answers: [n.tl] };
+}
+function selfGraded(x){ return facetKind(x.f) === 't' || !state.settings.typing; }
+function submitAnswer(){
+  const s = state.sess, item = current(); if (!item || s.revealed) return; const x = cardOf(item.id); if (!x) return;
+  const inp = document.getElementById('ans'); const typed = inp ? inp.value : '';
+  const a = answerFor(x); const v = gradeAnswer(typed, a.answers, a.lang);
+  s.typed = typed; s.verdict = v; s.revealed = true; renderStudy();
+}
+function reveal(){ const s = state.sess; if (!s || s.revealed) return; s.revealed = true; s.verdict = null; renderStudy(); }
+function applyGrade(g){
+  const s = state.sess, item = current(); if (!item) return; const x = cardOf(item.id); if (!x) return;
+  const card = state.cards[item.id] || (state.cards[item.id] = { st: 0 });
+  const wasNew = !card.st;
+  const requeue = rate(card, g, Date.now());
+  if (wasNew && !s.countedNew[item.id]) { s.countedNew[item.id] = true; state.daily.newCount++; save('daily'); }
+  state.log.push({ t: Date.now(), c: item.id, g: g, n: wasNew ? 1 : 0 }); if (state.log.length > 30000) state.log = state.log.slice(-25000);
+  s.done++; if (g >= 3) s.ok++;
+  if (requeue) s.q.splice(Math.min(s.i + 5, s.q.length), 0, { id: item.id, mode: 'test', again: true });
+  save('cards'); save('log');
+  s.i++; s.revealed = false; s.verdict = null; s.typed = ''; renderStudy();
+}
+function introDone(){ const s = state.sess; s.i++; s.newIntroduced++; s.revealed = false; renderStudy(); }
+function endSession(){ state.sess = null; document.getElementById('study').hidden = true; document.body.style.overflow = ''; render(); }
+function startSession(extraNew){ const n = buildSession(extraNew); if (!n) { toast('Nothing to study right now'); state.sess = null; return; } document.getElementById('study').hidden = false; document.body.style.overflow = 'hidden'; renderStudy(); }
+
+/* ===================== study rendering ===================== */
+const SPK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/></svg>';
+function stressOrTl(n){ return n.stress || n.tl; }
+function exampleHtml(n, opts){ opts = opts || {}; const exs = (n.examples || []).slice(0, opts.max || 2); if (!exs.length) return '';
+  return exs.map(e => '<div class="ex"><div class="tl">' + esc(e.tl) + (ttsAvailable() ? ' <button class="btn small ghost" type="button" data-say="' + esc(e.tl) + '" aria-label="Play example">' + SPK.replace('<svg', '<svg width="16" height="16"') + '</button>' : '') + '</div><div class="en">' + esc(e.en) + '</div>' + (e.taglish ? '<div class="tg">' + esc(e.taglish) + '</div>' : '') + '</div>').join('');
+}
+function aspectHtml(n){ if (!n.aspects) return ''; return '<div class="asp">' + ['infinitive', 'completed', 'incompleted', 'contemplated'].map(k => '<div><b>' + k + '</b>' + esc(n.aspects[k] || '—') + '</div>').join('') + '</div>'; }
+function noteBack(n, opts){ opts = opts || {};
+  let h = '<div class="back">';
+  if (!opts.noAns) h += '<div class="ans">' + esc(stressOrTl(n)) + (n.pos ? '<small>' + esc(n.pos) + '</small>' : '') + '</div>';
+  h += '<div class="meaning">' + esc(n.en) + '</div>';
+  const alts = [].concat(n.accept_tl || []); if (alts.length) h += '<div class="alts">also: ' + esc(alts.join(' · ')) + '</div>';
+  if (n.taglish) h += '<div class="ex"><div class="tg">' + esc(n.taglish) + '</div></div>';
+  h += aspectHtml(n) + exampleHtml(n);
+  if (n.notes) h += '<div class="note">' + esc(n.notes) + '</div>';
+  if (n.explanation) h += '<div class="note">' + esc(n.explanation) + '</div>';
+  if (n.confidence === 'check') h += '<div class="note"><span class="pill muted">unverified</span> flagged for native-speaker review</div>';
+  return h + '</div>';
+}
+function gradesHtml(card, sug){ const names = ['', 'Again', 'Hard', 'Good', 'Easy']; return '<div class="grades">' + [1, 2, 3, 4].map(g => '<button type="button" data-g="' + g + '"' + (sug === g ? ' class="sug"' : '') + '>' + names[g] + '<small>' + previewInterval(card, g) + '</small></button>').join('') + '</div>'; }
+function renderStudy(){
+  const el = document.getElementById('study'), s = state.sess; if (!s) return;
+  const item = current();
+  const total = s.q.length, head = '<div class="sbar"><button class="x" type="button" id="xStudy" aria-label="End session">✕</button><div class="prog"><i style="width:' + Math.round(100 * s.i / Math.max(1, total)) + '%"></i></div><div class="n">' + s.i + ' / ' + total + '</div></div>';
+  if (!item) {
+    const mins = Math.max(1, Math.round((Date.now() - s.started) / 60000)); const acc = s.done ? Math.round(100 * s.ok / s.done) : 0; const more = newEligible().length;
+    el.innerHTML = '<div class="wrap">' + head + '<div class="card done"><div class="eyebrow">Session complete</div><div class="big-n">' + s.done + '</div><p class="lede" style="margin:6px auto 0">cards in ' + mins + ' min · ' + acc + '% right first try<br>' + (s.newIntroduced ? s.newIntroduced + ' new introduced · ' : '') + 'streak ' + streakDays() + ' day' + (streakDays() === 1 ? '' : 's') + '</p>' +
+      '<div class="btn-row" style="justify-content:center">' + (more ? '<button class="btn primary" id="moreNew" type="button">Learn 10 more</button>' : '') + '<button class="btn" id="finish" type="button">Done</button></div></div></div>';
+    el.querySelector('#finish').onclick = endSession; const mn = el.querySelector('#moreNew'); if (mn) mn.onclick = () => { startSession(10); };
+    el.querySelector('#xStudy').onclick = endSession; return;
+  }
+  const x = cardOf(item.id); if (!x) { s.i++; return renderStudy(); }
+  const n = x.n, k = facetKind(x.f), card = state.cards[item.id] || { st: 0 };
+  let body = '';
+  if (item.mode === 'intro') {
+    body = '<div class="qcard intro"><div class="qhead"><span class="pill hot">New</span><span class="pill muted">' + esc(topicLabel(n.topic)) + '</span></div>';
+    if (k === 'g') body += '<div class="sub">' + esc(n.prompt) + '</div><div class="prompt">' + esc(n.tl) + '</div><div class="sub">' + esc(n.en) + '</div><div class="note">' + esc(n.explanation || '') + '</div>';
+    else body += '<div class="prompt">' + esc(stressOrTl(n)) + (ttsAvailable() ? ' <button class="speak" type="button" data-say="' + esc(n.tl) + '" aria-label="Play">' + SPK + '</button>' : '') + '</div>' + noteBack(n, { noAns: true });
+    body += '<div class="btn-row"><button class="btn primary" id="gotit" type="button">Got it, test me later</button></div></div>';
+    el.innerHTML = '<div class="wrap">' + head + body + '</div>';
+    el.querySelector('#gotit').onclick = introDone; bindCommon(el); return;
+  }
+  const a = answerFor(x); const typing = !selfGraded(x);
+  const labels = { r: 'What does it mean?', p: 'Say it in Tagalog', l: 'Type what you hear', t: 'Say it casual (Taglish)', a: 'Conjugate', c: 'Fill the blank', g: 'Grammar' };
+  body = '<div class="qcard"><div class="qhead"><span class="pill">' + labels[k] + '</span><span class="pill muted">' + esc(topicLabel(n.topic)) + (item.again ? ' · again' : item.fresh ? ' · new' : '') + '</span></div>';
+  let front = '';
+  if (k === 'r') front = '<div class="prompt">' + esc(stressOrTl(n)) + (ttsAvailable() ? ' <button class="speak" type="button" data-say="' + esc(n.tl) + '" aria-label="Play">' + SPK + '</button>' : '') + '</div>' + (n.pos ? '<div class="sub">' + esc(n.pos) + '</div>' : '');
+  else if (k === 'p') front = '<div class="prompt">' + esc(n.en) + '</div>' + (n.pos ? '<div class="sub">' + esc(n.pos) + (n.type === 'verb' && n.focus ? ' · ' + esc(n.focus) + ' verb' : '') + '</div>' : '');
+  else if (k === 'l') front = '<button class="speak big" type="button" data-say="' + esc(n.tl) + '" id="autoSay">' + SPK + ' Tap to hear again</button>' + (s.revealed ? '' : '<div class="hint">' + esc(n.pos || n.type) + ' · ' + esc(topicLabel(n.topic)) + '</div>');
+  else if (k === 't') { const ex = (n.examples || []).find(e => e.taglish); front = '<div class="prompt small">' + esc(ex ? ex.en : n.en) + '</div><div class="hint">How would a friend text this?</div>'; }
+  else if (k === 'a') front = '<div class="sub">' + esc(n.tl) + ' · root <b>' + esc(n.root || '') + '</b> · ' + esc(n.focus || '') + ' focus</div><div class="prompt small">' + esc(ASPECT_LABEL[a.aspect]) + '</div><div class="sub">' + esc(n.en) + '</div>';
+  else if (k === 'c') front = '<div class="prompt small">' + esc(n.tl).replace(/\{\{.+?\}\}/, '<span class="blank">' + (s.revealed ? esc(a.answers[0]) : '&nbsp;&nbsp;&nbsp;') + '</span>') + '</div><div class="sub">' + esc(n.en) + '</div>' + (n.hint ? '<div class="hint">' + esc(n.hint) + '</div>' : '');
+  else if (k === 'g') front = '<div class="prompt small">' + esc(n.prompt) + '</div><div class="sub">' + esc(n.en) + '</div>';
+  body += front;
+  if (!s.revealed) {
+    if (typing) body += '<form id="ansForm" class="answer-row"><input id="ans" lang="' + (a.lang === 'tl' ? 'fil' : 'en') + '" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="' + (a.lang === 'tl' ? 'Tagalog…' : 'English…') + '" aria-label="Your answer"><button class="btn primary" type="submit">Check</button></form><div class="btn-row"><button class="btn ghost small" id="showIt" type="button">Show answer</button></div>';
+    else body += '<div class="btn-row"><button class="btn primary big" id="showIt" type="button" style="font-size:18px;padding:14px">Show answer</button></div>';
+  } else {
+    let sug = 3;
+    if (s.verdict) { const vt = { ok: ['✓', 'Correct'], close: ['≈', 'Close'], bad: ['✗', 'Not quite'] }[s.verdict]; sug = { ok: 3, close: 2, bad: 1 }[s.verdict];
+      body += '<div class="verdict ' + s.verdict + '"><span>' + vt[0] + '</span><div>' + vt[1] + (s.typed ? '<span class="you">you typed: ' + esc(s.typed) + '</span>' : '<span class="you">no answer</span>') + '</div></div>'; }
+    if (k === 'r') body += noteBack(n, { noAns: true });
+    else if (k === 'p' || k === 'l') body += noteBack(n);
+    else if (k === 't') { const ex = (n.examples || []).find(e => e.taglish); body += '<div class="back"><div class="ans">' + esc(ex ? ex.taglish : n.taglish) + '</div>' + (ex ? '<div class="alts">straight Tagalog: ' + esc(ex.tl) + '</div>' : '') + (n.notes ? '<div class="note">' + esc(n.notes) + '</div>' : '') + '</div>'; }
+    else if (k === 'a') body += '<div class="back"><div class="ans">' + esc(a.answers[0]) + '</div>' + aspectHtml(n) + exampleHtml(n, { max: 1 }) + (n.notes ? '<div class="note">' + esc(n.notes) + '</div>' : '') + '</div>';
+    else if (k === 'c') body += '<div class="back"><div class="ans">' + esc(a.answers[0]) + '</div>' + ((n.accept_tl || []).length ? '<div class="alts">also: ' + esc(n.accept_tl.join(' · ')) + '</div>' : '') + (n.notes ? '<div class="note">' + esc(n.notes) + '</div>' : '') + '</div>';
+    else if (k === 'g') body += '<div class="back"><div class="ans">' + esc(n.tl) + '</div>' + ((n.accept_tl || []).length ? '<div class="alts">also: ' + esc(n.accept_tl.join(' · ')) + '</div>' : '') + '<div class="note">' + esc(n.explanation || '') + '</div></div>';
+    body += gradesHtml(card, sug) + '<div class="cap" style="text-align:center">' + (typing ? '<kbd>Enter</kbd> accepts the highlighted grade · ' : '') + '<kbd>1</kbd>–<kbd>4</kbd> grade</div>';
+  }
+  body += '</div>';
+  el.innerHTML = '<div class="wrap">' + head + body + '</div>';
+  bindCommon(el);
+  const f = el.querySelector('#ansForm'); if (f) { f.onsubmit = e => { e.preventDefault(); submitAnswer(); }; const i = el.querySelector('#ans'); if (i && !/Mobi|iPhone|Android/i.test(navigator.userAgent)) i.focus(); }
+  const sh = el.querySelector('#showIt'); if (sh) sh.onclick = reveal;
+  el.querySelectorAll('.grades button').forEach(b => { b.onclick = () => applyGrade(Number(b.dataset.g)); });
+  if (k === 'l' && !s.revealed && s.shown !== s.i) { s.shown = s.i; setTimeout(() => speak(n.tl), 150); }
+  if (s.revealed && (k === 'p' || k === 'l' || k === 'a') && state.settings.tts && s.shown !== 'b' + s.i) { s.shown = 'b' + s.i; setTimeout(() => speak(a.answers[0]), 100); }
+}
+function bindCommon(el){ el.querySelector('#xStudy').onclick = endSession; el.querySelectorAll('[data-say]').forEach(b => { b.onclick = e => { e.preventDefault(); speak(b.dataset.say); }; }); }
+document.addEventListener('keydown', e => {
+  const s = state.sess; if (!s || document.getElementById('study').hidden) return; const item = current(); if (!item) return;
+  if (e.target && e.target.tagName === 'INPUT') { return; }
+  if (item.mode === 'intro') { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); introDone(); } return; }
+  if (!s.revealed) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); reveal(); } return; }
+  if (/^[1-4]$/.test(e.key)) { e.preventDefault(); applyGrade(Number(e.key)); }
+  else if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); const sug = document.querySelector('.grades .sug'); applyGrade(sug ? Number(sug.dataset.g) : 3); }
+});
+
+/* ===================== stats helpers ===================== */
+function reviewsByDay(){ const m = {}; state.log.forEach(r => { const k = todayKey(new Date(r.t)); m[k] = (m[k] || 0) + 1; }); return m; }
+function streakDays(){ const m = reviewsByDay(); let d = new Date(), n = 0; if (!m[todayKey(d)]) d = new Date(d.getTime() - DAY); while (m[todayKey(d)]) { n++; d = new Date(d.getTime() - DAY); } return n; }
+function retention(days){ const since = Date.now() - days * DAY; let ok = 0, tot = 0; state.log.forEach(r => { if (r.t >= since && !r.n) { tot++; if (r.g >= 2) ok++; } }); return tot ? ok / tot : null; }
+function counts(){ const c = { new: 0, learning: 0, review: 0, due: 0 }; const now = Date.now(); allCards().forEach(x => { if (!x.c || !x.c.st) c.new++; else if (x.c.st === 2) { c.review++; if (x.c.due <= endOfToday()) c.due++; } else { c.learning++; if (x.c.due <= now) c.due++; } }); return c; }
+function notesKnown(){ const ids = {}; Object.keys(state.cards).forEach(id => { const c = state.cards[id]; const [nid, f] = splitId(id); if (c.st === 2 && (f === 'r' || f === 'c' || f === 'g')) ids[nid] = true; }); return Object.keys(ids).filter(id => state.byId[id]).length; }
+
+/* ===================== screens ===================== */
+function render(){
+  document.querySelectorAll('.tabs [role=tab]').forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === state.tab)));
+  const main = document.getElementById('main');
+  if (state.tab === 'today') renderToday(main); else if (state.tab === 'browse') renderBrowse(main); else if (state.tab === 'stats') renderStats(main); else renderSettings(main);
+  window.scrollTo(0, 0);
+}
+function ring(pct, label, txt){ const r = 34, c = 2 * Math.PI * r, p = Math.max(0, Math.min(1, pct)); return '<svg class="ring" width="88" height="88" viewBox="0 0 88 88" aria-hidden="true"><circle class="ring-bg" cx="44" cy="44" r="' + r + '"/><circle class="ring-fg' + (p >= 1 ? ' hit' : '') + '" cx="44" cy="44" r="' + r + '" stroke-dasharray="' + (c * p).toFixed(1) + ' ' + c.toFixed(1) + '" transform="rotate(-90 44 44)"/><text class="ring-t" x="44" y="46" text-anchor="middle">' + txt + '</text><text class="ring-s" x="44" y="60" text-anchor="middle">' + label + '</text></svg>'; }
+function renderToday(main){
+  const c = counts(), budget = newBudget(), fresh = Math.min(budget, newEligible().length), todayN = reviewsByDay()[todayKey()] || 0, streak = streakDays();
+  const goal = Math.max(1, c.due + fresh + todayN); const pct = todayN / goal;
+  const nothing = !c.due && !fresh;
+  let h = '<section><div class="card hero"><div class="txt"><div class="eyebrow">Today</div><h2 style="margin:4px 0 6px">' + (nothing ? (todayN ? 'All done for today' : 'Nothing due yet') : (c.due + ' due · ' + fresh + ' new')) + '</h2><p class="lede" style="margin:0">' + (streak ? streak + '-day streak' : 'Start a streak today') + (todayN ? ' · ' + todayN + ' reviewed today' : '') + '</p></div>' + ring(pct, 'today', todayN) + '</div>' +
+    '<div class="btn-row"><button class="btn primary big" id="start" type="button"' + (nothing ? ' disabled' : '') + '>' + (nothing ? 'Done for today' : 'Study now') + '</button></div>' +
+    (nothing && newEligible().length ? '<div class="btn-row"><button class="btn" id="extraNew" type="button">Learn 10 more new words</button></div>' : '') + '</section>';
+  h += '<section class="tiles"><div class="tile"><div class="eyebrow">Known</div><div class="v">' + notesKnown() + '<small>words</small></div><div class="c">passed at least once</div></div><div class="tile"><div class="eyebrow">In review</div><div class="v">' + c.review + '<small>cards</small></div><div class="c">' + c.learning + ' still learning</div></div><div class="tile"><div class="eyebrow">Retention</div><div class="v">' + (retention(30) == null ? '—' : Math.round(retention(30) * 100) + '<small>%</small>') + '</div><div class="c">last 30 days</div></div><div class="tile"><div class="eyebrow">Deck</div><div class="v">' + state.notes.length + '<small>notes</small></div><div class="c">' + c.new + ' cards not started</div></div></section>';
+  if (!state.deck.notes.length) h += '<section class="card"><h3>Deck not loaded</h3><p class="lede">The starter deck did not load. If you are offline, open the app once online so it can be saved for offline use.</p></section>';
+  const tipDay = Number(todayKey().slice(-2)) % 5;
+  const tips = ['Type answers without worrying about accents: grading ignores them.', 'Hard means you got it but slowly. Again means you would not have produced it.', 'Verb aspect cards unlock after you pass the verb once.', 'Add your own cards from Browse, or import a deck file from a Claude chat under Settings.', 'The Listen facet turns on in Settings once your phone has a Filipino voice.'];
+  h += '<section class="card"><div class="eyebrow">Tip</div><p style="margin:6px 0 0">' + tips[tipDay] + '</p></section>';
+  main.innerHTML = h;
+  const st = main.querySelector('#start'); if (st) st.onclick = () => startSession();
+  const ex = main.querySelector('#extraNew'); if (ex) ex.onclick = () => startSession(10);
+}
+function statusOf(x){ const c = x.c; if (!c || !c.st) return 'new'; if (c.st === 2) return c.due <= Date.now() ? 'due' : fmtDays(c.due); return 'learning'; }
+function renderBrowse(main){
+  const b = state.browse; const topics = Object.keys(state.settings.topics).sort();
+  let h = '<section><div class="search"><input id="q" type="search" placeholder="Search Tagalog or English" value="' + esc(b.q) + '" aria-label="Search"><button class="btn" id="addBtn" type="button">+ Add</button></div><div class="chips">' + topics.map(t => '<button class="chip" type="button" data-topic="' + esc(t) + '" aria-pressed="' + (b.topic === t) + '">' + esc(topicLabel(t)) + '</button>').join('') + '</div></section>';
+  h += '<section id="addForm" class="card" hidden><h3>Add a card</h3><div class="row"><label class="f">Tagalog<input id="aTl" lang="fil" autocapitalize="off"></label><label class="f">English<input id="aEn"></label></div><div class="row"><label class="f">Type<select id="aType"><option value="vocab">word</option><option value="phrase">phrase</option></select></label><label class="f">Topic<input id="aTopic" value="mine" list="topicList"><datalist id="topicList">' + topics.map(t => '<option value="' + esc(t) + '">').join('') + '</datalist></label></div><label class="f">Taglish / how people really say it (optional)<input id="aTg" lang="fil" autocapitalize="off"></label><div class="row"><label class="f">Example (Tagalog)<input id="aExTl" lang="fil" autocapitalize="off"></label><label class="f">Example (English)<input id="aExEn"></label></div><label class="f">Notes<input id="aNotes"></label><div class="btn-row"><button class="btn primary" id="aSave" type="button">Save card</button><button class="btn ghost" id="aCancel" type="button">Cancel</button></div></section>';
+  const q = strip(b.q); const items = state.notes.filter(n => (!b.topic || n.topic === b.topic) && (!q || strip(n.tl).includes(q) || strip(n.en).includes(q) || strip(n.taglish).includes(q) || strip((n.accept || []).join(' ')).includes(q))).slice(0, 120);
+  h += '<section><div class="eyebrow">' + items.length + (items.length === 120 ? '+' : '') + ' notes</div><div class="list">' + items.map(n => {
+    const fs = facetsOf(n).map(f => ({ f: f, id: cardId(n, f), c: state.cards[cardId(n, f)] })); const known = fs.some(x => x.c && x.c.st === 2); const started = fs.some(x => x.c);
+    const hidden = !!state.hidden[n.id];
+    return '<details class="item" data-id="' + esc(n.id) + '"><summary><span class="w">' + esc(n.type === 'grammar' ? n.prompt : n.tl) + '</span><span class="m">' + esc(n.en) + '</span><span class="st">' + (hidden ? 'suspended' : known ? 'known' : started ? 'learning' : 'new') + '</span></summary><div class="body">' + noteBack(n, { noAns: n.type === 'cloze' || n.type === 'grammar' }).replace('class="back"', 'class="back" style="border:0;margin:0;padding:0"') +
+      '<div class="facets">' + fs.map(x => '<span><b>' + FACET_NAMES[facetKind(x.f)] + (facetKind(x.f) === 'a' ? ' ' + x.f[1] : '') + '</b></span><span>' + statusOf(x) + '</span><span>' + (x.c && x.c.st ? 'S ' + x.c.s.toFixed(1) + 'd · ' + (x.c.lapses || 0) + ' lapses' : '') + '</span>').join('') + '</div>' +
+      '<div class="btn-row">' + (ttsAvailable() && n.type !== 'grammar' ? '<button class="btn small" type="button" data-say="' + esc(n.tl) + '">' + SPK.replace('<svg', '<svg width="16" height="16"') + ' Play</button>' : '') + '<button class="btn small" type="button" data-act="susp">' + (hidden ? 'Unsuspend' : 'Suspend') + '</button><button class="btn small" type="button" data-act="reset">Reset progress</button>' + (n.mine ? '<button class="btn small danger" type="button" data-act="del">Delete</button>' : '') + '</div></div></details>';
+  }).join('') + '</div></section>';
+  main.innerHTML = h;
+  main.querySelector('#q').oninput = e => { b.q = e.target.value; clearTimeout(renderBrowse._t); renderBrowse._t = setTimeout(() => { const pos = e.target.selectionStart; renderBrowse(main); const i = main.querySelector('#q'); i.focus(); try { i.setSelectionRange(pos, pos); } catch (x) {} }, 220); };
+  main.querySelectorAll('[data-topic]').forEach(c => { c.onclick = () => { b.topic = b.topic === c.dataset.topic ? '' : c.dataset.topic; renderBrowse(main); }; });
+  main.querySelectorAll('[data-say]').forEach(x => { x.onclick = e => { e.preventDefault(); speak(x.dataset.say); }; });
+  main.querySelectorAll('.item [data-act]').forEach(x => { x.onclick = () => { const id = x.closest('.item').dataset.id, n = state.byId[id]; if (!n) return;
+    if (x.dataset.act === 'susp') { if (state.hidden[id]) delete state.hidden[id]; else state.hidden[id] = 1; save('hidden'); toast(state.hidden[id] ? 'Suspended' : 'Back in rotation'); }
+    else if (x.dataset.act === 'reset') { if (!confirm('Reset all progress on "' + n.tl + '"?')) return; facetsOf(n).forEach(f => { delete state.cards[cardId(n, f)]; }); save('cards'); toast('Progress reset'); }
+    else if (x.dataset.act === 'del') { if (!confirm('Delete your card "' + n.tl + '"?')) return; state.extra = state.extra.filter(e => e.id !== id); facetsOf(n).forEach(f => { delete state.cards[cardId(n, f)]; }); save('extra'); save('cards'); rebuildNotes(); toast('Deleted'); }
+    renderBrowse(main); }; });
+  const af = main.querySelector('#addForm'); main.querySelector('#addBtn').onclick = () => { af.hidden = !af.hidden; if (!af.hidden) main.querySelector('#aTl').focus(); }; main.querySelector('#aCancel').onclick = () => { af.hidden = true; };
+  main.querySelector('#aSave').onclick = () => { const g = id => main.querySelector('#' + id).value.trim(); const tl = g('aTl'), en = g('aEn'); if (!tl || !en) { toast('Tagalog and English are both needed'); return; }
+    const n = { id: 'mine-' + Date.now().toString(36), type: g('aType'), tl: tl, en: en, topic: g('aTopic') || 'mine', tier: 1, confidence: 'high', examples: [] }; if (g('aTg')) n.taglish = g('aTg'); if (g('aNotes')) n.notes = g('aNotes'); if (g('aExTl')) n.examples.push({ tl: g('aExTl'), en: g('aExEn') });
+    state.extra.push(n); save('extra'); rebuildNotes(); save('settings'); toast('Card added'); b.q = tl; renderBrowse(main); };
+}
+function niceStep(range){ const raw = range / 5, mag = Math.pow(10, Math.floor(Math.log10(raw))), r = raw / mag; return (r <= 1 ? 1 : r <= 2 ? 2 : r <= 5 ? 5 : 10) * mag; }
+function barChart(container, data, opts){
+  const W = Math.max(280, container.clientWidth || 340), H = 180, m = { t: 14, r: 8, b: 26, l: 30 }; const max = Math.max(1, ...data.map(d => d.v)); const step = max <= 5 ? 1 : niceStep(max); const top = Math.ceil(max / step) * step || 1;
+  const iw = W - m.l - m.r, bw = iw / data.length; let h = '<svg class="chart" viewBox="0 0 ' + W + ' ' + H + '" width="' + W + '" height="' + H + '" role="img" aria-label="' + esc(opts.label) + '">';
+  for (let v = 0; v <= top; v += step) { const y = m.t + (H - m.t - m.b) * (1 - v / top); h += '<line class="grid" x1="' + m.l + '" x2="' + (W - m.r) + '" y1="' + y + '" y2="' + y + '"/><text class="tick" x="' + (m.l - 6) + '" y="' + (y + 4) + '" text-anchor="end">' + v + '</text>'; }
+  data.forEach((d, i) => { const x = m.l + i * bw + 1, bh = (H - m.t - m.b) * d.v / top, y = H - m.b - bh; h += '<rect class="bar' + (d.hl ? ' hl' : '') + '" x="' + x + '" y="' + y + '" width="' + Math.max(1, bw - 2) + '" height="' + bh + '" rx="2" data-i="' + i + '"><title>' + esc(d.title) + '</title></rect>'; if (i % Math.ceil(data.length / 6) === 0) h += '<text class="tick" x="' + (x + bw / 2) + '" y="' + (H - 8) + '" text-anchor="middle">' + esc(d.l) + '</text>'; });
+  h += '<line class="base" x1="' + m.l + '" x2="' + (W - m.r) + '" y1="' + (H - m.b) + '" y2="' + (H - m.b) + '"/></svg><div class="cap" id="' + opts.capId + '">' + esc(opts.cap || 'Tap a bar for details') + '</div>';
+  container.innerHTML = h; container.querySelectorAll('rect').forEach(r => { const f = () => { container.querySelector('#' + opts.capId).textContent = data[Number(r.dataset.i)].title; }; r.addEventListener('pointerenter', f); r.addEventListener('click', f); });
+}
+function renderStats(main){
+  const c = counts(), byDay = reviewsByDay(), streak = streakDays(), ret = retention(30);
+  let h = '<section class="tiles"><div class="tile"><div class="eyebrow">Streak</div><div class="v">' + streak + '<small>days</small></div><div class="c">' + Object.keys(byDay).length + ' study days total</div></div><div class="tile"><div class="eyebrow">Reviews</div><div class="v">' + state.log.length + '</div><div class="c">all time</div></div><div class="tile"><div class="eyebrow">Retention</div><div class="v">' + (ret == null ? '—' : Math.round(ret * 100) + '<small>%</small>') + '</div><div class="c">reviews passed, 30 days</div></div><div class="tile"><div class="eyebrow">Known</div><div class="v">' + notesKnown() + '<small>words</small></div><div class="c">' + c.review + ' cards in review</div></div></section>';
+  h += '<section class="card"><h3>Consistency</h3><div class="heat" id="heat"></div><div class="legend">less <i style="background:var(--grid)"></i><i class="l1" style="background:var(--heat1)"></i><i style="background:var(--heat2)"></i><i style="background:var(--heat3)"></i><i style="background:var(--heat4)"></i> more</div><div class="cap" id="heatCap">Last 20 weeks of reviews. Tap a day.</div></section>';
+  h += '<section class="card"><h3>Coming up</h3><div id="forecast"></div></section>';
+  const topics = {}; allCards().forEach(x => { const t = x.n.topic || 'other'; const o = topics[t] = topics[t] || { total: 0, known: 0, lapses: 0, reps: 0 }; o.total++; if (x.c && x.c.st === 2) o.known++; if (x.c) { o.lapses += x.c.lapses || 0; o.reps += x.c.reps || 0; } });
+  const rows = Object.keys(topics).map(t => Object.assign({ t: t }, topics[t])).filter(r => r.reps).sort((a, b) => (b.lapses / Math.max(1, b.reps)) - (a.lapses / Math.max(1, a.reps)));
+  h += '<section class="card"><h3>By topic</h3>' + (rows.length ? '<table><thead><tr><th>Topic</th><th class="n">Known</th><th class="n">Lapse rate</th></tr></thead><tbody>' + rows.map(r => { const lr = r.lapses / Math.max(1, r.reps); return '<tr><td>' + esc(topicLabel(r.t)) + '</td><td class="n">' + r.known + ' / ' + r.total + '</td><td class="n"><span class="bar-cell"><i style="width:' + Math.round(lr * 80) + 'px"></i>' + Math.round(lr * 100) + '%</span></td></tr>'; }).join('') + '</tbody></table>' : '<p class="lede">Study a few sessions and your weak topics show up here.</p>') + '</section>';
+  const hard = Object.keys(state.cards).map(id => ({ id: id, c: state.cards[id] })).filter(x => (x.c.lapses || 0) >= 2 && state.byId[splitId(x.id)[0]]).sort((a, b) => b.c.lapses - a.c.lapses).slice(0, 10);
+  h += '<section class="card"><h3>Leeches</h3>' + (hard.length ? '<table><thead><tr><th>Card</th><th class="n">Lapses</th></tr></thead><tbody>' + hard.map(x => { const n = state.byId[splitId(x.id)[0]]; return '<tr><td><b>' + esc(n.tl) + '</b> <span style="color:var(--muted)">' + esc(n.en) + ' · ' + FACET_NAMES[facetKind(splitId(x.id)[1])] + '</span></td><td class="n">' + x.c.lapses + '</td></tr>'; }).join('') + '</tbody></table>' : '<p class="lede">Cards you keep forgetting will be listed here so you can give them extra attention.</p>') + '</section>';
+  main.innerHTML = h;
+  /* heatmap: 20 weeks, columns = weeks, rows = Sun..Sat */
+  const heat = main.querySelector('#heat'); const today = new Date(); today.setHours(0, 0, 0, 0); const start = new Date(today.getTime() - (139 + today.getDay()) * DAY); let cells = ''; const maxV = Math.max(1, ...Object.values(byDay));
+  for (let d = new Date(start); d <= today; d = new Date(d.getTime() + DAY)) { const k = todayKey(d), v = byDay[k] || 0; const lvl = !v ? 0 : v < maxV * 0.25 ? 1 : v < maxV * 0.5 ? 2 : v < maxV * 0.75 ? 3 : 4; cells += '<i class="l' + lvl + '" data-k="' + k + '" data-v="' + v + '" title="' + k + ': ' + v + '"></i>'; }
+  heat.innerHTML = cells; heat.scrollLeft = 9999; heat.querySelectorAll('i').forEach(i => { i.onclick = () => { main.querySelector('#heatCap').textContent = i.dataset.k + ': ' + i.dataset.v + ' reviews'; }; });
+  const fc = []; const t0 = today.getTime(); for (let i = 0; i < 30; i++) fc.push({ v: 0, l: i === 0 ? 'today' : '+' + i, title: '' }); allCards().forEach(x => { if (x.c && x.c.st) { const di = Math.floor((x.c.due - t0) / DAY); if (di >= 0 && di < 30) fc[di].v++; else if (di < 0) fc[0].v++; } });
+  fc.forEach((d, i) => { const dt = new Date(t0 + i * DAY); d.title = (i === 0 ? 'Today' : dt.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' })) + ': ' + d.v + ' cards due'; d.hl = i === 0; });
+  barChart(main.querySelector('#forecast'), fc, { label: 'Cards due per day for the next 30 days', capId: 'fcCap', cap: 'Cards due each day for the next 30 days. Tap a bar.' });
+}
+function renderSettings(main){
+  const s = state.settings; const voices = voiceCandidates(); const topics = Object.keys(s.topics).sort();
+  let h = '<section class="card"><h3>Daily load</h3><div class="row"><label class="f">New cards per day<input id="setNew" type="number" min="0" max="100" value="' + s.newPerDay + '"></label><label class="f">Max reviews per session<input id="setMax" type="number" min="10" max="1000" value="' + s.maxReviews + '"></label></div><label class="f" style="margin-top:10px">Target retention: <span id="retV">' + Math.round(s.retention * 100) + '%</span><input id="setRet" type="range" min="80" max="95" step="1" value="' + Math.round(s.retention * 100) + '"></label><p class="lede" style="font-size:13px;margin-top:8px">Higher retention means more frequent reviews. 90% is the usual sweet spot.</p></section>';
+  h += '<section class="card"><h3>How you answer</h3><label class="t"><input id="setTyping" type="checkbox"' + (s.typing ? ' checked' : '') + '><span><b>Type answers</b><br><small style="color:var(--muted)">Off = flip the card and grade yourself</small></span></label></section>';
+  h += '<section class="card"><h3>Card types</h3>' + Object.keys(FACET_NAMES).map(k => '<label class="t"><input type="checkbox" data-facet="' + k + '"' + (s.facets[k] ? ' checked' : '') + (k === 'l' && !pickVoice() ? ' disabled' : '') + '><span><b>' + FACET_NAMES[k] + '</b><br><small style="color:var(--muted)">' + FACET_HELP[k] + (k === 'l' && !pickVoice() ? ' No Filipino voice found on this device.' : '') + '</small></span></label>').join('') + '</section>';
+  h += '<section class="card"><h3>Topics</h3>' + topics.map(t => { const n = state.notes.filter(x => (x.topic || 'other') === t).length; return '<label class="t"><input type="checkbox" data-topic="' + esc(t) + '"' + (s.topics[t] ? ' checked' : '') + '><span>' + esc(topicLabel(t)) + ' <small style="color:var(--muted)">' + n + '</small></span></label>'; }).join('') + '</section>';
+  h += '<section class="card"><h3>Audio</h3><label class="t"><input id="setTts" type="checkbox"' + (s.tts ? ' checked' : '') + '><span><b>Read Tagalog aloud</b><br><small style="color:var(--muted)">' + (voices.length ? voices.length + ' usable voice' + (voices.length === 1 ? '' : 's') + ' found' : 'No Filipino voice on this device. On iPhone: Settings › Accessibility › Spoken Content › Voices.') + '</small></span></label>' + (voices.length ? '<label class="f" style="margin-top:8px">Voice<select id="setVoice">' + voices.map(v => '<option value="' + esc(v.voiceURI) + '"' + ((pickVoice() || {}).voiceURI === v.voiceURI ? ' selected' : '') + '>' + esc(v.name) + ' (' + esc(v.lang) + (/^id/i.test(v.lang) ? ', Indonesian, approximate' : '') + ')</option>').join('') + '</select></label><label class="f" style="margin-top:8px">Speed: <span id="rateV">' + s.ttsRate + '</span><input id="setRate" type="range" min="0.6" max="1.2" step="0.05" value="' + s.ttsRate + '"></label><div class="btn-row"><button class="btn small" id="testVoice" type="button">Test: "Kumusta, kumain ka na ba?"</button></div>' : '') + '</section>';
+  h += '<section class="card"><h3>Appearance</h3><label class="f">Theme<select id="setTheme"><option value="auto"' + (s.theme === 'auto' ? ' selected' : '') + '>Match device</option><option value="light"' + (s.theme === 'light' ? ' selected' : '') + '>Light</option><option value="dark"' + (s.theme === 'dark' ? ' selected' : '') + '>Dark</option></select></label></section>';
+  h += '<section class="card"><h3>Backup &amp; decks</h3><p class="lede" style="font-size:13px">Progress lives only on this device. Back it up to Files or Drive now and then.</p><div class="btn-row">' + (navigator.share ? '<button class="btn primary" id="bkShare" type="button">Share backup</button>' : '') + '<button class="btn" id="bkDown" type="button">Download backup</button><button class="btn" id="bkRestore" type="button">Restore backup</button></div><input id="bkFile" type="file" accept="application/json,.json" hidden>' +
+    '<h3 style="margin-top:16px">Import a deck file</h3><p class="lede" style="font-size:13px">Any JSON file of notes in the Salita format, such as cards Claude made from a conversation. Existing notes with the same id are replaced; your progress on them is kept.</p><div class="btn-row"><button class="btn" id="deckImport" type="button">Import deck JSON</button><button class="btn" id="deckExport" type="button">Export my cards</button></div><input id="deckFile" type="file" accept="application/json,.json" hidden><div class="status" id="bkStatus"></div></section>';
+  h += '<section class="card"><h3>About</h3><p class="lede" style="font-size:13px">Starter deck: ' + esc(state.deck.name) + (state.deck.version ? ' (' + esc(state.deck.version) + ')' : '') + ' · ' + state.deck.notes.length + ' notes · ' + state.extra.length + ' of your own. Scheduling by FSRS-4.5. Nothing leaves your phone.</p><div class="btn-row"><button class="btn danger" id="resetAll" type="button">Reset all progress</button></div></section>';
+  main.innerHTML = h;
+  const upd = () => { save('settings'); };
+  main.querySelector('#setNew').onchange = e => { s.newPerDay = clamp(Number(e.target.value) || 0, 0, 100); upd(); };
+  main.querySelector('#setMax').onchange = e => { s.maxReviews = clamp(Number(e.target.value) || 200, 10, 1000); upd(); };
+  main.querySelector('#setRet').oninput = e => { s.retention = Number(e.target.value) / 100; main.querySelector('#retV').textContent = e.target.value + '%'; upd(); };
+  main.querySelector('#setTyping').onchange = e => { s.typing = e.target.checked; upd(); };
+  main.querySelectorAll('[data-facet]').forEach(c => { c.onchange = () => { s.facets[c.dataset.facet] = c.checked; upd(); }; });
+  main.querySelectorAll('[data-topic]').forEach(c => { c.onchange = () => { s.topics[c.dataset.topic] = c.checked; upd(); }; });
+  main.querySelector('#setTts').onchange = e => { s.tts = e.target.checked; upd(); renderSettings(main); };
+  const sv = main.querySelector('#setVoice'); if (sv) sv.onchange = e => { s.voice = e.target.value; upd(); };
+  const sr = main.querySelector('#setRate'); if (sr) sr.oninput = e => { s.ttsRate = Number(e.target.value); main.querySelector('#rateV').textContent = e.target.value; upd(); };
+  const tv = main.querySelector('#testVoice'); if (tv) tv.onclick = () => { if (!speak('Kumusta, kumain ka na ba?')) toast('No voice available'); };
+  main.querySelector('#setTheme').onchange = e => { s.theme = e.target.value; upd(); applyTheme(); };
+  const sh = main.querySelector('#bkShare'); if (sh) sh.onclick = shareBackup; main.querySelector('#bkDown').onclick = downloadBackup;
+  main.querySelector('#bkRestore').onclick = () => main.querySelector('#bkFile').click(); main.querySelector('#bkFile').onchange = e => { if (e.target.files[0]) restoreFromFile(e.target.files[0]); };
+  main.querySelector('#deckImport').onclick = () => main.querySelector('#deckFile').click(); main.querySelector('#deckFile').onchange = e => { if (e.target.files[0]) importDeckFile(e.target.files[0]); };
+  main.querySelector('#deckExport').onclick = () => { downloadText(JSON.stringify({ name: 'My Salita cards', version: todayKey(), notes: state.extra }, null, 1), 'salita-my-cards-' + todayKey() + '.json'); };
+  main.querySelector('#resetAll').onclick = () => { if (!confirm('Erase ALL study progress on this device? Your own cards are kept.')) return; if (!confirm('Really erase? There is no undo unless you have a backup.')) return; state.cards = {}; state.log = []; state.daily = { day: '', newCount: 0 }; save('cards'); save('log'); save('daily'); toast('Progress erased'); render(); };
+}
+function applyTheme(){ const t = state.settings.theme; if (t === 'auto') document.documentElement.removeAttribute('data-theme'); else document.documentElement.setAttribute('data-theme', t); }
+
+/* ===================== backup / restore / import ===================== */
+function backupJson(){ return JSON.stringify({ app: 'salita', version: 1, exportedAt: new Date().toISOString(), settings: state.settings, cards: state.cards, log: state.log, extra: state.extra, hidden: state.hidden }, null, 0); }
+function backupName(){ return 'salita-backup-' + todayKey() + '.json'; }
+function downloadText(text, name){ const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([text], { type: 'application/json' })); a.download = name; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000); }
+function downloadBackup(){ downloadText(backupJson(), backupName()); setStatus('Backup downloaded: ' + backupName(), 'ok'); }
+async function shareBackup(){ try { const file = new File([backupJson()], backupName(), { type: 'application/json' }); if (navigator.canShare && !navigator.canShare({ files: [file] })) throw new Error('no'); await navigator.share({ files: [file], title: 'Salita backup' }); setStatus('Backup shared', 'ok'); } catch (e) { if (e && e.name === 'AbortError') return; downloadBackup(); } }
+function setStatus(msg, cls){ const el = document.getElementById('bkStatus'); if (el) { el.textContent = msg; el.className = 'status ' + (cls || ''); } else toast(msg); }
+function readJsonFile(file){ return new Promise((res, rej) => { const r = new FileReader(); r.onload = () => { try { res(JSON.parse(r.result)); } catch (e) { rej(new Error('that file is not valid JSON')); } }; r.onerror = () => rej(new Error('could not read the file')); r.readAsText(file); }); }
+async function restoreFromFile(file){
+  try { const data = await readJsonFile(file); if (!data || data.app !== 'salita' || !data.cards) throw new Error('not a Salita backup');
+    let added = 0, updated = 0; Object.keys(data.cards).forEach(id => { const inc = data.cards[id], cur = state.cards[id]; if (!cur) { state.cards[id] = inc; added++; } else if ((inc.reps || 0) > (cur.reps || 0) || (inc.last || 0) > (cur.last || 0)) { state.cards[id] = inc; updated++; } });
+    const seen = {}; state.log.forEach(r => { seen[r.t + ':' + r.c] = 1; }); (data.log || []).forEach(r => { if (!seen[r.t + ':' + r.c]) { state.log.push(r); seen[r.t + ':' + r.c] = 1; } }); state.log.sort((a, b) => a.t - b.t);
+    const ex = {}; state.extra.forEach(n => { ex[n.id] = n; }); (data.extra || []).forEach(n => { ex[n.id] = n; }); state.extra = Object.values(ex);
+    Object.assign(state.hidden, data.hidden || {}); if (data.settings && !Object.keys(lsGet('settings', {})).length) state.settings = Object.assign({}, DEFAULT_SETTINGS, data.settings);
+    save('cards'); save('log'); save('extra'); save('hidden'); save('settings'); rebuildNotes(); setStatus('Restored: ' + added + ' cards added, ' + updated + ' updated, ' + state.extra.length + ' own cards', 'ok'); }
+  catch (e) { setStatus('Restore failed: ' + e.message, 'warn'); }
+}
+function validateNote(n){ if (!n || typeof n !== 'object' || !n.id || !n.tl || !n.en) return false; if (!n.type) n.type = 'vocab'; if (!n.topic) n.topic = 'mine'; if (!n.tier) n.tier = 2; return true; }
+async function importDeckFile(file){
+  try { const data = await readJsonFile(file); const notes = Array.isArray(data) ? data : (data && Array.isArray(data.notes) ? data.notes : null); if (!notes) throw new Error('expected a JSON array of notes or {"notes": [...]}');
+    let ok = 0, bad = 0; const ex = {}; state.extra.forEach(n => { ex[n.id] = n; }); notes.forEach(n => { if (validateNote(n)) { ex[n.id] = n; ok++; } else bad++; }); state.extra = Object.values(ex); save('extra'); rebuildNotes(); save('settings');
+    setStatus('Imported ' + ok + ' notes' + (bad ? ', skipped ' + bad + ' invalid' : '') + '. They join the new-card queue by tier.', 'ok'); }
+  catch (e) { setStatus('Import failed: ' + e.message, 'warn'); }
+}
+
+/* ===================== boot ===================== */
+async function loadDeck(){
+  try { const r = await fetch('./deck.json', { cache: 'no-cache' }); if (!r.ok) throw new Error(r.status); const d = await r.json(); state.deck = { name: d.name || 'Starter deck', version: d.version || '', notes: (d.notes || []).filter(validateNote) }; }
+  catch (e) { try { const r = await caches.match('./deck.json'); if (r) { const d = await r.json(); state.deck = { name: d.name || 'Starter deck', version: d.version || '', notes: (d.notes || []).filter(validateNote) }; } } catch (x) {} }
+  rebuildNotes(); save('settings');
+}
+document.querySelectorAll('.tabs [role=tab]').forEach(b => { b.onclick = () => { state.tab = b.dataset.tab; render(); }; });
+document.getElementById('btnHelp').onclick = () => { alert('Salita drills Tagalog the way a spaced-repetition app does: you see each card right before you would forget it.\n\n• New words appear once with their meaning, then get tested later in the same session.\n• Type the answer and tap Check. Accents and punctuation are ignored. Close answers count as Hard.\n• Again = would not have produced it. Hard = got it, slowly. Good = fine. Easy = instant.\n• Production, Listening, Taglish and verb-aspect cards unlock after you pass the word once.\n• Everything stays on this phone. Back up from Settings.'); };
+applyTheme();
+loadDeck().then(render);
+if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('./sw.js').catch(() => {}); }); }
+</script>
+</body>
+</html>
