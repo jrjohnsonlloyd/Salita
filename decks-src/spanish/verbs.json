@@ -1,0 +1,5498 @@
+[
+ {
+  "id": "verb-ser-01",
+  "type": "verb",
+  "tl": "ser",
+  "en": "to be (identity/origin)",
+  "accept": [
+   "to be"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Fully irregular (soy, eres, es; fui, fue). ser = identity, origin, job, time, traits; estar = location, feelings, temporary states.",
+  "root": "irregular",
+  "focus": "irregular",
+  "forms": {
+   "infinitive": "ser",
+   "pres_yo": "soy",
+   "pres_tu": "eres",
+   "pres_el": "es",
+   "pres_nos": "somos",
+   "pres_ellos": "son",
+   "pret_yo": "fui",
+   "pret_tu": "fuiste",
+   "pret_el": "fue",
+   "pret_nos": "fuimos",
+   "pret_ellos": "fueron",
+   "gerund": "siendo",
+   "participle": "sido"
+  },
+  "examples": [
+   {
+    "tl": "Mi papá es de Guadalajara.",
+    "en": "My dad is from Guadalajara."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-estar-01",
+  "type": "verb",
+  "tl": "estar",
+  "en": "to be (location/state)",
+  "accept": [
+   "to be"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Irregular yo: estoy; accents on estás, está, están. Preterite stem estuv-. estar = location, feelings, temporary states; ser = identity.",
+  "root": "est-",
+  "focus": "irregular",
+  "forms": {
+   "infinitive": "estar",
+   "pres_yo": "estoy",
+   "pres_tu": "estás",
+   "pres_el": "está",
+   "pres_nos": "estamos",
+   "pres_ellos": "están",
+   "pret_yo": "estuve",
+   "pret_tu": "estuviste",
+   "pret_el": "estuvo",
+   "pret_nos": "estuvimos",
+   "pret_ellos": "estuvieron",
+   "gerund": "estando",
+   "participle": "estado"
+  },
+  "examples": [
+   {
+    "tl": "¿Dónde estás? Ya estoy afuera.",
+    "en": "Where are you? I'm already outside."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-tener-01",
+  "type": "verb",
+  "tl": "tener",
+  "en": "to have",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Irregular yo: tengo; e>ie (tienes); preterite stem tuv-. 'Tener que' + inf = have to. Age: tengo 30 años.",
+  "root": "ten- (e>ie)",
+  "focus": "irregular",
+  "forms": {
+   "infinitive": "tener",
+   "pres_yo": "tengo",
+   "pres_tu": "tienes",
+   "pres_el": "tiene",
+   "pres_nos": "tenemos",
+   "pres_ellos": "tienen",
+   "pret_yo": "tuve",
+   "pret_tu": "tuviste",
+   "pret_el": "tuvo",
+   "pret_nos": "tuvimos",
+   "pret_ellos": "tuvieron",
+   "gerund": "teniendo",
+   "participle": "tenido"
+  },
+  "examples": [
+   {
+    "tl": "Tengo que ir al banco mañana.",
+    "en": "I have to go to the bank tomorrow."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-hacer-01",
+  "type": "verb",
+  "tl": "hacer",
+  "en": "to do, to make",
+  "accept": [
+   "to do",
+   "to make"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Irregular yo: hago; preterite stem hic- (hizo with z); participle hecho. Weather: hace calor.",
+  "root": "hac-",
+  "focus": "irregular",
+  "forms": {
+   "infinitive": "hacer",
+   "pres_yo": "hago",
+   "pres_tu": "haces",
+   "pres_el": "hace",
+   "pres_nos": "hacemos",
+   "pres_ellos": "hacen",
+   "pret_yo": "hice",
+   "pret_tu": "hiciste",
+   "pret_el": "hizo",
+   "pret_nos": "hicimos",
+   "pret_ellos": "hicieron",
+   "gerund": "haciendo",
+   "participle": "hecho"
+  },
+  "examples": [
+   {
+    "tl": "¿Qué hiciste el fin de semana?",
+    "en": "What did you do over the weekend?"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-poder-01",
+  "type": "verb",
+  "tl": "poder",
+  "en": "to be able to, can",
+  "accept": [
+   "can",
+   "to be able"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "o>ue in present (puedo); preterite stem pud-; gerund pudiendo. '¿Puedo...?' = May I? 'No pude' = I couldn't.",
+  "root": "pod- (o>ue)",
+  "focus": "irregular",
+  "forms": {
+   "infinitive": "poder",
+   "pres_yo": "puedo",
+   "pres_tu": "puedes",
+   "pres_el": "puede",
+   "pres_nos": "podemos",
+   "pres_ellos": "pueden",
+   "pret_yo": "pude",
+   "pret_tu": "pudiste",
+   "pret_el": "pudo",
+   "pret_nos": "pudimos",
+   "pret_ellos": "pudieron",
+   "gerund": "pudiendo",
+   "participle": "podido"
+  },
+  "examples": [
+   {
+    "tl": "¿Puedes pasarme la sal?",
+    "en": "Can you pass me the salt?"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-decir-01",
+  "type": "verb",
+  "tl": "decir",
+  "en": "to say, to tell",
+  "accept": [
+   "to say",
+   "to tell"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Irregular yo: digo; e>i (dices); preterite stem dij- (dijeron, no i); participle dicho.",
+  "root": "dec- (e>i)",
+  "focus": "irregular",
+  "forms": {
+   "infinitive": "decir",
+   "pres_yo": "digo",
+   "pres_tu": "dices",
+   "pres_el": "dice",
+   "pres_nos": "decimos",
+   "pres_ellos": "dicen",
+   "pret_yo": "dije",
+   "pret_tu": "dijiste",
+   "pret_el": "dijo",
+   "pret_nos": "dijimos",
+   "pret_ellos": "dijeron",
+   "gerund": "diciendo",
+   "participle": "dicho"
+  },
+  "examples": [
+   {
+    "tl": "Me dijo que llegaba a las ocho.",
+    "en": "She told me she was arriving at eight."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-ir-01",
+  "type": "verb",
+  "tl": "ir",
+  "en": "to go",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Fully irregular: voy, vas, va. Preterite same as ser (fui, fue). 'Ir a' + inf = going to (future). Gerund yendo.",
+  "root": "irregular",
+  "focus": "irregular",
+  "forms": {
+   "infinitive": "ir",
+   "pres_yo": "voy",
+   "pres_tu": "vas",
+   "pres_el": "va",
+   "pres_nos": "vamos",
+   "pres_ellos": "van",
+   "pret_yo": "fui",
+   "pret_tu": "fuiste",
+   "pret_el": "fue",
+   "pret_nos": "fuimos",
+   "pret_ellos": "fueron",
+   "gerund": "yendo",
+   "participle": "ido"
+  },
+  "examples": [
+   {
+    "tl": "Vamos al mercado el sábado.",
+    "en": "We're going to the market on Saturday."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-ver-01",
+  "type": "verb",
+  "tl": "ver",
+  "en": "to see, to watch",
+  "accept": [
+   "to see",
+   "to watch"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Irregular yo: veo; preterite vi, vio (no accents); participle visto. 'Nos vemos' = see you.",
+  "root": "irregular",
+  "focus": "irregular",
+  "forms": {
+   "infinitive": "ver",
+   "pres_yo": "veo",
+   "pres_tu": "ves",
+   "pres_el": "ve",
+   "pres_nos": "vemos",
+   "pres_ellos": "ven",
+   "pret_yo": "vi",
+   "pret_tu": "viste",
+   "pret_el": "vio",
+   "pret_nos": "vimos",
+   "pret_ellos": "vieron",
+   "gerund": "viendo",
+   "participle": "visto"
+  },
+  "examples": [
+   {
+    "tl": "Ayer vi a tu hermano en el centro.",
+    "en": "Yesterday I saw your brother downtown."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-dar-01",
+  "type": "verb",
+  "tl": "dar",
+  "en": "to give",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Irregular yo: doy; preterite di, dio (no accents, -er endings). Idioms: me da miedo, dar una vuelta, dar las gracias.",
+  "root": "irregular",
+  "focus": "irregular",
+  "forms": {
+   "infinitive": "dar",
+   "pres_yo": "doy",
+   "pres_tu": "das",
+   "pres_el": "da",
+   "pres_nos": "damos",
+   "pres_ellos": "dan",
+   "pret_yo": "di",
+   "pret_tu": "diste",
+   "pret_el": "dio",
+   "pret_nos": "dimos",
+   "pret_ellos": "dieron",
+   "gerund": "dando",
+   "participle": "dado"
+  },
+  "examples": [
+   {
+    "tl": "Me dieron mal el cambio en la tienda.",
+    "en": "They gave me the wrong change at the store."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-saber-01",
+  "type": "verb",
+  "tl": "saber",
+  "en": "to know (facts/how to)",
+  "accept": [
+   "to know"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Irregular yo: sé; preterite stem sup-. saber = facts, info, skills; conocer = people, places. 'Sabe a' = tastes like.",
+  "root": "sab-",
+  "focus": "irregular",
+  "forms": {
+   "infinitive": "saber",
+   "pres_yo": "sé",
+   "pres_tu": "sabes",
+   "pres_el": "sabe",
+   "pres_nos": "sabemos",
+   "pres_ellos": "saben",
+   "pret_yo": "supe",
+   "pret_tu": "supiste",
+   "pret_el": "supo",
+   "pret_nos": "supimos",
+   "pret_ellos": "supieron",
+   "gerund": "sabiendo",
+   "participle": "sabido"
+  },
+  "examples": [
+   {
+    "tl": "No sé a qué hora abren.",
+    "en": "I don't know what time they open."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-querer-01",
+  "type": "verb",
+  "tl": "querer",
+  "en": "to want, to love",
+  "accept": [
+   "to want",
+   "to love"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "e>ie in present (quiero); preterite stem quis-. 'Te quiero' = I love you (softer than te amo). 'Quisiera' = polite I'd like.",
+  "root": "quer- (e>ie)",
+  "focus": "irregular",
+  "forms": {
+   "infinitive": "querer",
+   "pres_yo": "quiero",
+   "pres_tu": "quieres",
+   "pres_el": "quiere",
+   "pres_nos": "queremos",
+   "pres_ellos": "quieren",
+   "pret_yo": "quise",
+   "pret_tu": "quisiste",
+   "pret_el": "quiso",
+   "pret_nos": "quisimos",
+   "pret_ellos": "quisieron",
+   "gerund": "queriendo",
+   "participle": "querido"
+  },
+  "examples": [
+   {
+    "tl": "Quiero un café con leche, por favor.",
+    "en": "I want a coffee with milk, please."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-llegar-01",
+  "type": "verb",
+  "tl": "llegar",
+  "en": "to arrive",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Regular -ar; spelling change in preterite yo: llegué (g>gu). 'Llegar tarde' = be late.",
+  "root": "lleg-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "llegar",
+   "pres_yo": "llego",
+   "pres_tu": "llegas",
+   "pres_el": "llega",
+   "pres_nos": "llegamos",
+   "pres_ellos": "llegan",
+   "pret_yo": "llegué",
+   "pret_tu": "llegaste",
+   "pret_el": "llegó",
+   "pret_nos": "llegamos",
+   "pret_ellos": "llegaron",
+   "gerund": "llegando",
+   "participle": "llegado"
+  },
+  "examples": [
+   {
+    "tl": "Llegué tarde porque había mucho tráfico.",
+    "en": "I got there late because there was a lot of traffic."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-pasar-01",
+  "type": "verb",
+  "tl": "pasar",
+  "en": "to happen, to pass",
+  "accept": [
+   "to happen",
+   "to pass",
+   "to spend (time)"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Regular -ar. '¿Qué pasó?' = What happened? 'Pásale' (Mex) = come in. 'Pasar tiempo' = spend time.",
+  "root": "pas-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "pasar",
+   "pres_yo": "paso",
+   "pres_tu": "pasas",
+   "pres_el": "pasa",
+   "pres_nos": "pasamos",
+   "pres_ellos": "pasan",
+   "pret_yo": "pasé",
+   "pret_tu": "pasaste",
+   "pret_el": "pasó",
+   "pret_nos": "pasamos",
+   "pret_ellos": "pasaron",
+   "gerund": "pasando",
+   "participle": "pasado"
+  },
+  "examples": [
+   {
+    "tl": "¿Qué te pasó? Te ves cansado.",
+    "en": "What happened to you? You look tired."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-deber-01",
+  "type": "verb",
+  "tl": "deber",
+  "en": "should, to owe",
+  "accept": [
+   "to owe",
+   "must",
+   "should"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Regular -er. 'Deber' + inf = should/must; 'debería' = softer should. 'Me debes 200 pesos' = you owe me.",
+  "root": "deb-",
+  "focus": "regular-er",
+  "forms": {
+   "infinitive": "deber",
+   "pres_yo": "debo",
+   "pres_tu": "debes",
+   "pres_el": "debe",
+   "pres_nos": "debemos",
+   "pres_ellos": "deben",
+   "pret_yo": "debí",
+   "pret_tu": "debiste",
+   "pret_el": "debió",
+   "pret_nos": "debimos",
+   "pret_ellos": "debieron",
+   "gerund": "debiendo",
+   "participle": "debido"
+  },
+  "examples": [
+   {
+    "tl": "Debes llamar a tu mamá hoy.",
+    "en": "You should call your mom today."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-poner-01",
+  "type": "verb",
+  "tl": "poner",
+  "en": "to put",
+  "accept": [
+   "to place",
+   "to put on"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Irregular yo: pongo; preterite stem pus-; participle puesto. 'Poner la mesa' = set the table.",
+  "root": "pon-",
+  "focus": "irregular",
+  "forms": {
+   "infinitive": "poner",
+   "pres_yo": "pongo",
+   "pres_tu": "pones",
+   "pres_el": "pone",
+   "pres_nos": "ponemos",
+   "pres_ellos": "ponen",
+   "pret_yo": "puse",
+   "pret_tu": "pusiste",
+   "pret_el": "puso",
+   "pret_nos": "pusimos",
+   "pret_ellos": "pusieron",
+   "gerund": "poniendo",
+   "participle": "puesto"
+  },
+  "examples": [
+   {
+    "tl": "¿Dónde pusiste las llaves?",
+    "en": "Where did you put the keys?"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-parecer-01",
+  "type": "verb",
+  "tl": "parecer",
+  "en": "to seem",
+  "accept": [
+   "to look like",
+   "to appear"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Irregular yo: parezco (c>zc); rest regular -er. 'Me parece que...' = I think that. '¿Qué te parece?' = What do you think?",
+  "root": "parec-",
+  "focus": "irregular",
+  "forms": {
+   "infinitive": "parecer",
+   "pres_yo": "parezco",
+   "pres_tu": "pareces",
+   "pres_el": "parece",
+   "pres_nos": "parecemos",
+   "pres_ellos": "parecen",
+   "pret_yo": "parecí",
+   "pret_tu": "pareciste",
+   "pret_el": "pareció",
+   "pret_nos": "parecimos",
+   "pret_ellos": "parecieron",
+   "gerund": "pareciendo",
+   "participle": "parecido"
+  },
+  "examples": [
+   {
+    "tl": "Me parece que va a llover.",
+    "en": "It seems to me it's going to rain."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-quedar-01",
+  "type": "verb",
+  "tl": "quedar",
+  "en": "to remain, to be left",
+  "accept": [
+   "to stay",
+   "to be located",
+   "to remain"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Regular -ar. 'Quedar en' = agree to meet. '¿Dónde queda?' = Where is it? 'Me queda bien' = it fits me.",
+  "root": "qued-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "quedar",
+   "pres_yo": "quedo",
+   "pres_tu": "quedas",
+   "pres_el": "queda",
+   "pres_nos": "quedamos",
+   "pres_ellos": "quedan",
+   "pret_yo": "quedé",
+   "pret_tu": "quedaste",
+   "pret_el": "quedó",
+   "pret_nos": "quedamos",
+   "pret_ellos": "quedaron",
+   "gerund": "quedando",
+   "participle": "quedado"
+  },
+  "examples": [
+   {
+    "tl": "Quedamos a las siete en el café.",
+    "en": "We agreed to meet at seven at the cafe."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-creer-01",
+  "type": "verb",
+  "tl": "creer",
+  "en": "to believe, to think",
+  "accept": [
+   "to believe",
+   "to think"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Regular endings but i>y between vowels: creyó, creyeron, creyendo; accents on creí, creído. 'Creo que sí' = I think so.",
+  "root": "cre-",
+  "focus": "irregular",
+  "forms": {
+   "infinitive": "creer",
+   "pres_yo": "creo",
+   "pres_tu": "crees",
+   "pres_el": "cree",
+   "pres_nos": "creemos",
+   "pres_ellos": "creen",
+   "pret_yo": "creí",
+   "pret_tu": "creíste",
+   "pret_el": "creyó",
+   "pret_nos": "creímos",
+   "pret_ellos": "creyeron",
+   "gerund": "creyendo",
+   "participle": "creído"
+  },
+  "examples": [
+   {
+    "tl": "Creo que la tienda cierra a las nueve.",
+    "en": "I think the store closes at nine."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-hablar-01",
+  "type": "verb",
+  "tl": "hablar",
+  "en": "to speak, to talk",
+  "accept": [
+   "to speak",
+   "to talk"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Regular -ar, the model verb. 'Hablar por teléfono' = talk on the phone; 'habla más despacio' = speak slower.",
+  "root": "habl-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "hablar",
+   "pres_yo": "hablo",
+   "pres_tu": "hablas",
+   "pres_el": "habla",
+   "pres_nos": "hablamos",
+   "pres_ellos": "hablan",
+   "pret_yo": "hablé",
+   "pret_tu": "hablaste",
+   "pret_el": "habló",
+   "pret_nos": "hablamos",
+   "pret_ellos": "hablaron",
+   "gerund": "hablando",
+   "participle": "hablado"
+  },
+  "examples": [
+   {
+    "tl": "Hablé con el casero sobre la renta.",
+    "en": "I talked to the landlord about the rent."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-llevar-01",
+  "type": "verb",
+  "tl": "llevar",
+  "en": "to carry, to take (along)",
+  "accept": [
+   "to carry",
+   "to take",
+   "to wear"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Regular -ar. Also 'wear' and time elapsed: 'llevo dos años aquí'. 'Para llevar' = to go (food). traer = bring here.",
+  "root": "llev-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "llevar",
+   "pres_yo": "llevo",
+   "pres_tu": "llevas",
+   "pres_el": "lleva",
+   "pres_nos": "llevamos",
+   "pres_ellos": "llevan",
+   "pret_yo": "llevé",
+   "pret_tu": "llevaste",
+   "pret_el": "llevó",
+   "pret_nos": "llevamos",
+   "pret_ellos": "llevaron",
+   "gerund": "llevando",
+   "participle": "llevado"
+  },
+  "examples": [
+   {
+    "tl": "Llevo tres meses viviendo en Monterrey.",
+    "en": "I've been living in Monterrey for three months."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-dejar-01",
+  "type": "verb",
+  "tl": "dejar",
+  "en": "to leave (behind), to let",
+  "accept": [
+   "to leave",
+   "to let",
+   "to allow",
+   "to stop"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Regular -ar. 'Dejar de' + inf = stop doing. 'Déjame ver' = let me see. 'Dejar propina' = leave a tip.",
+  "root": "dej-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "dejar",
+   "pres_yo": "dejo",
+   "pres_tu": "dejas",
+   "pres_el": "deja",
+   "pres_nos": "dejamos",
+   "pres_ellos": "dejan",
+   "pret_yo": "dejé",
+   "pret_tu": "dejaste",
+   "pret_el": "dejó",
+   "pret_nos": "dejamos",
+   "pret_ellos": "dejaron",
+   "gerund": "dejando",
+   "participle": "dejado"
+  },
+  "examples": [
+   {
+    "tl": "Dejé mi cargador en tu casa.",
+    "en": "I left my charger at your house."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-seguir-01",
+  "type": "verb",
+  "tl": "seguir",
+  "en": "to follow, to continue",
+  "accept": [
+   "to follow",
+   "to continue",
+   "to keep on"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "e>i in present (sigues); yo: sigo (gu>g). 3rd person preterite siguió, siguieron. 'Seguir' + gerund = keep doing.",
+  "root": "segu- (e>i)",
+  "focus": "stem-change",
+  "forms": {
+   "infinitive": "seguir",
+   "pres_yo": "sigo",
+   "pres_tu": "sigues",
+   "pres_el": "sigue",
+   "pres_nos": "seguimos",
+   "pres_ellos": "siguen",
+   "pret_yo": "seguí",
+   "pret_tu": "seguiste",
+   "pret_el": "siguió",
+   "pret_nos": "seguimos",
+   "pret_ellos": "siguieron",
+   "gerund": "siguiendo",
+   "participle": "seguido"
+  },
+  "examples": [
+   {
+    "tl": "Sigue derecho y das vuelta a la derecha.",
+    "en": "Keep going straight and turn right."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-encontrar-01",
+  "type": "verb",
+  "tl": "encontrar",
+  "en": "to find",
+  "accept": [
+   "to meet"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "o>ue in present (encuentro), not in nosotros. 'Encontrarse con' = run into someone.",
+  "root": "encontr- (o>ue)",
+  "focus": "stem-change",
+  "forms": {
+   "infinitive": "encontrar",
+   "pres_yo": "encuentro",
+   "pres_tu": "encuentras",
+   "pres_el": "encuentra",
+   "pres_nos": "encontramos",
+   "pres_ellos": "encuentran",
+   "pret_yo": "encontré",
+   "pret_tu": "encontraste",
+   "pret_el": "encontró",
+   "pret_nos": "encontramos",
+   "pret_ellos": "encontraron",
+   "gerund": "encontrando",
+   "participle": "encontrado"
+  },
+  "examples": [
+   {
+    "tl": "No encuentro mi cartera.",
+    "en": "I can't find my wallet."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-llamar-01",
+  "type": "verb",
+  "tl": "llamar",
+  "en": "to call",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Regular -ar. Reflexive 'llamarse' = be named: me llamo Lloyd. 'Te llamo luego' = I'll call you later.",
+  "root": "llam-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "llamar",
+   "pres_yo": "llamo",
+   "pres_tu": "llamas",
+   "pres_el": "llama",
+   "pres_nos": "llamamos",
+   "pres_ellos": "llaman",
+   "pret_yo": "llamé",
+   "pret_tu": "llamaste",
+   "pret_el": "llamó",
+   "pret_nos": "llamamos",
+   "pret_ellos": "llamaron",
+   "gerund": "llamando",
+   "participle": "llamado"
+  },
+  "examples": [
+   {
+    "tl": "Te llamo cuando salga del trabajo.",
+    "en": "I'll call you when I get off work."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-venir-01",
+  "type": "verb",
+  "tl": "venir",
+  "en": "to come",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Irregular yo: vengo; e>ie (vienes); preterite stem vin-; gerund viniendo. 'Ven' = come. 'La semana que viene' = next week.",
+  "root": "ven- (e>ie)",
+  "focus": "irregular",
+  "forms": {
+   "infinitive": "venir",
+   "pres_yo": "vengo",
+   "pres_tu": "vienes",
+   "pres_el": "viene",
+   "pres_nos": "venimos",
+   "pres_ellos": "vienen",
+   "pret_yo": "vine",
+   "pret_tu": "viniste",
+   "pret_el": "vino",
+   "pret_nos": "vinimos",
+   "pret_ellos": "vinieron",
+   "gerund": "viniendo",
+   "participle": "venido"
+  },
+  "examples": [
+   {
+    "tl": "¿Vienes a la fiesta el sábado?",
+    "en": "Are you coming to the party on Saturday?"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-pensar-01",
+  "type": "verb",
+  "tl": "pensar",
+  "en": "to think",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "e>ie in present (pienso), not in nosotros. 'Pensar en' = think about; 'pensar' + inf = plan to.",
+  "root": "pens- (e>ie)",
+  "focus": "stem-change",
+  "forms": {
+   "infinitive": "pensar",
+   "pres_yo": "pienso",
+   "pres_tu": "piensas",
+   "pres_el": "piensa",
+   "pres_nos": "pensamos",
+   "pres_ellos": "piensan",
+   "pret_yo": "pensé",
+   "pret_tu": "pensaste",
+   "pret_el": "pensó",
+   "pret_nos": "pensamos",
+   "pret_ellos": "pensaron",
+   "gerund": "pensando",
+   "participle": "pensado"
+  },
+  "examples": [
+   {
+    "tl": "Pienso viajar a Colombia en diciembre.",
+    "en": "I'm planning to travel to Colombia in December."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-salir-01",
+  "type": "verb",
+  "tl": "salir",
+  "en": "to go out, to leave",
+  "accept": [
+   "to leave",
+   "to go out",
+   "to exit"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Irregular yo: salgo; otherwise regular -ir. 'Salir con' = date someone. 'Salió bien' = it turned out well.",
+  "root": "sal-",
+  "focus": "irregular",
+  "forms": {
+   "infinitive": "salir",
+   "pres_yo": "salgo",
+   "pres_tu": "sales",
+   "pres_el": "sale",
+   "pres_nos": "salimos",
+   "pres_ellos": "salen",
+   "pret_yo": "salí",
+   "pret_tu": "saliste",
+   "pret_el": "salió",
+   "pret_nos": "salimos",
+   "pret_ellos": "salieron",
+   "gerund": "saliendo",
+   "participle": "salido"
+  },
+  "examples": [
+   {
+    "tl": "Salgo del trabajo a las seis.",
+    "en": "I get off work at six."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-volver-01",
+  "type": "verb",
+  "tl": "volver",
+  "en": "to return, to come back",
+  "accept": [
+   "to return",
+   "to go back"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "o>ue in present (vuelvo), not nosotros; participle vuelto. 'Volver a' + inf = do again.",
+  "root": "volv- (o>ue)",
+  "focus": "stem-change",
+  "forms": {
+   "infinitive": "volver",
+   "pres_yo": "vuelvo",
+   "pres_tu": "vuelves",
+   "pres_el": "vuelve",
+   "pres_nos": "volvemos",
+   "pres_ellos": "vuelven",
+   "pret_yo": "volví",
+   "pret_tu": "volviste",
+   "pret_el": "volvió",
+   "pret_nos": "volvimos",
+   "pret_ellos": "volvieron",
+   "gerund": "volviendo",
+   "participle": "vuelto"
+  },
+  "examples": [
+   {
+    "tl": "Vuelvo en diez minutos.",
+    "en": "I'll be back in ten minutes."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-tomar-01",
+  "type": "verb",
+  "tl": "tomar",
+  "en": "to take, to drink",
+  "accept": [
+   "to take",
+   "to drink"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Regular -ar. In Latin America tomar = drink (incl. alcohol) and take (a bus, taxi, photo).",
+  "root": "tom-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "tomar",
+   "pres_yo": "tomo",
+   "pres_tu": "tomas",
+   "pres_el": "toma",
+   "pres_nos": "tomamos",
+   "pres_ellos": "toman",
+   "pret_yo": "tomé",
+   "pret_tu": "tomaste",
+   "pret_el": "tomó",
+   "pret_nos": "tomamos",
+   "pret_ellos": "tomaron",
+   "gerund": "tomando",
+   "participle": "tomado"
+  },
+  "examples": [
+   {
+    "tl": "Tomamos un Uber porque ya era tarde.",
+    "en": "We took an Uber because it was already late."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-conocer-01",
+  "type": "verb",
+  "tl": "conocer",
+  "en": "to know (people/places), to meet",
+  "accept": [
+   "to know",
+   "to meet"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Irregular yo: conozco (c>zc). conocer = be familiar with people/places; saber = facts. Preterite = met for the first time.",
+  "root": "conoc-",
+  "focus": "irregular",
+  "forms": {
+   "infinitive": "conocer",
+   "pres_yo": "conozco",
+   "pres_tu": "conoces",
+   "pres_el": "conoce",
+   "pres_nos": "conocemos",
+   "pres_ellos": "conocen",
+   "pret_yo": "conocí",
+   "pret_tu": "conociste",
+   "pret_el": "conoció",
+   "pret_nos": "conocimos",
+   "pret_ellos": "conocieron",
+   "gerund": "conociendo",
+   "participle": "conocido"
+  },
+  "examples": [
+   {
+    "tl": "¿Conoces un buen taquero por aquí?",
+    "en": "Do you know a good taco place around here?"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-vivir-01",
+  "type": "verb",
+  "tl": "vivir",
+  "en": "to live",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Regular -ir, the model verb. '¿Dónde vives?' = Where do you live?",
+  "root": "viv-",
+  "focus": "regular-ir",
+  "forms": {
+   "infinitive": "vivir",
+   "pres_yo": "vivo",
+   "pres_tu": "vives",
+   "pres_el": "vive",
+   "pres_nos": "vivimos",
+   "pres_ellos": "viven",
+   "pret_yo": "viví",
+   "pret_tu": "viviste",
+   "pret_el": "vivió",
+   "pret_nos": "vivimos",
+   "pret_ellos": "vivieron",
+   "gerund": "viviendo",
+   "participle": "vivido"
+  },
+  "examples": [
+   {
+    "tl": "Vivimos en un departamento cerca del metro.",
+    "en": "We live in an apartment near the metro."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-sentir-01",
+  "type": "verb",
+  "tl": "sentir",
+  "en": "to feel, to be sorry",
+  "accept": [
+   "to feel",
+   "to regret"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "e>ie in present (siento); e>i in 3rd person preterite (sintió) and gerund (sintiendo). 'Lo siento' = I'm sorry.",
+  "root": "sent- (e>ie)",
+  "focus": "stem-change",
+  "forms": {
+   "infinitive": "sentir",
+   "pres_yo": "siento",
+   "pres_tu": "sientes",
+   "pres_el": "siente",
+   "pres_nos": "sentimos",
+   "pres_ellos": "sienten",
+   "pret_yo": "sentí",
+   "pret_tu": "sentiste",
+   "pret_el": "sintió",
+   "pret_nos": "sentimos",
+   "pret_ellos": "sintieron",
+   "gerund": "sintiendo",
+   "participle": "sentido"
+  },
+  "examples": [
+   {
+    "tl": "Siento que algo no está bien.",
+    "en": "I feel like something isn't right."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-tratar-01",
+  "type": "verb",
+  "tl": "tratar",
+  "en": "to try, to treat",
+  "accept": [
+   "to try",
+   "to treat",
+   "to deal with"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Regular -ar. 'Tratar de' + inf = try to. 'Se trata de' = it's about. 'Tratar bien' = treat well.",
+  "root": "trat-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "tratar",
+   "pres_yo": "trato",
+   "pres_tu": "tratas",
+   "pres_el": "trata",
+   "pres_nos": "tratamos",
+   "pres_ellos": "tratan",
+   "pret_yo": "traté",
+   "pret_tu": "trataste",
+   "pret_el": "trató",
+   "pret_nos": "tratamos",
+   "pret_ellos": "trataron",
+   "gerund": "tratando",
+   "participle": "tratado"
+  },
+  "examples": [
+   {
+    "tl": "Traté de llamarte pero no contestaste.",
+    "en": "I tried to call you but you didn't answer."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-mirar-01",
+  "type": "verb",
+  "tl": "mirar",
+  "en": "to look at, to watch",
+  "accept": [
+   "to look",
+   "to watch"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Regular -ar. 'Mira' = look / hey (attention getter). 'Mirar la tele' = watch TV.",
+  "root": "mir-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "mirar",
+   "pres_yo": "miro",
+   "pres_tu": "miras",
+   "pres_el": "mira",
+   "pres_nos": "miramos",
+   "pres_ellos": "miran",
+   "pret_yo": "miré",
+   "pret_tu": "miraste",
+   "pret_el": "miró",
+   "pret_nos": "miramos",
+   "pret_ellos": "miraron",
+   "gerund": "mirando",
+   "participle": "mirado"
+  },
+  "examples": [
+   {
+    "tl": "Mira, ahí viene el camión.",
+    "en": "Look, there comes the bus."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-contar-01",
+  "type": "verb",
+  "tl": "contar",
+  "en": "to count, to tell (a story)",
+  "accept": [
+   "to count",
+   "to tell"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "o>ue in present (cuento), not nosotros. 'Cuéntame' = tell me. 'Contar con' = count on.",
+  "root": "cont- (o>ue)",
+  "focus": "stem-change",
+  "forms": {
+   "infinitive": "contar",
+   "pres_yo": "cuento",
+   "pres_tu": "cuentas",
+   "pres_el": "cuenta",
+   "pres_nos": "contamos",
+   "pres_ellos": "cuentan",
+   "pret_yo": "conté",
+   "pret_tu": "contaste",
+   "pret_el": "contó",
+   "pret_nos": "contamos",
+   "pret_ellos": "contaron",
+   "gerund": "contando",
+   "participle": "contado"
+  },
+  "examples": [
+   {
+    "tl": "¿Me cuentas cómo te fue en la entrevista?",
+    "en": "Will you tell me how the interview went?"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-empezar-01",
+  "type": "verb",
+  "tl": "empezar",
+  "en": "to begin, to start",
+  "accept": [
+   "to start",
+   "to begin"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "e>ie in present (empiezo); preterite yo: empecé (z>c). 'Empezar a' + inf = start doing.",
+  "root": "empez- (e>ie)",
+  "focus": "stem-change",
+  "forms": {
+   "infinitive": "empezar",
+   "pres_yo": "empiezo",
+   "pres_tu": "empiezas",
+   "pres_el": "empieza",
+   "pres_nos": "empezamos",
+   "pres_ellos": "empiezan",
+   "pret_yo": "empecé",
+   "pret_tu": "empezaste",
+   "pret_el": "empezó",
+   "pret_nos": "empezamos",
+   "pret_ellos": "empezaron",
+   "gerund": "empezando",
+   "participle": "empezado"
+  },
+  "examples": [
+   {
+    "tl": "La clase empieza a las ocho en punto.",
+    "en": "Class starts at eight sharp."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-esperar-01",
+  "type": "verb",
+  "tl": "esperar",
+  "en": "to wait, to hope",
+  "accept": [
+   "to wait",
+   "to hope",
+   "to expect"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Regular -ar. 'Espérame' = wait for me. 'Espero que' + subjunctive = I hope that.",
+  "root": "esper-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "esperar",
+   "pres_yo": "espero",
+   "pres_tu": "esperas",
+   "pres_el": "espera",
+   "pres_nos": "esperamos",
+   "pres_ellos": "esperan",
+   "pret_yo": "esperé",
+   "pret_tu": "esperaste",
+   "pret_el": "esperó",
+   "pret_nos": "esperamos",
+   "pret_ellos": "esperaron",
+   "gerund": "esperando",
+   "participle": "esperado"
+  },
+  "examples": [
+   {
+    "tl": "Te espero afuera del banco.",
+    "en": "I'll wait for you outside the bank."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-buscar-01",
+  "type": "verb",
+  "tl": "buscar",
+  "en": "to look for",
+  "accept": [
+   "to search",
+   "to seek"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Regular -ar; preterite yo: busqué (c>qu). No preposition: busco mi celular (not 'busco por').",
+  "root": "busc-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "buscar",
+   "pres_yo": "busco",
+   "pres_tu": "buscas",
+   "pres_el": "busca",
+   "pres_nos": "buscamos",
+   "pres_ellos": "buscan",
+   "pret_yo": "busqué",
+   "pret_tu": "buscaste",
+   "pret_el": "buscó",
+   "pret_nos": "buscamos",
+   "pret_ellos": "buscaron",
+   "gerund": "buscando",
+   "participle": "buscado"
+  },
+  "examples": [
+   {
+    "tl": "Busqué el número en Google y no lo encontré.",
+    "en": "I looked up the number on Google and didn't find it."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-existir-01",
+  "type": "verb",
+  "tl": "existir",
+  "en": "to exist",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "notes": "Regular -ir. 'Eso no existe' = that's not a thing. '¿Existe...?' = Is there...?",
+  "root": "exist-",
+  "focus": "regular-ir",
+  "forms": {
+   "infinitive": "existir",
+   "pres_yo": "existo",
+   "pres_tu": "existes",
+   "pres_el": "existe",
+   "pres_nos": "existimos",
+   "pres_ellos": "existen",
+   "pret_yo": "existí",
+   "pret_tu": "exististe",
+   "pret_el": "existió",
+   "pret_nos": "existimos",
+   "pret_ellos": "existieron",
+   "gerund": "existiendo",
+   "participle": "existido"
+  },
+  "examples": [
+   {
+    "tl": "¿Existe una app para pagar la luz?",
+    "en": "Is there an app to pay the electric bill?"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-entrar-01",
+  "type": "verb",
+  "tl": "entrar",
+  "en": "to enter, to go in",
+  "accept": [
+   "to go in",
+   "to come in"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Regular -ar. 'Entrar a' (LatAm) / 'entrar en' (Spain). 'Entra' = come in.",
+  "root": "entr-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "entrar",
+   "pres_yo": "entro",
+   "pres_tu": "entras",
+   "pres_el": "entra",
+   "pres_nos": "entramos",
+   "pres_ellos": "entran",
+   "pret_yo": "entré",
+   "pret_tu": "entraste",
+   "pret_el": "entró",
+   "pret_nos": "entramos",
+   "pret_ellos": "entraron",
+   "gerund": "entrando",
+   "participle": "entrado"
+  },
+  "examples": [
+   {
+    "tl": "Entramos al cine justo cuando empezó la película.",
+    "en": "We went into the theater right when the movie started."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-trabajar-01",
+  "type": "verb",
+  "tl": "trabajar",
+  "en": "to work",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Regular -ar. 'Trabajo en' + company/place. Mexican slang: chambear.",
+  "root": "trabaj-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "trabajar",
+   "pres_yo": "trabajo",
+   "pres_tu": "trabajas",
+   "pres_el": "trabaja",
+   "pres_nos": "trabajamos",
+   "pres_ellos": "trabajan",
+   "pret_yo": "trabajé",
+   "pret_tu": "trabajaste",
+   "pret_el": "trabajó",
+   "pret_nos": "trabajamos",
+   "pret_ellos": "trabajaron",
+   "gerund": "trabajando",
+   "participle": "trabajado"
+  },
+  "examples": [
+   {
+    "tl": "Trabajo desde casa los viernes.",
+    "en": "I work from home on Fridays."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-escribir-01",
+  "type": "verb",
+  "tl": "escribir",
+  "en": "to write",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Regular -ir except participle escrito. 'Escríbeme' = text me / write me.",
+  "root": "escrib-",
+  "focus": "irregular",
+  "forms": {
+   "infinitive": "escribir",
+   "pres_yo": "escribo",
+   "pres_tu": "escribes",
+   "pres_el": "escribe",
+   "pres_nos": "escribimos",
+   "pres_ellos": "escriben",
+   "pret_yo": "escribí",
+   "pret_tu": "escribiste",
+   "pret_el": "escribió",
+   "pret_nos": "escribimos",
+   "pret_ellos": "escribieron",
+   "gerund": "escribiendo",
+   "participle": "escrito"
+  },
+  "examples": [
+   {
+    "tl": "Te escribo por WhatsApp cuando llegue.",
+    "en": "I'll message you on WhatsApp when I arrive."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-perder-01",
+  "type": "verb",
+  "tl": "perder",
+  "en": "to lose, to miss (bus)",
+  "accept": [
+   "to lose",
+   "to miss"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "e>ie in present (pierdo), not nosotros. 'Perder el camión' = miss the bus. Reflexive perderse = get lost.",
+  "root": "perd- (e>ie)",
+  "focus": "stem-change",
+  "forms": {
+   "infinitive": "perder",
+   "pres_yo": "pierdo",
+   "pres_tu": "pierdes",
+   "pres_el": "pierde",
+   "pres_nos": "perdemos",
+   "pres_ellos": "pierden",
+   "pret_yo": "perdí",
+   "pret_tu": "perdiste",
+   "pret_el": "perdió",
+   "pret_nos": "perdimos",
+   "pret_ellos": "perdieron",
+   "gerund": "perdiendo",
+   "participle": "perdido"
+  },
+  "examples": [
+   {
+    "tl": "Perdí mi vuelo por el tráfico.",
+    "en": "I missed my flight because of traffic."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-producir-01",
+  "type": "verb",
+  "tl": "producir",
+  "en": "to produce",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "notes": "Irregular yo: produzco; preterite stem produj- (produjo, produjeron). Same pattern as conducir, traducir.",
+  "root": "produc-",
+  "focus": "irregular",
+  "forms": {
+   "infinitive": "producir",
+   "pres_yo": "produzco",
+   "pres_tu": "produces",
+   "pres_el": "produce",
+   "pres_nos": "producimos",
+   "pres_ellos": "producen",
+   "pret_yo": "produje",
+   "pret_tu": "produjiste",
+   "pret_el": "produjo",
+   "pret_nos": "produjimos",
+   "pret_ellos": "produjeron",
+   "gerund": "produciendo",
+   "participle": "producido"
+  },
+  "examples": [
+   {
+    "tl": "Esa fábrica produce llantas para exportar.",
+    "en": "That factory produces tires for export."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-ocurrir-01",
+  "type": "verb",
+  "tl": "ocurrir",
+  "en": "to happen, to occur",
+  "accept": [
+   "to happen"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "notes": "Regular -ir, mostly 3rd person. 'Se me ocurre' = it occurs to me / I have an idea.",
+  "root": "ocurr-",
+  "focus": "regular-ir",
+  "forms": {
+   "infinitive": "ocurrir",
+   "pres_yo": "ocurro",
+   "pres_tu": "ocurres",
+   "pres_el": "ocurre",
+   "pres_nos": "ocurrimos",
+   "pres_ellos": "ocurren",
+   "pret_yo": "ocurrí",
+   "pret_tu": "ocurriste",
+   "pret_el": "ocurrió",
+   "pret_nos": "ocurrimos",
+   "pret_ellos": "ocurrieron",
+   "gerund": "ocurriendo",
+   "participle": "ocurrido"
+  },
+  "examples": [
+   {
+    "tl": "Se me ocurrió una idea para el viaje.",
+    "en": "I had an idea for the trip."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-entender-01",
+  "type": "verb",
+  "tl": "entender",
+  "en": "to understand",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "e>ie in present (entiendo), not nosotros. 'No entiendo' = I don't understand. '¿Me entiendes?' = get it?",
+  "root": "entend- (e>ie)",
+  "focus": "stem-change",
+  "forms": {
+   "infinitive": "entender",
+   "pres_yo": "entiendo",
+   "pres_tu": "entiendes",
+   "pres_el": "entiende",
+   "pres_nos": "entendemos",
+   "pres_ellos": "entienden",
+   "pret_yo": "entendí",
+   "pret_tu": "entendiste",
+   "pret_el": "entendió",
+   "pret_nos": "entendimos",
+   "pret_ellos": "entendieron",
+   "gerund": "entendiendo",
+   "participle": "entendido"
+  },
+  "examples": [
+   {
+    "tl": "No entendí lo que dijo el señor.",
+    "en": "I didn't understand what the man said."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-pedir-01",
+  "type": "verb",
+  "tl": "pedir",
+  "en": "to ask for, to order",
+  "accept": [
+   "to ask for",
+   "to order",
+   "to request"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "e>i in present (pido) and 3rd person preterite (pidió); gerund pidiendo. pedir = request a thing; preguntar = ask a question.",
+  "root": "ped- (e>i)",
+  "focus": "stem-change",
+  "forms": {
+   "infinitive": "pedir",
+   "pres_yo": "pido",
+   "pres_tu": "pides",
+   "pres_el": "pide",
+   "pres_nos": "pedimos",
+   "pres_ellos": "piden",
+   "pret_yo": "pedí",
+   "pret_tu": "pediste",
+   "pret_el": "pidió",
+   "pret_nos": "pedimos",
+   "pret_ellos": "pidieron",
+   "gerund": "pidiendo",
+   "participle": "pedido"
+  },
+  "examples": [
+   {
+    "tl": "Pedimos dos órdenes de tacos al pastor.",
+    "en": "We ordered two orders of tacos al pastor."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-recibir-01",
+  "type": "verb",
+  "tl": "recibir",
+  "en": "to receive, to get",
+  "accept": [
+   "to receive",
+   "to get"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Regular -ir. 'Recibí tu mensaje' = I got your message.",
+  "root": "recib-",
+  "focus": "regular-ir",
+  "forms": {
+   "infinitive": "recibir",
+   "pres_yo": "recibo",
+   "pres_tu": "recibes",
+   "pres_el": "recibe",
+   "pres_nos": "recibimos",
+   "pres_ellos": "reciben",
+   "pret_yo": "recibí",
+   "pret_tu": "recibiste",
+   "pret_el": "recibió",
+   "pret_nos": "recibimos",
+   "pret_ellos": "recibieron",
+   "gerund": "recibiendo",
+   "participle": "recibido"
+  },
+  "examples": [
+   {
+    "tl": "¿Ya recibiste el depósito?",
+    "en": "Did you get the deposit yet?"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-recordar-01",
+  "type": "verb",
+  "tl": "recordar",
+  "en": "to remember, to remind",
+  "accept": [
+   "to remember",
+   "to remind"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "o>ue in present (recuerdo), not nosotros. 'Recuérdame' = remind me. Spoken 'acordarse de' is more common for remember.",
+  "root": "record- (o>ue)",
+  "focus": "stem-change",
+  "forms": {
+   "infinitive": "recordar",
+   "pres_yo": "recuerdo",
+   "pres_tu": "recuerdas",
+   "pres_el": "recuerda",
+   "pres_nos": "recordamos",
+   "pres_ellos": "recuerdan",
+   "pret_yo": "recordé",
+   "pret_tu": "recordaste",
+   "pret_el": "recordó",
+   "pret_nos": "recordamos",
+   "pret_ellos": "recordaron",
+   "gerund": "recordando",
+   "participle": "recordado"
+  },
+  "examples": [
+   {
+    "tl": "No recuerdo dónde estacioné el carro.",
+    "en": "I don't remember where I parked the car."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-terminar-01",
+  "type": "verb",
+  "tl": "terminar",
+  "en": "to finish, to end",
+  "accept": [
+   "to finish",
+   "to end"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Regular -ar. 'Terminar de' + inf = finish doing. 'Terminar con alguien' = break up with.",
+  "root": "termin-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "terminar",
+   "pres_yo": "termino",
+   "pres_tu": "terminas",
+   "pres_el": "termina",
+   "pres_nos": "terminamos",
+   "pres_ellos": "terminan",
+   "pret_yo": "terminé",
+   "pret_tu": "terminaste",
+   "pret_el": "terminó",
+   "pret_nos": "terminamos",
+   "pret_ellos": "terminaron",
+   "gerund": "terminando",
+   "participle": "terminado"
+  },
+  "examples": [
+   {
+    "tl": "Terminé el reporte a las once de la noche.",
+    "en": "I finished the report at eleven at night."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-permitir-01",
+  "type": "verb",
+  "tl": "permitir",
+  "en": "to allow, to permit",
+  "accept": [
+   "to allow",
+   "to let"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "notes": "Regular -ir. '¿Me permite?' = Excuse me / may I? (polite, usted).",
+  "root": "permit-",
+  "focus": "regular-ir",
+  "forms": {
+   "infinitive": "permitir",
+   "pres_yo": "permito",
+   "pres_tu": "permites",
+   "pres_el": "permite",
+   "pres_nos": "permitimos",
+   "pres_ellos": "permiten",
+   "pret_yo": "permití",
+   "pret_tu": "permitiste",
+   "pret_el": "permitió",
+   "pret_nos": "permitimos",
+   "pret_ellos": "permitieron",
+   "gerund": "permitiendo",
+   "participle": "permitido"
+  },
+  "examples": [
+   {
+    "tl": "No permiten mascotas en este edificio.",
+    "en": "They don't allow pets in this building."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-aparecer-01",
+  "type": "verb",
+  "tl": "aparecer",
+  "en": "to appear, to show up",
+  "accept": [
+   "to appear",
+   "to show up"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "notes": "Irregular yo: aparezco (c>zc), like parecer. 'No aparece' = it's not showing up / it's missing.",
+  "root": "aparec-",
+  "focus": "irregular",
+  "forms": {
+   "infinitive": "aparecer",
+   "pres_yo": "aparezco",
+   "pres_tu": "apareces",
+   "pres_el": "aparece",
+   "pres_nos": "aparecemos",
+   "pres_ellos": "aparecen",
+   "pret_yo": "aparecí",
+   "pret_tu": "apareciste",
+   "pret_el": "apareció",
+   "pret_nos": "aparecimos",
+   "pret_ellos": "aparecieron",
+   "gerund": "apareciendo",
+   "participle": "aparecido"
+  },
+  "examples": [
+   {
+    "tl": "Mi pedido no aparece en la app.",
+    "en": "My order doesn't show up in the app."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-conseguir-01",
+  "type": "verb",
+  "tl": "conseguir",
+  "en": "to get, to obtain",
+  "accept": [
+   "to get",
+   "to obtain",
+   "to manage to"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "e>i in present (consigo, consigues); 3rd person preterite consiguió. 'Conseguir trabajo' = land a job.",
+  "root": "consegu- (e>i)",
+  "focus": "stem-change",
+  "forms": {
+   "infinitive": "conseguir",
+   "pres_yo": "consigo",
+   "pres_tu": "consigues",
+   "pres_el": "consigue",
+   "pres_nos": "conseguimos",
+   "pres_ellos": "consiguen",
+   "pret_yo": "conseguí",
+   "pret_tu": "conseguiste",
+   "pret_el": "consiguió",
+   "pret_nos": "conseguimos",
+   "pret_ellos": "consiguieron",
+   "gerund": "consiguiendo",
+   "participle": "conseguido"
+  },
+  "examples": [
+   {
+    "tl": "Conseguí boletos para el concierto.",
+    "en": "I got tickets for the concert."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-comenzar-01",
+  "type": "verb",
+  "tl": "comenzar",
+  "en": "to begin, to start",
+  "accept": [
+   "to start",
+   "to begin"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "notes": "e>ie in present (comienzo); preterite yo: comencé (z>c). A bit more formal than empezar.",
+  "root": "comenz- (e>ie)",
+  "focus": "stem-change",
+  "forms": {
+   "infinitive": "comenzar",
+   "pres_yo": "comienzo",
+   "pres_tu": "comienzas",
+   "pres_el": "comienza",
+   "pres_nos": "comenzamos",
+   "pres_ellos": "comienzan",
+   "pret_yo": "comencé",
+   "pret_tu": "comenzaste",
+   "pret_el": "comenzó",
+   "pret_nos": "comenzamos",
+   "pret_ellos": "comenzaron",
+   "gerund": "comenzando",
+   "participle": "comenzado"
+  },
+  "examples": [
+   {
+    "tl": "La junta comenzó sin nosotros.",
+    "en": "The meeting started without us."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-servir-01",
+  "type": "verb",
+  "tl": "servir",
+  "en": "to serve, to be useful",
+  "accept": [
+   "to serve",
+   "to work (function)"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "e>i in present (sirvo); 3rd person preterite sirvió. 'No sirve' = it doesn't work. '¿Para qué sirve?' = What's it for?",
+  "root": "serv- (e>i)",
+  "focus": "stem-change",
+  "forms": {
+   "infinitive": "servir",
+   "pres_yo": "sirvo",
+   "pres_tu": "sirves",
+   "pres_el": "sirve",
+   "pres_nos": "servimos",
+   "pres_ellos": "sirven",
+   "pret_yo": "serví",
+   "pret_tu": "serviste",
+   "pret_el": "sirvió",
+   "pret_nos": "servimos",
+   "pret_ellos": "sirvieron",
+   "gerund": "sirviendo",
+   "participle": "servido"
+  },
+  "examples": [
+   {
+    "tl": "Este cargador ya no sirve.",
+    "en": "This charger doesn't work anymore."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-sacar-01",
+  "type": "verb",
+  "tl": "sacar",
+  "en": "to take out, to get",
+  "accept": [
+   "to take out",
+   "to get",
+   "to remove"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Regular -ar; preterite yo: saqué (c>qu). 'Sacar una foto' = take a photo; 'sacar la basura'; 'sacar dinero' = withdraw cash.",
+  "root": "sac-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "sacar",
+   "pres_yo": "saco",
+   "pres_tu": "sacas",
+   "pres_el": "saca",
+   "pres_nos": "sacamos",
+   "pres_ellos": "sacan",
+   "pret_yo": "saqué",
+   "pret_tu": "sacaste",
+   "pret_el": "sacó",
+   "pret_nos": "sacamos",
+   "pret_ellos": "sacaron",
+   "gerund": "sacando",
+   "participle": "sacado"
+  },
+  "examples": [
+   {
+    "tl": "Saqué dinero del cajero antes de salir.",
+    "en": "I took money out of the ATM before leaving."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-necesitar-01",
+  "type": "verb",
+  "tl": "necesitar",
+  "en": "to need",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Regular -ar. 'Necesito' + noun or inf. Very common.",
+  "root": "necesit-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "necesitar",
+   "pres_yo": "necesito",
+   "pres_tu": "necesitas",
+   "pres_el": "necesita",
+   "pres_nos": "necesitamos",
+   "pres_ellos": "necesitan",
+   "pret_yo": "necesité",
+   "pret_tu": "necesitaste",
+   "pret_el": "necesitó",
+   "pret_nos": "necesitamos",
+   "pret_ellos": "necesitaron",
+   "gerund": "necesitando",
+   "participle": "necesitado"
+  },
+  "examples": [
+   {
+    "tl": "Necesito una copia de mi pasaporte.",
+    "en": "I need a copy of my passport."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-mantener-01",
+  "type": "verb",
+  "tl": "mantener",
+  "en": "to maintain, to keep",
+  "accept": [
+   "to keep",
+   "to maintain",
+   "to support"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "notes": "Conjugates like tener: mantengo, mantienes, mantuve. 'Mantener a la familia' = support the family financially.",
+  "root": "manten- (e>ie)",
+  "focus": "irregular",
+  "forms": {
+   "infinitive": "mantener",
+   "pres_yo": "mantengo",
+   "pres_tu": "mantienes",
+   "pres_el": "mantiene",
+   "pres_nos": "mantenemos",
+   "pres_ellos": "mantienen",
+   "pret_yo": "mantuve",
+   "pret_tu": "mantuviste",
+   "pret_el": "mantuvo",
+   "pret_nos": "mantuvimos",
+   "pret_ellos": "mantuvieron",
+   "gerund": "manteniendo",
+   "participle": "mantenido"
+  },
+  "examples": [
+   {
+    "tl": "Mantengo contacto con mis amigos del ejército.",
+    "en": "I keep in touch with my army friends."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-resultar-01",
+  "type": "verb",
+  "tl": "resultar",
+  "en": "to turn out",
+  "accept": [
+   "to result"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "notes": "Regular -ar. 'Resulta que' = it turns out that. 'Resultó ser' = turned out to be.",
+  "root": "result-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "resultar",
+   "pres_yo": "resulto",
+   "pres_tu": "resultas",
+   "pres_el": "resulta",
+   "pres_nos": "resultamos",
+   "pres_ellos": "resultan",
+   "pret_yo": "resulté",
+   "pret_tu": "resultaste",
+   "pret_el": "resultó",
+   "pret_nos": "resultamos",
+   "pret_ellos": "resultaron",
+   "gerund": "resultando",
+   "participle": "resultado"
+  },
+  "examples": [
+   {
+    "tl": "Resulta que el banco cierra temprano los sábados.",
+    "en": "It turns out the bank closes early on Saturdays."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-leer-01",
+  "type": "verb",
+  "tl": "leer",
+  "en": "to read",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Regular -er endings but i>y between vowels: leyó, leyeron, leyendo; accents on leí, leíste, leído.",
+  "root": "le-",
+  "focus": "irregular",
+  "forms": {
+   "infinitive": "leer",
+   "pres_yo": "leo",
+   "pres_tu": "lees",
+   "pres_el": "lee",
+   "pres_nos": "leemos",
+   "pres_ellos": "leen",
+   "pret_yo": "leí",
+   "pret_tu": "leíste",
+   "pret_el": "leyó",
+   "pret_nos": "leímos",
+   "pret_ellos": "leyeron",
+   "gerund": "leyendo",
+   "participle": "leído"
+  },
+  "examples": [
+   {
+    "tl": "Leí tu mensaje pero no pude contestar.",
+    "en": "I read your message but couldn't reply."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-caer-01",
+  "type": "verb",
+  "tl": "caer",
+  "en": "to fall",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Irregular yo: caigo; i>y in cayó, cayeron, cayendo. 'Me cae bien' = I like him/her (as a person). 'Se me cayó' = I dropped it.",
+  "root": "ca-",
+  "focus": "irregular",
+  "forms": {
+   "infinitive": "caer",
+   "pres_yo": "caigo",
+   "pres_tu": "caes",
+   "pres_el": "cae",
+   "pres_nos": "caemos",
+   "pres_ellos": "caen",
+   "pret_yo": "caí",
+   "pret_tu": "caíste",
+   "pret_el": "cayó",
+   "pret_nos": "caímos",
+   "pret_ellos": "cayeron",
+   "gerund": "cayendo",
+   "participle": "caído"
+  },
+  "examples": [
+   {
+    "tl": "Se me cayó el celular y se rompió la pantalla.",
+    "en": "I dropped my phone and the screen broke."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-cambiar-01",
+  "type": "verb",
+  "tl": "cambiar",
+  "en": "to change, to exchange",
+  "accept": [
+   "to change",
+   "to exchange"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Regular -ar (yo: cambio, no accent). 'Cambiar dólares' = exchange dollars. 'Cambio' = change (money).",
+  "root": "cambi-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "cambiar",
+   "pres_yo": "cambio",
+   "pres_tu": "cambias",
+   "pres_el": "cambia",
+   "pres_nos": "cambiamos",
+   "pres_ellos": "cambian",
+   "pret_yo": "cambié",
+   "pret_tu": "cambiaste",
+   "pret_el": "cambió",
+   "pret_nos": "cambiamos",
+   "pret_ellos": "cambiaron",
+   "gerund": "cambiando",
+   "participle": "cambiado"
+  },
+  "examples": [
+   {
+    "tl": "Cambié dólares en la casa de cambio del aeropuerto.",
+    "en": "I exchanged dollars at the airport exchange booth."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-presentar-01",
+  "type": "verb",
+  "tl": "presentar",
+  "en": "to present, to introduce",
+  "accept": [
+   "to introduce",
+   "to present",
+   "to submit"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "notes": "Regular -ar. 'Te presento a' = let me introduce you to. 'Presentar un examen' (Mex) = take an exam.",
+  "root": "present-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "presentar",
+   "pres_yo": "presento",
+   "pres_tu": "presentas",
+   "pres_el": "presenta",
+   "pres_nos": "presentamos",
+   "pres_ellos": "presentan",
+   "pret_yo": "presenté",
+   "pret_tu": "presentaste",
+   "pret_el": "presentó",
+   "pret_nos": "presentamos",
+   "pret_ellos": "presentaron",
+   "gerund": "presentando",
+   "participle": "presentado"
+  },
+  "examples": [
+   {
+    "tl": "Te presento a mi esposa, Ana.",
+    "en": "Let me introduce you to my wife, Ana."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-crear-01",
+  "type": "verb",
+  "tl": "crear",
+  "en": "to create",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "notes": "Regular -ar (creé, creó). 'Crear una cuenta' = create an account. Don't confuse with creer (believe).",
+  "root": "cre-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "crear",
+   "pres_yo": "creo",
+   "pres_tu": "creas",
+   "pres_el": "crea",
+   "pres_nos": "creamos",
+   "pres_ellos": "crean",
+   "pret_yo": "creé",
+   "pret_tu": "creaste",
+   "pret_el": "creó",
+   "pret_nos": "creamos",
+   "pret_ellos": "crearon",
+   "gerund": "creando",
+   "participle": "creado"
+  },
+  "examples": [
+   {
+    "tl": "Creé una cuenta nueva en la app del banco.",
+    "en": "I created a new account in the bank's app."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-abrir-01",
+  "type": "verb",
+  "tl": "abrir",
+  "en": "to open",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Regular -ir except participle abierto. '¿A qué hora abren?' = What time do they open?",
+  "root": "abr-",
+  "focus": "irregular",
+  "forms": {
+   "infinitive": "abrir",
+   "pres_yo": "abro",
+   "pres_tu": "abres",
+   "pres_el": "abre",
+   "pres_nos": "abrimos",
+   "pres_ellos": "abren",
+   "pret_yo": "abrí",
+   "pret_tu": "abriste",
+   "pret_el": "abrió",
+   "pret_nos": "abrimos",
+   "pret_ellos": "abrieron",
+   "gerund": "abriendo",
+   "participle": "abierto"
+  },
+  "examples": [
+   {
+    "tl": "Abren a las nueve de la mañana.",
+    "en": "They open at nine in the morning."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-considerar-01",
+  "type": "verb",
+  "tl": "considerar",
+  "en": "to consider",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "notes": "Regular -ar. 'Lo voy a considerar' = I'll think about it.",
+  "root": "consider-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "considerar",
+   "pres_yo": "considero",
+   "pres_tu": "consideras",
+   "pres_el": "considera",
+   "pres_nos": "consideramos",
+   "pres_ellos": "consideran",
+   "pret_yo": "consideré",
+   "pret_tu": "consideraste",
+   "pret_el": "consideró",
+   "pret_nos": "consideramos",
+   "pret_ellos": "consideraron",
+   "gerund": "considerando",
+   "participle": "considerado"
+  },
+  "examples": [
+   {
+    "tl": "Consideramos mudarnos a Mérida el año que viene.",
+    "en": "We're considering moving to Mérida next year."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-oir-01",
+  "type": "verb",
+  "tl": "oír",
+  "en": "to hear",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Irregular: oigo, oyes, oye, oímos, oyen; oyó, oyeron; oyendo; oído. LatAm often uses escuchar instead. 'Oye' = hey.",
+  "root": "irregular",
+  "focus": "irregular",
+  "forms": {
+   "infinitive": "oír",
+   "pres_yo": "oigo",
+   "pres_tu": "oyes",
+   "pres_el": "oye",
+   "pres_nos": "oímos",
+   "pres_ellos": "oyen",
+   "pret_yo": "oí",
+   "pret_tu": "oíste",
+   "pret_el": "oyó",
+   "pret_nos": "oímos",
+   "pret_ellos": "oyeron",
+   "gerund": "oyendo",
+   "participle": "oído"
+  },
+  "examples": [
+   {
+    "tl": "¿Oíste ese ruido?",
+    "en": "Did you hear that noise?"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-acabar-01",
+  "type": "verb",
+  "tl": "acabar",
+  "en": "to finish, to run out",
+  "accept": [
+   "to finish",
+   "to end",
+   "to run out"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Regular -ar. 'Acabar de' + inf = have just done: acabo de llegar. 'Se acabó' = it's over / it ran out.",
+  "root": "acab-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "acabar",
+   "pres_yo": "acabo",
+   "pres_tu": "acabas",
+   "pres_el": "acaba",
+   "pres_nos": "acabamos",
+   "pres_ellos": "acaban",
+   "pret_yo": "acabé",
+   "pret_tu": "acabaste",
+   "pret_el": "acabó",
+   "pret_nos": "acabamos",
+   "pret_ellos": "acabaron",
+   "gerund": "acabando",
+   "participle": "acabado"
+  },
+  "examples": [
+   {
+    "tl": "Acabo de llegar a la casa.",
+    "en": "I just got home."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-convertir-01",
+  "type": "verb",
+  "tl": "convertir",
+  "en": "to convert, to turn into",
+  "accept": [
+   "to convert",
+   "to turn into"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "notes": "e>ie in present (convierto); e>i in 3rd person preterite (convirtió) and gerund (convirtiendo). 'Convertirse en' = become.",
+  "root": "convert- (e>ie)",
+  "focus": "stem-change",
+  "forms": {
+   "infinitive": "convertir",
+   "pres_yo": "convierto",
+   "pres_tu": "conviertes",
+   "pres_el": "convierte",
+   "pres_nos": "convertimos",
+   "pres_ellos": "convierten",
+   "pret_yo": "convertí",
+   "pret_tu": "convertiste",
+   "pret_el": "convirtió",
+   "pret_nos": "convertimos",
+   "pret_ellos": "convirtieron",
+   "gerund": "convirtiendo",
+   "participle": "convertido"
+  },
+  "examples": [
+   {
+    "tl": "La app convierte los pesos a dólares automáticamente.",
+    "en": "The app converts pesos to dollars automatically."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-ganar-01",
+  "type": "verb",
+  "tl": "ganar",
+  "en": "to win, to earn",
+  "accept": [
+   "to win",
+   "to earn"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Regular -ar. 'Ganar bien' = earn good money. '¿Quién ganó?' = Who won?",
+  "root": "gan-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "ganar",
+   "pres_yo": "gano",
+   "pres_tu": "ganas",
+   "pres_el": "gana",
+   "pres_nos": "ganamos",
+   "pres_ellos": "ganan",
+   "pret_yo": "gané",
+   "pret_tu": "ganaste",
+   "pret_el": "ganó",
+   "pret_nos": "ganamos",
+   "pret_ellos": "ganaron",
+   "gerund": "ganando",
+   "participle": "ganado"
+  },
+  "examples": [
+   {
+    "tl": "¿Cuánto ganas al mes en ese trabajo?",
+    "en": "How much do you earn a month at that job?"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-formar-01",
+  "type": "verb",
+  "tl": "formar",
+  "en": "to form",
+  "accept": [
+   "to shape",
+   "to line up"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "notes": "Regular -ar. 'Formarse' (Mex) = get in line. 'Formar parte de' = be part of.",
+  "root": "form-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "formar",
+   "pres_yo": "formo",
+   "pres_tu": "formas",
+   "pres_el": "forma",
+   "pres_nos": "formamos",
+   "pres_ellos": "forman",
+   "pret_yo": "formé",
+   "pret_tu": "formaste",
+   "pret_el": "formó",
+   "pret_nos": "formamos",
+   "pret_ellos": "formaron",
+   "gerund": "formando",
+   "participle": "formado"
+  },
+  "examples": [
+   {
+    "tl": "Nos formamos en la fila del banco por una hora.",
+    "en": "We stood in line at the bank for an hour."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-traer-01",
+  "type": "verb",
+  "tl": "traer",
+  "en": "to bring",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Irregular yo: traigo; preterite stem traj- (trajo, trajeron); gerund trayendo; participle traído. traer = bring here; llevar = take there.",
+  "root": "tra-",
+  "focus": "irregular",
+  "forms": {
+   "infinitive": "traer",
+   "pres_yo": "traigo",
+   "pres_tu": "traes",
+   "pres_el": "trae",
+   "pres_nos": "traemos",
+   "pres_ellos": "traen",
+   "pret_yo": "traje",
+   "pret_tu": "trajiste",
+   "pret_el": "trajo",
+   "pret_nos": "trajimos",
+   "pret_ellos": "trajeron",
+   "gerund": "trayendo",
+   "participle": "traído"
+  },
+  "examples": [
+   {
+    "tl": "¿Trajiste tu pasaporte?",
+    "en": "Did you bring your passport?"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-partir-01",
+  "type": "verb",
+  "tl": "partir",
+  "en": "to leave, to split",
+  "accept": [
+   "to depart",
+   "to cut"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "notes": "Regular -ir. 'A partir de' = starting from. 'Partir el pastel' = cut the cake. For 'leave' people usually say salir.",
+  "root": "part-",
+  "focus": "regular-ir",
+  "forms": {
+   "infinitive": "partir",
+   "pres_yo": "parto",
+   "pres_tu": "partes",
+   "pres_el": "parte",
+   "pres_nos": "partimos",
+   "pres_ellos": "parten",
+   "pret_yo": "partí",
+   "pret_tu": "partiste",
+   "pret_el": "partió",
+   "pret_nos": "partimos",
+   "pret_ellos": "partieron",
+   "gerund": "partiendo",
+   "participle": "partido"
+  },
+  "examples": [
+   {
+    "tl": "Partimos el pastel después de cantar.",
+    "en": "We cut the cake after singing."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-morir-01",
+  "type": "verb",
+  "tl": "morir",
+  "en": "to die",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "o>ue in present (muero); o>u in 3rd person preterite (murió) and gerund (muriendo); participle muerto. 'Me muero de hambre' = I'm starving.",
+  "root": "mor- (o>ue)",
+  "focus": "stem-change",
+  "forms": {
+   "infinitive": "morir",
+   "pres_yo": "muero",
+   "pres_tu": "mueres",
+   "pres_el": "muere",
+   "pres_nos": "morimos",
+   "pres_ellos": "mueren",
+   "pret_yo": "morí",
+   "pret_tu": "moriste",
+   "pret_el": "murió",
+   "pret_nos": "morimos",
+   "pret_ellos": "murieron",
+   "gerund": "muriendo",
+   "participle": "muerto"
+  },
+  "examples": [
+   {
+    "tl": "Me muero de hambre, ¿comemos ya?",
+    "en": "I'm starving, shall we eat now?"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-aceptar-01",
+  "type": "verb",
+  "tl": "aceptar",
+  "en": "to accept",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Regular -ar. '¿Aceptan tarjeta?' = Do you take cards?",
+  "root": "acept-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "aceptar",
+   "pres_yo": "acepto",
+   "pres_tu": "aceptas",
+   "pres_el": "acepta",
+   "pres_nos": "aceptamos",
+   "pres_ellos": "aceptan",
+   "pret_yo": "acepté",
+   "pret_tu": "aceptaste",
+   "pret_el": "aceptó",
+   "pret_nos": "aceptamos",
+   "pret_ellos": "aceptaron",
+   "gerund": "aceptando",
+   "participle": "aceptado"
+  },
+  "examples": [
+   {
+    "tl": "¿Aceptan tarjeta o solo efectivo?",
+    "en": "Do you take cards or just cash?"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-realizar-01",
+  "type": "verb",
+  "tl": "realizar",
+  "en": "to carry out, to do",
+  "accept": [
+   "to carry out",
+   "to perform",
+   "to accomplish"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "notes": "Regular -ar; preterite yo: realicé (z>c). Formal, common in paperwork: 'realizar un pago'. Rarely = realize (darse cuenta).",
+  "root": "realiz-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "realizar",
+   "pres_yo": "realizo",
+   "pres_tu": "realizas",
+   "pres_el": "realiza",
+   "pres_nos": "realizamos",
+   "pres_ellos": "realizan",
+   "pret_yo": "realicé",
+   "pret_tu": "realizaste",
+   "pret_el": "realizó",
+   "pret_nos": "realizamos",
+   "pret_ellos": "realizaron",
+   "gerund": "realizando",
+   "participle": "realizado"
+  },
+  "examples": [
+   {
+    "tl": "Realicé el pago en línea anoche.",
+    "en": "I made the payment online last night."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-suponer-01",
+  "type": "verb",
+  "tl": "suponer",
+  "en": "to suppose",
+  "accept": [
+   "to assume"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Conjugates like poner: supongo, supuse; participle supuesto. 'Supongo que sí' = I guess so. 'Se supone que' = it's supposed to.",
+  "root": "supon-",
+  "focus": "irregular",
+  "forms": {
+   "infinitive": "suponer",
+   "pres_yo": "supongo",
+   "pres_tu": "supones",
+   "pres_el": "supone",
+   "pres_nos": "suponemos",
+   "pres_ellos": "suponen",
+   "pret_yo": "supuse",
+   "pret_tu": "supusiste",
+   "pret_el": "supuso",
+   "pret_nos": "supusimos",
+   "pret_ellos": "supusieron",
+   "gerund": "suponiendo",
+   "participle": "supuesto"
+  },
+  "examples": [
+   {
+    "tl": "Supongo que el paquete llega mañana.",
+    "en": "I suppose the package arrives tomorrow."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-comprender-01",
+  "type": "verb",
+  "tl": "comprender",
+  "en": "to understand",
+  "accept": [
+   "to comprehend"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "notes": "Regular -er. Slightly more formal than entender. 'Comprendo' = I understand.",
+  "root": "comprend-",
+  "focus": "regular-er",
+  "forms": {
+   "infinitive": "comprender",
+   "pres_yo": "comprendo",
+   "pres_tu": "comprendes",
+   "pres_el": "comprende",
+   "pres_nos": "comprendemos",
+   "pres_ellos": "comprenden",
+   "pret_yo": "comprendí",
+   "pret_tu": "comprendiste",
+   "pret_el": "comprendió",
+   "pret_nos": "comprendimos",
+   "pret_ellos": "comprendieron",
+   "gerund": "comprendiendo",
+   "participle": "comprendido"
+  },
+  "examples": [
+   {
+    "tl": "Comprendo tu situación, no te preocupes.",
+    "en": "I understand your situation, don't worry."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-lograr-01",
+  "type": "verb",
+  "tl": "lograr",
+  "en": "to achieve, to manage to",
+  "accept": [
+   "to achieve",
+   "to manage to",
+   "to succeed"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "notes": "Regular -ar. 'Lograr' + inf = manage to do. 'Lo logré' = I did it.",
+  "root": "logr-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "lograr",
+   "pres_yo": "logro",
+   "pres_tu": "logras",
+   "pres_el": "logra",
+   "pres_nos": "logramos",
+   "pres_ellos": "logran",
+   "pret_yo": "logré",
+   "pret_tu": "lograste",
+   "pret_el": "logró",
+   "pret_nos": "logramos",
+   "pret_ellos": "lograron",
+   "gerund": "logrando",
+   "participle": "logrado"
+  },
+  "examples": [
+   {
+    "tl": "Logré sacar la cita en el consulado.",
+    "en": "I managed to get the appointment at the consulate."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-explicar-01",
+  "type": "verb",
+  "tl": "explicar",
+  "en": "to explain",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "notes": "Regular -ar; preterite yo: expliqué (c>qu). '¿Me explico?' = Does that make sense?",
+  "root": "explic-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "explicar",
+   "pres_yo": "explico",
+   "pres_tu": "explicas",
+   "pres_el": "explica",
+   "pres_nos": "explicamos",
+   "pres_ellos": "explican",
+   "pret_yo": "expliqué",
+   "pret_tu": "explicaste",
+   "pret_el": "explicó",
+   "pret_nos": "explicamos",
+   "pret_ellos": "explicaron",
+   "gerund": "explicando",
+   "participle": "explicado"
+  },
+  "examples": [
+   {
+    "tl": "El doctor me explicó todo con calma.",
+    "en": "The doctor explained everything to me calmly."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-preguntar-01",
+  "type": "verb",
+  "tl": "preguntar",
+  "en": "to ask (a question)",
+  "accept": [
+   "to ask"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Regular -ar. preguntar = ask a question; pedir = ask for something. 'Preguntar por' = ask about/for someone.",
+  "root": "pregunt-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "preguntar",
+   "pres_yo": "pregunto",
+   "pres_tu": "preguntas",
+   "pres_el": "pregunta",
+   "pres_nos": "preguntamos",
+   "pres_ellos": "preguntan",
+   "pret_yo": "pregunté",
+   "pret_tu": "preguntaste",
+   "pret_el": "preguntó",
+   "pret_nos": "preguntamos",
+   "pret_ellos": "preguntaron",
+   "gerund": "preguntando",
+   "participle": "preguntado"
+  },
+  "examples": [
+   {
+    "tl": "Le pregunté al chofer cuánto cobraba.",
+    "en": "I asked the driver how much he charged."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-tocar-01",
+  "type": "verb",
+  "tl": "tocar",
+  "en": "to touch, to play (instrument)",
+  "accept": [
+   "to touch",
+   "to play",
+   "to knock",
+   "to be one's turn"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Regular -ar; preterite yo: toqué (c>qu). 'Me toca' = it's my turn. 'Tocar la puerta' = knock. 'Tocar la guitarra' = play guitar.",
+  "root": "toc-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "tocar",
+   "pres_yo": "toco",
+   "pres_tu": "tocas",
+   "pres_el": "toca",
+   "pres_nos": "tocamos",
+   "pres_ellos": "tocan",
+   "pret_yo": "toqué",
+   "pret_tu": "tocaste",
+   "pret_el": "tocó",
+   "pret_nos": "tocamos",
+   "pret_ellos": "tocaron",
+   "gerund": "tocando",
+   "participle": "tocado"
+  },
+  "examples": [
+   {
+    "tl": "Te toca pagar la cuenta esta vez.",
+    "en": "It's your turn to pay the bill this time."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-reconocer-01",
+  "type": "verb",
+  "tl": "reconocer",
+  "en": "to recognize, to admit",
+  "accept": [
+   "to recognize",
+   "to admit"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "notes": "Irregular yo: reconozco (c>zc), like conocer. 'Lo reconozco' = I admit it.",
+  "root": "reconoc-",
+  "focus": "irregular",
+  "forms": {
+   "infinitive": "reconocer",
+   "pres_yo": "reconozco",
+   "pres_tu": "reconoces",
+   "pres_el": "reconoce",
+   "pres_nos": "reconocemos",
+   "pres_ellos": "reconocen",
+   "pret_yo": "reconocí",
+   "pret_tu": "reconociste",
+   "pret_el": "reconoció",
+   "pret_nos": "reconocimos",
+   "pret_ellos": "reconocieron",
+   "gerund": "reconociendo",
+   "participle": "reconocido"
+  },
+  "examples": [
+   {
+    "tl": "No te reconocí con el pelo corto.",
+    "en": "I didn't recognize you with short hair."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-estudiar-01",
+  "type": "verb",
+  "tl": "estudiar",
+  "en": "to study",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Regular -ar (yo: estudio, no accent). '¿Qué estudias?' = What do you study?",
+  "root": "estudi-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "estudiar",
+   "pres_yo": "estudio",
+   "pres_tu": "estudias",
+   "pres_el": "estudia",
+   "pres_nos": "estudiamos",
+   "pres_ellos": "estudian",
+   "pret_yo": "estudié",
+   "pret_tu": "estudiaste",
+   "pret_el": "estudió",
+   "pret_nos": "estudiamos",
+   "pret_ellos": "estudiaron",
+   "gerund": "estudiando",
+   "participle": "estudiado"
+  },
+  "examples": [
+   {
+    "tl": "Estudio español una hora todos los días.",
+    "en": "I study Spanish an hour every day."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-alcanzar-01",
+  "type": "verb",
+  "tl": "alcanzar",
+  "en": "to reach, to be enough",
+  "accept": [
+   "to reach",
+   "to catch up",
+   "to be enough"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "notes": "Regular -ar; preterite yo: alcancé (z>c). 'No me alcanza' = I can't afford it / not enough. 'Alcanzar a' + inf = manage to.",
+  "root": "alcanz-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "alcanzar",
+   "pres_yo": "alcanzo",
+   "pres_tu": "alcanzas",
+   "pres_el": "alcanza",
+   "pres_nos": "alcanzamos",
+   "pres_ellos": "alcanzan",
+   "pret_yo": "alcancé",
+   "pret_tu": "alcanzaste",
+   "pret_el": "alcanzó",
+   "pret_nos": "alcanzamos",
+   "pret_ellos": "alcanzaron",
+   "gerund": "alcanzando",
+   "participle": "alcanzado"
+  },
+  "examples": [
+   {
+    "tl": "No me alcanza para la renta este mes.",
+    "en": "I don't have enough for rent this month."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-nacer-01",
+  "type": "verb",
+  "tl": "nacer",
+  "en": "to be born",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "notes": "Irregular yo: nazco (c>zc). Usually in preterite: 'nací en' = I was born in.",
+  "root": "nac-",
+  "focus": "irregular",
+  "forms": {
+   "infinitive": "nacer",
+   "pres_yo": "nazco",
+   "pres_tu": "naces",
+   "pres_el": "nace",
+   "pres_nos": "nacemos",
+   "pres_ellos": "nacen",
+   "pret_yo": "nací",
+   "pret_tu": "naciste",
+   "pret_el": "nació",
+   "pret_nos": "nacimos",
+   "pret_ellos": "nacieron",
+   "gerund": "naciendo",
+   "participle": "nacido"
+  },
+  "examples": [
+   {
+    "tl": "Nací en Texas, pero crecí en Nueva York.",
+    "en": "I was born in Texas but grew up in New York."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-dirigir-01",
+  "type": "verb",
+  "tl": "dirigir",
+  "en": "to direct, to lead",
+  "accept": [
+   "to lead",
+   "to manage",
+   "to head"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "notes": "Spelling change yo: dirijo (g>j); rest regular -ir. 'Dirigirse a' = head toward / address someone.",
+  "root": "dirig-",
+  "focus": "irregular",
+  "forms": {
+   "infinitive": "dirigir",
+   "pres_yo": "dirijo",
+   "pres_tu": "diriges",
+   "pres_el": "dirige",
+   "pres_nos": "dirigimos",
+   "pres_ellos": "dirigen",
+   "pret_yo": "dirigí",
+   "pret_tu": "dirigiste",
+   "pret_el": "dirigió",
+   "pret_nos": "dirigimos",
+   "pret_ellos": "dirigieron",
+   "gerund": "dirigiendo",
+   "participle": "dirigido"
+  },
+  "examples": [
+   {
+    "tl": "Ella dirige el equipo de ventas.",
+    "en": "She leads the sales team."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-correr-01",
+  "type": "verb",
+  "tl": "correr",
+  "en": "to run",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Regular -er. In Mexico also 'to fire': lo corrieron del trabajo. 'Córrele' (Mex) = hurry up.",
+  "root": "corr-",
+  "focus": "regular-er",
+  "forms": {
+   "infinitive": "correr",
+   "pres_yo": "corro",
+   "pres_tu": "corres",
+   "pres_el": "corre",
+   "pres_nos": "corremos",
+   "pres_ellos": "corren",
+   "pret_yo": "corrí",
+   "pret_tu": "corriste",
+   "pret_el": "corrió",
+   "pret_nos": "corrimos",
+   "pret_ellos": "corrieron",
+   "gerund": "corriendo",
+   "participle": "corrido"
+  },
+  "examples": [
+   {
+    "tl": "Corro en el parque antes del trabajo.",
+    "en": "I run in the park before work."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-utilizar-01",
+  "type": "verb",
+  "tl": "utilizar",
+  "en": "to use, to utilize",
+  "accept": [
+   "to use"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "notes": "Regular -ar; preterite yo: utilicé (z>c). More formal than usar; common in instructions and signs.",
+  "root": "utiliz-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "utilizar",
+   "pres_yo": "utilizo",
+   "pres_tu": "utilizas",
+   "pres_el": "utiliza",
+   "pres_nos": "utilizamos",
+   "pres_ellos": "utilizan",
+   "pret_yo": "utilicé",
+   "pret_tu": "utilizaste",
+   "pret_el": "utilizó",
+   "pret_nos": "utilizamos",
+   "pret_ellos": "utilizaron",
+   "gerund": "utilizando",
+   "participle": "utilizado"
+  },
+  "examples": [
+   {
+    "tl": "Utilizamos la app para pedir el taxi.",
+    "en": "We use the app to order the taxi."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-pagar-01",
+  "type": "verb",
+  "tl": "pagar",
+  "en": "to pay",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Regular -ar; preterite yo: pagué (g>gu). 'Pagar en efectivo / con tarjeta'. 'Yo pago' = my treat.",
+  "root": "pag-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "pagar",
+   "pres_yo": "pago",
+   "pres_tu": "pagas",
+   "pres_el": "paga",
+   "pres_nos": "pagamos",
+   "pres_ellos": "pagan",
+   "pret_yo": "pagué",
+   "pret_tu": "pagaste",
+   "pret_el": "pagó",
+   "pret_nos": "pagamos",
+   "pret_ellos": "pagaron",
+   "gerund": "pagando",
+   "participle": "pagado"
+  },
+  "examples": [
+   {
+    "tl": "Pagué la luz y el agua en el OXXO.",
+    "en": "I paid the electric and water bills at the OXXO."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-ayudar-01",
+  "type": "verb",
+  "tl": "ayudar",
+  "en": "to help",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Regular -ar. '¿Te ayudo?' = Can I help you? 'Ayudar a' + inf.",
+  "root": "ayud-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "ayudar",
+   "pres_yo": "ayudo",
+   "pres_tu": "ayudas",
+   "pres_el": "ayuda",
+   "pres_nos": "ayudamos",
+   "pres_ellos": "ayudan",
+   "pret_yo": "ayudé",
+   "pret_tu": "ayudaste",
+   "pret_el": "ayudó",
+   "pret_nos": "ayudamos",
+   "pret_ellos": "ayudaron",
+   "gerund": "ayudando",
+   "participle": "ayudado"
+  },
+  "examples": [
+   {
+    "tl": "¿Me ayudas con las bolsas?",
+    "en": "Can you help me with the bags?"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-gustar-01",
+  "type": "verb",
+  "tl": "gustar",
+  "en": "to be pleasing (to like)",
+  "accept": [
+   "to like",
+   "to please"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Regular -ar but backwards: 'me gusta el café' = coffee pleases me. Use gusta/gustan with me/te/le/nos/les; 'me gustan los tacos' (plural).",
+  "root": "gust-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "gustar",
+   "pres_yo": "gusto",
+   "pres_tu": "gustas",
+   "pres_el": "gusta",
+   "pres_nos": "gustamos",
+   "pres_ellos": "gustan",
+   "pret_yo": "gusté",
+   "pret_tu": "gustaste",
+   "pret_el": "gustó",
+   "pret_nos": "gustamos",
+   "pret_ellos": "gustaron",
+   "gerund": "gustando",
+   "participle": "gustado"
+  },
+  "examples": [
+   {
+    "tl": "Me gustan mucho los tacos de barbacoa.",
+    "en": "I really like barbacoa tacos."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-jugar-01",
+  "type": "verb",
+  "tl": "jugar",
+  "en": "to play (a game/sport)",
+  "accept": [
+   "to play"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "u>ue in present (juego), the only verb with this change; preterite yo: jugué (g>gu). 'Jugar fútbol' (LatAm, often no 'al').",
+  "root": "jug- (u>ue)",
+  "focus": "stem-change",
+  "forms": {
+   "infinitive": "jugar",
+   "pres_yo": "juego",
+   "pres_tu": "juegas",
+   "pres_el": "juega",
+   "pres_nos": "jugamos",
+   "pres_ellos": "juegan",
+   "pret_yo": "jugué",
+   "pret_tu": "jugaste",
+   "pret_el": "jugó",
+   "pret_nos": "jugamos",
+   "pret_ellos": "jugaron",
+   "gerund": "jugando",
+   "participle": "jugado"
+  },
+  "examples": [
+   {
+    "tl": "Los domingos jugamos fútbol en el parque.",
+    "en": "On Sundays we play soccer in the park."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-escuchar-01",
+  "type": "verb",
+  "tl": "escuchar",
+  "en": "to listen, to hear",
+  "accept": [
+   "to listen",
+   "to hear"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Regular -ar. In LatAm often replaces oír: 'no te escucho' = I can't hear you.",
+  "root": "escuch-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "escuchar",
+   "pres_yo": "escucho",
+   "pres_tu": "escuchas",
+   "pres_el": "escucha",
+   "pres_nos": "escuchamos",
+   "pres_ellos": "escuchan",
+   "pret_yo": "escuché",
+   "pret_tu": "escuchaste",
+   "pret_el": "escuchó",
+   "pret_nos": "escuchamos",
+   "pret_ellos": "escucharon",
+   "gerund": "escuchando",
+   "participle": "escuchado"
+  },
+  "examples": [
+   {
+    "tl": "No te escucho bien, ¿me hablas más fuerte?",
+    "en": "I can't hear you well, can you speak louder?"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-cumplir-01",
+  "type": "verb",
+  "tl": "cumplir",
+  "en": "to fulfill, to turn (age)",
+  "accept": [
+   "to fulfill",
+   "to complete",
+   "to keep (a promise)"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "notes": "Regular -ir. 'Cumplir años' = have a birthday; 'cumplió 30' = turned 30. 'Cumplir con' = meet (requirements).",
+  "root": "cumpl-",
+  "focus": "regular-ir",
+  "forms": {
+   "infinitive": "cumplir",
+   "pres_yo": "cumplo",
+   "pres_tu": "cumples",
+   "pres_el": "cumple",
+   "pres_nos": "cumplimos",
+   "pres_ellos": "cumplen",
+   "pret_yo": "cumplí",
+   "pret_tu": "cumpliste",
+   "pret_el": "cumplió",
+   "pret_nos": "cumplimos",
+   "pret_ellos": "cumplieron",
+   "gerund": "cumpliendo",
+   "participle": "cumplido"
+  },
+  "examples": [
+   {
+    "tl": "Mi hija cumple cinco años el domingo.",
+    "en": "My daughter turns five on Sunday."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-ofrecer-01",
+  "type": "verb",
+  "tl": "ofrecer",
+  "en": "to offer",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "notes": "Irregular yo: ofrezco (c>zc). '¿Qué se le ofrece?' = What can I get you? (shops, usted).",
+  "root": "ofrec-",
+  "focus": "irregular",
+  "forms": {
+   "infinitive": "ofrecer",
+   "pres_yo": "ofrezco",
+   "pres_tu": "ofreces",
+   "pres_el": "ofrece",
+   "pres_nos": "ofrecemos",
+   "pres_ellos": "ofrecen",
+   "pret_yo": "ofrecí",
+   "pret_tu": "ofreciste",
+   "pret_el": "ofreció",
+   "pret_nos": "ofrecimos",
+   "pret_ellos": "ofrecieron",
+   "gerund": "ofreciendo",
+   "participle": "ofrecido"
+  },
+  "examples": [
+   {
+    "tl": "Me ofrecieron el trabajo, pero pagan poco.",
+    "en": "They offered me the job, but the pay is low."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-descubrir-01",
+  "type": "verb",
+  "tl": "descubrir",
+  "en": "to discover, to find out",
+  "accept": [
+   "to discover",
+   "to find out"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "notes": "Regular -ir except participle descubierto. 'Descubrí que' = I found out that.",
+  "root": "descubr-",
+  "focus": "irregular",
+  "forms": {
+   "infinitive": "descubrir",
+   "pres_yo": "descubro",
+   "pres_tu": "descubres",
+   "pres_el": "descubre",
+   "pres_nos": "descubrimos",
+   "pres_ellos": "descubren",
+   "pret_yo": "descubrí",
+   "pret_tu": "descubriste",
+   "pret_el": "descubrió",
+   "pret_nos": "descubrimos",
+   "pret_ellos": "descubrieron",
+   "gerund": "descubriendo",
+   "participle": "descubierto"
+  },
+  "examples": [
+   {
+    "tl": "Descubrí una fonda buenísima cerca de la oficina.",
+    "en": "I discovered a really good little diner near the office."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-levantar-01",
+  "type": "verb",
+  "tl": "levantar",
+  "en": "to lift, to raise",
+  "accept": [
+   "to lift",
+   "to raise",
+   "to pick up"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "notes": "Regular -ar. 'Levantar la mano' = raise your hand. Reflexive levantarse = get up.",
+  "root": "levant-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "levantar",
+   "pres_yo": "levanto",
+   "pres_tu": "levantas",
+   "pres_el": "levanta",
+   "pres_nos": "levantamos",
+   "pres_ellos": "levantan",
+   "pret_yo": "levanté",
+   "pret_tu": "levantaste",
+   "pret_el": "levantó",
+   "pret_nos": "levantamos",
+   "pret_ellos": "levantaron",
+   "gerund": "levantando",
+   "participle": "levantado"
+  },
+  "examples": [
+   {
+    "tl": "Levanté la mano para preguntar.",
+    "en": "I raised my hand to ask a question."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-intentar-01",
+  "type": "verb",
+  "tl": "intentar",
+  "en": "to try, to attempt",
+  "accept": [
+   "to try",
+   "to attempt"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "notes": "Regular -ar. 'Intentar' + inf directly (no 'de'). Spoken LatAm often prefers 'tratar de'.",
+  "root": "intent-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "intentar",
+   "pres_yo": "intento",
+   "pres_tu": "intentas",
+   "pres_el": "intenta",
+   "pres_nos": "intentamos",
+   "pres_ellos": "intentan",
+   "pret_yo": "intenté",
+   "pret_tu": "intentaste",
+   "pret_el": "intentó",
+   "pret_nos": "intentamos",
+   "pret_ellos": "intentaron",
+   "gerund": "intentando",
+   "participle": "intentado"
+  },
+  "examples": [
+   {
+    "tl": "Intenté abrir la puerta pero estaba trabada.",
+    "en": "I tried to open the door but it was stuck."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-usar-01",
+  "type": "verb",
+  "tl": "usar",
+  "en": "to use, to wear",
+  "accept": [
+   "to use",
+   "to wear"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Regular -ar. Also 'wear' in LatAm: 'uso lentes' = I wear glasses.",
+  "root": "us-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "usar",
+   "pres_yo": "uso",
+   "pres_tu": "usas",
+   "pres_el": "usa",
+   "pres_nos": "usamos",
+   "pres_ellos": "usan",
+   "pret_yo": "usé",
+   "pret_tu": "usaste",
+   "pret_el": "usó",
+   "pret_nos": "usamos",
+   "pret_ellos": "usaron",
+   "gerund": "usando",
+   "participle": "usado"
+  },
+  "examples": [
+   {
+    "tl": "Uso Waze para no perderme en la ciudad.",
+    "en": "I use Waze so I don't get lost in the city."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-decidir-01",
+  "type": "verb",
+  "tl": "decidir",
+  "en": "to decide",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "notes": "Regular -ir. 'Decidirse' = make up one's mind. 'Decidí' + inf.",
+  "root": "decid-",
+  "focus": "regular-ir",
+  "forms": {
+   "infinitive": "decidir",
+   "pres_yo": "decido",
+   "pres_tu": "decides",
+   "pres_el": "decide",
+   "pres_nos": "decidimos",
+   "pres_ellos": "deciden",
+   "pret_yo": "decidí",
+   "pret_tu": "decidiste",
+   "pret_el": "decidió",
+   "pret_nos": "decidimos",
+   "pret_ellos": "decidieron",
+   "gerund": "decidiendo",
+   "participle": "decidido"
+  },
+  "examples": [
+   {
+    "tl": "Decidimos rentar en vez de comprar.",
+    "en": "We decided to rent instead of buying."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-repetir-01",
+  "type": "verb",
+  "tl": "repetir",
+  "en": "to repeat",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "e>i in present (repito); 3rd person preterite repitió; gerund repitiendo. '¿Me lo repites?' = Can you say that again?",
+  "root": "repet- (e>i)",
+  "focus": "stem-change",
+  "forms": {
+   "infinitive": "repetir",
+   "pres_yo": "repito",
+   "pres_tu": "repites",
+   "pres_el": "repite",
+   "pres_nos": "repetimos",
+   "pres_ellos": "repiten",
+   "pret_yo": "repetí",
+   "pret_tu": "repetiste",
+   "pret_el": "repitió",
+   "pret_nos": "repetimos",
+   "pret_ellos": "repitieron",
+   "gerund": "repitiendo",
+   "participle": "repetido"
+  },
+  "examples": [
+   {
+    "tl": "¿Me repites tu número, por favor?",
+    "en": "Can you repeat your number for me, please?"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-olvidar-01",
+  "type": "verb",
+  "tl": "olvidar",
+  "en": "to forget",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Regular -ar. Spoken: 'se me olvidó' (it slipped my mind) is more common than 'olvidé'. 'Olvidarse de' = forget about.",
+  "root": "olvid-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "olvidar",
+   "pres_yo": "olvido",
+   "pres_tu": "olvidas",
+   "pres_el": "olvida",
+   "pres_nos": "olvidamos",
+   "pres_ellos": "olvidan",
+   "pret_yo": "olvidé",
+   "pret_tu": "olvidaste",
+   "pret_el": "olvidó",
+   "pret_nos": "olvidamos",
+   "pret_ellos": "olvidaron",
+   "gerund": "olvidando",
+   "participle": "olvidado"
+  },
+  "examples": [
+   {
+    "tl": "Se me olvidó la contraseña otra vez.",
+    "en": "I forgot the password again."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-valer-01",
+  "type": "verb",
+  "tl": "valer",
+  "en": "to be worth, to cost",
+  "accept": [
+   "to be worth",
+   "to cost"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Irregular yo: valgo; rest regular -er. '¿Cuánto vale?' = How much is it? 'Vale la pena' = worth it. 'Me vale' (Mex, rude) = I don't care.",
+  "root": "val-",
+  "focus": "irregular",
+  "forms": {
+   "infinitive": "valer",
+   "pres_yo": "valgo",
+   "pres_tu": "vales",
+   "pres_el": "vale",
+   "pres_nos": "valemos",
+   "pres_ellos": "valen",
+   "pret_yo": "valí",
+   "pret_tu": "valiste",
+   "pret_el": "valió",
+   "pret_nos": "valimos",
+   "pret_ellos": "valieron",
+   "gerund": "valiendo",
+   "participle": "valido"
+  },
+  "examples": [
+   {
+    "tl": "¿Cuánto vale el kilo de aguacate?",
+    "en": "How much is a kilo of avocado?"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-comer-01",
+  "type": "verb",
+  "tl": "comer",
+  "en": "to eat",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "casual": "¿Ya comiste o qué?",
+  "notes": "Regular -er, the model verb. In Mexico comer also = have lunch (la comida, around 2-4 pm).",
+  "root": "com-",
+  "focus": "regular-er",
+  "forms": {
+   "infinitive": "comer",
+   "pres_yo": "como",
+   "pres_tu": "comes",
+   "pres_el": "come",
+   "pres_nos": "comemos",
+   "pres_ellos": "comen",
+   "pret_yo": "comí",
+   "pret_tu": "comiste",
+   "pret_el": "comió",
+   "pret_nos": "comimos",
+   "pret_ellos": "comieron",
+   "gerund": "comiendo",
+   "participle": "comido"
+  },
+  "examples": [
+   {
+    "tl": "¿Ya comiste? Hay pozole.",
+    "en": "Did you eat already? There's pozole."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-beber-01",
+  "type": "verb",
+  "tl": "beber",
+  "en": "to drink",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "notes": "Regular -er. In LatAm 'tomar' is far more common for drinking; beber sounds formal/written.",
+  "root": "beb-",
+  "focus": "regular-er",
+  "forms": {
+   "infinitive": "beber",
+   "pres_yo": "bebo",
+   "pres_tu": "bebes",
+   "pres_el": "bebe",
+   "pres_nos": "bebemos",
+   "pres_ellos": "beben",
+   "pret_yo": "bebí",
+   "pret_tu": "bebiste",
+   "pret_el": "bebió",
+   "pret_nos": "bebimos",
+   "pret_ellos": "bebieron",
+   "gerund": "bebiendo",
+   "participle": "bebido"
+  },
+  "examples": [
+   {
+    "tl": "Bebo dos litros de agua al día.",
+    "en": "I drink two liters of water a day."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-dormir-01",
+  "type": "verb",
+  "tl": "dormir",
+  "en": "to sleep",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "o>ue in present (duermo); o>u in 3rd person preterite (durmió) and gerund (durmiendo). Reflexive dormirse = fall asleep.",
+  "root": "dorm- (o>ue)",
+  "focus": "stem-change",
+  "forms": {
+   "infinitive": "dormir",
+   "pres_yo": "duermo",
+   "pres_tu": "duermes",
+   "pres_el": "duerme",
+   "pres_nos": "dormimos",
+   "pres_ellos": "duermen",
+   "pret_yo": "dormí",
+   "pret_tu": "dormiste",
+   "pret_el": "durmió",
+   "pret_nos": "dormimos",
+   "pret_ellos": "durmieron",
+   "gerund": "durmiendo",
+   "participle": "dormido"
+  },
+  "examples": [
+   {
+    "tl": "Dormí muy mal por el calor.",
+    "en": "I slept really badly because of the heat."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-cocinar-01",
+  "type": "verb",
+  "tl": "cocinar",
+  "en": "to cook",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Regular -ar. '¿Quién cocina hoy?' = Who's cooking today?",
+  "root": "cocin-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "cocinar",
+   "pres_yo": "cocino",
+   "pres_tu": "cocinas",
+   "pres_el": "cocina",
+   "pres_nos": "cocinamos",
+   "pres_ellos": "cocinan",
+   "pret_yo": "cociné",
+   "pret_tu": "cocinaste",
+   "pret_el": "cocinó",
+   "pret_nos": "cocinamos",
+   "pret_ellos": "cocinaron",
+   "gerund": "cocinando",
+   "participle": "cocinado"
+  },
+  "examples": [
+   {
+    "tl": "Mi suegra cocina los mejores tamales.",
+    "en": "My mother-in-law cooks the best tamales."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-limpiar-01",
+  "type": "verb",
+  "tl": "limpiar",
+  "en": "to clean",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Regular -ar (yo: limpio, no accent). 'Limpiar la casa' = clean the house.",
+  "root": "limpi-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "limpiar",
+   "pres_yo": "limpio",
+   "pres_tu": "limpias",
+   "pres_el": "limpia",
+   "pres_nos": "limpiamos",
+   "pres_ellos": "limpian",
+   "pret_yo": "limpié",
+   "pret_tu": "limpiaste",
+   "pret_el": "limpió",
+   "pret_nos": "limpiamos",
+   "pret_ellos": "limpiaron",
+   "gerund": "limpiando",
+   "participle": "limpiado"
+  },
+  "examples": [
+   {
+    "tl": "Limpié todo el departamento el sábado.",
+    "en": "I cleaned the whole apartment on Saturday."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-lavar-01",
+  "type": "verb",
+  "tl": "lavar",
+  "en": "to wash",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Regular -ar. 'Lavar los trastes' (Mex) = do the dishes; 'lavar la ropa' = do laundry. Reflexive: lavarse las manos.",
+  "root": "lav-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "lavar",
+   "pres_yo": "lavo",
+   "pres_tu": "lavas",
+   "pres_el": "lava",
+   "pres_nos": "lavamos",
+   "pres_ellos": "lavan",
+   "pret_yo": "lavé",
+   "pret_tu": "lavaste",
+   "pret_el": "lavó",
+   "pret_nos": "lavamos",
+   "pret_ellos": "lavaron",
+   "gerund": "lavando",
+   "participle": "lavado"
+  },
+  "examples": [
+   {
+    "tl": "Lavo los trastes y tú sacas la basura.",
+    "en": "I'll wash the dishes and you take out the trash."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-comprar-01",
+  "type": "verb",
+  "tl": "comprar",
+  "en": "to buy",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Regular -ar. 'Comprar en' + store. 'Ir de compras' = go shopping.",
+  "root": "compr-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "comprar",
+   "pres_yo": "compro",
+   "pres_tu": "compras",
+   "pres_el": "compra",
+   "pres_nos": "compramos",
+   "pres_ellos": "compran",
+   "pret_yo": "compré",
+   "pret_tu": "compraste",
+   "pret_el": "compró",
+   "pret_nos": "compramos",
+   "pret_ellos": "compraron",
+   "gerund": "comprando",
+   "participle": "comprado"
+  },
+  "examples": [
+   {
+    "tl": "Compré fruta en el tianguis.",
+    "en": "I bought fruit at the street market."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-vender-01",
+  "type": "verb",
+  "tl": "vender",
+  "en": "to sell",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Regular -er. 'Se vende' = for sale. '¿Venden...?' = Do you sell...?",
+  "root": "vend-",
+  "focus": "regular-er",
+  "forms": {
+   "infinitive": "vender",
+   "pres_yo": "vendo",
+   "pres_tu": "vendes",
+   "pres_el": "vende",
+   "pres_nos": "vendemos",
+   "pres_ellos": "venden",
+   "pret_yo": "vendí",
+   "pret_tu": "vendiste",
+   "pret_el": "vendió",
+   "pret_nos": "vendimos",
+   "pret_ellos": "vendieron",
+   "gerund": "vendiendo",
+   "participle": "vendido"
+  },
+  "examples": [
+   {
+    "tl": "¿Venden tarjetas SIM aquí?",
+    "en": "Do you sell SIM cards here?"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-manejar-01",
+  "type": "verb",
+  "tl": "manejar",
+  "en": "to drive, to handle",
+  "accept": [
+   "to drive",
+   "to handle",
+   "to manage"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Regular -ar. LatAm word for drive (Spain: conducir). Also 'handle/manage' something.",
+  "root": "manej-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "manejar",
+   "pres_yo": "manejo",
+   "pres_tu": "manejas",
+   "pres_el": "maneja",
+   "pres_nos": "manejamos",
+   "pres_ellos": "manejan",
+   "pret_yo": "manejé",
+   "pret_tu": "manejaste",
+   "pret_el": "manejó",
+   "pret_nos": "manejamos",
+   "pret_ellos": "manejaron",
+   "gerund": "manejando",
+   "participle": "manejado"
+  },
+  "examples": [
+   {
+    "tl": "No manejo en la Ciudad de México, prefiero el metro.",
+    "en": "I don't drive in Mexico City, I prefer the metro."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-caminar-01",
+  "type": "verb",
+  "tl": "caminar",
+  "en": "to walk",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Regular -ar. LatAm prefers caminar over andar for 'walk'. 'Caminando' = on foot.",
+  "root": "camin-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "caminar",
+   "pres_yo": "camino",
+   "pres_tu": "caminas",
+   "pres_el": "camina",
+   "pres_nos": "caminamos",
+   "pres_ellos": "caminan",
+   "pret_yo": "caminé",
+   "pret_tu": "caminaste",
+   "pret_el": "caminó",
+   "pret_nos": "caminamos",
+   "pret_ellos": "caminaron",
+   "gerund": "caminando",
+   "participle": "caminado"
+  },
+  "examples": [
+   {
+    "tl": "Caminamos veinte minutos hasta la playa.",
+    "en": "We walked twenty minutes to the beach."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-viajar-01",
+  "type": "verb",
+  "tl": "viajar",
+  "en": "to travel",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Regular -ar. 'Viajar en avión/autobús'. 'Buen viaje' = have a good trip.",
+  "root": "viaj-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "viajar",
+   "pres_yo": "viajo",
+   "pres_tu": "viajas",
+   "pres_el": "viaja",
+   "pres_nos": "viajamos",
+   "pres_ellos": "viajan",
+   "pret_yo": "viajé",
+   "pret_tu": "viajaste",
+   "pret_el": "viajó",
+   "pret_nos": "viajamos",
+   "pret_ellos": "viajaron",
+   "gerund": "viajando",
+   "participle": "viajado"
+  },
+  "examples": [
+   {
+    "tl": "Viajé a Oaxaca en autobús la semana pasada.",
+    "en": "I traveled to Oaxaca by bus last week."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-aprender-01",
+  "type": "verb",
+  "tl": "aprender",
+  "en": "to learn",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Regular -er. 'Aprender a' + inf = learn to do.",
+  "root": "aprend-",
+  "focus": "regular-er",
+  "forms": {
+   "infinitive": "aprender",
+   "pres_yo": "aprendo",
+   "pres_tu": "aprendes",
+   "pres_el": "aprende",
+   "pres_nos": "aprendemos",
+   "pres_ellos": "aprenden",
+   "pret_yo": "aprendí",
+   "pret_tu": "aprendiste",
+   "pret_el": "aprendió",
+   "pret_nos": "aprendimos",
+   "pret_ellos": "aprendieron",
+   "gerund": "aprendiendo",
+   "participle": "aprendido"
+  },
+  "examples": [
+   {
+    "tl": "Aprendí a hacer salsa verde con mi vecina.",
+    "en": "I learned to make salsa verde with my neighbor."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-ensenar-01",
+  "type": "verb",
+  "tl": "enseñar",
+  "en": "to teach, to show",
+  "accept": [
+   "to teach",
+   "to show"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Regular -ar. Both 'teach' and 'show': 'enséñame' = show me. 'Enseñar a' + inf.",
+  "root": "enseñ-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "enseñar",
+   "pres_yo": "enseño",
+   "pres_tu": "enseñas",
+   "pres_el": "enseña",
+   "pres_nos": "enseñamos",
+   "pres_ellos": "enseñan",
+   "pret_yo": "enseñé",
+   "pret_tu": "enseñaste",
+   "pret_el": "enseñó",
+   "pret_nos": "enseñamos",
+   "pret_ellos": "enseñaron",
+   "gerund": "enseñando",
+   "participle": "enseñado"
+  },
+  "examples": [
+   {
+    "tl": "Mi cuñado me enseñó a manejar estándar.",
+    "en": "My brother-in-law taught me to drive stick."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-mandar-01",
+  "type": "verb",
+  "tl": "mandar",
+  "en": "to send, to order",
+  "accept": [
+   "to send",
+   "to order",
+   "to boss around"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Regular -ar. Spoken LatAm uses mandar for send: 'mándame la ubicación'. '¿Mande?' (Mex) = Pardon? / Yes?",
+  "root": "mand-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "mandar",
+   "pres_yo": "mando",
+   "pres_tu": "mandas",
+   "pres_el": "manda",
+   "pres_nos": "mandamos",
+   "pres_ellos": "mandan",
+   "pret_yo": "mandé",
+   "pret_tu": "mandaste",
+   "pret_el": "mandó",
+   "pret_nos": "mandamos",
+   "pret_ellos": "mandaron",
+   "gerund": "mandando",
+   "participle": "mandado"
+  },
+  "examples": [
+   {
+    "tl": "Te mandé la ubicación por WhatsApp.",
+    "en": "I sent you the location on WhatsApp."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-enviar-01",
+  "type": "verb",
+  "tl": "enviar",
+  "en": "to send",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "notes": "Regular -ar with accent on í in stressed forms: envío, envías, envía, envían (not nosotros). More formal/written than mandar.",
+  "root": "envi-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "enviar",
+   "pres_yo": "envío",
+   "pres_tu": "envías",
+   "pres_el": "envía",
+   "pres_nos": "enviamos",
+   "pres_ellos": "envían",
+   "pret_yo": "envié",
+   "pret_tu": "enviaste",
+   "pret_el": "envió",
+   "pret_nos": "enviamos",
+   "pret_ellos": "enviaron",
+   "gerund": "enviando",
+   "participle": "enviado"
+  },
+  "examples": [
+   {
+    "tl": "Envié los documentos por correo certificado.",
+    "en": "I sent the documents by certified mail."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-subir-01",
+  "type": "verb",
+  "tl": "subir",
+  "en": "to go up, to upload",
+  "accept": [
+   "to go up",
+   "to climb",
+   "to get on",
+   "to upload",
+   "to raise"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Regular -ir. 'Subir al camión' = get on the bus; 'subir una foto' = upload; 'subió el precio' = the price went up.",
+  "root": "sub-",
+  "focus": "regular-ir",
+  "forms": {
+   "infinitive": "subir",
+   "pres_yo": "subo",
+   "pres_tu": "subes",
+   "pres_el": "sube",
+   "pres_nos": "subimos",
+   "pres_ellos": "suben",
+   "pret_yo": "subí",
+   "pret_tu": "subiste",
+   "pret_el": "subió",
+   "pret_nos": "subimos",
+   "pret_ellos": "subieron",
+   "gerund": "subiendo",
+   "participle": "subido"
+  },
+  "examples": [
+   {
+    "tl": "Subí las fotos del viaje a Instagram.",
+    "en": "I uploaded the trip photos to Instagram."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-bajar-01",
+  "type": "verb",
+  "tl": "bajar",
+  "en": "to go down, to download",
+  "accept": [
+   "to go down",
+   "to get off",
+   "to download",
+   "to lower"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Regular -ar. 'Bajar del camión' = get off the bus; 'bajar una app' = download; 'bájale' = turn it down.",
+  "root": "baj-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "bajar",
+   "pres_yo": "bajo",
+   "pres_tu": "bajas",
+   "pres_el": "baja",
+   "pres_nos": "bajamos",
+   "pres_ellos": "bajan",
+   "pret_yo": "bajé",
+   "pret_tu": "bajaste",
+   "pret_el": "bajó",
+   "pret_nos": "bajamos",
+   "pret_ellos": "bajaron",
+   "gerund": "bajando",
+   "participle": "bajado"
+  },
+  "examples": [
+   {
+    "tl": "Me bajo en la siguiente parada.",
+    "en": "I'm getting off at the next stop."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-cerrar-01",
+  "type": "verb",
+  "tl": "cerrar",
+  "en": "to close",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "e>ie in present (cierro), not nosotros. '¿A qué hora cierran?' = What time do you close?",
+  "root": "cerr- (e>ie)",
+  "focus": "stem-change",
+  "forms": {
+   "infinitive": "cerrar",
+   "pres_yo": "cierro",
+   "pres_tu": "cierras",
+   "pres_el": "cierra",
+   "pres_nos": "cerramos",
+   "pres_ellos": "cierran",
+   "pret_yo": "cerré",
+   "pret_tu": "cerraste",
+   "pret_el": "cerró",
+   "pret_nos": "cerramos",
+   "pret_ellos": "cerraron",
+   "gerund": "cerrando",
+   "participle": "cerrado"
+  },
+  "examples": [
+   {
+    "tl": "Cierran a las diez, todavía alcanzamos.",
+    "en": "They close at ten, we can still make it."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-prender-01",
+  "type": "verb",
+  "tl": "prender",
+  "en": "to turn on, to light",
+  "accept": [
+   "to turn on",
+   "to light"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Regular -er. LatAm word for turn on (lights, TV, car); Spain uses encender. 'Prender la luz'.",
+  "root": "prend-",
+  "focus": "regular-er",
+  "forms": {
+   "infinitive": "prender",
+   "pres_yo": "prendo",
+   "pres_tu": "prendes",
+   "pres_el": "prende",
+   "pres_nos": "prendemos",
+   "pres_ellos": "prenden",
+   "pret_yo": "prendí",
+   "pret_tu": "prendiste",
+   "pret_el": "prendió",
+   "pret_nos": "prendimos",
+   "pret_ellos": "prendieron",
+   "gerund": "prendiendo",
+   "participle": "prendido"
+  },
+  "examples": [
+   {
+    "tl": "Prende la luz, no veo nada.",
+    "en": "Turn on the light, I can't see anything."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-apagar-01",
+  "type": "verb",
+  "tl": "apagar",
+  "en": "to turn off, to put out",
+  "accept": [
+   "to turn off",
+   "to switch off"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Regular -ar; preterite yo: apagué (g>gu). 'Apagar el celular' = turn off the phone. 'Se apagó' = it went out/off.",
+  "root": "apag-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "apagar",
+   "pres_yo": "apago",
+   "pres_tu": "apagas",
+   "pres_el": "apaga",
+   "pres_nos": "apagamos",
+   "pres_ellos": "apagan",
+   "pret_yo": "apagué",
+   "pret_tu": "apagaste",
+   "pret_el": "apagó",
+   "pret_nos": "apagamos",
+   "pret_ellos": "apagaron",
+   "gerund": "apagando",
+   "participle": "apagado"
+  },
+  "examples": [
+   {
+    "tl": "¿Apagaste la estufa antes de salir?",
+    "en": "Did you turn off the stove before leaving?"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-mover-01",
+  "type": "verb",
+  "tl": "mover",
+  "en": "to move (something)",
+  "accept": [
+   "to move"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "notes": "o>ue in present (muevo), not nosotros. For moving house use mudarse, not mover. 'Muévete' = move / hurry up.",
+  "root": "mov- (o>ue)",
+  "focus": "stem-change",
+  "forms": {
+   "infinitive": "mover",
+   "pres_yo": "muevo",
+   "pres_tu": "mueves",
+   "pres_el": "mueve",
+   "pres_nos": "movemos",
+   "pres_ellos": "mueven",
+   "pret_yo": "moví",
+   "pret_tu": "moviste",
+   "pret_el": "movió",
+   "pret_nos": "movimos",
+   "pret_ellos": "movieron",
+   "gerund": "moviendo",
+   "participle": "movido"
+  },
+  "examples": [
+   {
+    "tl": "Movimos el sofá para que entrara la mesa.",
+    "en": "We moved the couch so the table would fit."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-sentarse-01",
+  "type": "verb",
+  "tl": "sentarse",
+  "en": "to sit down",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Reflexive; e>ie in present (me siento, same spelling as sentir!), not nosotros. 'Siéntate' = sit down; 'siéntese' (usted).",
+  "root": "sent- (e>ie)",
+  "focus": "reflexive",
+  "forms": {
+   "infinitive": "sentarse",
+   "pres_yo": "me siento",
+   "pres_tu": "te sientas",
+   "pres_el": "se sienta",
+   "pres_nos": "nos sentamos",
+   "pres_ellos": "se sientan",
+   "pret_yo": "me senté",
+   "pret_tu": "te sentaste",
+   "pret_el": "se sentó",
+   "pret_nos": "nos sentamos",
+   "pret_ellos": "se sentaron",
+   "gerund": "sentándose",
+   "participle": "sentado"
+  },
+  "examples": [
+   {
+    "tl": "Nos sentamos afuera porque adentro hacía calor.",
+    "en": "We sat outside because it was hot inside."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-levantarse-01",
+  "type": "verb",
+  "tl": "levantarse",
+  "en": "to get up",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Reflexive, regular -ar. 'Me levanto a las seis' = I get up at six. Without se: levantar = lift.",
+  "root": "levant-",
+  "focus": "reflexive",
+  "forms": {
+   "infinitive": "levantarse",
+   "pres_yo": "me levanto",
+   "pres_tu": "te levantas",
+   "pres_el": "se levanta",
+   "pres_nos": "nos levantamos",
+   "pres_ellos": "se levantan",
+   "pret_yo": "me levanté",
+   "pret_tu": "te levantaste",
+   "pret_el": "se levantó",
+   "pret_nos": "nos levantamos",
+   "pret_ellos": "se levantaron",
+   "gerund": "levantándose",
+   "participle": "levantado"
+  },
+  "examples": [
+   {
+    "tl": "Me levanto a las seis para ir al gimnasio.",
+    "en": "I get up at six to go to the gym."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-banarse-01",
+  "type": "verb",
+  "tl": "bañarse",
+  "en": "to shower, to bathe",
+  "accept": [
+   "to take a shower",
+   "to bathe"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Reflexive, regular -ar. In LatAm bañarse = take a shower (not just a bath); 'ducharse' is more Spain.",
+  "root": "bañ-",
+  "focus": "reflexive",
+  "forms": {
+   "infinitive": "bañarse",
+   "pres_yo": "me baño",
+   "pres_tu": "te bañas",
+   "pres_el": "se baña",
+   "pres_nos": "nos bañamos",
+   "pres_ellos": "se bañan",
+   "pret_yo": "me bañé",
+   "pret_tu": "te bañaste",
+   "pret_el": "se bañó",
+   "pret_nos": "nos bañamos",
+   "pret_ellos": "se bañaron",
+   "gerund": "bañándose",
+   "participle": "bañado"
+  },
+  "examples": [
+   {
+    "tl": "Me baño rapidito y nos vamos.",
+    "en": "I'll shower real quick and we'll go."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-acostarse-01",
+  "type": "verb",
+  "tl": "acostarse",
+  "en": "to go to bed, to lie down",
+  "accept": [
+   "to go to bed",
+   "to lie down"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Reflexive; o>ue in present (me acuesto), not nosotros. '¿A qué hora te acuestas?' = What time do you go to bed?",
+  "root": "acost- (o>ue)",
+  "focus": "reflexive",
+  "forms": {
+   "infinitive": "acostarse",
+   "pres_yo": "me acuesto",
+   "pres_tu": "te acuestas",
+   "pres_el": "se acuesta",
+   "pres_nos": "nos acostamos",
+   "pres_ellos": "se acuestan",
+   "pret_yo": "me acosté",
+   "pret_tu": "te acostaste",
+   "pret_el": "se acostó",
+   "pret_nos": "nos acostamos",
+   "pret_ellos": "se acostaron",
+   "gerund": "acostándose",
+   "participle": "acostado"
+  },
+  "examples": [
+   {
+    "tl": "Anoche me acosté a las dos de la mañana.",
+    "en": "Last night I went to bed at two in the morning."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-despertarse-01",
+  "type": "verb",
+  "tl": "despertarse",
+  "en": "to wake up",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Reflexive; e>ie in present (me despierto), not nosotros. 'Despiértame' = wake me up.",
+  "root": "despert- (e>ie)",
+  "focus": "reflexive",
+  "forms": {
+   "infinitive": "despertarse",
+   "pres_yo": "me despierto",
+   "pres_tu": "te despiertas",
+   "pres_el": "se despierta",
+   "pres_nos": "nos despertamos",
+   "pres_ellos": "se despiertan",
+   "pret_yo": "me desperté",
+   "pret_tu": "te despertaste",
+   "pret_el": "se despertó",
+   "pret_nos": "nos despertamos",
+   "pret_ellos": "se despertaron",
+   "gerund": "despertándose",
+   "participle": "despertado"
+  },
+  "examples": [
+   {
+    "tl": "Me despierto con el ruido de los camiones.",
+    "en": "I wake up to the noise of the buses."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-vestirse-01",
+  "type": "verb",
+  "tl": "vestirse",
+  "en": "to get dressed",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "notes": "Reflexive; e>i in present (me visto) and 3rd person preterite (se vistió); gerund vistiéndose.",
+  "root": "vest- (e>i)",
+  "focus": "reflexive",
+  "forms": {
+   "infinitive": "vestirse",
+   "pres_yo": "me visto",
+   "pres_tu": "te vistes",
+   "pres_el": "se viste",
+   "pres_nos": "nos vestimos",
+   "pres_ellos": "se visten",
+   "pret_yo": "me vestí",
+   "pret_tu": "te vestiste",
+   "pret_el": "se vistió",
+   "pret_nos": "nos vestimos",
+   "pret_ellos": "se vistieron",
+   "gerund": "vistiéndose",
+   "participle": "vestido"
+  },
+  "examples": [
+   {
+    "tl": "Se vistió en cinco minutos y salió corriendo.",
+    "en": "He got dressed in five minutes and ran out."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-quedarse-01",
+  "type": "verb",
+  "tl": "quedarse",
+  "en": "to stay",
+  "accept": [
+   "to remain",
+   "to keep"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Reflexive, regular -ar. 'Me quedo en casa' = I'm staying home. 'Quédate con el cambio' = keep the change.",
+  "root": "qued-",
+  "focus": "reflexive",
+  "forms": {
+   "infinitive": "quedarse",
+   "pres_yo": "me quedo",
+   "pres_tu": "te quedas",
+   "pres_el": "se queda",
+   "pres_nos": "nos quedamos",
+   "pres_ellos": "se quedan",
+   "pret_yo": "me quedé",
+   "pret_tu": "te quedaste",
+   "pret_el": "se quedó",
+   "pret_nos": "nos quedamos",
+   "pret_ellos": "se quedaron",
+   "gerund": "quedándose",
+   "participle": "quedado"
+  },
+  "examples": [
+   {
+    "tl": "Nos quedamos en un Airbnb cerca del centro.",
+    "en": "We stayed in an Airbnb near downtown."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-irse-01",
+  "type": "verb",
+  "tl": "irse",
+  "en": "to leave, to go away",
+  "accept": [
+   "to leave",
+   "to go away"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Reflexive form of ir: me voy, te vas, se va; preterite me fui, se fue; gerund yéndose. 'Ya me voy' = I'm leaving. 'Vámonos' = let's go.",
+  "root": "-",
+  "focus": "reflexive",
+  "forms": {
+   "infinitive": "irse",
+   "pres_yo": "me voy",
+   "pres_tu": "te vas",
+   "pres_el": "se va",
+   "pres_nos": "nos vamos",
+   "pres_ellos": "se van",
+   "pret_yo": "me fui",
+   "pret_tu": "te fuiste",
+   "pret_el": "se fue",
+   "pret_nos": "nos fuimos",
+   "pret_ellos": "se fueron",
+   "gerund": "yéndose",
+   "participle": "ido"
+  },
+  "examples": [
+   {
+    "tl": "Ya me voy, se me hace tarde.",
+    "en": "I'm leaving now, I'm running late."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-ponerse-01",
+  "type": "verb",
+  "tl": "ponerse",
+  "en": "to put on, to become",
+  "accept": [
+   "to put on",
+   "to become",
+   "to get"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Reflexive form of poner: me pongo, me puse; participle puesto. 'Ponerse' + adj = become (se puso rojo). 'Ponte el suéter' = put on your sweater.",
+  "root": "pon-",
+  "focus": "reflexive",
+  "forms": {
+   "infinitive": "ponerse",
+   "pres_yo": "me pongo",
+   "pres_tu": "te pones",
+   "pres_el": "se pone",
+   "pres_nos": "nos ponemos",
+   "pres_ellos": "se ponen",
+   "pret_yo": "me puse",
+   "pret_tu": "te pusiste",
+   "pret_el": "se puso",
+   "pret_nos": "nos pusimos",
+   "pret_ellos": "se pusieron",
+   "gerund": "poniéndose",
+   "participle": "puesto"
+  },
+  "examples": [
+   {
+    "tl": "Se puso nervioso en la entrevista.",
+    "en": "He got nervous in the interview."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-acordarse-01",
+  "type": "verb",
+  "tl": "acordarse",
+  "en": "to remember",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Reflexive; o>ue in present (me acuerdo), not nosotros. 'Acordarse de' + thing. Spoken favorite over recordar: '¿Te acuerdas?'",
+  "root": "acord- (o>ue)",
+  "focus": "reflexive",
+  "forms": {
+   "infinitive": "acordarse",
+   "pres_yo": "me acuerdo",
+   "pres_tu": "te acuerdas",
+   "pres_el": "se acuerda",
+   "pres_nos": "nos acordamos",
+   "pres_ellos": "se acuerdan",
+   "pret_yo": "me acordé",
+   "pret_tu": "te acordaste",
+   "pret_el": "se acordó",
+   "pret_nos": "nos acordamos",
+   "pret_ellos": "se acordaron",
+   "gerund": "acordándose",
+   "participle": "acordado"
+  },
+  "examples": [
+   {
+    "tl": "¿Te acuerdas del restaurante al que fuimos?",
+    "en": "Do you remember the restaurant we went to?"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-preocuparse-01",
+  "type": "verb",
+  "tl": "preocuparse",
+  "en": "to worry",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 1,
+  "notes": "Reflexive, regular -ar. 'No te preocupes' = don't worry (very common). 'Preocuparse por' = worry about.",
+  "root": "preocup-",
+  "focus": "reflexive",
+  "forms": {
+   "infinitive": "preocuparse",
+   "pres_yo": "me preocupo",
+   "pres_tu": "te preocupas",
+   "pres_el": "se preocupa",
+   "pres_nos": "nos preocupamos",
+   "pres_ellos": "se preocupan",
+   "pret_yo": "me preocupé",
+   "pret_tu": "te preocupaste",
+   "pret_el": "se preocupó",
+   "pret_nos": "nos preocupamos",
+   "pret_ellos": "se preocuparon",
+   "gerund": "preocupándose",
+   "participle": "preocupado"
+  },
+  "examples": [
+   {
+    "tl": "Mi mamá se preocupa cuando no le contesto.",
+    "en": "My mom worries when I don't answer her."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-divertirse-01",
+  "type": "verb",
+  "tl": "divertirse",
+  "en": "to have fun",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Reflexive; e>ie in present (me divierto); e>i in 3rd person preterite (se divirtió) and gerund (divirtiéndose). '¡Que te diviertas!' = have fun!",
+  "root": "divert- (e>ie)",
+  "focus": "reflexive",
+  "forms": {
+   "infinitive": "divertirse",
+   "pres_yo": "me divierto",
+   "pres_tu": "te diviertes",
+   "pres_el": "se divierte",
+   "pres_nos": "nos divertimos",
+   "pres_ellos": "se divierten",
+   "pret_yo": "me divertí",
+   "pret_tu": "te divertiste",
+   "pret_el": "se divirtió",
+   "pret_nos": "nos divertimos",
+   "pret_ellos": "se divirtieron",
+   "gerund": "divirtiéndose",
+   "participle": "divertido"
+  },
+  "examples": [
+   {
+    "tl": "Nos divertimos mucho en la boda.",
+    "en": "We had a lot of fun at the wedding."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-reirse-01",
+  "type": "verb",
+  "tl": "reírse",
+  "en": "to laugh",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Reflexive; e>i with accents: me río, te ríes, se ríe, nos reímos, se ríen. Preterite se rio (RAE: no accent), se rieron. 'Reírse de' = laugh at.",
+  "root": "re-/rí- (e>i)",
+  "focus": "reflexive",
+  "forms": {
+   "infinitive": "reírse",
+   "pres_yo": "me río",
+   "pres_tu": "te ríes",
+   "pres_el": "se ríe",
+   "pres_nos": "nos reímos",
+   "pres_ellos": "se ríen",
+   "pret_yo": "me reí",
+   "pret_tu": "te reíste",
+   "pret_el": "se rio",
+   "pret_nos": "nos reímos",
+   "pret_ellos": "se rieron",
+   "gerund": "riéndose",
+   "participle": "reído"
+  },
+  "examples": [
+   {
+    "tl": "Nos reímos toda la noche con sus chistes.",
+    "en": "We laughed all night at his jokes."
+   }
+  ],
+  "confidence": "check"
+ },
+ {
+  "id": "verb-casarse-01",
+  "type": "verb",
+  "tl": "casarse",
+  "en": "to get married",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "notes": "Reflexive, regular -ar. 'Casarse con' = marry someone. 'Nos casamos' = we got married. 'Casado/a' = married.",
+  "root": "cas-",
+  "focus": "reflexive",
+  "forms": {
+   "infinitive": "casarse",
+   "pres_yo": "me caso",
+   "pres_tu": "te casas",
+   "pres_el": "se casa",
+   "pres_nos": "nos casamos",
+   "pres_ellos": "se casan",
+   "pret_yo": "me casé",
+   "pret_tu": "te casaste",
+   "pret_el": "se casó",
+   "pret_nos": "nos casamos",
+   "pret_ellos": "se casaron",
+   "gerund": "casándose",
+   "participle": "casado"
+  },
+  "examples": [
+   {
+    "tl": "Nos casamos en Monterrey hace dos años.",
+    "en": "We got married in Monterrey two years ago."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-enojarse-01",
+  "type": "verb",
+  "tl": "enojarse",
+  "en": "to get angry",
+  "accept": [
+   "to get mad"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "notes": "Reflexive, regular -ar. LatAm word (Spain: enfadarse). 'No te enojes' = don't get mad. 'Enojado' = angry.",
+  "root": "enoj-",
+  "focus": "reflexive",
+  "forms": {
+   "infinitive": "enojarse",
+   "pres_yo": "me enojo",
+   "pres_tu": "te enojas",
+   "pres_el": "se enoja",
+   "pres_nos": "nos enojamos",
+   "pres_ellos": "se enojan",
+   "pret_yo": "me enojé",
+   "pret_tu": "te enojaste",
+   "pret_el": "se enojó",
+   "pret_nos": "nos enojamos",
+   "pret_ellos": "se enojaron",
+   "gerund": "enojándose",
+   "participle": "enojado"
+  },
+  "examples": [
+   {
+    "tl": "Mi jefe se enojó porque llegué tarde.",
+    "en": "My boss got mad because I was late."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-probar-01",
+  "type": "verb",
+  "tl": "probar",
+  "en": "to try, to taste",
+  "accept": [
+   "to try",
+   "to taste",
+   "to test",
+   "to prove"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "o>ue in present (pruebo), not nosotros. 'Pruébalo' = try it (food). 'Probarse' = try on clothes.",
+  "root": "prob- (o>ue)",
+  "focus": "stem-change",
+  "forms": {
+   "infinitive": "probar",
+   "pres_yo": "pruebo",
+   "pres_tu": "pruebas",
+   "pres_el": "prueba",
+   "pres_nos": "probamos",
+   "pres_ellos": "prueban",
+   "pret_yo": "probé",
+   "pret_tu": "probaste",
+   "pret_el": "probó",
+   "pret_nos": "probamos",
+   "pret_ellos": "probaron",
+   "gerund": "probando",
+   "participle": "probado"
+  },
+  "examples": [
+   {
+    "tl": "¿Ya probaste los tacos de canasta?",
+    "en": "Have you tried the basket tacos yet?"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-cargar-01",
+  "type": "verb",
+  "tl": "cargar",
+  "en": "to charge, to carry",
+  "accept": [
+   "to charge (a battery)",
+   "to carry",
+   "to load"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Regular -ar; preterite yo: cargué (g>gu). 'Cargar el celular' = charge the phone; 'cargar las bolsas' = carry the bags.",
+  "root": "carg-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "cargar",
+   "pres_yo": "cargo",
+   "pres_tu": "cargas",
+   "pres_el": "carga",
+   "pres_nos": "cargamos",
+   "pres_ellos": "cargan",
+   "pret_yo": "cargué",
+   "pret_tu": "cargaste",
+   "pret_el": "cargó",
+   "pret_nos": "cargamos",
+   "pret_ellos": "cargaron",
+   "gerund": "cargando",
+   "participle": "cargado"
+  },
+  "examples": [
+   {
+    "tl": "Cargué el celular toda la noche.",
+    "en": "I charged my phone all night."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-platicar-01",
+  "type": "verb",
+  "tl": "platicar",
+  "en": "to chat, to talk",
+  "accept": [
+   "to chat",
+   "to talk"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Regular -ar; preterite yo: platiqué (c>qu). Mexican/Central American word for chat (elsewhere charlar, conversar). 'Platícame' = tell me about it.",
+  "root": "platic-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "platicar",
+   "pres_yo": "platico",
+   "pres_tu": "platicas",
+   "pres_el": "platica",
+   "pres_nos": "platicamos",
+   "pres_ellos": "platican",
+   "pret_yo": "platiqué",
+   "pret_tu": "platicaste",
+   "pret_el": "platicó",
+   "pret_nos": "platicamos",
+   "pret_ellos": "platicaron",
+   "gerund": "platicando",
+   "participle": "platicado"
+  },
+  "examples": [
+   {
+    "tl": "Platicamos un rato con los vecinos.",
+    "en": "We chatted for a while with the neighbors."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-extranar-01",
+  "type": "verb",
+  "tl": "extrañar",
+  "en": "to miss (someone)",
+  "accept": [
+   "to miss"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Regular -ar. LatAm word for missing a person/place (Spain: echar de menos). 'Te extraño' = I miss you. 'No me extraña' = no surprise.",
+  "root": "extrañ-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "extrañar",
+   "pres_yo": "extraño",
+   "pres_tu": "extrañas",
+   "pres_el": "extraña",
+   "pres_nos": "extrañamos",
+   "pres_ellos": "extrañan",
+   "pret_yo": "extrañé",
+   "pret_tu": "extrañaste",
+   "pret_el": "extrañó",
+   "pret_nos": "extrañamos",
+   "pret_ellos": "extrañaron",
+   "gerund": "extrañando",
+   "participle": "extrañado"
+  },
+  "examples": [
+   {
+    "tl": "Extraño mucho a mi familia en Estados Unidos.",
+    "en": "I really miss my family in the US."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-prestar-01",
+  "type": "verb",
+  "tl": "prestar",
+  "en": "to lend",
+  "accept": [
+   "to loan"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Regular -ar. '¿Me prestas...?' = Can I borrow...? (literally: will you lend me). 'Prestar atención' = pay attention.",
+  "root": "prest-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "prestar",
+   "pres_yo": "presto",
+   "pres_tu": "prestas",
+   "pres_el": "presta",
+   "pres_nos": "prestamos",
+   "pres_ellos": "prestan",
+   "pret_yo": "presté",
+   "pret_tu": "prestaste",
+   "pret_el": "prestó",
+   "pret_nos": "prestamos",
+   "pret_ellos": "prestaron",
+   "gerund": "prestando",
+   "participle": "prestado"
+  },
+  "examples": [
+   {
+    "tl": "¿Me prestas tu cargador un ratito?",
+    "en": "Can I borrow your charger for a bit?"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-firmar-01",
+  "type": "verb",
+  "tl": "firmar",
+  "en": "to sign",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "notes": "Regular -ar. 'Firme aquí' = sign here (usted). 'Firmar el contrato'.",
+  "root": "firm-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "firmar",
+   "pres_yo": "firmo",
+   "pres_tu": "firmas",
+   "pres_el": "firma",
+   "pres_nos": "firmamos",
+   "pres_ellos": "firman",
+   "pret_yo": "firmé",
+   "pret_tu": "firmaste",
+   "pret_el": "firmó",
+   "pret_nos": "firmamos",
+   "pret_ellos": "firmaron",
+   "gerund": "firmando",
+   "participle": "firmado"
+  },
+  "examples": [
+   {
+    "tl": "Firmé el contrato de renta esta mañana.",
+    "en": "I signed the rental contract this morning."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-cobrar-01",
+  "type": "verb",
+  "tl": "cobrar",
+  "en": "to charge, to collect (money)",
+  "accept": [
+   "to charge",
+   "to collect",
+   "to cash",
+   "to get paid"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Regular -ar. '¿Cuánto cobra?' = How much do you charge? 'Cobrar el cheque' = cash the check. 'Me cobraron de más' = overcharged me.",
+  "root": "cobr-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "cobrar",
+   "pres_yo": "cobro",
+   "pres_tu": "cobras",
+   "pres_el": "cobra",
+   "pres_nos": "cobramos",
+   "pres_ellos": "cobran",
+   "pret_yo": "cobré",
+   "pret_tu": "cobraste",
+   "pret_el": "cobró",
+   "pret_nos": "cobramos",
+   "pret_ellos": "cobraron",
+   "gerund": "cobrando",
+   "participle": "cobrado"
+  },
+  "examples": [
+   {
+    "tl": "Me cobraron de más en el taxi.",
+    "en": "They overcharged me in the taxi."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-rentar-01",
+  "type": "verb",
+  "tl": "rentar",
+  "en": "to rent",
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 2,
+  "notes": "Regular -ar. Mexico/US Spanish word for rent (Spain and much of South America: alquilar, arrendar). 'Se renta' = for rent.",
+  "root": "rent-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "rentar",
+   "pres_yo": "rento",
+   "pres_tu": "rentas",
+   "pres_el": "renta",
+   "pres_nos": "rentamos",
+   "pres_ellos": "rentan",
+   "pret_yo": "renté",
+   "pret_tu": "rentaste",
+   "pret_el": "rentó",
+   "pret_nos": "rentamos",
+   "pret_ellos": "rentaron",
+   "gerund": "rentando",
+   "participle": "rentado"
+  },
+  "examples": [
+   {
+    "tl": "Rentamos un departamento de dos recámaras.",
+    "en": "We're renting a two-bedroom apartment."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-chambear-01",
+  "type": "verb",
+  "tl": "chambear",
+  "en": "to work (slang)",
+  "accept": [
+   "to work"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "casual": "Mañana chambeo hasta las ocho, ¿y tú?",
+  "notes": "Regular -ar. Mexican slang for trabajar; 'la chamba' = job/work. Casual only; use trabajar in formal settings.",
+  "root": "chambe-",
+  "focus": "regular-ar",
+  "forms": {
+   "infinitive": "chambear",
+   "pres_yo": "chambeo",
+   "pres_tu": "chambeas",
+   "pres_el": "chambea",
+   "pres_nos": "chambeamos",
+   "pres_ellos": "chambean",
+   "pret_yo": "chambeé",
+   "pret_tu": "chambeaste",
+   "pret_el": "chambeó",
+   "pret_nos": "chambeamos",
+   "pret_ellos": "chambearon",
+   "gerund": "chambeando",
+   "participle": "chambeado"
+  },
+  "examples": [
+   {
+    "tl": "Mañana chambeo hasta las ocho.",
+    "en": "Tomorrow I'm working until eight."
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "verb-andar-01",
+  "type": "verb",
+  "tl": "andar",
+  "en": "to walk, to go around, to be (doing)",
+  "accept": [
+   "to walk",
+   "to go around",
+   "to be"
+  ],
+  "pos": "verb",
+  "topic": "verbs",
+  "tier": 3,
+  "notes": "Regular present; irregular preterite stem anduv- (anduve, anduvo). Colloquial: 'ando ocupado' = I'm busy; '¿Cómo andas?' = how's it going?",
+  "root": "and-",
+  "focus": "irregular",
+  "forms": {
+   "infinitive": "andar",
+   "pres_yo": "ando",
+   "pres_tu": "andas",
+   "pres_el": "anda",
+   "pres_nos": "andamos",
+   "pres_ellos": "andan",
+   "pret_yo": "anduve",
+   "pret_tu": "anduviste",
+   "pret_el": "anduvo",
+   "pret_nos": "anduvimos",
+   "pret_ellos": "anduvieron",
+   "gerund": "andando",
+   "participle": "andado"
+  },
+  "examples": [
+   {
+    "tl": "Ando buscando departamento por la Condesa.",
+    "en": "I'm looking around for an apartment in Condesa."
+   }
+  ],
+  "confidence": "high"
+ }
+]

@@ -1,0 +1,3711 @@
+[
+{
+"id": "core-yo-01",
+"type": "vocab",
+"tl": "yo",
+"en": "I",
+"pos": "pron",
+"topic": "core",
+"tier": 1,
+"notes": "Subject pronouns are usually dropped; use 'yo' for emphasis or contrast.",
+"examples": [
+{
+"tl": "Yo no sé, pregúntale a ella.",
+"en": "I don't know, ask her."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-tu-01",
+"type": "vocab",
+"tl": "tú",
+"en": "you (informal)",
+"accept": [
+"you"
+],
+"pos": "pron",
+"topic": "core",
+"tier": 1,
+"notes": "Default with friends, family, people your age. Accent distinguishes it from 'tu' (your).",
+"examples": [
+{
+"tl": "¿Y tú qué vas a pedir?",
+"en": "And what are you going to order?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-el-01",
+"type": "vocab",
+"tl": "él",
+"en": "he",
+"pos": "pron",
+"topic": "core",
+"tier": 1,
+"notes": "With accent = he/him. Without accent 'el' = the (masc.).",
+"examples": [
+{
+"tl": "Él es el dueño del departamento.",
+"en": "He's the owner of the apartment."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-ella-01",
+"type": "vocab",
+"tl": "ella",
+"en": "she",
+"pos": "pron",
+"topic": "core",
+"tier": 1,
+"examples": [
+{
+"tl": "Ella trabaja en el banco de la esquina.",
+"en": "She works at the bank on the corner."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-usted-01",
+"type": "vocab",
+"tl": "usted",
+"en": "you (formal)",
+"accept": [
+"you"
+],
+"pos": "pron",
+"topic": "core",
+"tier": 1,
+"casual": "Ud.",
+"notes": "Takes él/ella verb forms. Use with elders, officials, strangers in service settings. Common in Colombia even among friends.",
+"examples": [
+{
+"tl": "¿Usted sabe dónde queda la oficina de migración?",
+"en": "Do you know where the immigration office is?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-nosotros-01",
+"type": "vocab",
+"tl": "nosotros",
+"en": "we",
+"accept_tl": [
+"nosotras"
+],
+"pos": "pron",
+"topic": "core",
+"tier": 2,
+"notes": "'Nosotras' for an all-female group.",
+"examples": [
+{
+"tl": "Nosotros llegamos en Uber.",
+"en": "We came by Uber."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-ustedes-01",
+"type": "vocab",
+"tl": "ustedes",
+"en": "you all",
+"accept": [
+"you (plural)",
+"you guys"
+],
+"pos": "pron",
+"topic": "core",
+"tier": 1,
+"notes": "Plural 'you' in all of Latin America, formal or informal. Spain uses 'vosotros' informally.",
+"examples": [
+{
+"tl": "¿Ustedes ya pagaron?",
+"en": "Did you all already pay?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-ellos-01",
+"type": "vocab",
+"tl": "ellos",
+"en": "they",
+"accept_tl": [
+"ellas"
+],
+"pos": "pron",
+"topic": "core",
+"tier": 2,
+"notes": "'Ellas' for an all-female group; mixed group = ellos.",
+"examples": [
+{
+"tl": "Ellos viven arriba, en el tercer piso.",
+"en": "They live upstairs, on the third floor."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-me-01",
+"type": "vocab",
+"tl": "me",
+"en": "me / myself",
+"accept": [
+"me",
+"to me",
+"myself"
+],
+"pos": "pron",
+"topic": "core",
+"tier": 1,
+"notes": "Direct, indirect and reflexive object. Goes before the verb or attached to an infinitive.",
+"examples": [
+{
+"tl": "¿Me puedes mandar la ubicación?",
+"en": "Can you send me the location?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-te-01",
+"type": "vocab",
+"tl": "te",
+"en": "you / yourself (informal object)",
+"accept": [
+"you",
+"to you",
+"yourself"
+],
+"pos": "pron",
+"topic": "core",
+"tier": 1,
+"examples": [
+{
+"tl": "Te llamo más tarde.",
+"en": "I'll call you later."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-lo-01",
+"type": "vocab",
+"tl": "lo",
+"en": "him / it (direct object, masc.)",
+"accept": [
+"it",
+"him"
+],
+"pos": "pron",
+"topic": "core",
+"tier": 2,
+"notes": "Direct object for masc. nouns and 'it'. Also neuter article: 'lo bueno' = the good thing.",
+"examples": [
+{
+"tl": "¿El recibo? Ya lo guardé.",
+"en": "The receipt? I already saved it."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-la-02",
+"type": "vocab",
+"tl": "la",
+"en": "her / it (direct object, fem.)",
+"accept": [
+"it",
+"her"
+],
+"pos": "pron",
+"topic": "core",
+"tier": 2,
+"notes": "Direct object for fem. nouns and people. 'La' also = the (fem. article).",
+"examples": [
+{
+"tl": "La llave no la encuentro.",
+"en": "I can't find the key."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-le-01",
+"type": "vocab",
+"tl": "le",
+"en": "to him / her / you (formal)",
+"accept": [
+"to him",
+"to her",
+"him",
+"her"
+],
+"pos": "pron",
+"topic": "core",
+"tier": 1,
+"notes": "Indirect object. Becomes 'se' before lo/la: 'se lo di' (I gave it to him). Often doubled: 'le dije a Juan'.",
+"examples": [
+{
+"tl": "Le mandé un mensaje al casero.",
+"en": "I sent the landlord a message."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-nos-01",
+"type": "vocab",
+"tl": "nos",
+"en": "us / ourselves",
+"accept": [
+"us",
+"to us",
+"ourselves"
+],
+"pos": "pron",
+"topic": "core",
+"tier": 2,
+"examples": [
+{
+"tl": "Nos vemos en el metro a las seis.",
+"en": "See you at the metro at six."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-los-02",
+"type": "vocab",
+"tl": "los",
+"en": "them (direct object, masc.)",
+"accept": [
+"them"
+],
+"pos": "pron",
+"topic": "core",
+"tier": 3,
+"notes": "Also = the (masc. plural). Covers ustedes as direct object too.",
+"examples": [
+{
+"tl": "Los tacos los pedimos para llevar.",
+"en": "We ordered the tacos to go."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-las-02",
+"type": "vocab",
+"tl": "las",
+"en": "them (direct object, fem.)",
+"accept": [
+"them"
+],
+"pos": "pron",
+"topic": "core",
+"tier": 3,
+"notes": "Also = the (fem. plural).",
+"examples": [
+{
+"tl": "Las fotos las subo a WhatsApp ahorita.",
+"en": "I'll upload the photos to WhatsApp right now."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-les-01",
+"type": "vocab",
+"tl": "les",
+"en": "to them / to you all",
+"accept": [
+"to them",
+"them"
+],
+"pos": "pron",
+"topic": "core",
+"tier": 3,
+"notes": "Indirect object plural. Becomes 'se' before lo/la/los/las.",
+"examples": [
+{
+"tl": "Les aviso cuando llegue.",
+"en": "I'll let you all know when I arrive."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-se-01",
+"type": "vocab",
+"tl": "se",
+"en": "himself / herself / themselves",
+"accept": [
+"oneself",
+"itself",
+"themselves"
+],
+"pos": "pron",
+"topic": "core",
+"tier": 2,
+"notes": "Reflexive 3rd person; impersonal 'se habla español'; replaces le/les before lo/la.",
+"examples": [
+{
+"tl": "Aquí se paga en efectivo.",
+"en": "Here you pay in cash."
+},
+{
+"tl": "Se levanta a las cinco todos los días.",
+"en": "He gets up at five every day."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-mi-01",
+"type": "vocab",
+"tl": "mi",
+"en": "my",
+"pos": "pron",
+"topic": "core",
+"tier": 1,
+"notes": "Plural 'mis'. No accent (accented 'mí' = me after a preposition: 'para mí').",
+"examples": [
+{
+"tl": "Mi celular se quedó sin batería.",
+"en": "My phone ran out of battery."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-tu-02",
+"type": "vocab",
+"tl": "tu",
+"en": "your (informal)",
+"accept": [
+"your"
+],
+"pos": "pron",
+"topic": "core",
+"tier": 1,
+"notes": "Plural 'tus'. No accent; 'tú' with accent = you.",
+"examples": [
+{
+"tl": "¿Cuál es tu número?",
+"en": "What's your number?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-su-01",
+"type": "vocab",
+"tl": "su",
+"en": "his / her / your (formal) / their",
+"accept": [
+"his",
+"her",
+"their",
+"your"
+],
+"pos": "pron",
+"topic": "core",
+"tier": 1,
+"notes": "Ambiguous by design; clarify with 'de él', 'de ella', 'de usted'. Plural 'sus'.",
+"examples": [
+{
+"tl": "Señor, su pasaporte, por favor.",
+"en": "Sir, your passport, please."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-nuestro-01",
+"type": "vocab",
+"tl": "nuestro",
+"en": "our",
+"accept_tl": [
+"nuestra"
+],
+"pos": "pron",
+"topic": "core",
+"tier": 3,
+"notes": "Agrees in gender and number: nuestro/nuestra/nuestros/nuestras.",
+"examples": [
+{
+"tl": "Nuestra casera es muy amable.",
+"en": "Our landlady is very nice."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-mio-01",
+"type": "vocab",
+"tl": "mío",
+"en": "mine",
+"accept_tl": [
+"mía"
+],
+"pos": "pron",
+"topic": "core",
+"tier": 3,
+"notes": "Stressed possessive, after the noun or alone: 'es mío', 'un amigo mío'. Agrees: mía/míos/mías.",
+"examples": [
+{
+"tl": "Esa maleta es mía.",
+"en": "That suitcase is mine."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-tuyo-01",
+"type": "vocab",
+"tl": "tuyo",
+"en": "yours (informal)",
+"accept": [
+"yours"
+],
+"accept_tl": [
+"tuya"
+],
+"pos": "pron",
+"topic": "core",
+"tier": 3,
+"notes": "Formal/3rd person equivalent: 'suyo'. Agrees in gender/number.",
+"examples": [
+{
+"tl": "¿Este cargador es tuyo?",
+"en": "Is this charger yours?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-el-02",
+"type": "vocab",
+"tl": "el",
+"en": "the (masc. singular)",
+"accept": [
+"the"
+],
+"pos": "article",
+"topic": "core",
+"tier": 1,
+"notes": "Most nouns in -o are masc. Also used before fem. nouns starting with stressed a-: 'el agua'. No accent (él = he).",
+"examples": [
+{
+"tl": "El mercado abre a las siete.",
+"en": "The market opens at seven."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-la-01",
+"type": "vocab",
+"tl": "la",
+"en": "the (fem. singular)",
+"accept": [
+"the"
+],
+"pos": "article",
+"topic": "core",
+"tier": 1,
+"notes": "Most nouns in -a, -ción, -dad are fem. Exceptions: el día, el problema, el mapa.",
+"examples": [
+{
+"tl": "La renta se paga el primero de cada mes.",
+"en": "Rent is paid on the first of every month."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-los-01",
+"type": "vocab",
+"tl": "los",
+"en": "the (masc. plural)",
+"accept": [
+"the"
+],
+"pos": "article",
+"topic": "core",
+"tier": 1,
+"notes": "Used for mixed groups too: 'los papás' = the parents.",
+"examples": [
+{
+"tl": "Los domingos casi todo está cerrado.",
+"en": "On Sundays almost everything is closed."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-las-01",
+"type": "vocab",
+"tl": "las",
+"en": "the (fem. plural)",
+"accept": [
+"the"
+],
+"pos": "article",
+"topic": "core",
+"tier": 1,
+"notes": "Also used for clock time: 'son las tres'.",
+"examples": [
+{
+"tl": "Las tortillas están calientes.",
+"en": "The tortillas are hot."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-un-01",
+"type": "vocab",
+"tl": "un",
+"en": "a / an (masc.)",
+"accept": [
+"a",
+"an",
+"one"
+],
+"pos": "article",
+"topic": "core",
+"tier": 1,
+"notes": "Also the number one before masc. nouns: 'un peso'.",
+"examples": [
+{
+"tl": "¿Me da un café, por favor?",
+"en": "Can I get a coffee, please?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-una-01",
+"type": "vocab",
+"tl": "una",
+"en": "a / an (fem.)",
+"accept": [
+"a",
+"an",
+"one"
+],
+"pos": "article",
+"topic": "core",
+"tier": 1,
+"notes": "'Una' before fem. nouns; 'un' before fem. nouns with stressed a- (un agua).",
+"examples": [
+{
+"tl": "Busco una habitación cerca del centro.",
+"en": "I'm looking for a room near downtown."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-unos-01",
+"type": "vocab",
+"tl": "unos",
+"en": "some / a few (masc.)",
+"accept": [
+"some",
+"a few",
+"about"
+],
+"pos": "article",
+"topic": "core",
+"tier": 2,
+"notes": "Before numbers = 'about': 'unos veinte minutos'.",
+"examples": [
+{
+"tl": "Faltan unos diez minutos para que llegue el camión.",
+"en": "The bus arrives in about ten minutes."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-unas-01",
+"type": "vocab",
+"tl": "unas",
+"en": "some / a few (fem.)",
+"accept": [
+"some",
+"a few",
+"about"
+],
+"pos": "article",
+"topic": "core",
+"tier": 2,
+"examples": [
+{
+"tl": "Compré unas frutas en el tianguis.",
+"en": "I bought some fruit at the street market."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-este-01",
+"type": "vocab",
+"tl": "este",
+"en": "this (masc.)",
+"accept": [
+"this"
+],
+"accept_tl": [
+"esta"
+],
+"pos": "pron",
+"topic": "core",
+"tier": 1,
+"notes": "Near the speaker. Forms: este/esta/estos/estas. 'Este...' is also a filler word like 'um' in Mexico.",
+"examples": [
+{
+"tl": "Este cuarto es el que está disponible.",
+"en": "This room is the one that's available."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-ese-01",
+"type": "vocab",
+"tl": "ese",
+"en": "that (masc.)",
+"accept": [
+"that"
+],
+"accept_tl": [
+"esa"
+],
+"pos": "pron",
+"topic": "core",
+"tier": 1,
+"notes": "Near the listener or a bit away. Forms: ese/esa/esos/esas.",
+"examples": [
+{
+"tl": "¿Cuánto cuesta esa gorra?",
+"en": "How much is that cap?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-aquel-01",
+"type": "vocab",
+"tl": "aquel",
+"en": "that (over there)",
+"accept": [
+"that one over there",
+"that"
+],
+"accept_tl": [
+"aquella"
+],
+"pos": "pron",
+"topic": "core",
+"tier": 3,
+"notes": "Far from both; in speech people often just say 'ese de allá'. Forms: aquel/aquella/aquellos/aquellas.",
+"examples": [
+{
+"tl": "Aquel edificio es donde vivía antes.",
+"en": "That building over there is where I used to live."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-esto-01",
+"type": "vocab",
+"tl": "esto",
+"en": "this (thing / idea)",
+"accept": [
+"this"
+],
+"pos": "pron",
+"topic": "core",
+"tier": 2,
+"notes": "Neuter: for unnamed things or situations, never before a noun. No accent.",
+"examples": [
+{
+"tl": "¿Qué es esto? No lo pedí.",
+"en": "What is this? I didn't order it."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-eso-01",
+"type": "vocab",
+"tl": "eso",
+"en": "that (thing / idea)",
+"accept": [
+"that"
+],
+"pos": "pron",
+"topic": "core",
+"tier": 2,
+"casual": "¡Eso!",
+"notes": "Neuter. '¡Eso!' = exactly / that's it. 'Por eso' = that's why.",
+"examples": [
+{
+"tl": "Eso no es lo que me dijeron en la oficina.",
+"en": "That's not what they told me at the office."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-aqui-01",
+"type": "vocab",
+"tl": "aquí",
+"en": "here",
+"pos": "adv",
+"topic": "core",
+"tier": 1,
+"examples": [
+{
+"tl": "Déjeme aquí en la esquina, por favor.",
+"en": "Drop me here at the corner, please."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-aca-01",
+"type": "vocab",
+"tl": "acá",
+"en": "here / over here",
+"accept": [
+"here"
+],
+"pos": "adv",
+"topic": "core",
+"tier": 2,
+"notes": "Very common in Latin America, often interchangeable with 'aquí'; suggests motion or a vaguer area: 'ven acá'.",
+"examples": [
+{
+"tl": "Ven acá, mira esto.",
+"en": "Come here, look at this."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-ahi-01",
+"type": "vocab",
+"tl": "ahí",
+"en": "there (near you)",
+"accept": [
+"there"
+],
+"pos": "adv",
+"topic": "core",
+"tier": 1,
+"notes": "'Ahí' = right there (near the listener). Also 'por ahí' = around there / somewhere.",
+"examples": [
+{
+"tl": "Déjalo ahí en la mesa.",
+"en": "Leave it there on the table."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-alli-01",
+"type": "vocab",
+"tl": "allí",
+"en": "there (farther away)",
+"accept": [
+"there"
+],
+"pos": "adv",
+"topic": "core",
+"tier": 3,
+"notes": "Farther than 'ahí'. In much of Latin America 'allá' is more common in speech.",
+"examples": [
+{
+"tl": "Allí está la parada del camión.",
+"en": "The bus stop is over there."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-alla-01",
+"type": "vocab",
+"tl": "allá",
+"en": "over there",
+"accept": [
+"there"
+],
+"pos": "adv",
+"topic": "core",
+"tier": 2,
+"notes": "Far away or vague distance; also 'back home': 'allá en Estados Unidos'.",
+"examples": [
+{
+"tl": "Allá en Texas la gasolina es más barata.",
+"en": "Back in Texas gas is cheaper."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-que-01",
+"type": "vocab",
+"tl": "¿qué?",
+"en": "what?",
+"accept": [
+"what"
+],
+"pos": "pron",
+"topic": "core",
+"tier": 1,
+"casual": "¿Qué onda?",
+"notes": "Accented in questions/exclamations. '¿Qué onda?' = what's up (Mex., colloquial). Unaccented 'que' = that/which.",
+"examples": [
+{
+"tl": "¿Qué quieres de cenar?",
+"en": "What do you want for dinner?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-quien-01",
+"type": "vocab",
+"tl": "¿quién?",
+"en": "who?",
+"accept": [
+"who"
+],
+"pos": "pron",
+"topic": "core",
+"tier": 1,
+"notes": "Plural '¿quiénes?'. '¿De quién es?' = whose is it?",
+"examples": [
+{
+"tl": "¿Quién es el encargado?",
+"en": "Who's the person in charge?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-donde-01",
+"type": "vocab",
+"tl": "¿dónde?",
+"en": "where?",
+"accept": [
+"where"
+],
+"pos": "adv",
+"topic": "core",
+"tier": 1,
+"notes": "'¿Dónde queda...?' is a very common way to ask where a place is.",
+"examples": [
+{
+"tl": "¿Dónde queda el cajero más cercano?",
+"en": "Where's the nearest ATM?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-cuando-01",
+"type": "vocab",
+"tl": "¿cuándo?",
+"en": "when?",
+"accept": [
+"when"
+],
+"pos": "adv",
+"topic": "core",
+"tier": 1,
+"examples": [
+{
+"tl": "¿Cuándo te entregan el departamento?",
+"en": "When do they hand over the apartment to you?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-por-que-01",
+"type": "vocab",
+"tl": "¿por qué?",
+"en": "why?",
+"accept": [
+"why"
+],
+"pos": "adv",
+"topic": "core",
+"tier": 1,
+"notes": "Two words with accent = why. One word 'porque' = because.",
+"examples": [
+{
+"tl": "¿Por qué cerraron la calle?",
+"en": "Why did they close the street?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-como-01",
+"type": "vocab",
+"tl": "¿cómo?",
+"en": "how?",
+"accept": [
+"how",
+"what?"
+],
+"pos": "adv",
+"topic": "core",
+"tier": 1,
+"casual": "¿Cómo?",
+"notes": "Also 'pardon? / what?' when you didn't hear. Unaccented 'como' = like/as.",
+"examples": [
+{
+"tl": "¿Cómo llego al aeropuerto desde aquí?",
+"en": "How do I get to the airport from here?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-cuanto-01",
+"type": "vocab",
+"tl": "¿cuánto?",
+"en": "how much?",
+"accept": [
+"how much",
+"how many"
+],
+"accept_tl": [
+"¿cuántos?"
+],
+"pos": "adv",
+"topic": "core",
+"tier": 1,
+"notes": "Agrees with the noun: cuánto/cuánta/cuántos/cuántas. '¿Cuánto es?' = how much is it (total)?",
+"examples": [
+{
+"tl": "¿Cuánto cobra hasta el centro?",
+"en": "How much do you charge to downtown?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-cual-01",
+"type": "vocab",
+"tl": "¿cuál?",
+"en": "which?",
+"accept": [
+"which",
+"which one",
+"what"
+],
+"pos": "pron",
+"topic": "core",
+"tier": 1,
+"notes": "Used where English says 'what' before 'is': '¿Cuál es tu nombre?'. Plural '¿cuáles?'.",
+"examples": [
+{
+"tl": "¿Cuál es la contraseña del wifi?",
+"en": "What's the wifi password?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-adonde-01",
+"type": "vocab",
+"tl": "¿adónde?",
+"en": "where to?",
+"accept": [
+"where to",
+"where"
+],
+"accept_tl": [
+"¿a dónde?"
+],
+"pos": "adv",
+"topic": "core",
+"tier": 2,
+"notes": "With verbs of motion. Often written '¿a dónde?'.",
+"examples": [
+{
+"tl": "¿Adónde vamos a comer?",
+"en": "Where are we going to eat?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-de-donde-01",
+"type": "vocab",
+"tl": "¿de dónde?",
+"en": "where from?",
+"accept": [
+"from where",
+"where from"
+],
+"pos": "adv",
+"topic": "core",
+"tier": 2,
+"examples": [
+{
+"tl": "¿De dónde eres? — De Estados Unidos.",
+"en": "Where are you from? — From the US."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-a-01",
+"type": "vocab",
+"tl": "a",
+"en": "to / at",
+"accept": [
+"to",
+"at"
+],
+"pos": "prep",
+"topic": "core",
+"tier": 1,
+"notes": "a + el = al. Personal 'a' before people as objects: 'vi a Marta'. Time: 'a las dos'.",
+"examples": [
+{
+"tl": "Voy al banco a las nueve.",
+"en": "I'm going to the bank at nine."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-de-01",
+"type": "vocab",
+"tl": "de",
+"en": "of / from",
+"accept": [
+"of",
+"from",
+"'s"
+],
+"pos": "prep",
+"topic": "core",
+"tier": 1,
+"notes": "de + el = del. Shows possession (la casa de Ana), origin, material.",
+"examples": [
+{
+"tl": "Es el carro de mi hermano.",
+"en": "It's my brother's car."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-en-01",
+"type": "vocab",
+"tl": "en",
+"en": "in / on / at",
+"accept": [
+"in",
+"on",
+"at"
+],
+"pos": "prep",
+"topic": "core",
+"tier": 1,
+"notes": "Covers in, on and at for location: 'en la mesa', 'en casa', 'en el trabajo'.",
+"examples": [
+{
+"tl": "Dejé las llaves en el carro.",
+"en": "I left the keys in the car."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-con-01",
+"type": "vocab",
+"tl": "con",
+"en": "with",
+"pos": "prep",
+"topic": "core",
+"tier": 1,
+"notes": "'Conmigo' = with me, 'contigo' = with you.",
+"examples": [
+{
+"tl": "¿Vienes conmigo al súper?",
+"en": "Are you coming with me to the supermarket?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-sin-01",
+"type": "vocab",
+"tl": "sin",
+"en": "without",
+"pos": "prep",
+"topic": "core",
+"tier": 2,
+"examples": [
+{
+"tl": "Un café sin azúcar, por favor.",
+"en": "A coffee without sugar, please."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-por-01",
+"type": "vocab",
+"tl": "por",
+"en": "for / by / through",
+"accept": [
+"for",
+"by",
+"because of",
+"through"
+],
+"pos": "prep",
+"topic": "core",
+"tier": 1,
+"notes": "Cause, exchange, means, duration, movement through: 'por la calle', 'gracias por', 'por WhatsApp', 'por dos horas'.",
+"examples": [
+{
+"tl": "Gracias por la ayuda.",
+"en": "Thanks for the help."
+},
+{
+"tl": "Pasé por tu casa pero no estabas.",
+"en": "I stopped by your house but you weren't there."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-para-01",
+"type": "vocab",
+"tl": "para",
+"en": "for / in order to",
+"accept": [
+"for",
+"to",
+"in order to"
+],
+"pos": "prep",
+"topic": "core",
+"tier": 1,
+"notes": "Purpose, destination, recipient, deadline: 'para ti', 'para mañana', 'para comer'.",
+"examples": [
+{
+"tl": "Esto es para ti.",
+"en": "This is for you."
+},
+{
+"tl": "Necesito el recibo para la renta.",
+"en": "I need the receipt for the rent."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-sobre-01",
+"type": "vocab",
+"tl": "sobre",
+"en": "about / on top of",
+"accept": [
+"about",
+"on",
+"over"
+],
+"pos": "prep",
+"topic": "core",
+"tier": 3,
+"notes": "'Sobre' = on top of, or about (a topic). As a noun 'el sobre' = envelope.",
+"examples": [
+{
+"tl": "Hablamos sobre el contrato mañana.",
+"en": "We'll talk about the contract tomorrow."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-entre-01",
+"type": "vocab",
+"tl": "entre",
+"en": "between / among",
+"accept": [
+"between",
+"among"
+],
+"pos": "prep",
+"topic": "core",
+"tier": 3,
+"examples": [
+{
+"tl": "La farmacia está entre el banco y la panadería.",
+"en": "The pharmacy is between the bank and the bakery."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-hasta-01",
+"type": "vocab",
+"tl": "hasta",
+"en": "until / up to",
+"accept": [
+"until",
+"up to",
+"even"
+],
+"pos": "prep",
+"topic": "core",
+"tier": 2,
+"notes": "'Hasta luego' = see you later. In Mexico 'hasta' can mean 'not until': 'abren hasta las diez'.",
+"examples": [
+{
+"tl": "Trabajo hasta las seis.",
+"en": "I work until six."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-desde-01",
+"type": "vocab",
+"tl": "desde",
+"en": "since / from",
+"accept": [
+"since",
+"from"
+],
+"pos": "prep",
+"topic": "core",
+"tier": 2,
+"notes": "Starting point in time or place: 'desde ayer', 'desde aquí'.",
+"examples": [
+{
+"tl": "Vivo aquí desde enero.",
+"en": "I've lived here since January."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-hacia-01",
+"type": "vocab",
+"tl": "hacia",
+"en": "toward",
+"accept": [
+"towards",
+"toward"
+],
+"pos": "prep",
+"topic": "core",
+"tier": 3,
+"notes": "No accent (hacía = used to do). In speech 'para' often replaces it: 'voy para el centro'.",
+"examples": [
+{
+"tl": "Camina hacia el semáforo y da vuelta a la derecha.",
+"en": "Walk toward the traffic light and turn right."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-segun-01",
+"type": "vocab",
+"tl": "según",
+"en": "according to",
+"accept": [
+"according to",
+"depending on"
+],
+"pos": "prep",
+"topic": "core",
+"tier": 3,
+"notes": "'Según yo' = in my opinion. 'Según' alone as an answer = it depends.",
+"examples": [
+{
+"tl": "Según el mapa, estamos a dos cuadras.",
+"en": "According to the map, we're two blocks away."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-y-01",
+"type": "vocab",
+"tl": "y",
+"en": "and",
+"pos": "conj",
+"topic": "core",
+"tier": 1,
+"notes": "Becomes 'e' before an i- sound: 'padre e hijo'.",
+"examples": [
+{
+"tl": "Quiero arroz y frijoles.",
+"en": "I want rice and beans."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-o-01",
+"type": "vocab",
+"tl": "o",
+"en": "or",
+"pos": "conj",
+"topic": "core",
+"tier": 1,
+"notes": "Becomes 'u' before an o- sound: 'siete u ocho'.",
+"examples": [
+{
+"tl": "¿Efectivo o tarjeta?",
+"en": "Cash or card?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-pero-01",
+"type": "vocab",
+"tl": "pero",
+"en": "but",
+"pos": "conj",
+"topic": "core",
+"tier": 1,
+"examples": [
+{
+"tl": "Me gusta el departamento, pero está muy lejos.",
+"en": "I like the apartment, but it's too far."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-porque-01",
+"type": "vocab",
+"tl": "porque",
+"en": "because",
+"pos": "conj",
+"topic": "core",
+"tier": 2,
+"notes": "One word, no accent = because. '¿Por qué?' two words = why.",
+"examples": [
+{
+"tl": "No fui porque estaba lloviendo.",
+"en": "I didn't go because it was raining."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-que-02",
+"type": "vocab",
+"tl": "que",
+"en": "that / which / than",
+"accept": [
+"that",
+"which",
+"than",
+"who"
+],
+"pos": "conj",
+"topic": "core",
+"tier": 1,
+"notes": "No accent. Links clauses ('dice que viene'), relative pronoun ('el señor que vende'), comparisons ('más que').",
+"examples": [
+{
+"tl": "Dijo que llega en diez minutos.",
+"en": "He said he'll arrive in ten minutes."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-si-02",
+"type": "vocab",
+"tl": "si",
+"en": "if",
+"accept": [
+"if",
+"whether"
+],
+"pos": "conj",
+"topic": "core",
+"tier": 1,
+"notes": "No accent = if. 'Sí' with accent = yes.",
+"examples": [
+{
+"tl": "Si llueve, pedimos un Uber.",
+"en": "If it rains, we'll get an Uber."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-cuando-02",
+"type": "vocab",
+"tl": "cuando",
+"en": "when (not a question)",
+"accept": [
+"when"
+],
+"pos": "conj",
+"topic": "core",
+"tier": 2,
+"notes": "No accent as a conjunction. Future events take subjunctive: 'cuando llegue'.",
+"examples": [
+{
+"tl": "Te aviso cuando salga del trabajo.",
+"en": "I'll let you know when I get off work."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-aunque-01",
+"type": "vocab",
+"tl": "aunque",
+"en": "although / even though",
+"accept": [
+"although",
+"even though",
+"even if"
+],
+"pos": "conj",
+"topic": "core",
+"tier": 3,
+"examples": [
+{
+"tl": "Aunque está caro, vale la pena.",
+"en": "Even though it's expensive, it's worth it."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-entonces-01",
+"type": "vocab",
+"tl": "entonces",
+"en": "so / then",
+"accept": [
+"so",
+"then",
+"in that case"
+],
+"pos": "conj",
+"topic": "core",
+"tier": 2,
+"casual": "tons",
+"notes": "Very common connector. 'Tons' is Mexican slang clipping heard in casual speech/texting.",
+"examples": [
+{
+"tl": "¿No hay mesa? Entonces vamos a otro lado.",
+"en": "No table? Then let's go somewhere else."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-asi-que-01",
+"type": "phrase",
+"tl": "así que",
+"en": "so (therefore)",
+"accept": [
+"so",
+"therefore"
+],
+"pos": "conj",
+"topic": "core",
+"tier": 3,
+"examples": [
+{
+"tl": "Ya cerraron, así que venimos mañana.",
+"en": "They already closed, so we'll come tomorrow."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-sino-01",
+"type": "vocab",
+"tl": "sino",
+"en": "but rather",
+"accept": [
+"but rather",
+"but",
+"instead"
+],
+"pos": "conj",
+"topic": "core",
+"tier": 3,
+"notes": "After a negative, correcting it: 'no es rojo sino azul'. Before a verb: 'sino que'.",
+"examples": [
+{
+"tl": "No quiero agua, sino un refresco.",
+"en": "I don't want water, but rather a soda."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-mientras-01",
+"type": "vocab",
+"tl": "mientras",
+"en": "while",
+"accept": [
+"while",
+"meanwhile"
+],
+"pos": "conj",
+"topic": "core",
+"tier": 3,
+"notes": "'Mientras tanto' = in the meantime.",
+"examples": [
+{
+"tl": "Espérame aquí mientras saco dinero.",
+"en": "Wait for me here while I take out money."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-antes-de-01",
+"type": "phrase",
+"tl": "antes de",
+"en": "before",
+"pos": "prep",
+"topic": "core",
+"tier": 2,
+"notes": "Followed by a noun or infinitive: 'antes de comer'. Before a clause: 'antes de que' + subjunctive.",
+"examples": [
+{
+"tl": "Llámame antes de salir.",
+"en": "Call me before you leave."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-despues-de-01",
+"type": "phrase",
+"tl": "después de",
+"en": "after",
+"pos": "prep",
+"topic": "core",
+"tier": 2,
+"notes": "Followed by a noun or infinitive: 'después del trabajo', 'después de comer'.",
+"examples": [
+{
+"tl": "Después de la cita vamos por unos tacos.",
+"en": "After the appointment let's go get some tacos."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-ademas-01",
+"type": "vocab",
+"tl": "además",
+"en": "besides / also",
+"accept": [
+"besides",
+"also",
+"in addition",
+"plus"
+],
+"pos": "adv",
+"topic": "core",
+"tier": 3,
+"notes": "'Además de' = besides / in addition to.",
+"examples": [
+{
+"tl": "Está cerca y, además, incluye el internet.",
+"en": "It's close and, plus, it includes internet."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-hay-01",
+"type": "vocab",
+"tl": "hay",
+"en": "there is / there are",
+"accept": [
+"there is",
+"there are"
+],
+"pos": "verb",
+"topic": "core",
+"tier": 1,
+"notes": "Impersonal form of 'haber'; same for singular and plural. Past: 'había' / 'hubo'. Not to be confused with 'ahí' (there) or 'ay' (ouch).",
+"examples": [
+{
+"tl": "¿Hay cuartos disponibles?",
+"en": "Are there rooms available?"
+},
+{
+"tl": "No hay agua caliente.",
+"en": "There's no hot water."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-hay-que-01",
+"type": "phrase",
+"tl": "hay que",
+"en": "one has to / you have to",
+"accept": [
+"you have to",
+"it's necessary to",
+"one must"
+],
+"pos": "expr",
+"topic": "core",
+"tier": 2,
+"notes": "Impersonal obligation + infinitive. Past 'había que'.",
+"examples": [
+{
+"tl": "Hay que llegar temprano para hacer fila.",
+"en": "You have to get there early to get in line."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-tener-que-01",
+"type": "phrase",
+"tl": "tener que",
+"en": "to have to",
+"accept": [
+"have to",
+"must"
+],
+"pos": "expr",
+"topic": "core",
+"tier": 1,
+"notes": "Personal obligation: tengo que, tienes que, tiene que, tenemos que, tienen que + infinitive.",
+"examples": [
+{
+"tl": "Tengo que renovar mi visa este mes.",
+"en": "I have to renew my visa this month."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-ir-a-01",
+"type": "phrase",
+"tl": "ir a",
+"en": "to be going to",
+"accept": [
+"going to",
+"gonna"
+],
+"pos": "expr",
+"topic": "core",
+"tier": 1,
+"notes": "Future in speech: voy a, vas a, va a, vamos a, van a + infinitive. 'Vamos a' also = let's.",
+"examples": [
+{
+"tl": "Voy a pedir la cuenta.",
+"en": "I'm going to ask for the check."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-poder-01",
+"type": "vocab",
+"tl": "poder",
+"en": "to be able to / can",
+"accept": [
+"can",
+"to be able to",
+"may"
+],
+"pos": "verb",
+"topic": "core",
+"tier": 1,
+"notes": "Stem-change o>ue: puedo, puedes, puede, podemos, pueden. '¿Puedo...?' = may I. Past 'pude'.",
+"examples": [
+{
+"tl": "¿Puede hablar más despacio, por favor?",
+"en": "Can you speak more slowly, please?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-querer-01",
+"type": "vocab",
+"tl": "querer",
+"en": "to want",
+"accept": [
+"want",
+"to want",
+"to love"
+],
+"pos": "verb",
+"topic": "core",
+"tier": 1,
+"notes": "Stem-change e>ie: quiero, quieres, quiere, queremos, quieren. 'Quisiera' = I would like (polite). 'Te quiero' = I love you.",
+"examples": [
+{
+"tl": "Quiero dos tacos de pastor, por favor.",
+"en": "I want two al pastor tacos, please."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-deber-01",
+"type": "vocab",
+"tl": "deber",
+"en": "should / must / to owe",
+"accept": [
+"should",
+"must",
+"ought to",
+"to owe"
+],
+"pos": "verb",
+"topic": "core",
+"tier": 2,
+"notes": "Regular -er. 'Debes descansar' = you should rest. 'Debería' = should (softer). 'Me debes cien pesos' = you owe me.",
+"examples": [
+{
+"tl": "Deberías llevar efectivo, no aceptan tarjeta.",
+"en": "You should bring cash, they don't take cards."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-necesitar-01",
+"type": "vocab",
+"tl": "necesitar",
+"en": "to need",
+"accept": [
+"need"
+],
+"pos": "verb",
+"topic": "core",
+"tier": 1,
+"notes": "Regular -ar: necesito, necesitas, necesita, necesitamos, necesitan.",
+"examples": [
+{
+"tl": "Necesito una copia de mi pasaporte.",
+"en": "I need a copy of my passport."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-saber-01",
+"type": "vocab",
+"tl": "saber",
+"en": "to know (facts, how to)",
+"accept": [
+"know",
+"to know"
+],
+"pos": "verb",
+"topic": "core",
+"tier": 1,
+"casual": "Quién sabe",
+"notes": "Irregular yo 'sé'. Facts and skills: 'sé nadar', 'no sé'. Also 'to taste': 'sabe rico'. Preterite 'supe' = found out.",
+"examples": [
+{
+"tl": "¿Sabes a qué hora abren?",
+"en": "Do you know what time they open?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-conocer-01",
+"type": "vocab",
+"tl": "conocer",
+"en": "to know (people, places)",
+"accept": [
+"to know",
+"to meet",
+"be familiar with"
+],
+"pos": "verb",
+"topic": "core",
+"tier": 2,
+"notes": "Irregular yo 'conozco'. People and places; personal 'a' with people. Preterite = met: 'la conocí en Bogotá'.",
+"examples": [
+{
+"tl": "¿Conoces un buen dentista por aquí?",
+"en": "Do you know a good dentist around here?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-ahora-01",
+"type": "vocab",
+"tl": "ahora",
+"en": "now",
+"pos": "adv",
+"topic": "core",
+"tier": 1,
+"casual": "ahorita",
+"examples": [
+{
+"tl": "Ahora no puedo, estoy en una reunión.",
+"en": "I can't right now, I'm in a meeting."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-ahorita-01",
+"type": "vocab",
+"tl": "ahorita",
+"en": "right now / in a bit",
+"accept": [
+"right now",
+"in a minute",
+"soon"
+],
+"pos": "adv",
+"topic": "core",
+"tier": 1,
+"notes": "Mexican/Central American colloquial. Famously vague: can mean now, in a moment, or much later. Context and tone decide.",
+"examples": [
+{
+"tl": "Ahorita te lo mando por WhatsApp.",
+"en": "I'll send it to you on WhatsApp in a sec."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-ya-01",
+"type": "vocab",
+"tl": "ya",
+"en": "already / now",
+"accept": [
+"already",
+"now",
+"yet",
+"right away"
+],
+"pos": "adv",
+"topic": "core",
+"tier": 1,
+"casual": "¡Ya!",
+"notes": "Multi-use: 'ya comí' (already), 'ya voy' (coming now), '¡ya!' (enough/okay), 'ya no' (not anymore).",
+"examples": [
+{
+"tl": "¿Ya llegó el repartidor?",
+"en": "Did the delivery guy arrive yet?"
+},
+{
+"tl": "Ya no vivo ahí.",
+"en": "I don't live there anymore."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-todavia-01",
+"type": "vocab",
+"tl": "todavía",
+"en": "still / yet",
+"accept": [
+"still",
+"yet"
+],
+"pos": "adv",
+"topic": "core",
+"tier": 1,
+"notes": "'Todavía no' = not yet. 'Aún' is a synonym, more formal.",
+"examples": [
+{
+"tl": "Todavía no me han devuelto el depósito.",
+"en": "They still haven't returned my deposit."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-siempre-01",
+"type": "vocab",
+"tl": "siempre",
+"en": "always",
+"pos": "adv",
+"topic": "core",
+"tier": 1,
+"notes": "In Mexico 'siempre sí / siempre no' = turns out yes / turns out no (after all).",
+"examples": [
+{
+"tl": "Siempre hay tráfico a esta hora.",
+"en": "There's always traffic at this hour."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-nunca-01",
+"type": "vocab",
+"tl": "nunca",
+"en": "never",
+"accept_tl": [
+"jamás"
+],
+"pos": "adv",
+"topic": "core",
+"tier": 2,
+"notes": "Double negative is normal: 'no voy nunca' or 'nunca voy'.",
+"examples": [
+{
+"tl": "Nunca había probado el mole.",
+"en": "I had never tried mole."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-a-veces-01",
+"type": "phrase",
+"tl": "a veces",
+"en": "sometimes",
+"pos": "adv",
+"topic": "core",
+"tier": 2,
+"examples": [
+{
+"tl": "A veces se va la luz en la noche.",
+"en": "Sometimes the power goes out at night."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-luego-01",
+"type": "vocab",
+"tl": "luego",
+"en": "later / then",
+"accept": [
+"later",
+"then",
+"afterwards"
+],
+"pos": "adv",
+"topic": "core",
+"tier": 2,
+"notes": "'Hasta luego' = see you later. In Mexico 'luego luego' = right away.",
+"examples": [
+{
+"tl": "Primero vamos al banco y luego a comer.",
+"en": "First we go to the bank and then to eat."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-despues-01",
+"type": "vocab",
+"tl": "después",
+"en": "afterwards / later",
+"accept": [
+"after",
+"later",
+"afterwards",
+"then"
+],
+"pos": "adv",
+"topic": "core",
+"tier": 1,
+"examples": [
+{
+"tl": "Ahora no, después te explico.",
+"en": "Not now, I'll explain later."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-antes-01",
+"type": "vocab",
+"tl": "antes",
+"en": "before / earlier",
+"accept": [
+"before",
+"earlier",
+"previously"
+],
+"pos": "adv",
+"topic": "core",
+"tier": 2,
+"notes": "'Antes' alone = before/formerly: 'antes vivía en Dallas'.",
+"examples": [
+{
+"tl": "Antes era más barato rentar aquí.",
+"en": "It used to be cheaper to rent here."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-hoy-01",
+"type": "vocab",
+"tl": "hoy",
+"en": "today",
+"pos": "adv",
+"topic": "core",
+"tier": 1,
+"examples": [
+{
+"tl": "Hoy no hay clases por el feriado.",
+"en": "There's no class today because of the holiday."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-manana-01",
+"type": "vocab",
+"tl": "mañana",
+"en": "tomorrow",
+"pos": "adv",
+"topic": "core",
+"tier": 1,
+"notes": "'La mañana' (noun, f) = morning. 'Mañana en la mañana' = tomorrow morning.",
+"examples": [
+{
+"tl": "Mañana tengo cita en migración.",
+"en": "Tomorrow I have an appointment at immigration."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-ayer-01",
+"type": "vocab",
+"tl": "ayer",
+"en": "yesterday",
+"pos": "adv",
+"topic": "core",
+"tier": 2,
+"notes": "'Anteayer' / 'antier' (Mex.) = the day before yesterday.",
+"examples": [
+{
+"tl": "Ayer fuimos al tianguis de la Roma.",
+"en": "Yesterday we went to the street market in La Roma."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-tambien-01",
+"type": "vocab",
+"tl": "también",
+"en": "also / too",
+"accept": [
+"also",
+"too",
+"as well"
+],
+"pos": "adv",
+"topic": "core",
+"tier": 1,
+"examples": [
+{
+"tl": "Yo también quiero un agua de horchata.",
+"en": "I also want a horchata."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-tampoco-01",
+"type": "vocab",
+"tl": "tampoco",
+"en": "neither / not either",
+"accept": [
+"neither",
+"not either",
+"me neither"
+],
+"pos": "adv",
+"topic": "core",
+"tier": 2,
+"casual": "Yo tampoco",
+"notes": "Negative of 'también'. 'Yo tampoco' = me neither.",
+"examples": [
+{
+"tl": "No tengo cambio. — Yo tampoco.",
+"en": "I don't have change. — Me neither."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-muy-01",
+"type": "vocab",
+"tl": "muy",
+"en": "very",
+"pos": "adv",
+"topic": "core",
+"tier": 1,
+"notes": "Before adjectives/adverbs only. For 'very much' use 'mucho': 'me gusta mucho', never 'muy mucho'.",
+"examples": [
+{
+"tl": "El servicio fue muy rápido.",
+"en": "The service was very fast."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-mucho-01",
+"type": "vocab",
+"tl": "mucho",
+"en": "a lot / much / many",
+"accept": [
+"a lot",
+"much",
+"many",
+"very much"
+],
+"accept_tl": [
+"mucha",
+"muchos",
+"muchas"
+],
+"pos": "adv",
+"topic": "core",
+"tier": 1,
+"notes": "As adjective it agrees: mucha gente, muchos pesos. As adverb after a verb: 'trabaja mucho'. 'Mucho gusto' = nice to meet you.",
+"examples": [
+{
+"tl": "Hay mucha gente en la fila.",
+"en": "There are a lot of people in line."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-poco-01",
+"type": "vocab",
+"tl": "poco",
+"en": "little / few",
+"accept": [
+"a little",
+"little",
+"few",
+"not much"
+],
+"accept_tl": [
+"poca",
+"pocos",
+"pocas"
+],
+"pos": "adv",
+"topic": "core",
+"tier": 1,
+"notes": "'Un poco' = a bit. 'Poco a poco' = little by little. Agrees as adjective: poca agua, pocos días.",
+"examples": [
+{
+"tl": "Hablo un poco de español.",
+"en": "I speak a little Spanish."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-bastante-01",
+"type": "vocab",
+"tl": "bastante",
+"en": "quite / enough",
+"accept": [
+"quite",
+"pretty",
+"enough",
+"quite a lot"
+],
+"pos": "adv",
+"topic": "core",
+"tier": 3,
+"notes": "Often = 'pretty/quite a lot' rather than 'enough': 'está bastante lejos' = it's pretty far.",
+"examples": [
+{
+"tl": "El departamento está bastante bien para el precio.",
+"en": "The apartment is pretty good for the price."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-demasiado-01",
+"type": "vocab",
+"tl": "demasiado",
+"en": "too much / too",
+"accept": [
+"too much",
+"too",
+"too many"
+],
+"pos": "adv",
+"topic": "core",
+"tier": 3,
+"notes": "Before adjectives invariable: 'demasiado caro'. As adjective agrees: 'demasiada gente'.",
+"examples": [
+{
+"tl": "Es demasiado caro para lo que ofrece.",
+"en": "It's too expensive for what it offers."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-casi-01",
+"type": "vocab",
+"tl": "casi",
+"en": "almost",
+"accept": [
+"almost",
+"nearly"
+],
+"pos": "adv",
+"topic": "core",
+"tier": 2,
+"notes": "'Casi nunca' = hardly ever. 'Casi casi' = very nearly (colloquial).",
+"examples": [
+{
+"tl": "Ya casi llego, dame cinco minutos.",
+"en": "I'm almost there, give me five minutes."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-solo-01",
+"type": "vocab",
+"tl": "solo",
+"en": "only / just",
+"accept": [
+"only",
+"just",
+"alone"
+],
+"accept_tl": [
+"sólo",
+"solamente",
+"nomás"
+],
+"pos": "adv",
+"topic": "core",
+"tier": 2,
+"notes": "Adverb 'solo' (= solamente); older spelling 'sólo'. Adjective 'solo/sola' = alone. Mexico/Central America also use 'nomás'.",
+"examples": [
+{
+"tl": "Solo quiero preguntar el precio.",
+"en": "I just want to ask the price."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-mas-01",
+"type": "vocab",
+"tl": "más",
+"en": "more",
+"accept": [
+"more",
+"most",
+"plus"
+],
+"pos": "adv",
+"topic": "core",
+"tier": 1,
+"notes": "Comparative 'más ... que'. Superlative 'el más ...'. 'Más o menos' = so-so / roughly. Accent required (mas = but, literary).",
+"examples": [
+{
+"tl": "¿Tiene uno más grande?",
+"en": "Do you have a bigger one?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-menos-01",
+"type": "vocab",
+"tl": "menos",
+"en": "less / fewer",
+"accept": [
+"less",
+"fewer",
+"minus",
+"except"
+],
+"pos": "adv",
+"topic": "core",
+"tier": 2,
+"notes": "'Menos ... que'. Also 'except': 'todos menos yo'. Clock: 'son las tres menos cuarto' (less common in Mexico than 'un cuarto para las tres').",
+"examples": [
+{
+"tl": "Este cuesta menos que el otro.",
+"en": "This one costs less than the other one."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-bien-01",
+"type": "vocab",
+"tl": "bien",
+"en": "well / fine",
+"accept": [
+"well",
+"fine",
+"good",
+"okay"
+],
+"pos": "adv",
+"topic": "core",
+"tier": 1,
+"casual": "bien chido",
+"notes": "Adverb (bueno is the adjective). 'Estoy bien' = I'm fine. Colloquially intensifier = very: 'está bien caro'.",
+"examples": [
+{
+"tl": "¿Cómo estás? — Bien, gracias, ¿y tú?",
+"en": "How are you? — Fine, thanks, and you?"
+},
+{
+"tl": "Ese lugar está bien lejos.",
+"en": "That place is really far."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-mal-01",
+"type": "vocab",
+"tl": "mal",
+"en": "badly / wrong",
+"accept": [
+"badly",
+"bad",
+"wrong",
+"poorly"
+],
+"pos": "adv",
+"topic": "core",
+"tier": 2,
+"notes": "Adverb (malo is the adjective). 'Me siento mal' = I feel sick/bad. 'Está mal' = it's wrong.",
+"examples": [
+{
+"tl": "Me siento mal, creo que fue la comida.",
+"en": "I feel sick, I think it was the food."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-asi-01",
+"type": "vocab",
+"tl": "así",
+"en": "like this / so",
+"accept": [
+"like this",
+"like that",
+"this way",
+"so"
+],
+"pos": "adv",
+"topic": "core",
+"tier": 2,
+"notes": "'Así es' = that's right. 'Así así' = so-so. 'Así que' = so/therefore.",
+"examples": [
+{
+"tl": "Se dobla así, mira.",
+"en": "You fold it like this, look."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-quizas-01",
+"type": "vocab",
+"tl": "quizás",
+"en": "maybe / perhaps",
+"accept": [
+"maybe",
+"perhaps"
+],
+"accept_tl": [
+"quizá"
+],
+"pos": "adv",
+"topic": "core",
+"tier": 3,
+"notes": "Often followed by subjunctive. 'A lo mejor' and 'tal vez' are the everyday equivalents.",
+"examples": [
+{
+"tl": "Quizás vaya al gimnasio más tarde.",
+"en": "Maybe I'll go to the gym later."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-tal-vez-01",
+"type": "phrase",
+"tl": "tal vez",
+"en": "maybe",
+"accept": [
+"maybe",
+"perhaps"
+],
+"accept_tl": [
+"a lo mejor"
+],
+"pos": "adv",
+"topic": "core",
+"tier": 3,
+"notes": "Two words. 'A lo mejor' is very common in Mexico and takes the indicative.",
+"examples": [
+{
+"tl": "Tal vez llegue tarde, hay mucho tráfico.",
+"en": "I might get there late, there's a lot of traffic."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-claro-01",
+"type": "vocab",
+"tl": "claro",
+"en": "of course / sure",
+"accept": [
+"of course",
+"sure",
+"clear",
+"obviously"
+],
+"pos": "interj",
+"topic": "core",
+"tier": 1,
+"casual": "¡Claro que sí!",
+"notes": "As adjective 'claro/clara' = clear, light-colored. '¡Claro!' = of course.",
+"examples": [
+{
+"tl": "¿Me ayudas con las bolsas? — Claro que sí.",
+"en": "Can you help me with the bags? — Of course."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-si-01",
+"type": "vocab",
+"tl": "sí",
+"en": "yes",
+"pos": "interj",
+"topic": "core",
+"tier": 1,
+"casual": "Simón (Mex. slang)",
+"notes": "Accent required (si = if). Also emphasis: 'yo sí quiero' = I DO want to. 'Simón' is Mexican street slang for yes.",
+"examples": [
+{
+"tl": "¿Vas a venir? — Sí, ahí estaré.",
+"en": "Are you coming? — Yes, I'll be there."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-no-01",
+"type": "vocab",
+"tl": "no",
+"en": "no / not",
+"accept": [
+"no",
+"not"
+],
+"pos": "adv",
+"topic": "core",
+"tier": 1,
+"casual": "nel (Mex. slang)",
+"notes": "Goes before the verb: 'no tengo'. Tag question '¿no?' = right? 'Nel' is Mexican slang for no.",
+"examples": [
+{
+"tl": "No tengo cambio, ¿no tienes de a veinte?",
+"en": "I don't have change, do you have a twenty?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-nada-01",
+"type": "vocab",
+"tl": "nada",
+"en": "nothing",
+"accept": [
+"nothing",
+"anything",
+"not at all"
+],
+"pos": "pron",
+"topic": "core",
+"tier": 2,
+"casual": "De nada",
+"notes": "Double negative normal: 'no quiero nada'. 'De nada' = you're welcome. 'Nada más' = just/only (Mex.).",
+"examples": [
+{
+"tl": "No pasa nada, no te preocupes.",
+"en": "It's nothing, don't worry."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-nadie-01",
+"type": "vocab",
+"tl": "nadie",
+"en": "nobody",
+"accept": [
+"nobody",
+"no one",
+"anyone"
+],
+"pos": "pron",
+"topic": "core",
+"tier": 2,
+"notes": "Double negative: 'no vino nadie' or 'nadie vino'. Takes personal 'a': 'no conozco a nadie'.",
+"examples": [
+{
+"tl": "No conozco a nadie en esta ciudad.",
+"en": "I don't know anyone in this city."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-algo-01",
+"type": "vocab",
+"tl": "algo",
+"en": "something",
+"accept": [
+"something",
+"anything",
+"somewhat"
+],
+"pos": "pron",
+"topic": "core",
+"tier": 1,
+"notes": "'¿Algo más?' = anything else? Also 'somewhat': 'está algo lejos'.",
+"examples": [
+{
+"tl": "¿Quieres algo de tomar?",
+"en": "Do you want something to drink?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-alguien-01",
+"type": "vocab",
+"tl": "alguien",
+"en": "someone",
+"accept": [
+"someone",
+"somebody",
+"anyone"
+],
+"pos": "pron",
+"topic": "core",
+"tier": 2,
+"notes": "Takes personal 'a' as object: 'busco a alguien'.",
+"examples": [
+{
+"tl": "¿Alguien habla inglés aquí?",
+"en": "Does anyone here speak English?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-ninguno-01",
+"type": "vocab",
+"tl": "ninguno",
+"en": "none / not any",
+"accept": [
+"none",
+"no one",
+"not any",
+"neither"
+],
+"accept_tl": [
+"ninguna",
+"ningún"
+],
+"pos": "pron",
+"topic": "core",
+"tier": 3,
+"notes": "Shortens to 'ningún' before a masc. noun: 'ningún problema'. Double negative normal: 'no tengo ninguno'. Rarely plural.",
+"examples": [
+{
+"tl": "No hay ningún problema, pase.",
+"en": "No problem at all, come in."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-todo-01",
+"type": "vocab",
+"tl": "todo",
+"en": "everything / all",
+"accept": [
+"everything",
+"all",
+"every",
+"whole"
+],
+"accept_tl": [
+"toda",
+"todos",
+"todas"
+],
+"pos": "pron",
+"topic": "core",
+"tier": 1,
+"casual": "¿Todo bien?",
+"notes": "Agrees: todo el día, toda la noche, todos los días. 'Todo bien' = all good.",
+"examples": [
+{
+"tl": "¿Todo bien? — Sí, todo tranquilo.",
+"en": "Everything okay? — Yeah, all calm."
+},
+{
+"tl": "Trabajo todos los días menos el domingo.",
+"en": "I work every day except Sunday."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-cada-01",
+"type": "vocab",
+"tl": "cada",
+"en": "each / every",
+"accept": [
+"each",
+"every"
+],
+"pos": "adj",
+"topic": "core",
+"tier": 2,
+"notes": "Invariable: 'cada día', 'cada semana'. 'Cada quien' = each person (Mex.).",
+"examples": [
+{
+"tl": "Pago la luz cada dos meses.",
+"en": "I pay the electric bill every two months."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-otro-01",
+"type": "vocab",
+"tl": "otro",
+"en": "other / another",
+"accept": [
+"other",
+"another",
+"one more"
+],
+"accept_tl": [
+"otra"
+],
+"pos": "adj",
+"topic": "core",
+"tier": 1,
+"notes": "No 'un' before it: 'otro café', never 'un otro'. Agrees: otra/otros/otras. 'El otro día' = the other day.",
+"examples": [
+{
+"tl": "¿Me trae otra cerveza, por favor?",
+"en": "Can you bring me another beer, please?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-mismo-01",
+"type": "vocab",
+"tl": "mismo",
+"en": "same / self",
+"accept": [
+"same",
+"the same",
+"-self"
+],
+"accept_tl": [
+"misma"
+],
+"pos": "adj",
+"topic": "core",
+"tier": 2,
+"notes": "'El mismo' = the same one. After a noun/pronoun = -self: 'yo mismo'. 'Ahora mismo' = right now. 'Lo mismo' = the same thing.",
+"examples": [
+{
+"tl": "Vivimos en el mismo edificio.",
+"en": "We live in the same building."
+},
+{
+"tl": "Pide lo mismo que yo.",
+"en": "Order the same as me."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-bueno-01",
+"type": "vocab",
+"tl": "bueno",
+"en": "good",
+"accept": [
+"good",
+"okay",
+"well"
+],
+"accept_tl": [
+"buena"
+],
+"pos": "adj",
+"topic": "core",
+"tier": 1,
+"casual": "¡Bueno!",
+"notes": "Shortens to 'buen' before a masc. noun: 'buen día'. Ser bueno = good quality/person; 'está bueno' = tastes good. Mexicans answer the phone '¿Bueno?'.",
+"examples": [
+{
+"tl": "Es un buen lugar para desayunar.",
+"en": "It's a good place for breakfast."
+},
+{
+"tl": "Bueno, nos vemos mañana.",
+"en": "Okay, see you tomorrow."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-malo-01",
+"type": "vocab",
+"tl": "malo",
+"en": "bad",
+"accept_tl": [
+"mala"
+],
+"pos": "adj",
+"topic": "core",
+"tier": 1,
+"notes": "Shortens to 'mal' before a masc. noun: 'mal servicio'. 'Es malo' = bad (quality/person); 'está malo' = spoiled / sick (Mex.).",
+"examples": [
+{
+"tl": "La señal es muy mala en este edificio.",
+"en": "The signal is really bad in this building."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-grande-01",
+"type": "vocab",
+"tl": "grande",
+"en": "big",
+"accept": [
+"big",
+"large",
+"great"
+],
+"pos": "adj",
+"topic": "core",
+"tier": 1,
+"notes": "Same form for m/f. Before a noun becomes 'gran' = great: 'un gran amigo'. Also 'grown-up/old': 'mi hermano grande'.",
+"examples": [
+{
+"tl": "El cuarto es grande pero no tiene ventana.",
+"en": "The room is big but has no window."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-pequeno-01",
+"type": "vocab",
+"tl": "pequeño",
+"en": "small",
+"accept": [
+"small",
+"little"
+],
+"accept_tl": [
+"pequeña",
+"chico",
+"chica"
+],
+"pos": "adj",
+"topic": "core",
+"tier": 3,
+"notes": "Standard word; in Mexico and much of Latin America 'chico/chica' is more common in speech.",
+"examples": [
+{
+"tl": "Es un pueblo pequeño, todos se conocen.",
+"en": "It's a small town, everyone knows each other."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-chico-01",
+"type": "vocab",
+"tl": "chico",
+"en": "small (colloquial)",
+"accept": [
+"small",
+"little"
+],
+"accept_tl": [
+"chica",
+"pequeño"
+],
+"pos": "adj",
+"topic": "core",
+"tier": 1,
+"notes": "Everyday word for small in Mexico/Central America: 'talla chica'. As a noun 'el chico / la chica' = guy / girl.",
+"examples": [
+{
+"tl": "¿Lo tiene en talla chica?",
+"en": "Do you have it in a small?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-nuevo-01",
+"type": "vocab",
+"tl": "nuevo",
+"en": "new",
+"accept_tl": [
+"nueva"
+],
+"pos": "adj",
+"topic": "core",
+"tier": 1,
+"notes": "'De nuevo' = again. 'Nuevecito' = brand new (colloquial).",
+"examples": [
+{
+"tl": "Me compré un celular nuevo.",
+"en": "I bought myself a new phone."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-viejo-01",
+"type": "vocab",
+"tl": "viejo",
+"en": "old",
+"accept_tl": [
+"vieja"
+],
+"pos": "adj",
+"topic": "core",
+"tier": 2,
+"notes": "Things and people. For people 'mayor' / 'grande' is more polite. 'Mi viejo / mi vieja' = my dad / my mom or partner (affectionate, colloquial).",
+"examples": [
+{
+"tl": "El edificio es viejo pero está bien cuidado.",
+"en": "The building is old but well kept."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-caro-01",
+"type": "vocab",
+"tl": "caro",
+"en": "expensive",
+"accept": [
+"expensive",
+"pricey"
+],
+"accept_tl": [
+"cara"
+],
+"pos": "adj",
+"topic": "core",
+"tier": 1,
+"notes": "'Está caro' for current price (estar); 'es caro' for a generally expensive thing.",
+"examples": [
+{
+"tl": "Está muy caro, ¿no me lo deja más barato?",
+"en": "That's very expensive, can't you give me a better price?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-barato-01",
+"type": "vocab",
+"tl": "barato",
+"en": "cheap",
+"accept": [
+"cheap",
+"inexpensive"
+],
+"accept_tl": [
+"barata"
+],
+"pos": "adj",
+"topic": "core",
+"tier": 2,
+"examples": [
+{
+"tl": "En el mercado la fruta es más barata.",
+"en": "At the market the fruit is cheaper."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-bonito-01",
+"type": "vocab",
+"tl": "bonito",
+"en": "pretty / nice",
+"accept": [
+"pretty",
+"nice",
+"beautiful",
+"cute"
+],
+"accept_tl": [
+"bonita",
+"lindo",
+"linda"
+],
+"pos": "adj",
+"topic": "core",
+"tier": 2,
+"notes": "Default word for nice-looking in Mexico; 'lindo' is more common in South America. Also for experiences: 'un detalle bonito'.",
+"examples": [
+{
+"tl": "Qué bonita vista tiene el departamento.",
+"en": "What a nice view the apartment has."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-feo-01",
+"type": "vocab",
+"tl": "feo",
+"en": "ugly",
+"accept": [
+"ugly",
+"nasty",
+"bad"
+],
+"accept_tl": [
+"fea"
+],
+"pos": "adj",
+"topic": "core",
+"tier": 3,
+"notes": "Also = unpleasant/bad: 'huele feo' (smells bad), 'se siente feo' (feels bad), 'una zona fea' (sketchy area).",
+"examples": [
+{
+"tl": "Esa zona está fea de noche, mejor pide un Uber.",
+"en": "That area is sketchy at night, better get an Uber."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-facil-01",
+"type": "vocab",
+"tl": "fácil",
+"en": "easy",
+"pos": "adj",
+"topic": "core",
+"tier": 2,
+"notes": "Same form for m/f; plural 'fáciles'. Colloquial 'fácil' = probably/easily: 'fácil son veinte minutos'.",
+"examples": [
+{
+"tl": "El trámite es fácil, nada más llevas tu pasaporte.",
+"en": "The procedure is easy, you just bring your passport."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-dificil-01",
+"type": "vocab",
+"tl": "difícil",
+"en": "difficult",
+"accept": [
+"difficult",
+"hard"
+],
+"pos": "adj",
+"topic": "core",
+"tier": 2,
+"notes": "Same form for m/f. 'Está difícil' = it's tough / unlikely.",
+"examples": [
+{
+"tl": "Es difícil encontrar estacionamiento por aquí.",
+"en": "It's hard to find parking around here."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-rapido-01",
+"type": "vocab",
+"tl": "rápido",
+"en": "fast / quick",
+"accept": [
+"fast",
+"quick",
+"quickly"
+],
+"accept_tl": [
+"rápida"
+],
+"pos": "adj",
+"topic": "core",
+"tier": 2,
+"notes": "Also an adverb: 'ven rápido'. 'Rapidito' = real quick (colloquial).",
+"examples": [
+{
+"tl": "El metro es más rápido que el camión.",
+"en": "The metro is faster than the bus."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-lento-01",
+"type": "vocab",
+"tl": "lento",
+"en": "slow",
+"accept_tl": [
+"lenta",
+"despacio"
+],
+"pos": "adj",
+"topic": "core",
+"tier": 3,
+"notes": "Adjective. For 'slowly' people usually say 'despacio': 'más despacio, por favor'.",
+"examples": [
+{
+"tl": "El internet está muy lento hoy.",
+"en": "The internet is really slow today."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-caliente-01",
+"type": "vocab",
+"tl": "caliente",
+"en": "hot (temperature)",
+"accept": [
+"hot",
+"warm"
+],
+"pos": "adj",
+"topic": "core",
+"tier": 2,
+"notes": "Things, not weather ('hace calor') or people ('tengo calor'). Saying a person 'está caliente' means horny. Spicy = 'picante' / 'pica'.",
+"examples": [
+{
+"tl": "Cuidado, el plato está caliente.",
+"en": "Careful, the plate is hot."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-frio-01",
+"type": "vocab",
+"tl": "frío",
+"en": "cold",
+"accept_tl": [
+"fría"
+],
+"pos": "adj",
+"topic": "core",
+"tier": 2,
+"notes": "Adjective with estar: 'el café está frío'. Weather: 'hace frío'. Feeling: 'tengo frío'. Noun 'el frío' (m).",
+"examples": [
+{
+"tl": "¿Tiene cervezas bien frías?",
+"en": "Do you have really cold beers?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-rico-01",
+"type": "vocab",
+"tl": "rico",
+"en": "delicious / rich",
+"accept": [
+"delicious",
+"tasty",
+"rich",
+"yummy"
+],
+"accept_tl": [
+"rica",
+"sabroso"
+],
+"pos": "adj",
+"topic": "core",
+"tier": 1,
+"casual": "¡Qué rico!",
+"notes": "With estar = tastes great ('está rico'). With ser = wealthy ('es rico'). '¡Qué rico!' = yum / how nice.",
+"examples": [
+{
+"tl": "Los tacos de aquí están bien ricos.",
+"en": "The tacos here are really good."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-lleno-01",
+"type": "vocab",
+"tl": "lleno",
+"en": "full",
+"accept_tl": [
+"llena"
+],
+"pos": "adj",
+"topic": "core",
+"tier": 3,
+"notes": "With estar. 'Estoy lleno' = I'm full (after eating). 'Lleno, por favor' = fill it up (gas station).",
+"examples": [
+{
+"tl": "El restaurante está lleno, hay que esperar.",
+"en": "The restaurant is full, we have to wait."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-vacio-01",
+"type": "vocab",
+"tl": "vacío",
+"en": "empty",
+"accept_tl": [
+"vacía"
+],
+"pos": "adj",
+"topic": "core",
+"tier": 3,
+"notes": "With estar. Noun 'el vacío' = emptiness / vacuum.",
+"examples": [
+{
+"tl": "El tanque de gas está vacío otra vez.",
+"en": "The gas tank is empty again."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-cerca-01",
+"type": "vocab",
+"tl": "cerca",
+"en": "near / close",
+"accept": [
+"near",
+"close",
+"nearby",
+"close by"
+],
+"pos": "adv",
+"topic": "core",
+"tier": 1,
+"notes": "Adverb with estar: 'está cerca'. 'Cerca de' = near (something). 'Cercano/a' is the adjective form.",
+"examples": [
+{
+"tl": "¿Hay una farmacia cerca de aquí?",
+"en": "Is there a pharmacy near here?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-lejos-01",
+"type": "vocab",
+"tl": "lejos",
+"en": "far",
+"accept": [
+"far",
+"far away"
+],
+"pos": "adv",
+"topic": "core",
+"tier": 2,
+"notes": "With estar: 'está lejos'. 'Lejos de' = far from. 'Lejano/a' is the adjective.",
+"examples": [
+{
+"tl": "No está tan lejos, son como veinte minutos caminando.",
+"en": "It's not that far, about twenty minutes walking."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-listo-01",
+"type": "vocab",
+"tl": "listo",
+"en": "ready / clever",
+"accept": [
+"ready",
+"done",
+"smart",
+"clever"
+],
+"accept_tl": [
+"lista"
+],
+"pos": "adj",
+"topic": "core",
+"tier": 1,
+"casual": "¡Listo!",
+"notes": "Estar listo = ready; ser listo = clever. '¡Listo!' = done / all set.",
+"examples": [
+{
+"tl": "¿Ya estás listo? El Uber ya llegó.",
+"en": "Are you ready? The Uber's here."
+},
+{
+"tl": "Listo, ya quedó el pago.",
+"en": "Done, the payment went through."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-cansado-01",
+"type": "vocab",
+"tl": "cansado",
+"en": "tired",
+"accept_tl": [
+"cansada"
+],
+"pos": "adj",
+"topic": "core",
+"tier": 2,
+"notes": "With estar. 'Ser cansado' = tiring (a task). Cansarse = to get tired.",
+"examples": [
+{
+"tl": "Estoy bien cansado, hoy fue un día largo.",
+"en": "I'm really tired, today was a long day."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-ocupado-01",
+"type": "vocab",
+"tl": "ocupado",
+"en": "busy / occupied",
+"accept": [
+"busy",
+"occupied",
+"taken"
+],
+"accept_tl": [
+"ocupada"
+],
+"pos": "adj",
+"topic": "core",
+"tier": 2,
+"notes": "With estar. People, phone lines, bathrooms, seats: '¿está ocupado?' = is this taken?",
+"examples": [
+{
+"tl": "Disculpa, ¿está ocupado este asiento?",
+"en": "Excuse me, is this seat taken?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-libre-01",
+"type": "vocab",
+"tl": "libre",
+"en": "free (available)",
+"accept": [
+"free",
+"available",
+"off"
+],
+"pos": "adj",
+"topic": "core",
+"tier": 2,
+"notes": "Same form for m/f. Free as in available/not busy; free of charge = 'gratis'. 'Día libre' = day off.",
+"examples": [
+{
+"tl": "¿Estás libre el sábado?",
+"en": "Are you free on Saturday?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-diferente-01",
+"type": "vocab",
+"tl": "diferente",
+"en": "different",
+"accept_tl": [
+"distinto"
+],
+"pos": "adj",
+"topic": "core",
+"tier": 3,
+"notes": "Same form for m/f. 'Distinto' is a common synonym.",
+"examples": [
+{
+"tl": "Aquí el enchufe es diferente, necesitas adaptador.",
+"en": "The outlet here is different, you need an adapter."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-importante-01",
+"type": "vocab",
+"tl": "importante",
+"en": "important",
+"pos": "adj",
+"topic": "core",
+"tier": 2,
+"notes": "Same form for m/f. 'Lo importante es...' = the important thing is...",
+"examples": [
+{
+"tl": "Es importante llevar copias de todos los documentos.",
+"en": "It's important to bring copies of all the documents."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-mejor-01",
+"type": "vocab",
+"tl": "mejor",
+"en": "better / best",
+"accept": [
+"better",
+"best",
+"rather"
+],
+"pos": "adj",
+"topic": "core",
+"tier": 1,
+"casual": "Mejor no",
+"notes": "Irregular comparative of bueno/bien. 'El mejor' = the best. Also 'rather / let's instead': 'mejor vamos mañana'.",
+"examples": [
+{
+"tl": "Este lugar es mejor que el de ayer.",
+"en": "This place is better than yesterday's."
+},
+{
+"tl": "Mejor pedimos a domicilio.",
+"en": "Let's just order delivery instead."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-peor-01",
+"type": "vocab",
+"tl": "peor",
+"en": "worse / worst",
+"accept": [
+"worse",
+"worst"
+],
+"pos": "adj",
+"topic": "core",
+"tier": 3,
+"notes": "Irregular comparative of malo/mal. 'Lo peor es que...' = the worst part is...",
+"examples": [
+{
+"tl": "El tráfico hoy está peor que nunca.",
+"en": "Traffic today is worse than ever."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-primero-01",
+"type": "vocab",
+"tl": "primero",
+"en": "first",
+"accept_tl": [
+"primera"
+],
+"pos": "adj",
+"topic": "core",
+"tier": 2,
+"notes": "Shortens to 'primer' before a masc. noun: 'primer piso'. As adverb = first of all: 'primero vamos al banco'. 'El primero' = the 1st (date).",
+"examples": [
+{
+"tl": "Es la primera vez que vengo a Oaxaca.",
+"en": "It's the first time I've come to Oaxaca."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-ultimo-01",
+"type": "vocab",
+"tl": "último",
+"en": "last",
+"accept": [
+"last",
+"latest",
+"final"
+],
+"accept_tl": [
+"última"
+],
+"pos": "adj",
+"topic": "core",
+"tier": 2,
+"notes": "Last in a sequence. 'Por último' = finally. 'Last' as in previous = 'pasado': 'la semana pasada'.",
+"examples": [
+{
+"tl": "¿A qué hora pasa el último metro?",
+"en": "What time does the last metro come by?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-cierto-01",
+"type": "vocab",
+"tl": "cierto",
+"en": "true / certain",
+"accept": [
+"true",
+"certain",
+"right"
+],
+"accept_tl": [
+"cierta"
+],
+"pos": "adj",
+"topic": "core",
+"tier": 3,
+"casual": "¿Cierto?",
+"notes": "'Es cierto' = that's true. '¿Cierto?' = right? (tag, very common in Colombia). 'Por cierto' = by the way.",
+"examples": [
+{
+"tl": "¿Es cierto que van a subir la renta?",
+"en": "Is it true they're going to raise the rent?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-raro-01",
+"type": "vocab",
+"tl": "raro",
+"en": "strange / weird",
+"accept": [
+"strange",
+"weird",
+"odd",
+"rare"
+],
+"accept_tl": [
+"rara"
+],
+"pos": "adj",
+"topic": "core",
+"tier": 3,
+"notes": "Usually = weird, not rare. 'Qué raro' = how strange. 'Rara vez' = rarely.",
+"examples": [
+{
+"tl": "Qué raro, el banco nunca cierra tan temprano.",
+"en": "That's weird, the bank never closes this early."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-chido-01",
+"type": "vocab",
+"tl": "chido",
+"en": "cool / awesome (Mex. slang)",
+"accept": [
+"cool",
+"awesome",
+"great",
+"nice"
+],
+"accept_tl": [
+"chida",
+"padre",
+"genial"
+],
+"pos": "adj",
+"topic": "core",
+"tier": 3,
+"casual": "¡Qué chido!",
+"notes": "MEXICAN SLANG, informal only. 'Está chido' = it's cool. Other regions: 'chévere' (Colombia, Venezuela), 'bacán' (Peru/Chile), 'padre' (Mexico, slightly older).",
+"examples": [
+{
+"tl": "¡Qué chido tu depa, está bien ubicado!",
+"en": "Your apartment is so cool, it's well located!"
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-tranquilo-01",
+"type": "vocab",
+"tl": "tranquilo",
+"en": "calm / relax",
+"accept": [
+"calm",
+"quiet",
+"relax",
+"no worries"
+],
+"accept_tl": [
+"tranquila"
+],
+"pos": "adj",
+"topic": "core",
+"tier": 2,
+"casual": "Tranqui",
+"notes": "Adjective for places and people; as a response = relax / no worries. 'Tranqui' is the casual clipping.",
+"examples": [
+{
+"tl": "Tranquilo, el pago llega mañana.",
+"en": "Relax, the payment arrives tomorrow."
+},
+{
+"tl": "Es una colonia tranquila.",
+"en": "It's a quiet neighborhood."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-seguro-01",
+"type": "vocab",
+"tl": "seguro",
+"en": "sure / safe",
+"accept": [
+"sure",
+"safe",
+"secure",
+"certain"
+],
+"accept_tl": [
+"segura"
+],
+"pos": "adj",
+"topic": "core",
+"tier": 2,
+"notes": "Estar seguro = to be sure; ser seguro = to be safe. Noun 'el seguro' (m) = insurance. 'Seguro que sí' = for sure.",
+"examples": [
+{
+"tl": "¿Estás seguro de que es por aquí?",
+"en": "Are you sure it's this way?"
+},
+{
+"tl": "¿Es segura esa zona de noche?",
+"en": "Is that area safe at night?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-pues-01",
+"type": "vocab",
+"tl": "pues",
+"en": "well... / so",
+"accept": [
+"well",
+"so",
+"then",
+"um"
+],
+"pos": "interj",
+"topic": "core",
+"tier": 2,
+"casual": "pos / pus",
+"notes": "Filler and connector, extremely common in Mexico and Colombia. Buys time or softens: 'pues no sé'. Colombia tacks it on the end: 'hágale pues'.",
+"examples": [
+{
+"tl": "Pues sí, está caro, pero me gusta.",
+"en": "Well yeah, it's expensive, but I like it."
+}
+],
+"confidence": "high"
+},
+{
+"id": "core-o-sea-01",
+"type": "phrase",
+"tl": "o sea",
+"en": "I mean / that is",
+"accept": [
+"I mean",
+"that is",
+"in other words",
+"like"
+],
+"pos": "expr",
+"topic": "core",
+"tier": 2,
+"notes": "Clarifier and filler, like English 'I mean / like'. Overused by some speakers.",
+"examples": [
+{
+"tl": "Llego tarde, o sea, como a las nueve.",
+"en": "I'll be late, I mean, around nine."
+}
+],
+"confidence": "high"
+}
+]

@@ -1,0 +1,4435 @@
+[
+{
+"id": "food-comer-01",
+"type": "vocab",
+"tl": "comer",
+"en": "to eat",
+"accept": [
+"eat",
+"to have lunch"
+],
+"pos": "verb",
+"topic": "food",
+"tier": 1,
+"casual": "¿Comemos?",
+"notes": "Regular -er verb. In Mexico 'comer' also means 'to have lunch' (the main midday meal).",
+"examples": [
+{
+"tl": "¿Ya comiste?",
+"en": "Did you eat already?",
+"casual": "¿Ya comiste o qué?"
+},
+{
+"tl": "Vamos a comer tacos después del trabajo.",
+"en": "Let's go eat tacos after work."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-comida-01",
+"type": "vocab",
+"tl": "la comida",
+"en": "food",
+"accept": [
+"meal",
+"lunch"
+],
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 1,
+"notes": "Also 'the meal' and, in Mexico, specifically lunch ('la hora de la comida' = lunchtime).",
+"examples": [
+{
+"tl": "La comida de aquí está muy rica.",
+"en": "The food here is really good."
+},
+{
+"tl": "¿A qué hora es la comida en tu casa?",
+"en": "What time is lunch at your house?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-desayuno-01",
+"type": "vocab",
+"tl": "el desayuno",
+"en": "breakfast",
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 1,
+"notes": "Verb: desayunar (to have breakfast). '¿Qué desayunaste?' = What did you have for breakfast?",
+"examples": [
+{
+"tl": "El desayuno incluye café y jugo.",
+"en": "Breakfast includes coffee and juice."
+},
+{
+"tl": "Yo no desayuno, solo tomo café.",
+"en": "I don't eat breakfast, I just have coffee."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-almuerzo-01",
+"type": "vocab",
+"tl": "el almuerzo",
+"en": "lunch",
+"accept_tl": [
+"la comida"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 1,
+"notes": "Standard in Colombia, Central America and the US. In Mexico lunch is usually 'la comida'; 'almuerzo' there can mean a late breakfast/brunch.",
+"examples": [
+{
+"tl": "¿Qué hay de almuerzo hoy?",
+"en": "What's for lunch today?"
+},
+{
+"tl": "Salimos a almorzar a la una.",
+"en": "We go out for lunch at one."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-cena-01",
+"type": "vocab",
+"tl": "la cena",
+"en": "dinner",
+"accept": [
+"supper"
+],
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 1,
+"notes": "Verb: cenar. In Mexico dinner is often light and late (8-10 pm).",
+"examples": [
+{
+"tl": "¿Quieres cenar con nosotros el viernes?",
+"en": "Do you want to have dinner with us on Friday?"
+},
+{
+"tl": "La cena fue en casa de mi suegra.",
+"en": "Dinner was at my mother-in-law's house."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-botana-01",
+"type": "vocab",
+"tl": "la botana",
+"en": "snack",
+"accept": [
+"appetizer",
+"finger food"
+],
+"accept_tl": [
+"el antojo",
+"la merienda",
+"el snack",
+"las boquitas"
+],
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 2,
+"notes": "Mexican. Snacks served with drinks (chips, peanuts, cueritos). 'Botanear' = to snack. Colombia: 'pasabocas'; Central America: 'boquitas'.",
+"examples": [
+{
+"tl": "Trae algo de botana para el partido.",
+"en": "Bring some snacks for the game."
+},
+{
+"tl": "¿Pedimos una botana mientras esperamos?",
+"en": "Shall we order an appetizer while we wait?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-antojo-01",
+"type": "vocab",
+"tl": "el antojo",
+"en": "craving",
+"accept": [
+"snack craving"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 3,
+"casual": "Se me antoja…",
+"notes": "'Tener antojo de…' = to crave. 'Se me antoja un taco' = I'm craving a taco. 'Antojitos' = Mexican street snacks.",
+"examples": [
+{
+"tl": "Tengo antojo de algo dulce.",
+"en": "I'm craving something sweet."
+},
+{
+"tl": "Se me antojan unos tacos al pastor.",
+"en": "I'm craving some tacos al pastor.",
+"casual": "Se me antojan unos tacos, ¿vamos?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-bebida-01",
+"type": "vocab",
+"tl": "la bebida",
+"en": "drink",
+"accept": [
+"beverage"
+],
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 1,
+"notes": "Verb: beber (formal) / tomar (everyday: '¿Qué vas a tomar?' = What are you drinking?).",
+"examples": [
+{
+"tl": "¿Qué bebida quiere con su comida?",
+"en": "What drink would you like with your meal?"
+},
+{
+"tl": "Las bebidas no están incluidas.",
+"en": "Drinks aren't included."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-pedir-01",
+"type": "vocab",
+"tl": "pedir",
+"en": "to order",
+"accept": [
+"to ask for",
+"order"
+],
+"pos": "verb",
+"topic": "food",
+"tier": 1,
+"notes": "Stem-changing e>i: pido, pides, pide, pedimos, piden. The everyday verb for ordering food.",
+"examples": [
+{
+"tl": "¿Ya pidieron o todavía no?",
+"en": "Did you guys order yet or not?"
+},
+{
+"tl": "Voy a pedir unos tacos por Uber Eats.",
+"en": "I'm going to order some tacos on Uber Eats."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-ordenar-01",
+"type": "vocab",
+"tl": "ordenar",
+"en": "to order (food)",
+"accept": [
+"to order"
+],
+"accept_tl": [
+"pedir"
+],
+"pos": "verb",
+"topic": "food",
+"tier": 2,
+"notes": "Common in Mexico and US Spanish for ordering food ('¿Listos para ordenar?'). Elsewhere mostly means 'to tidy/arrange'; 'pedir' is universal.",
+"examples": [
+{
+"tl": "¿Están listos para ordenar?",
+"en": "Are you ready to order?"
+},
+{
+"tl": "Ordené de más, ¿me ayudas?",
+"en": "I ordered too much, help me out?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-cuenta-01",
+"type": "vocab",
+"tl": "la cuenta",
+"en": "the bill",
+"accept": [
+"the check",
+"bill",
+"check"
+],
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 1,
+"casual": "La cuenta, porfa.",
+"notes": "'La cuenta, por favor' is all you need. In Latin America the waiter won't bring it until you ask.",
+"examples": [
+{
+"tl": "¿Nos trae la cuenta, por favor?",
+"en": "Can you bring us the check, please?"
+},
+{
+"tl": "Yo pago la cuenta hoy, tú la próxima.",
+"en": "I'll pay the bill today, you get the next one."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-menu-01",
+"type": "vocab",
+"tl": "el menú",
+"en": "menu",
+"accept_tl": [
+"la carta"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 1,
+"notes": "'La carta' is the full menu; 'el menú (del día)' is often the set lunch special at a fonda. Both understood everywhere.",
+"examples": [
+{
+"tl": "¿Me pasa el menú, por favor?",
+"en": "Can you pass me the menu, please?"
+},
+{
+"tl": "El menú del día cuesta 90 pesos con agua y postre.",
+"en": "The lunch special costs 90 pesos with a drink and dessert."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-carta-01",
+"type": "vocab",
+"tl": "la carta",
+"en": "menu (full menu)",
+"accept": [
+"menu"
+],
+"accept_tl": [
+"el menú"
+],
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 2,
+"notes": "Also means 'letter'. In restaurants = the full à la carte menu.",
+"examples": [
+{
+"tl": "¿Tienen carta en inglés?",
+"en": "Do you have a menu in English?"
+},
+{
+"tl": "Todavía estamos viendo la carta.",
+"en": "We're still looking at the menu."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-mesero-01",
+"type": "vocab",
+"tl": "el mesero / la mesera",
+"en": "waiter / waitress",
+"accept": [
+"waiter",
+"waitress",
+"server"
+],
+"accept_tl": [
+"el mesero",
+"la mesera",
+"el camarero",
+"el mozo"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 1,
+"casual": "¡Joven!",
+"notes": "Mexico/Central America/Colombia: mesero(a). Spain: camarero. Argentina/Peru: mozo. To call one in Mexico say '¡Joven!' or '¡Disculpe!', never snap.",
+"examples": [
+{
+"tl": "El mesero fue muy amable con los niños.",
+"en": "The waiter was very nice to the kids."
+},
+{
+"tl": "Joven, ¿me trae otra servilleta?",
+"en": "Excuse me, can you bring me another napkin?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-propina-01",
+"type": "vocab",
+"tl": "la propina",
+"en": "tip",
+"accept": [
+"gratuity"
+],
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 1,
+"notes": "Mexico: 10-15% is normal, often added as 'servicio' on the card terminal. Colombia: 10% 'servicio voluntario' is asked at the table.",
+"examples": [
+{
+"tl": "¿Ya viene incluida la propina?",
+"en": "Is the tip already included?"
+},
+{
+"tl": "Déjale buena propina, nos atendió muy bien.",
+"en": "Leave him a good tip, he took great care of us."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-para-llevar-01",
+"type": "phrase",
+"tl": "para llevar",
+"en": "to go",
+"accept": [
+"takeout",
+"to take away"
+],
+"pos": "expr",
+"topic": "food",
+"tier": 1,
+"notes": "You'll be asked '¿Para aquí o para llevar?' at any counter. Answer with just 'Para llevar.'",
+"examples": [
+{
+"tl": "Dos quesadillas de queso para llevar, por favor.",
+"en": "Two cheese quesadillas to go, please."
+},
+{
+"tl": "¿Me lo pone para llevar? Ya no puedo más.",
+"en": "Can you box this up for me? I can't eat any more."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-para-aqui-01",
+"type": "phrase",
+"tl": "para aquí",
+"en": "for here",
+"accept": [
+"to eat here",
+"dine in"
+],
+"accept_tl": [
+"para comer aquí"
+],
+"pos": "expr",
+"topic": "food",
+"tier": 1,
+"notes": "Standard reply to '¿Para aquí o para llevar?'.",
+"examples": [
+{
+"tl": "—¿Para aquí o para llevar? —Para aquí, gracias.",
+"en": "—For here or to go? —For here, thanks."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-me-trae-01",
+"type": "phrase",
+"tl": "¿Me trae…?",
+"en": "Can you bring me…?",
+"accept": [
+"Could you bring me",
+"Can I get"
+],
+"pos": "expr",
+"topic": "food",
+"tier": 1,
+"casual": "¿Me traes…? (tú)",
+"notes": "Polite usted form of traer; the standard way to ask a waiter for anything. 'Me puede traer' also works. Add 'por favor'.",
+"examples": [
+{
+"tl": "¿Me trae un vaso de agua, por favor?",
+"en": "Can you bring me a glass of water, please?"
+},
+{
+"tl": "¿Nos trae más tortillas y la salsa verde?",
+"en": "Can you bring us more tortillas and the green salsa?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-que-me-recomienda-01",
+"type": "phrase",
+"tl": "¿Qué me recomienda?",
+"en": "What do you recommend?",
+"pos": "expr",
+"topic": "food",
+"tier": 1,
+"casual": "¿Qué me recomiendas? (tú)",
+"notes": "Great opener at a fonda or a new taquería. Follow-up: '¿Cuál es la especialidad de la casa?' (house specialty).",
+"examples": [
+{
+"tl": "Es mi primera vez aquí, ¿qué me recomienda?",
+"en": "It's my first time here, what do you recommend?"
+},
+{
+"tl": "—¿Qué me recomienda? —El pozole, es la especialidad.",
+"en": "—What do you recommend? —The pozole, it's the specialty."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-otro-01",
+"type": "vocab",
+"tl": "otro / otra",
+"en": "another",
+"accept": [
+"another one",
+"other"
+],
+"pos": "adj",
+"topic": "food",
+"tier": 1,
+"notes": "No 'un': say 'otra cerveza', never 'una otra cerveza'. Matches the noun's gender: otro taco, otra agua.",
+"examples": [
+{
+"tl": "¿Me da otra cerveza, por favor?",
+"en": "Can I get another beer, please?"
+},
+{
+"tl": "Otro taco de pastor con todo, joven.",
+"en": "Another al pastor taco with everything, sir."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-sin-cebolla-01",
+"type": "phrase",
+"tl": "sin cebolla",
+"en": "without onion",
+"accept": [
+"no onion",
+"no onions"
+],
+"pos": "expr",
+"topic": "food",
+"tier": 1,
+"notes": "'Sin' + ingredient works for anything: sin cilantro, sin chile, sin picante, sin mayonesa.",
+"examples": [
+{
+"tl": "Tres de suadero sin cebolla, por favor.",
+"en": "Three suadero tacos with no onion, please."
+},
+{
+"tl": "¿Me lo puede hacer sin cebolla y sin cilantro?",
+"en": "Can you make it without onion and without cilantro?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-con-todo-01",
+"type": "phrase",
+"tl": "con todo",
+"en": "with everything",
+"accept": [
+"with all the toppings"
+],
+"pos": "expr",
+"topic": "food",
+"tier": 1,
+"notes": "At a taquería = with onion, cilantro and salsa. The taquero will ask '¿Con todo?'; answer 'Con todo' or 'Sin cebolla'.",
+"examples": [
+{
+"tl": "—¿Con todo? —Sí, con todo y bien picosos.",
+"en": "—With everything? —Yes, with everything and nice and spicy."
+},
+{
+"tl": "Una torta de milanesa con todo, para llevar.",
+"en": "One milanesa torta with everything, to go."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-esta-picante-01",
+"type": "phrase",
+"tl": "¿Está picante?",
+"en": "Is it spicy?",
+"accept": [
+"Is it hot (spicy)?"
+],
+"accept_tl": [
+"¿Pica?",
+"¿Pica mucho?",
+"¿Está picoso?"
+],
+"pos": "expr",
+"topic": "food",
+"tier": 1,
+"casual": "¿Pica?",
+"notes": "'¿Pica?' is the quickest form. Mexican answers: 'Poquito', 'Nomás un poco', 'Pica, pero sabroso'. Ask before trusting a 'no pica'.",
+"examples": [
+{
+"tl": "¿Está muy picante la salsa roja?",
+"en": "Is the red salsa very spicy?"
+},
+{
+"tl": "—¿Pica? —Pica, pero rico.",
+"en": "—Is it spicy? —It's spicy, but good."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-que-lleva-01",
+"type": "phrase",
+"tl": "¿Qué lleva?",
+"en": "What's in it?",
+"accept": [
+"What does it come with?",
+"What does it have in it?"
+],
+"accept_tl": [
+"¿Qué tiene?",
+"¿Con qué viene?"
+],
+"pos": "expr",
+"topic": "food",
+"tier": 1,
+"notes": "Literally 'what does it carry'. Use it for any dish you don't recognize. Answer form: 'Lleva pollo, crema y queso.'",
+"examples": [
+{
+"tl": "¿Qué lleva la torta cubana?",
+"en": "What's in the torta cubana?"
+},
+{
+"tl": "—¿Qué lleva el caldo? —Pollo, verduras y arroz.",
+"en": "—What's in the soup? —Chicken, vegetables and rice."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-buen-provecho-01",
+"type": "phrase",
+"tl": "Buen provecho",
+"en": "Enjoy your meal",
+"accept": [
+"Bon appétit",
+"Enjoy"
+],
+"accept_tl": [
+"Provecho"
+],
+"pos": "expr",
+"topic": "food",
+"tier": 1,
+"casual": "Provecho",
+"notes": "Said by waiters, and by strangers passing your table in Mexico. Reply 'Gracias' or 'Igualmente'. 'Provecho' alone is the casual form.",
+"examples": [
+{
+"tl": "Aquí tiene su pozole, buen provecho.",
+"en": "Here's your pozole, enjoy your meal."
+},
+{
+"tl": "—Provecho. —Gracias, igualmente.",
+"en": "—Enjoy. —Thanks, you too."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-estoy-lleno-01",
+"type": "phrase",
+"tl": "Estoy lleno / llena",
+"en": "I'm full",
+"accept": [
+"I'm stuffed"
+],
+"accept_tl": [
+"Ya estoy satisfecho",
+"Ya no puedo más"
+],
+"pos": "expr",
+"topic": "food",
+"tier": 1,
+"casual": "Ya no puedo más.",
+"notes": "Match your gender: lleno (m) / llena (f). 'Estoy satisfecho/a' is the polite version at someone's house. Never 'estoy embarazada' (pregnant)!",
+"examples": [
+{
+"tl": "Ya estoy lleno, no me sirvas más, gracias.",
+"en": "I'm full already, don't serve me more, thanks."
+},
+{
+"tl": "Estaba todo riquísimo, pero ya estoy llena.",
+"en": "Everything was delicious, but I'm full now."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-tengo-hambre-01",
+"type": "phrase",
+"tl": "Tengo hambre",
+"en": "I'm hungry",
+"accept": [
+"I am hungry"
+],
+"accept_tl": [
+"Me muero de hambre",
+"Tengo mucha hambre"
+],
+"pos": "expr",
+"topic": "food",
+"tier": 1,
+"casual": "Me muero de hambre.",
+"notes": "Uses tener (to have), not estar. 'Tengo sed' = I'm thirsty. 'Me muero de hambre' = I'm starving.",
+"examples": [
+{
+"tl": "Tengo hambre, ¿hay algo de comer?",
+"en": "I'm hungry, is there anything to eat?"
+},
+{
+"tl": "Me muero de hambre, vamos a la fonda de la esquina.",
+"en": "I'm starving, let's go to the fonda on the corner.",
+"casual": "Me muero de hambre, ¿vamos?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-vamos-a-dividir-01",
+"type": "phrase",
+"tl": "Vamos a dividir la cuenta",
+"en": "Let's split the bill",
+"accept": [
+"Let's split the check",
+"Let's split it"
+],
+"accept_tl": [
+"Dividimos la cuenta",
+"Cada quien paga lo suyo",
+"A la americana"
+],
+"pos": "expr",
+"topic": "food",
+"tier": 2,
+"casual": "¿Dividimos?",
+"notes": "Mexico: 'cada quien paga lo suyo' = everyone pays their own; 'a la americana' = Dutch treat. Waiter: '¿Cuenta junta o separada?'",
+"examples": [
+{
+"tl": "¿Vamos a dividir la cuenta o paga uno?",
+"en": "Are we splitting the bill or is one person paying?"
+},
+{
+"tl": "—¿Junta o separada? —Divídala entre cuatro, por favor.",
+"en": "—Together or separate? —Split it four ways, please."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-tener-sed-01",
+"type": "phrase",
+"tl": "Tengo sed",
+"en": "I'm thirsty",
+"pos": "expr",
+"topic": "food",
+"tier": 2,
+"notes": "Tener + sed, like 'tengo hambre'. 'Sed' is feminine: 'mucha sed'.",
+"examples": [
+{
+"tl": "Tengo mucha sed, ¿dónde hay un OXXO?",
+"en": "I'm really thirsty, where's an OXXO?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-probar-01",
+"type": "vocab",
+"tl": "probar",
+"en": "to try (food)",
+"accept": [
+"to taste",
+"to try"
+],
+"pos": "verb",
+"topic": "food",
+"tier": 2,
+"notes": "Stem-changing o>ue: pruebo, pruebas, prueba. '¿Lo puedo probar?' at a market gets you a sample.",
+"examples": [
+{
+"tl": "¿Puedo probar el mango antes de comprarlo?",
+"en": "Can I try the mango before buying it?"
+},
+{
+"tl": "Tienes que probar el mole de mi mamá.",
+"en": "You have to try my mom's mole."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-sabor-01",
+"type": "vocab",
+"tl": "el sabor",
+"en": "flavor",
+"accept": [
+"taste"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 2,
+"notes": "'¿De qué sabor?' = what flavor? Verb: saber a = to taste like ('sabe a limón').",
+"examples": [
+{
+"tl": "¿De qué sabor quiere su helado?",
+"en": "What flavor do you want your ice cream?"
+},
+{
+"tl": "Esta salsa tiene mucho sabor.",
+"en": "This salsa has a lot of flavor."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-plato-fuerte-01",
+"type": "vocab",
+"tl": "el plato fuerte",
+"en": "main course",
+"accept": [
+"main dish",
+"entrée"
+],
+"accept_tl": [
+"el plato principal",
+"el segundo"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 3,
+"notes": "Mexican menus: entrada (appetizer) → sopa → plato fuerte → postre. 'Entrada' is the starter, not the main.",
+"examples": [
+{
+"tl": "De plato fuerte quiero las enchiladas verdes.",
+"en": "For the main course I'd like the green enchiladas."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-entrada-01",
+"type": "vocab",
+"tl": "la entrada",
+"en": "appetizer",
+"accept": [
+"starter"
+],
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 3,
+"notes": "False friend: NOT the entrée/main. Also means 'entrance' and 'ticket'.",
+"examples": [
+{
+"tl": "¿Pedimos unas entradas para compartir?",
+"en": "Shall we order some appetizers to share?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-compartir-01",
+"type": "vocab",
+"tl": "compartir",
+"en": "to share",
+"accept": [
+"share"
+],
+"pos": "verb",
+"topic": "food",
+"tier": 2,
+"notes": "Regular -ir verb. 'Para compartir' = to share (plate).",
+"examples": [
+{
+"tl": "¿Compartimos un postre?",
+"en": "Shall we share a dessert?"
+},
+{
+"tl": "Las alitas son para compartir.",
+"en": "The wings are for sharing."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-llenador-01",
+"type": "vocab",
+"tl": "llenador / llenadora",
+"en": "filling (food)",
+"accept": [
+"filling",
+"heavy"
+],
+"accept_tl": [
+"pesado"
+],
+"pos": "adj",
+"topic": "food",
+"tier": 4,
+"notes": "Mexican colloquial. 'Pesado' (heavy) is the neutral word everywhere.",
+"examples": [
+{
+"tl": "El pozole es muy llenador, pide uno chico.",
+"en": "Pozole is very filling, order a small one."
+}
+],
+"confidence": "check"
+},
+{
+"id": "food-sobras-01",
+"type": "vocab",
+"tl": "las sobras",
+"en": "leftovers",
+"accept_tl": [
+"lo que sobró"
+],
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 3,
+"notes": "Verb: sobrar (to be left over): 'Sobró mucho arroz'. Leftover tacos the next day = 'recalentado'.",
+"examples": [
+{
+"tl": "Mañana comemos las sobras de la cena.",
+"en": "Tomorrow we'll eat the leftovers from dinner."
+},
+{
+"tl": "¿Me pone lo que sobró para llevar?",
+"en": "Can you pack up what's left to go?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-taco-01",
+"type": "vocab",
+"tl": "el taco",
+"en": "taco",
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 1,
+"notes": "Ordered by filling: de pastor, de suadero, de bistec, de pollo, de canasta. 'Taquería' = taco stand; 'taquero' = taco cook.",
+"examples": [
+{
+"tl": "Me da cuatro tacos de pastor con todo.",
+"en": "Give me four al pastor tacos with everything."
+},
+{
+"tl": "¿A cuánto el taco? —A veinte, joven.",
+"en": "How much per taco? —Twenty, sir."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-tortilla-01",
+"type": "vocab",
+"tl": "la tortilla",
+"en": "tortilla",
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 1,
+"notes": "In Mexico/Central America = corn (de maíz) or flour (de harina) flatbread. In Spain 'tortilla' is a potato omelette. 'Tortillería' sells them by the kilo.",
+"examples": [
+{
+"tl": "¿Nos trae más tortillas, por favor?",
+"en": "Can you bring us more tortillas, please?"
+},
+{
+"tl": "Compra medio kilo de tortillas en la tortillería.",
+"en": "Buy half a kilo of tortillas at the tortilla shop."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-quesadilla-01",
+"type": "vocab",
+"tl": "la quesadilla",
+"en": "quesadilla",
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 2,
+"notes": "Famous CDMX debate: there quesadillas don't automatically have cheese, so say 'con queso'. Fillings: flor de calabaza, hongos, tinga.",
+"examples": [
+{
+"tl": "Una quesadilla de hongos con queso, por favor.",
+"en": "One mushroom quesadilla with cheese, please."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-tamal-01",
+"type": "vocab",
+"tl": "el tamal",
+"en": "tamale",
+"accept": [
+"tamal"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 2,
+"notes": "Singular is 'tamal' (not 'tamale'); plural 'tamales'. Sold mornings from street carts; 'guajolota' = tamal in a bread roll (CDMX).",
+"examples": [
+{
+"tl": "¿De qué son los tamales? —De rajas, de mole y de dulce.",
+"en": "What kind are the tamales? —Pepper strips, mole and sweet."
+},
+{
+"tl": "En Navidad mi tía hace cien tamales.",
+"en": "At Christmas my aunt makes a hundred tamales."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-pozole-01",
+"type": "vocab",
+"tl": "el pozole",
+"en": "pozole (hominy stew)",
+"accept": [
+"pozole"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 3,
+"notes": "Hominy and pork/chicken stew; rojo, verde or blanco. Thursday is pozole night in many Mexican fondas; also a hangover cure.",
+"examples": [
+{
+"tl": "Los jueves hay pozole en la fonda de abajo.",
+"en": "On Thursdays there's pozole at the fonda downstairs."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-enchiladas-01",
+"type": "vocab",
+"tl": "las enchiladas",
+"en": "enchiladas",
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 2,
+"notes": "Rolled tortillas in salsa: verdes, rojas, de mole, suizas (with cream and cheese). Also 'enchilado/a' = someone whose mouth is burning from chile.",
+"examples": [
+{
+"tl": "Las enchiladas suizas vienen con pollo y crema.",
+"en": "The enchiladas suizas come with chicken and cream."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-mole-01",
+"type": "vocab",
+"tl": "el mole",
+"en": "mole (chile-chocolate sauce)",
+"accept": [
+"mole",
+"mole sauce"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 3,
+"notes": "Pronounced MO-leh. Rich sauce of chiles, spices, often chocolate; served over chicken at weddings and parties. Oaxaca has seven kinds.",
+"examples": [
+{
+"tl": "En la boda sirvieron mole con arroz.",
+"en": "At the wedding they served mole with rice."
+},
+{
+"tl": "El mole de Puebla es más dulce que el de Oaxaca.",
+"en": "Puebla's mole is sweeter than Oaxaca's."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-chilaquiles-01",
+"type": "vocab",
+"tl": "los chilaquiles",
+"en": "chilaquiles",
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 3,
+"notes": "Breakfast dish: fried tortilla chips in salsa verde or roja with cream, cheese, onion; often with egg or chicken. Classic hangover breakfast.",
+"examples": [
+{
+"tl": "Unos chilaquiles verdes con huevo estrellado, por favor.",
+"en": "Green chilaquiles with a fried egg, please."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-huevo-01",
+"type": "vocab",
+"tl": "el huevo",
+"en": "egg",
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 1,
+"notes": "Styles: estrellados (sunny side up), revueltos (scrambled), a la mexicana (tomato, onion, chile), rancheros, tibios (soft-boiled). Also crude slang.",
+"examples": [
+{
+"tl": "¿Cómo quiere los huevos, estrellados o revueltos?",
+"en": "How do you want your eggs, fried or scrambled?"
+},
+{
+"tl": "Compra una docena de huevos en el súper.",
+"en": "Buy a dozen eggs at the supermarket."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-frijoles-01",
+"type": "vocab",
+"tl": "los frijoles",
+"en": "beans",
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 1,
+"accept_tl": [
+"las habichuelas",
+"los porotos"
+],
+"notes": "Mexico/Central America: frijoles (de la olla, refritos, negros). Caribbean: habichuelas. Argentina/Chile: porotos. Spain: judías/alubias.",
+"examples": [
+{
+"tl": "¿Los frijoles son refritos o de la olla?",
+"en": "Are the beans refried or whole (pot beans)?"
+},
+{
+"tl": "Siempre hay arroz y frijoles en casa de mi abuela.",
+"en": "There's always rice and beans at my grandma's house."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-arroz-01",
+"type": "vocab",
+"tl": "el arroz",
+"en": "rice",
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 1,
+"notes": "Mexican rice: arroz rojo (with tomato), arroz blanco, arroz con leche (dessert). 'Arroz a la mexicana' is the classic side.",
+"examples": [
+{
+"tl": "El pollo viene con arroz y frijoles.",
+"en": "The chicken comes with rice and beans."
+},
+{
+"tl": "Se me pasó el arroz, quedó muy aguado.",
+"en": "I overcooked the rice, it came out too mushy."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-pollo-01",
+"type": "vocab",
+"tl": "el pollo",
+"en": "chicken",
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 1,
+"notes": "Pollo asado (grilled), pollo rostizado (rotisserie, sold on every corner), pechuga (breast), pierna y muslo (leg and thigh).",
+"examples": [
+{
+"tl": "Un pollo rostizado entero con tortillas y salsa.",
+"en": "One whole rotisserie chicken with tortillas and salsa."
+},
+{
+"tl": "¿El caldo es de pollo o de res?",
+"en": "Is the broth chicken or beef?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-carne-01",
+"type": "vocab",
+"tl": "la carne",
+"en": "meat",
+"accept": [
+"beef"
+],
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 1,
+"notes": "Carne alone often means beef in Mexico. 'Carne asada' = grilled beef (and the cookout itself). 'Carne de res' = beef specifically; 'carne molida' = ground beef.",
+"examples": [
+{
+"tl": "Yo no como carne, ¿tienen algo vegetariano?",
+"en": "I don't eat meat, do you have anything vegetarian?"
+},
+{
+"tl": "El sábado hay carne asada en casa de Beto.",
+"en": "Saturday there's a cookout at Beto's house."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-res-01",
+"type": "vocab",
+"tl": "la res",
+"en": "beef",
+"accept": [
+"beef (cattle)"
+],
+"accept_tl": [
+"la carne de res"
+],
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 2,
+"notes": "'De res' marks beef on menus: caldo de res, tacos de res. Steak = bistec; Argentina uses 'carne vacuna'.",
+"examples": [
+{
+"tl": "¿Las empanadas son de res o de pollo?",
+"en": "Are the empanadas beef or chicken?"
+},
+{
+"tl": "Un kilo de carne de res para guisar, por favor.",
+"en": "A kilo of stewing beef, please."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-puerco-01",
+"type": "vocab",
+"tl": "el puerco",
+"en": "pork",
+"accept": [
+"pig"
+],
+"accept_tl": [
+"el cerdo",
+"la carne de cerdo",
+"el chancho",
+"el marrano"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 2,
+"notes": "Mexico says puerco or cerdo; Central/South America also chancho; 'marrano' is rural Mexican. Carnitas = slow-fried pork; chicharrón = fried pork skin.",
+"examples": [
+{
+"tl": "Las carnitas son de puerco, por si no comes cerdo.",
+"en": "Carnitas are pork, in case you don't eat pork."
+},
+{
+"tl": "¿El tamal es de puerco o de pollo?",
+"en": "Is the tamale pork or chicken?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-pescado-01",
+"type": "vocab",
+"tl": "el pescado",
+"en": "fish (food)",
+"accept": [
+"fish"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 1,
+"notes": "Pescado = fish on the plate; pez = fish alive in the water. Tacos de pescado (Baja style) and pescado frito on the coast.",
+"examples": [
+{
+"tl": "Los viernes de Cuaresma comemos pescado.",
+"en": "On Fridays in Lent we eat fish."
+},
+{
+"tl": "¿El pescado es fresco o congelado?",
+"en": "Is the fish fresh or frozen?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-camarones-01",
+"type": "vocab",
+"tl": "los camarones",
+"en": "shrimp",
+"accept": [
+"prawns"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 2,
+"notes": "Camarones a la diabla (spicy), al mojo de ajo (garlic), cóctel de camarón (shrimp cocktail). Spain uses 'gambas'.",
+"examples": [
+{
+"tl": "Un cóctel de camarón grande y una michelada.",
+"en": "A large shrimp cocktail and a michelada."
+},
+{
+"tl": "Soy alérgico a los camarones.",
+"en": "I'm allergic to shrimp."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-verduras-01",
+"type": "vocab",
+"tl": "las verduras",
+"en": "vegetables",
+"accept": [
+"veggies"
+],
+"accept_tl": [
+"los vegetales",
+"las legumbres"
+],
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 2,
+"notes": "'Verduras' is the everyday Mexican word; 'vegetales' is common in Central America and US Spanish.",
+"examples": [
+{
+"tl": "¿El caldo lleva verduras?",
+"en": "Does the soup have vegetables in it?"
+},
+{
+"tl": "Compro las verduras en el mercado, están más frescas.",
+"en": "I buy vegetables at the market, they're fresher."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-fruta-01",
+"type": "vocab",
+"tl": "la fruta",
+"en": "fruit",
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 1,
+"notes": "Usually singular as a category: 'Como mucha fruta'. Street cups of fruit with chile and limón = 'fruta con chile'.",
+"examples": [
+{
+"tl": "¿Me da un vaso de fruta con chile y limón?",
+"en": "Can I get a cup of fruit with chile and lime?"
+},
+{
+"tl": "La fruta está más barata en el tianguis.",
+"en": "Fruit is cheaper at the street market."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-aguacate-01",
+"type": "vocab",
+"tl": "el aguacate",
+"en": "avocado",
+"accept_tl": [
+"la palta"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 2,
+"notes": "Mexico, Central America, Colombia: aguacate. Peru, Chile, Argentina: palta. Guacamole is mashed aguacate.",
+"examples": [
+{
+"tl": "¿Están buenos los aguacates o muy duros?",
+"en": "Are the avocados good or too hard?"
+},
+{
+"tl": "Ponle aguacate a la torta, porfa.",
+"en": "Put avocado on the torta, please."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-limon-01",
+"type": "vocab",
+"tl": "el limón",
+"en": "lime",
+"accept": [
+"lemon",
+"lime/lemon"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 1,
+"notes": "In Mexico 'limón' is the small green lime; yellow lemons are rare ('limón amarillo'). Squeezed on everything: tacos, soup, beer, fruit.",
+"examples": [
+{
+"tl": "¿Me trae unos limones para los tacos?",
+"en": "Can you bring me some limes for the tacos?"
+},
+{
+"tl": "La sopa sabe mejor con limón y chile.",
+"en": "The soup tastes better with lime and chile."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-chile-01",
+"type": "vocab",
+"tl": "el chile",
+"en": "chili pepper",
+"accept": [
+"chile",
+"hot pepper",
+"pepper"
+],
+"accept_tl": [
+"el ají"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 1,
+"notes": "Mexico/Central America: chile (jalapeño, serrano, habanero, poblano, chipotle). Colombia/Peru/Caribbean: ají. 'Chile en polvo' goes on fruit.",
+"examples": [
+{
+"tl": "¿Le pongo chile a la fruta?",
+"en": "Should I put chile on the fruit?"
+},
+{
+"tl": "Este chile habanero pica muchísimo.",
+"en": "This habanero pepper is extremely hot."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-salsa-01",
+"type": "vocab",
+"tl": "la salsa",
+"en": "salsa",
+"accept": [
+"sauce"
+],
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 1,
+"notes": "Any sauce, but at a taquería = the chile sauces on the table: verde, roja, de habanero. Pico de gallo is chopped salsa. Also the dance.",
+"examples": [
+{
+"tl": "¿Cuál salsa pica menos, la verde o la roja?",
+"en": "Which salsa is less spicy, the green or the red?"
+},
+{
+"tl": "Pásame la salsa, por favor.",
+"en": "Pass me the salsa, please."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-cilantro-01",
+"type": "vocab",
+"tl": "el cilantro",
+"en": "cilantro",
+"accept": [
+"coriander"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 2,
+"notes": "Default topping on tacos with onion. If you hate it: 'sin cilantro'.",
+"examples": [
+{
+"tl": "Con cebolla y cilantro, pero sin salsa.",
+"en": "With onion and cilantro, but no salsa."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-cebolla-01",
+"type": "vocab",
+"tl": "la cebolla",
+"en": "onion",
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 1,
+"notes": "Cebolla blanca, morada (red onion), cebollitas cambray (grilled green onions at taco stands).",
+"examples": [
+{
+"tl": "Unas cebollitas asadas para acompañar los tacos.",
+"en": "Some grilled green onions to go with the tacos."
+},
+{
+"tl": "¿Lleva cebolla la ensalada?",
+"en": "Does the salad have onion?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-jitomate-01",
+"type": "vocab",
+"tl": "el jitomate",
+"en": "tomato",
+"accept_tl": [
+"el tomate"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 2,
+"notes": "Central Mexico: jitomate = red tomato, tomate (verde) = green husk tomato (tomatillo). Everywhere else in Latin America: tomate.",
+"examples": [
+{
+"tl": "Un kilo de jitomate, pero que esté maduro.",
+"en": "A kilo of tomatoes, but make sure they're ripe."
+},
+{
+"tl": "La salsa verde se hace con tomate verde, no con jitomate.",
+"en": "Green salsa is made with tomatillos, not red tomato."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-tomate-01",
+"type": "vocab",
+"tl": "el tomate",
+"en": "tomato",
+"accept": [
+"tomatillo"
+],
+"accept_tl": [
+"el jitomate"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 2,
+"notes": "Standard word for tomato outside central Mexico. In CDMX 'tomate' alone often means the small green tomatillo.",
+"examples": [
+{
+"tl": "Ensalada de tomate con cebolla y aguacate.",
+"en": "Tomato salad with onion and avocado."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-maiz-01",
+"type": "vocab",
+"tl": "el maíz",
+"en": "corn",
+"accept": [
+"maize"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 2,
+"notes": "Accent on í: ma-ÍZ. Tortillas de maíz vs. de harina. The grain in general; corn on the cob is 'elote' (Mexico) or 'choclo' (South America).",
+"examples": [
+{
+"tl": "¿Las tortillas son de maíz o de harina?",
+"en": "Are the tortillas corn or flour?"
+},
+{
+"tl": "El maíz azul se usa para las quesadillas de Oaxaca.",
+"en": "Blue corn is used for Oaxacan quesadillas."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-elote-01",
+"type": "vocab",
+"tl": "el elote",
+"en": "corn on the cob",
+"accept": [
+"corn",
+"street corn"
+],
+"accept_tl": [
+"el choclo",
+"la mazorca"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 3,
+"notes": "Mexican street corn with mayo, cheese, chile and lime. 'Esquites' = the same kernels in a cup. South America: choclo.",
+"examples": [
+{
+"tl": "Un elote con todo y unos esquites sin mayonesa.",
+"en": "One corn on the cob with everything and esquites with no mayo."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-queso-01",
+"type": "vocab",
+"tl": "el queso",
+"en": "cheese",
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 1,
+"notes": "Queso Oaxaca (string cheese for quesadillas), queso fresco, cotija (crumbly, on elotes), panela. 'Queso fundido' = melted cheese dip.",
+"examples": [
+{
+"tl": "¿Lleva queso la quesadilla? —Sí, con queso Oaxaca.",
+"en": "Does the quesadilla have cheese? —Yes, with Oaxaca cheese."
+},
+{
+"tl": "Doscientos gramos de queso fresco, por favor.",
+"en": "Two hundred grams of fresh cheese, please."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-pan-01",
+"type": "vocab",
+"tl": "el pan",
+"en": "bread",
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 1,
+"notes": "Pan dulce = Mexican sweet pastries (conchas, cuernitos) from the panadería; bolillo/telera = crusty rolls for tortas. 'Pan de muerto' at Día de Muertos.",
+"examples": [
+{
+"tl": "Pasé a la panadería por pan dulce para la cena.",
+"en": "I stopped at the bakery for pastries for dinner."
+},
+{
+"tl": "Dos bolillos y una concha, por favor.",
+"en": "Two rolls and a concha, please."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-torta-01",
+"type": "vocab",
+"tl": "la torta",
+"en": "torta (Mexican sandwich)",
+"accept": [
+"sandwich",
+"torta"
+],
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 2,
+"notes": "Mexico: a sandwich on a bolillo/telera (de milanesa, de jamón, cubana). In Colombia/Argentina 'torta' = cake and a sandwich is 'sándwich'.",
+"examples": [
+{
+"tl": "Una torta de milanesa con todo y sin jalapeños.",
+"en": "One milanesa torta with everything and no jalapeños."
+},
+{
+"tl": "En Colombia la torta es pastel, ojo.",
+"en": "In Colombia 'torta' means cake, careful."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-empanada-01",
+"type": "vocab",
+"tl": "la empanada",
+"en": "empanada (filled pastry)",
+"accept": [
+"empanada",
+"turnover"
+],
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 3,
+"notes": "Stuffed pastry across Latin America: Argentina (beef, baked), Colombia (fried corn dough, potato and meat), Chile (pino). Mexico also has sweet ones.",
+"examples": [
+{
+"tl": "Tres empanadas de carne con ají, por favor.",
+"en": "Three beef empanadas with hot sauce, please."
+},
+{
+"tl": "Las empanadas colombianas se comen con ají y limón.",
+"en": "Colombian empanadas are eaten with ají and lime."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-arepa-01",
+"type": "vocab",
+"tl": "la arepa",
+"en": "arepa (corn cake)",
+"accept": [
+"arepa"
+],
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 4,
+"notes": "Thick griddled corn cake from Colombia and Venezuela; Venezuelans split and stuff them (reina pepiada), Colombians top with cheese and butter.",
+"examples": [
+{
+"tl": "Una arepa de queso y un café, por favor.",
+"en": "One cheese arepa and a coffee, please."
+},
+{
+"tl": "Las arepas venezolanas van rellenas; las colombianas, no tanto.",
+"en": "Venezuelan arepas are stuffed; Colombian ones, not so much."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-ceviche-01",
+"type": "vocab",
+"tl": "el ceviche",
+"en": "ceviche",
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 3,
+"notes": "Raw fish or shrimp cured in lime juice with onion and chile; national dish of Peru, also big in Mexico and Central America. Spelled cebiche in Peru too.",
+"examples": [
+{
+"tl": "El ceviche de camarón viene con tostadas.",
+"en": "The shrimp ceviche comes with tostadas."
+},
+{
+"tl": "En Perú el ceviche se come al mediodía, nunca de noche.",
+"en": "In Peru ceviche is eaten at midday, never at night."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-asado-01",
+"type": "vocab",
+"tl": "el asado",
+"en": "barbecue",
+"accept": [
+"cookout",
+"grilled meat",
+"roast"
+],
+"accept_tl": [
+"la carne asada",
+"la parrillada"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 3,
+"notes": "Argentina/Uruguay/Chile: the social grilled-meat event. Mexico says 'carne asada' or 'parrillada'. As adjective 'asado/a' = grilled/roasted (pollo asado).",
+"examples": [
+{
+"tl": "El domingo hay asado en casa de los argentinos.",
+"en": "Sunday there's a barbecue at the Argentines' place."
+},
+{
+"tl": "Pollo asado con papas, por favor.",
+"en": "Grilled chicken with potatoes, please."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-churrasco-01",
+"type": "vocab",
+"tl": "el churrasco",
+"en": "grilled steak",
+"accept": [
+"churrasco",
+"steak"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 4,
+"notes": "Grilled beef cut in Argentina, Brazil, Central America, Colombia; in Nicaragua/Guatemala a full plate with rice and beans. Mexico: 'carne asada' or 'bistec'.",
+"examples": [
+{
+"tl": "Un churrasco término medio con chimichurri.",
+"en": "A medium grilled steak with chimichurri."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-sopa-01",
+"type": "vocab",
+"tl": "la sopa",
+"en": "soup",
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 1,
+"notes": "Sopa de fideo (noodle soup), sopa de tortilla, sopa azteca. Mexican set lunches start with 'sopa' (which can be rice or pasta: 'sopa seca').",
+"examples": [
+{
+"tl": "¿Qué sopa hay hoy? —De fideo o de verduras.",
+"en": "What soup is there today? —Noodle or vegetable."
+},
+{
+"tl": "Me cae bien una sopa caliente cuando llueve.",
+"en": "A hot soup hits the spot when it rains."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-caldo-01",
+"type": "vocab",
+"tl": "el caldo",
+"en": "broth",
+"accept": [
+"soup",
+"stock"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 2,
+"notes": "Caldo de pollo (chicken soup, the cure for everything), caldo de res, caldo de camarón. 'Caldito' when being cute.",
+"examples": [
+{
+"tl": "Pide un caldo de pollo si estás enfermo.",
+"en": "Order a chicken broth if you're sick."
+},
+{
+"tl": "El caldo de res viene con verdura y arroz aparte.",
+"en": "The beef soup comes with vegetables and rice on the side."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-ensalada-01",
+"type": "vocab",
+"tl": "la ensalada",
+"en": "salad",
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 2,
+"notes": "Ensalada de nopales (cactus salad) is very Mexican. Dressing = aderezo.",
+"examples": [
+{
+"tl": "Una ensalada de pollo sin aderezo, por favor.",
+"en": "A chicken salad with no dressing, please."
+},
+{
+"tl": "¿La ensalada lleva aguacate?",
+"en": "Does the salad have avocado?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-postre-01",
+"type": "vocab",
+"tl": "el postre",
+"en": "dessert",
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 1,
+"notes": "'De postre' = for dessert. Mexican classics: flan, arroz con leche, pastel de tres leches, churros.",
+"examples": [
+{
+"tl": "¿Qué tienen de postre?",
+"en": "What do you have for dessert?"
+},
+{
+"tl": "El menú del día incluye postre y agua.",
+"en": "The lunch special includes dessert and a drink."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-helado-01",
+"type": "vocab",
+"tl": "el helado",
+"en": "ice cream",
+"accept_tl": [
+"la nieve",
+"la paleta"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 2,
+"notes": "Mexico: 'nieve' = sorbet-style ice cream from a nevería; 'paleta' = popsicle. 'Helado' is the general word everywhere.",
+"examples": [
+{
+"tl": "Un helado de dos sabores: chocolate y fresa.",
+"en": "A two-flavor ice cream: chocolate and strawberry."
+},
+{
+"tl": "Vamos por una nieve de limón al parque.",
+"en": "Let's go get a lime ice at the park."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-pastel-01",
+"type": "vocab",
+"tl": "el pastel",
+"en": "cake",
+"accept_tl": [
+"la torta",
+"el queque",
+"el bizcocho"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 2,
+"notes": "Mexico: pastel (pastel de tres leches). Colombia/Argentina: torta. Central America: queque. Caribbean: bizcocho. In Spain 'pastel' can be a savory pie.",
+"examples": [
+{
+"tl": "Compramos el pastel de cumpleaños en la pastelería.",
+"en": "We bought the birthday cake at the bakery."
+},
+{
+"tl": "¿Quieres una rebanada de pastel de chocolate?",
+"en": "Do you want a slice of chocolate cake?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-flan-01",
+"type": "vocab",
+"tl": "el flan",
+"en": "flan (custard)",
+"accept": [
+"flan",
+"custard"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 3,
+"notes": "Caramel custard, on every fonda menu. 'Flan napolitano' is the dense Mexican version.",
+"examples": [
+{
+"tl": "De postre, un flan napolitano y dos cucharas.",
+"en": "For dessert, a flan napolitano and two spoons."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-churros-01",
+"type": "vocab",
+"tl": "los churros",
+"en": "churros",
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 3,
+"notes": "Fried dough sticks with sugar, often with cajeta (goat-milk caramel) or chocolate caliente. Street carts sell them by the bag at night.",
+"examples": [
+{
+"tl": "Una orden de churros con cajeta, por favor.",
+"en": "One order of churros with cajeta, please."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-dulce-01",
+"type": "vocab",
+"tl": "el dulce",
+"en": "candy",
+"accept": [
+"sweet",
+"sweets"
+],
+"accept_tl": [
+"los dulces",
+"la golosina"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 2,
+"notes": "As adjective: sweet ('está muy dulce'). Mexican dulces: mazapán, tamarindo con chile, cajeta, obleas. 'Dulcería' = candy shop.",
+"examples": [
+{
+"tl": "Los niños quieren dulces de la tiendita.",
+"en": "The kids want candy from the corner store."
+},
+{
+"tl": "¿Tienes algo dulce? Se me antoja.",
+"en": "Do you have anything sweet? I'm craving it."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-papa-01",
+"type": "vocab",
+"tl": "la papa",
+"en": "potato",
+"accept_tl": [
+"la patata"
+],
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 2,
+"notes": "Latin America: papa. Spain: patata. 'Papas fritas' = french fries (and chips); 'papas a la francesa' in Mexico. 'El Papa' = the Pope!",
+"examples": [
+{
+"tl": "¿La torta lleva papas?",
+"en": "Does the torta come with fries?"
+},
+{
+"tl": "Un kilo de papa y medio de cebolla.",
+"en": "A kilo of potatoes and half a kilo of onions."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-platano-01",
+"type": "vocab",
+"tl": "el plátano",
+"en": "banana",
+"accept": [
+"plantain"
+],
+"accept_tl": [
+"la banana",
+"el banano",
+"el guineo"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 2,
+"notes": "Mexico: plátano = banana; plátano macho = plantain. Colombia: banano = banana, plátano = plantain. Central America/Caribbean: guineo = banana. Ask if unsure.",
+"examples": [
+{
+"tl": "Plátanos fritos con crema, el postre de mi infancia.",
+"en": "Fried plantains with cream, my childhood dessert."
+},
+{
+"tl": "¿A cómo el kilo de plátano?",
+"en": "How much is a kilo of bananas?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-mango-01",
+"type": "vocab",
+"tl": "el mango",
+"en": "mango",
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 3,
+"notes": "Mango con chile y limón is the street-cart classic; 'mango petacón', 'mango ataulfo' (Manila) are varieties. Also means 'handle'.",
+"examples": [
+{
+"tl": "Un mango con chile, limón y sal, por favor.",
+"en": "One mango with chile, lime and salt, please."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-chicharron-01",
+"type": "vocab",
+"tl": "el chicharrón",
+"en": "fried pork skin",
+"accept": [
+"pork rinds",
+"chicharrón",
+"cracklings"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 3,
+"notes": "Mexico: crispy pork rind eaten with salsa or stewed in salsa verde ('chicharrón en salsa'). Colombia: a thick fried pork belly strip in bandeja paisa.",
+"examples": [
+{
+"tl": "Un taco de chicharrón en salsa verde, porfa.",
+"en": "A taco of pork rind in green salsa, please."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-guacamole-01",
+"type": "vocab",
+"tl": "el guacamole",
+"en": "guacamole",
+"accept": [
+"guac"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 3,
+"notes": "Mashed avocado with onion, cilantro, chile, limón. Pronounced wa-ka-MO-leh. Served with totopos (tortilla chips), not 'nachos'.",
+"examples": [
+{
+"tl": "¿Nos trae un guacamole con totopos para empezar?",
+"en": "Can you bring us a guacamole with chips to start?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-antojitos-01",
+"type": "vocab",
+"tl": "los antojitos",
+"en": "Mexican street snacks",
+"accept": [
+"street food",
+"antojitos"
+],
+"accept_tl": [
+"la garnacha",
+"las garnachas"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 3,
+"notes": "Corn-based street food: sopes, tlacoyos, gorditas, quesadillas, tostadas. 'Garnachas' is the slangy CDMX term for the same.",
+"examples": [
+{
+"tl": "En la feria hay puro antojito: sopes, gorditas, tostadas.",
+"en": "At the fair it's all street snacks: sopes, gorditas, tostadas."
+},
+{
+"tl": "Vamos por unas garnachas al mercado.",
+"en": "Let's go get some street snacks at the market."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-sal-01",
+"type": "vocab",
+"tl": "la sal",
+"en": "salt",
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 1,
+"notes": "Feminine: 'la sal'. 'Le falta sal' = needs salt. Pepper = pimienta.",
+"examples": [
+{
+"tl": "¿Me pasa la sal, por favor?",
+"en": "Can you pass me the salt, please?"
+},
+{
+"tl": "A la sopa le falta un poco de sal.",
+"en": "The soup needs a little salt."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-azucar-01",
+"type": "vocab",
+"tl": "el azúcar",
+"en": "sugar",
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 2,
+"notes": "Usually 'el azúcar' but 'azúcar morena' (brown sugar) takes feminine adjectives. 'Sin azúcar' for drinks.",
+"examples": [
+{
+"tl": "Un café con leche sin azúcar, por favor.",
+"en": "A coffee with milk, no sugar, please."
+},
+{
+"tl": "¿Le pongo azúcar a tu té?",
+"en": "Should I put sugar in your tea?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-mantequilla-01",
+"type": "vocab",
+"tl": "la mantequilla",
+"en": "butter",
+"accept_tl": [
+"la manteca"
+],
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 3,
+"notes": "Mexico/Colombia: mantequilla. Argentina/Paraguay: manteca (which in Mexico means lard!).",
+"examples": [
+{
+"tl": "Pan tostado con mantequilla y mermelada.",
+"en": "Toast with butter and jam."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-aceite-01",
+"type": "vocab",
+"tl": "el aceite",
+"en": "oil (cooking)",
+"accept": [
+"oil",
+"cooking oil"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 3,
+"notes": "Aceite de oliva (olive), aceite vegetal. Pronounced a-SEI-teh.",
+"examples": [
+{
+"tl": "Se acabó el aceite, compra uno en el súper.",
+"en": "We're out of oil, buy one at the supermarket."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-agua-01",
+"type": "vocab",
+"tl": "el agua",
+"en": "water",
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 1,
+"notes": "Feminine but takes 'el' in the singular (el agua fría, las aguas). Ask for 'agua natural' (plain) vs. 'agua mineral' (sparkling). Bottled = 'agua embotellada'.",
+"examples": [
+{
+"tl": "¿Me trae un vaso de agua natural, por favor?",
+"en": "Can you bring me a glass of plain water, please?"
+},
+{
+"tl": "Una botella de agua fría del OXXO.",
+"en": "A cold bottle of water from the OXXO."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-agua-fresca-01",
+"type": "vocab",
+"tl": "el agua de sabor",
+"en": "fruit-flavored water",
+"accept": [
+"agua fresca",
+"flavored water"
+],
+"accept_tl": [
+"el agua fresca",
+"el agua de horchata",
+"el agua de jamaica"
+],
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 2,
+"notes": "Mexican sweet drinks: horchata (rice-cinnamon), jamaica (hibiscus), tamarindo, limón. Every fonda has a big jug; 'agua fresca' is the same thing.",
+"examples": [
+{
+"tl": "¿Qué aguas de sabor tiene hoy? —Horchata y jamaica.",
+"en": "What flavored waters do you have today? —Horchata and hibiscus."
+},
+{
+"tl": "Un vaso grande de agua de jamaica sin hielo.",
+"en": "A large glass of hibiscus water, no ice."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-cafe-01",
+"type": "vocab",
+"tl": "el café",
+"en": "coffee",
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 1,
+"notes": "Café de olla (with cinnamon and piloncillo), café americano, café con leche. 'Un cafecito' is the friendly diminutive. Also = coffee shop.",
+"examples": [
+{
+"tl": "¿Tomamos un café después de comer?",
+"en": "Shall we have a coffee after lunch?"
+},
+{
+"tl": "Un café de olla y una concha, por favor.",
+"en": "One café de olla and a concha, please."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-te-01",
+"type": "vocab",
+"tl": "el té",
+"en": "tea",
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 2,
+"notes": "Accent on é (té = tea; te = you). Herbal teas: té de manzanilla (chamomile), de hierbabuena (mint); grandmas prescribe them for everything.",
+"examples": [
+{
+"tl": "¿Tiene té de manzanilla? Me duele la panza.",
+"en": "Do you have chamomile tea? My stomach hurts."
+},
+{
+"tl": "Un té helado sin azúcar, por favor.",
+"en": "An unsweetened iced tea, please."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-leche-01",
+"type": "vocab",
+"tl": "la leche",
+"en": "milk",
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 1,
+"notes": "Leche entera (whole), descremada/light (skim), deslactosada (lactose-free), de almendra (almond). 'Con leche' for coffee.",
+"examples": [
+{
+"tl": "¿Tienen leche deslactosada para el café?",
+"en": "Do you have lactose-free milk for the coffee?"
+},
+{
+"tl": "Compra un litro de leche de regreso, porfa.",
+"en": "Buy a liter of milk on your way back, please."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-jugo-01",
+"type": "vocab",
+"tl": "el jugo",
+"en": "juice",
+"accept_tl": [
+"el zumo"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 1,
+"notes": "Latin America: jugo. Spain: zumo. Fresh-squeezed = 'jugo natural' or 'recién exprimido'; 'jugo verde' is the health-kick green juice.",
+"examples": [
+{
+"tl": "Un jugo de naranja grande, recién exprimido.",
+"en": "A large orange juice, fresh-squeezed."
+},
+{
+"tl": "¿El jugo es natural o de caja?",
+"en": "Is the juice fresh or from a carton?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-refresco-01",
+"type": "vocab",
+"tl": "el refresco",
+"en": "soda",
+"accept": [
+"soft drink",
+"pop"
+],
+"accept_tl": [
+"la gaseosa",
+"la soda",
+"la coca"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 1,
+"notes": "Mexico/Central America: refresco (Mexicans often just say 'una coca'). Colombia/Argentina/Peru: gaseosa. Caribbean: refresco or soda.",
+"examples": [
+{
+"tl": "¿Qué refrescos tiene? —Coca, Sprite y Manzanita.",
+"en": "What sodas do you have? —Coke, Sprite and Manzanita."
+},
+{
+"tl": "Una coca de vidrio bien fría, por favor.",
+"en": "A glass-bottle Coke, nice and cold, please."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-gaseosa-01",
+"type": "vocab",
+"tl": "la gaseosa",
+"en": "soda (Colombia/S. America)",
+"accept": [
+"soda",
+"soft drink"
+],
+"accept_tl": [
+"el refresco"
+],
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 3,
+"notes": "The word in Colombia, Peru, Argentina, Chile. In Mexico it would sound foreign; say 'refresco'.",
+"examples": [
+{
+"tl": "¿Me regala una gaseosa, por favor?",
+"en": "Could I get a soda, please? (Colombian 'me regala')"
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-cerveza-01",
+"type": "vocab",
+"tl": "la cerveza",
+"en": "beer",
+"accept_tl": [
+"la chela",
+"la cheve",
+"la pola",
+"la fría"
+],
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 1,
+"casual": "una chela",
+"notes": "Mexican slang: chela, cheve. Colombia: pola. Caribbean: fría. 'Una caguama' = the big 940 ml bottle. 'Cerveza de barril' = draft.",
+"examples": [
+{
+"tl": "Dos cervezas bien frías, por favor.",
+"en": "Two cold beers, please."
+},
+{
+"tl": "¿Vamos por unas chelas después de la chamba?",
+"en": "Wanna go grab some beers after work?",
+"casual": "¿Unas chelas o qué?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-vino-01",
+"type": "vocab",
+"tl": "el vino",
+"en": "wine",
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 1,
+"notes": "Vino tinto (red, not 'rojo'), vino blanco, vino rosado. 'Una copa de vino' = a glass of wine. Mexican wine comes from Valle de Guadalupe.",
+"examples": [
+{
+"tl": "Una copa de vino tinto de la casa, por favor.",
+"en": "A glass of the house red, please."
+},
+{
+"tl": "Llevamos una botella de vino a la cena.",
+"en": "We're bringing a bottle of wine to dinner."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-tequila-01",
+"type": "vocab",
+"tl": "el tequila",
+"en": "tequila",
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 3,
+"notes": "Masculine: 'el tequila'. Blanco, reposado, añejo. Sipped straight ('derecho') with sangrita, or as shots with sal y limón. No lick-shoot-suck ritual in Mexico.",
+"examples": [
+{
+"tl": "Un tequila reposado derecho, sin limón.",
+"en": "A reposado tequila straight, no lime."
+},
+{
+"tl": "¿Un caballito de tequila para brindar?",
+"en": "A shot of tequila to toast?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-mezcal-01",
+"type": "vocab",
+"tl": "el mezcal",
+"en": "mezcal",
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 3,
+"notes": "Smoky agave spirit, mostly from Oaxaca. Served with orange slices and sal de gusano (worm salt). Saying: 'Para todo mal, mezcal; para todo bien, también.'",
+"examples": [
+{
+"tl": "¿Tienen mezcal de Oaxaca? Uno espadín, por favor.",
+"en": "Do you have mezcal from Oaxaca? An espadín, please."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-hielo-01",
+"type": "vocab",
+"tl": "el hielo",
+"en": "ice",
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 2,
+"notes": "'Con hielo' / 'sin hielo'. 'Hielos' = ice cubes. Buy a bag at the OXXO for a party: 'una bolsa de hielo'.",
+"examples": [
+{
+"tl": "Compra dos bolsas de hielo para la fiesta.",
+"en": "Buy two bags of ice for the party."
+},
+{
+"tl": "¿Me pone más hielo, por favor?",
+"en": "Can you put more ice in it, please?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-sin-hielo-01",
+"type": "phrase",
+"tl": "sin hielo",
+"en": "no ice",
+"accept": [
+"without ice"
+],
+"pos": "expr",
+"topic": "food",
+"tier": 2,
+"notes": "Many travelers ask for this. Ice in Mexican restaurants is usually purified ('hielo purificado'), but it's your call.",
+"examples": [
+{
+"tl": "Un agua de horchata sin hielo, por favor.",
+"en": "A horchata with no ice, please."
+},
+{
+"tl": "—¿Con hielo? —Sin hielo, gracias.",
+"en": "—With ice? —No ice, thanks."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-natural-01",
+"type": "vocab",
+"tl": "natural",
+"en": "plain / room temperature",
+"accept": [
+"plain",
+"natural",
+"fresh",
+"room temperature"
+],
+"pos": "adj",
+"topic": "food",
+"tier": 2,
+"notes": "Agua natural = plain (not sparkling) water; also a drink 'al tiempo'/at room temp vs. 'fría'. Jugo natural = fresh-squeezed. Cashier: '¿Fría o natural?'",
+"examples": [
+{
+"tl": "—¿La coca fría o natural? —Fría, por favor.",
+"en": "—Coke cold or room temperature? —Cold, please."
+},
+{
+"tl": "Un agua natural, no mineral.",
+"en": "A plain water, not sparkling."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-frio-01",
+"type": "vocab",
+"tl": "frío / fría",
+"en": "cold",
+"pos": "adj",
+"topic": "food",
+"tier": 1,
+"notes": "Of things: 'está frío'. For yourself use tener: 'tengo frío' (I'm cold). 'Bien fría' = nice and cold (beer).",
+"examples": [
+{
+"tl": "La sopa ya está fría, ¿la calientas?",
+"en": "The soup's gone cold, can you heat it up?"
+},
+{
+"tl": "Una caguama bien fría, por favor.",
+"en": "A big beer, nice and cold, please."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-caliente-01",
+"type": "vocab",
+"tl": "caliente",
+"en": "hot (temperature)",
+"accept": [
+"hot",
+"warm"
+],
+"pos": "adj",
+"topic": "food",
+"tier": 1,
+"notes": "Temperature only; spicy-hot is 'picante'. Careful: 'estoy caliente' = I'm horny; say 'tengo calor' (I'm hot). 'Chocolate caliente' = hot chocolate.",
+"examples": [
+{
+"tl": "Cuidado, el plato está muy caliente.",
+"en": "Careful, the plate is very hot."
+},
+{
+"tl": "¿Me lo calienta un poquito más? Está tibio.",
+"en": "Can you heat it up a bit more? It's lukewarm."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-michelada-01",
+"type": "vocab",
+"tl": "la michelada",
+"en": "michelada (beer with lime & salt)",
+"accept": [
+"michelada",
+"beer cocktail"
+],
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 3,
+"notes": "Mexican beer with lime, salt and sauces (Worcestershire, Tabasco, Clamato); recipes vary by region. 'Chelada' = just beer, lime and salt.",
+"examples": [
+{
+"tl": "Una michelada con Clamato y una chelada, por favor.",
+"en": "One michelada with Clamato and one chelada, please."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-tomar-01",
+"type": "vocab",
+"tl": "tomar",
+"en": "to drink",
+"accept": [
+"to have (a drink)",
+"to take"
+],
+"accept_tl": [
+"beber"
+],
+"pos": "verb",
+"topic": "food",
+"tier": 1,
+"notes": "The everyday verb for drinking in Latin America ('beber' sounds formal). Also 'to take' (tomar el metro). '¿Tomas?' = Do you drink (alcohol)?",
+"examples": [
+{
+"tl": "¿Qué vas a tomar? —Un agua de jamaica.",
+"en": "What are you going to drink? —A hibiscus water."
+},
+{
+"tl": "Yo no tomo, manejo hoy.",
+"en": "I don't drink, I'm driving today."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-botella-01",
+"type": "vocab",
+"tl": "la botella",
+"en": "bottle",
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 2,
+"notes": "'Botella de agua', 'botella de vino'. In Mexico glass bottles are 'de vidrio', plastic 'de plástico'. 'Botellita' = small one.",
+"examples": [
+{
+"tl": "¿Vende botellas de agua? —Sí, en el refri.",
+"en": "Do you sell bottles of water? —Yes, in the fridge."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-chocolate-01",
+"type": "vocab",
+"tl": "el chocolate",
+"en": "chocolate",
+"accept": [
+"hot chocolate"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 3,
+"notes": "Pronounced cho-ko-LA-teh. Also the drink: 'chocolate caliente' with churros or pan dulce; Oaxacan chocolate is made with water or milk and beaten frothy.",
+"examples": [
+{
+"tl": "Un chocolate caliente y dos churros, por favor.",
+"en": "A hot chocolate and two churros, please."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-copa-01",
+"type": "vocab",
+"tl": "la copa",
+"en": "wine glass",
+"accept": [
+"glass (wine)",
+"drink"
+],
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 3,
+"notes": "Stemmed glass; 'una copa' also = a drink/cocktail ('vamos por una copa'). A regular tumbler is 'vaso'.",
+"examples": [
+{
+"tl": "¿Vamos por una copa después de la cena?",
+"en": "Shall we go for a drink after dinner?"
+},
+{
+"tl": "Dos copas de vino blanco, por favor.",
+"en": "Two glasses of white wine, please."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-rico-01",
+"type": "vocab",
+"tl": "rico / rica",
+"en": "delicious",
+"accept": [
+"tasty",
+"yummy",
+"rich (money)"
+],
+"accept_tl": [
+"sabroso",
+"riquísimo",
+"delicioso"
+],
+"pos": "adj",
+"topic": "food",
+"tier": 1,
+"casual": "¡Qué rico!",
+"notes": "The number-one food word in Latin America. 'Está rico' = it's tasty. 'Riquísimo' = delicious. Also means rich (wealthy) with 'ser'.",
+"examples": [
+{
+"tl": "¡Qué rico está el pozole!",
+"en": "The pozole is so good!"
+},
+{
+"tl": "Todo estuvo riquísimo, gracias.",
+"en": "Everything was delicious, thanks."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-sabroso-01",
+"type": "vocab",
+"tl": "sabroso / sabrosa",
+"en": "tasty",
+"accept": [
+"flavorful",
+"delicious"
+],
+"accept_tl": [
+"rico",
+"delicioso"
+],
+"pos": "adj",
+"topic": "food",
+"tier": 2,
+"notes": "Slightly warmer than 'rico'; very Caribbean and Colombian too ('sabrosura'). Mexican slang 'está de rechupete' / 'está de pelos'.",
+"examples": [
+{
+"tl": "La birria de este lugar está muy sabrosa.",
+"en": "The birria at this place is really tasty."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-salado-01",
+"type": "vocab",
+"tl": "salado / salada",
+"en": "salty",
+"accept": [
+"savory"
+],
+"pos": "adj",
+"topic": "food",
+"tier": 2,
+"notes": "Also 'savory' as opposed to 'dulce' (sweet): 'botana salada'. In Mexico/Central America 'estar salado' = to have bad luck.",
+"examples": [
+{
+"tl": "El caldo quedó muy salado.",
+"en": "The broth came out too salty."
+},
+{
+"tl": "¿Quieres algo dulce o salado?",
+"en": "Do you want something sweet or savory?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-dulce-adj-01",
+"type": "vocab",
+"tl": "dulce",
+"en": "sweet",
+"pos": "adj",
+"topic": "food",
+"tier": 2,
+"notes": "Same word as the noun 'el dulce' (candy). 'Muy dulce' / 'empalagoso' (sickly sweet). Agua de sabor is often very dulce; ask for 'poca azúcar'.",
+"examples": [
+{
+"tl": "El agua de horchata está demasiado dulce.",
+"en": "The horchata is too sweet."
+},
+{
+"tl": "Me gusta el café dulce, con dos de azúcar.",
+"en": "I like my coffee sweet, with two sugars."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-acido-01",
+"type": "vocab",
+"tl": "ácido / ácida",
+"en": "sour",
+"accept": [
+"acidic",
+"tart"
+],
+"accept_tl": [
+"agrio"
+],
+"pos": "adj",
+"topic": "food",
+"tier": 3,
+"notes": "'Ácido' = tart/sour from citrus; 'agrio' = sour as in gone-off milk ('leche agria') or 'crema agria' (sour cream).",
+"examples": [
+{
+"tl": "El limón está muy ácido, ponle poquito.",
+"en": "The lime is very sour, just add a little."
+},
+{
+"tl": "La leche ya sabe agria, tírala.",
+"en": "The milk tastes sour already, throw it out."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-picante-01",
+"type": "vocab",
+"tl": "picante",
+"en": "spicy",
+"accept": [
+"hot (spicy)"
+],
+"accept_tl": [
+"picoso",
+"enchiloso"
+],
+"pos": "adj",
+"topic": "food",
+"tier": 1,
+"casual": "picoso",
+"notes": "Verb: picar ('pica mucho' = it's really spicy). Mexicans also say 'picoso' and 'enchiloso'. 'Me enchilé' = my mouth is burning from chile.",
+"examples": [
+{
+"tl": "No me gusta tan picante, ¿lo pueden hacer suave?",
+"en": "I don't like it so spicy, can you make it mild?"
+},
+{
+"tl": "¡Me enchilé! Pásame el agua.",
+"en": "My mouth's on fire! Pass me the water."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-amargo-01",
+"type": "vocab",
+"tl": "amargo / amarga",
+"en": "bitter",
+"pos": "adj",
+"topic": "food",
+"tier": 3,
+"notes": "Café amargo = black coffee with no sugar (Mexico). Chocolate amargo = dark chocolate. Also 'bitter' emotionally.",
+"examples": [
+{
+"tl": "Yo tomo el café amargo, sin nada.",
+"en": "I drink my coffee bitter, with nothing in it."
+},
+{
+"tl": "El mezcal tiene un dejo amargo.",
+"en": "Mezcal has a bitter aftertaste."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-suave-01",
+"type": "vocab",
+"tl": "suave",
+"en": "mild / soft",
+"accept": [
+"mild",
+"soft",
+"smooth",
+"tender"
+],
+"pos": "adj",
+"topic": "food",
+"tier": 1,
+"notes": "Of salsa: mild, not spicy. Of meat: tender ('la carne está suave'). Mexican slang: '¡Qué suave!' = how cool.",
+"examples": [
+{
+"tl": "¿Tienen una salsa más suave para los niños?",
+"en": "Do you have a milder salsa for the kids?"
+},
+{
+"tl": "La carne quedó bien suave, se deshace.",
+"en": "The meat came out really tender, it falls apart."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-duro-01",
+"type": "vocab",
+"tl": "duro / dura",
+"en": "hard / tough",
+"accept": [
+"hard",
+"tough",
+"stale"
+],
+"pos": "adj",
+"topic": "food",
+"tier": 2,
+"notes": "Of meat: tough; of bread: stale/hard; of avocado: not ripe. 'Huevo duro' = hard-boiled egg.",
+"examples": [
+{
+"tl": "El bistec estaba muy duro, casi no lo pude cortar.",
+"en": "The steak was really tough, I could barely cut it."
+},
+{
+"tl": "Los aguacates están duros todavía, no están listos.",
+"en": "The avocados are still hard, they're not ready."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-crujiente-01",
+"type": "vocab",
+"tl": "crujiente",
+"en": "crunchy",
+"accept": [
+"crispy"
+],
+"accept_tl": [
+"crocante",
+"dorado"
+],
+"pos": "adj",
+"topic": "food",
+"tier": 3,
+"notes": "'Crocante' is also common (Colombia, South America). Mexicans say 'doradito' for crispy-fried ('tacos dorados', 'bien doraditos').",
+"examples": [
+{
+"tl": "Me gustan los totopos bien crujientes.",
+"en": "I like my tortilla chips nice and crunchy."
+},
+{
+"tl": "Las flautas tienen que estar bien doraditas.",
+"en": "Flautas have to be good and crispy."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-fresco-01",
+"type": "vocab",
+"tl": "fresco / fresca",
+"en": "fresh",
+"accept": [
+"cool (temperature)"
+],
+"pos": "adj",
+"topic": "food",
+"tier": 2,
+"notes": "Fresh food, or cool weather ('hace fresco'). 'Queso fresco' is a cheese type. 'Agua fresca' = fruit water, not just cold water.",
+"examples": [
+{
+"tl": "¿El pescado está fresco? —Llegó hoy de la costa.",
+"en": "Is the fish fresh? —It came in today from the coast."
+},
+{
+"tl": "El pan está fresco, recién salido del horno.",
+"en": "The bread is fresh, just out of the oven."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-fuerte-01",
+"type": "vocab",
+"tl": "fuerte",
+"en": "strong (flavor)",
+"accept": [
+"strong",
+"heavy",
+"intense"
+],
+"pos": "adj",
+"topic": "food",
+"tier": 2,
+"notes": "Strong coffee, strong cheese, strong liquor. 'Plato fuerte' = main course. 'Olor fuerte' = strong smell.",
+"examples": [
+{
+"tl": "El café de aquí es muy fuerte, pide con leche.",
+"en": "The coffee here is very strong, order it with milk."
+},
+{
+"tl": "Ese queso tiene un sabor muy fuerte.",
+"en": "That cheese has a very strong flavor."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-soso-01",
+"type": "vocab",
+"tl": "soso / sosa",
+"en": "bland",
+"accept": [
+"tasteless",
+"flavorless"
+],
+"accept_tl": [
+"simple",
+"desabrido",
+"sin sabor"
+],
+"pos": "adj",
+"topic": "food",
+"tier": 3,
+"notes": "Mexicans more often say 'desabrido' or 'simple' ('está muy simple, le falta sal'); 'soso' is understood everywhere, standard in Spain and South America.",
+"examples": [
+{
+"tl": "El arroz quedó muy simple, le falta sal.",
+"en": "The rice came out too bland, it needs salt."
+},
+{
+"tl": "La sopa está sosa, ponle limón y chile.",
+"en": "The soup is bland, add lime and chile."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-jugoso-01",
+"type": "vocab",
+"tl": "jugoso / jugosa",
+"en": "juicy",
+"pos": "adj",
+"topic": "food",
+"tier": 3,
+"notes": "From 'jugo'. Juicy meat or fruit. Steak doneness: rojo/inglés (rare), medio (medium), tres cuartos, bien cocido (well done).",
+"examples": [
+{
+"tl": "El término medio queda más jugoso.",
+"en": "Medium comes out juicier."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-grasoso-01",
+"type": "vocab",
+"tl": "grasoso / grasosa",
+"en": "greasy",
+"accept": [
+"oily",
+"fatty"
+],
+"accept_tl": [
+"aceitoso",
+"grasiento"
+],
+"pos": "adj",
+"topic": "food",
+"tier": 4,
+"notes": "From 'grasa' (fat/grease). Spain: grasiento. Tacos de suadero are proudly grasosos.",
+"examples": [
+{
+"tl": "Las papas estaban muy grasosas.",
+"en": "The fries were really greasy."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-quemado-01",
+"type": "vocab",
+"tl": "quemado / quemada",
+"en": "burnt",
+"accept": [
+"burned"
+],
+"pos": "adj",
+"topic": "food",
+"tier": 3,
+"notes": "From quemar (to burn). 'Se me quemó el arroz' = I burned the rice (literally 'the rice burned on me'). 'Crudo' = raw/undercooked.",
+"examples": [
+{
+"tl": "Se me quemaron las tortillas, perdón.",
+"en": "I burned the tortillas, sorry."
+},
+{
+"tl": "La carne está quemada por fuera y cruda por dentro.",
+"en": "The meat is burnt outside and raw inside."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-crudo-01",
+"type": "vocab",
+"tl": "crudo / cruda",
+"en": "raw",
+"accept": [
+"undercooked",
+"hungover (Mex.)"
+],
+"pos": "adj",
+"topic": "food",
+"tier": 2,
+"casual": "Ando crudo.",
+"notes": "Raw or undercooked. Mexican slang: 'estar crudo' = hungover; 'la cruda' = the hangover. Elsewhere: 'el guayabo' (Col.), 'la resaca'.",
+"examples": [
+{
+"tl": "El pollo está crudo en el centro, regrésalo.",
+"en": "The chicken is raw in the middle, send it back."
+},
+{
+"tl": "Ando bien crudo, vamos por un pozole.",
+"en": "I'm super hungover, let's go get pozole.",
+"casual": "Traigo una cruda horrible."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-cocinar-01",
+"type": "vocab",
+"tl": "cocinar",
+"en": "to cook",
+"accept": [
+"cook"
+],
+"pos": "verb",
+"topic": "food",
+"tier": 1,
+"notes": "Regular -ar verb. 'La cocina' = kitchen and cuisine ('cocina mexicana'). 'Cocinero/a' = cook.",
+"examples": [
+{
+"tl": "¿Quién cocina en tu casa?",
+"en": "Who cooks at your house?"
+},
+{
+"tl": "Hoy no quiero cocinar, pidamos algo.",
+"en": "I don't want to cook today, let's order something."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-cocina-01",
+"type": "vocab",
+"tl": "la cocina",
+"en": "kitchen",
+"accept": [
+"cuisine",
+"stove"
+],
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 2,
+"notes": "Kitchen, cuisine, and in some regions the stove itself. 'Cocina equipada' in apartment listings = kitchen with appliances.",
+"examples": [
+{
+"tl": "El departamento tiene cocina equipada.",
+"en": "The apartment has a fully equipped kitchen."
+},
+{
+"tl": "Me encanta la cocina oaxaqueña.",
+"en": "I love Oaxacan cuisine."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-freir-01",
+"type": "vocab",
+"tl": "freír",
+"en": "to fry",
+"accept": [
+"fry"
+],
+"pos": "verb",
+"topic": "food",
+"tier": 3,
+"notes": "Irregular: frío, fríes, fríe, freímos, fríen; participle frito. 'Frito/a' = fried: papas fritas, pescado frito, huevos fritos.",
+"examples": [
+{
+"tl": "Fríe las tortillas hasta que estén doraditas.",
+"en": "Fry the tortillas until they're golden and crispy."
+},
+{
+"tl": "Prefiero el pescado frito al pescado a la plancha.",
+"en": "I prefer fried fish to grilled fish."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-frito-01",
+"type": "vocab",
+"tl": "frito / frita",
+"en": "fried",
+"pos": "adj",
+"topic": "food",
+"tier": 2,
+"notes": "Participle of freír. Papas fritas, plátanos fritos, frijoles refritos ('re-fried'). Slang: 'estoy frito' = I'm done for.",
+"examples": [
+{
+"tl": "Una orden de papas fritas para compartir.",
+"en": "An order of fries to share."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-asar-01",
+"type": "vocab",
+"tl": "asar",
+"en": "to grill / roast",
+"accept": [
+"to grill",
+"to roast",
+"grill"
+],
+"accept_tl": [
+"hacer a la parrilla"
+],
+"pos": "verb",
+"topic": "food",
+"tier": 3,
+"notes": "Regular -ar. 'Asado/a' = grilled/roasted; 'a la parrilla' = on the grill; 'a la plancha' = on a flat griddle. 'Carne asada' = the cookout.",
+"examples": [
+{
+"tl": "Vamos a asar carne el domingo en la azotea.",
+"en": "We're going to grill meat on Sunday on the rooftop."
+},
+{
+"tl": "¿El pollo es asado o a la plancha?",
+"en": "Is the chicken grilled or griddled?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-a-la-parrilla-01",
+"type": "phrase",
+"tl": "a la parrilla",
+"en": "grilled",
+"accept": [
+"on the grill",
+"barbecued"
+],
+"accept_tl": [
+"asado",
+"a las brasas"
+],
+"pos": "expr",
+"topic": "food",
+"tier": 3,
+"notes": "'La parrilla' is the grill grate; 'parrillada' = mixed grill platter. 'Al carbón' = over charcoal; 'a la leña' = wood-fired.",
+"examples": [
+{
+"tl": "Camarones a la parrilla con arroz, por favor.",
+"en": "Grilled shrimp with rice, please."
+},
+{
+"tl": "Pedimos una parrillada para cuatro.",
+"en": "We ordered a mixed grill for four."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-hervir-01",
+"type": "vocab",
+"tl": "hervir",
+"en": "to boil",
+"accept": [
+"boil"
+],
+"pos": "verb",
+"topic": "food",
+"tier": 3,
+"notes": "Stem-changing e>ie: hiervo, hierves, hierve. 'Agua hervida' = boiled water. 'Hervido/a' = boiled; also 'cocido/a' (cooked/boiled).",
+"examples": [
+{
+"tl": "Hierve el agua antes de tomarla, por si acaso.",
+"en": "Boil the water before drinking it, just in case."
+},
+{
+"tl": "Pon a hervir los frijoles desde temprano.",
+"en": "Put the beans on to boil early."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-sarten-01",
+"type": "vocab",
+"tl": "el sartén",
+"en": "frying pan",
+"accept": [
+"skillet",
+"pan"
+],
+"accept_tl": [
+"la sartén"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 3,
+"notes": "Masculine in Mexico and most of Latin America ('el sartén'); feminine in Spain and some regions ('la sartén'). Both are correct.",
+"examples": [
+{
+"tl": "Calienta el sartén antes de poner los huevos.",
+"en": "Heat the pan before putting in the eggs."
+},
+{
+"tl": "Necesitamos un sartén nuevo, este ya se pega.",
+"en": "We need a new frying pan, this one sticks now."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-olla-01",
+"type": "vocab",
+"tl": "la olla",
+"en": "pot",
+"accept": [
+"cooking pot",
+"saucepan"
+],
+"accept_tl": [
+"la cazuela"
+],
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 3,
+"notes": "'Olla de presión' / 'olla exprés' = pressure cooker (essential for frijoles). 'Café de olla' and 'frijoles de la olla' are named after it. 'Cazuela' = clay pot.",
+"examples": [
+{
+"tl": "Pon los frijoles en la olla exprés, salen más rápido.",
+"en": "Put the beans in the pressure cooker, they're faster."
+},
+{
+"tl": "La olla grande es para el pozole de la fiesta.",
+"en": "The big pot is for the party pozole."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-cuchara-01",
+"type": "vocab",
+"tl": "la cuchara",
+"en": "spoon",
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 1,
+"notes": "'Cucharita' = teaspoon; 'cucharada' = a spoonful (recipe measure). Cubiertos = silverware/cutlery.",
+"examples": [
+{
+"tl": "¿Me trae una cuchara para la sopa, por favor?",
+"en": "Can you bring me a spoon for the soup, please?"
+},
+{
+"tl": "Dos cucharadas de azúcar y una de canela.",
+"en": "Two spoonfuls of sugar and one of cinnamon."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-tenedor-01",
+"type": "vocab",
+"tl": "el tenedor",
+"en": "fork",
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 1,
+"notes": "Tacos are eaten by hand; asking for a tenedor at a taquería marks you as a foreigner (nothing wrong with that).",
+"examples": [
+{
+"tl": "Me falta un tenedor, ¿me trae uno?",
+"en": "I'm missing a fork, can you bring me one?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-cuchillo-01",
+"type": "vocab",
+"tl": "el cuchillo",
+"en": "knife",
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 1,
+"notes": "Pronounced ku-CHI-yo. 'Cuchillo de carne' = steak knife. Don't confuse with 'cuchara' (spoon).",
+"examples": [
+{
+"tl": "¿Nos trae cuchillos para la carne?",
+"en": "Can you bring us knives for the meat?"
+},
+{
+"tl": "Este cuchillo no corta nada.",
+"en": "This knife doesn't cut anything."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-plato-01",
+"type": "vocab",
+"tl": "el plato",
+"en": "plate",
+"accept": [
+"dish"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 1,
+"notes": "Both the plate and a dish on the menu ('plato típico', 'plato fuerte'). 'Platillo' = a dish (Mexico). 'Lavar los platos' = do the dishes.",
+"examples": [
+{
+"tl": "¿Me trae otro plato para compartir?",
+"en": "Can you bring me another plate to share?"
+},
+{
+"tl": "Yo cocino y tú lavas los platos, ¿va?",
+"en": "I cook and you do the dishes, deal?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-vaso-01",
+"type": "vocab",
+"tl": "el vaso",
+"en": "glass (drinking)",
+"accept": [
+"glass",
+"cup",
+"tumbler"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 1,
+"notes": "A drinking glass or plastic cup; 'vaso de agua' = glass of water (not 'copa', which is a wine glass). Also 'un vaso de fruta' = fruit cup.",
+"examples": [
+{
+"tl": "¿Me trae un vaso de agua con hielo?",
+"en": "Can you bring me a glass of water with ice?"
+},
+{
+"tl": "Trae vasos desechables para la fiesta.",
+"en": "Bring disposable cups for the party."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-taza-01",
+"type": "vocab",
+"tl": "la taza",
+"en": "cup / mug",
+"accept": [
+"cup",
+"mug"
+],
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 2,
+"notes": "Cup with a handle (coffee, tea); also the recipe measure 'una taza de arroz'. Toilet bowl is also 'taza del baño'.",
+"examples": [
+{
+"tl": "Una taza de café de olla, por favor.",
+"en": "A cup of café de olla, please."
+},
+{
+"tl": "Dos tazas de agua por una de arroz.",
+"en": "Two cups of water per cup of rice."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-refrigerador-01",
+"type": "vocab",
+"tl": "el refrigerador",
+"en": "refrigerator",
+"accept": [
+"fridge"
+],
+"accept_tl": [
+"el refri",
+"la nevera",
+"la heladera",
+"el frigorífico"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 2,
+"casual": "el refri",
+"notes": "Mexico: refrigerador / refri. Colombia, Caribbean, Central America: nevera. Argentina: heladera. Spain: frigorífico/nevera. In a store: 'está en el refri'.",
+"examples": [
+{
+"tl": "Las cervezas están en el refri.",
+"en": "The beers are in the fridge."
+},
+{
+"tl": "Guarda las sobras en el refrigerador.",
+"en": "Put the leftovers in the refrigerator."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-estufa-01",
+"type": "vocab",
+"tl": "la estufa",
+"en": "stove",
+"accept_tl": [
+"la cocina",
+"el fogón"
+],
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 2,
+"notes": "Mexico/Colombia/Central America: estufa (in Spain 'estufa' = a heater!). Argentina/Spain: cocina. 'Estufa de gas' — most Mexican kitchens run on tanques de gas.",
+"examples": [
+{
+"tl": "Apaga la estufa, ya hirvió el agua.",
+"en": "Turn off the stove, the water already boiled."
+},
+{
+"tl": "La estufa no prende, creo que se acabó el gas.",
+"en": "The stove won't light, I think we're out of gas."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-horno-01",
+"type": "vocab",
+"tl": "el horno",
+"en": "oven",
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 3,
+"notes": "'Al horno' = baked/roasted (pollo al horno). 'Hornear' = to bake. Many Mexican rental kitchens have a stove but no working horno.",
+"examples": [
+{
+"tl": "Mete el pastel al horno veinte minutos.",
+"en": "Put the cake in the oven for twenty minutes."
+},
+{
+"tl": "Papas al horno con romero, por favor.",
+"en": "Oven-roasted potatoes with rosemary, please."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-microondas-01",
+"type": "vocab",
+"tl": "el microondas",
+"en": "microwave",
+"accept_tl": [
+"el micro"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 2,
+"casual": "el micro",
+"notes": "Same in singular and plural: el/los microondas. 'Caliéntalo en el micro' = heat it in the microwave.",
+"examples": [
+{
+"tl": "Calienta las sobras en el microondas dos minutos.",
+"en": "Heat the leftovers in the microwave for two minutes."
+},
+{
+"tl": "¿Tienen microondas en el OXXO para calentar esto?",
+"en": "Do you have a microwave at the OXXO to heat this up?"
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-servilleta-01",
+"type": "vocab",
+"tl": "la servilleta",
+"en": "napkin",
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 2,
+"notes": "'Servilletas' at a taquería are usually tiny; ask for more. 'Servilletero' = napkin holder. Tortillas are kept warm in a 'servilleta' or 'tortillero'.",
+"examples": [
+{
+"tl": "¿Me da unas servilletas, por favor?",
+"en": "Can I get some napkins, please?"
+},
+{
+"tl": "Pásame una servilleta, me manché de salsa.",
+"en": "Pass me a napkin, I got salsa on myself."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-receta-01",
+"type": "vocab",
+"tl": "la receta",
+"en": "recipe",
+"accept": [
+"prescription"
+],
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 3,
+"notes": "Also a doctor's prescription ('receta médica'). 'La receta de mi abuela' = my grandma's recipe.",
+"examples": [
+{
+"tl": "¿Me pasas la receta de tu salsa?",
+"en": "Can you send me your salsa recipe?"
+},
+{
+"tl": "Es la receta de mi abuela, no se la doy a nadie.",
+"en": "It's my grandma's recipe, I don't give it to anyone."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-tienda-01",
+"type": "vocab",
+"tl": "la tienda",
+"en": "store",
+"accept": [
+"shop"
+],
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 1,
+"notes": "Any store. 'Tienda de abarrotes' = corner grocery store (Mexico). 'Tienda de conveniencia' = convenience store (OXXO, 7-Eleven).",
+"examples": [
+{
+"tl": "Voy a la tienda por tortillas, ¿quieres algo?",
+"en": "I'm going to the store for tortillas, want anything?"
+},
+{
+"tl": "La tienda de la esquina cierra a las diez.",
+"en": "The corner store closes at ten."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-tiendita-01",
+"type": "vocab",
+"tl": "la tiendita",
+"en": "corner store",
+"accept": [
+"little store",
+"mom-and-pop shop"
+],
+"accept_tl": [
+"la tienda de la esquina",
+"la tienda de abarrotes",
+"el abarrote"
+],
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 2,
+"notes": "Diminutive of tienda: the family-run neighborhood shop that sells everything in small quantities and lets regulars buy 'fiado' (on credit).",
+"examples": [
+{
+"tl": "En la tiendita venden huevos por pieza.",
+"en": "At the corner store they sell eggs individually."
+},
+{
+"tl": "Ve a la tiendita por un refresco y unas sabritas.",
+"en": "Go to the corner store for a soda and some chips."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-oxxo-01",
+"type": "vocab",
+"tl": "el OXXO",
+"en": "OXXO (Mexican convenience store)",
+"accept": [
+"OXXO",
+"convenience store"
+],
+"accept_tl": [
+"la tienda de conveniencia",
+"el Seven"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 2,
+"notes": "Mexico's omnipresent convenience chain (20,000+ stores): drinks, snacks, phone top-ups, bill payments, cash deposits. 'Voy al OXXO' is a daily phrase.",
+"examples": [
+{
+"tl": "Voy al OXXO por hielo y una caguama.",
+"en": "I'm going to the OXXO for ice and a big beer."
+},
+{
+"tl": "Puedes pagar la luz en el OXXO.",
+"en": "You can pay the electric bill at the OXXO."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-mercado-01",
+"type": "vocab",
+"tl": "el mercado",
+"en": "market",
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 1,
+"notes": "Covered municipal market with produce, meat and fondas inside. 'Tianguis' = open-air street market on a set weekday (Mexico). 'Plaza de mercado' in Colombia.",
+"examples": [
+{
+"tl": "Los sábados hago el mandado en el mercado.",
+"en": "On Saturdays I do the grocery shopping at the market."
+},
+{
+"tl": "En el mercado hay un puesto de jugos muy bueno.",
+"en": "At the market there's a really good juice stand."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-super-01",
+"type": "vocab",
+"tl": "el súper",
+"en": "supermarket",
+"accept": [
+"grocery store"
+],
+"accept_tl": [
+"el supermercado",
+"la bodega"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 1,
+"notes": "Short for supermercado; accent on ú. Mexico: Walmart, Soriana, Chedraui, La Comer. 'Hacer el súper' = to do the grocery shopping.",
+"examples": [
+{
+"tl": "¿Vamos al súper? Ya no hay nada en el refri.",
+"en": "Shall we go to the supermarket? There's nothing in the fridge."
+},
+{
+"tl": "Hago el súper los domingos en la mañana.",
+"en": "I do the grocery shopping on Sunday mornings."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-mandado-01",
+"type": "vocab",
+"tl": "el mandado",
+"en": "groceries / errands",
+"accept": [
+"groceries",
+"the shopping"
+],
+"accept_tl": [
+"las compras",
+"la despensa"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 3,
+"notes": "Mexican: 'hacer el mandado' = do the grocery shopping/errands. Elsewhere 'hacer las compras' or 'hacer el mercado' (Colombia). 'Despensa' = pantry staples.",
+"examples": [
+{
+"tl": "Voy a hacer el mandado, ¿qué falta?",
+"en": "I'm going to do the shopping, what do we need?"
+},
+{
+"tl": "Mi mamá hace el mandado en el tianguis de los martes.",
+"en": "My mom shops at the Tuesday street market."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-cambio-01",
+"type": "vocab",
+"tl": "el cambio",
+"en": "change (money)",
+"accept": [
+"change",
+"small change"
+],
+"accept_tl": [
+"el vuelto",
+"el suelto",
+"la feria",
+"el sencillo"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 1,
+"casual": "la feria",
+"notes": "Mexico: cambio (slang: feria). Colombia/Argentina: vuelto (change back), sencillo/suelto (small bills). Small vendors often have none — carry coins.",
+"examples": [
+{
+"tl": "¿Tiene cambio de quinientos?",
+"en": "Do you have change for a five hundred?"
+},
+{
+"tl": "Quédese con el cambio.",
+"en": "Keep the change."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-tiene-cambio-01",
+"type": "phrase",
+"tl": "¿Tiene cambio?",
+"en": "Do you have change?",
+"pos": "expr",
+"topic": "food",
+"tier": 1,
+"notes": "Ask BEFORE handing over a big bill at a taco stand or tiendita. Follow-up: '¿Me cambia un billete de 500?' Typical reply: 'No tengo cambio, ¿no trae más chico?'",
+"examples": [
+{
+"tl": "¿Tiene cambio? Solo traigo un billete de quinientos.",
+"en": "Do you have change? I only have a five-hundred bill."
+},
+{
+"tl": "—¿Tiene cambio de doscientos? —Sí, no se preocupe.",
+"en": "—Do you have change for two hundred? —Yes, don't worry."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-recibo-01",
+"type": "vocab",
+"tl": "el recibo",
+"en": "receipt",
+"accept_tl": [
+"el ticket",
+"la nota",
+"la factura"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 2,
+"notes": "Mexico: 'ticket' (TEE-ket) is the register slip, 'nota' at small shops, 'factura' = tax invoice (they ask '¿Factura?'; say no). 'Recibo' also = utility bill.",
+"examples": [
+{
+"tl": "¿Me da el ticket, por favor?",
+"en": "Can I get the receipt, please?"
+},
+{
+"tl": "—¿Necesita factura? —No, gracias, solo el recibo.",
+"en": "—Do you need an invoice? —No thanks, just the receipt."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-bolsa-01",
+"type": "vocab",
+"tl": "la bolsa",
+"en": "bag",
+"accept": [
+"shopping bag",
+"purse"
+],
+"accept_tl": [
+"la funda",
+"el bolso"
+],
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 2,
+"notes": "Shopping bag and (Mexico) purse. Plastic bags are banned in CDMX: bring your own or they'll ask '¿Gusta bolsa?' and charge. 'Bolsita' for a small one.",
+"examples": [
+{
+"tl": "—¿Gusta bolsa? —No, traigo la mía.",
+"en": "—Would you like a bag? —No, I brought my own."
+},
+{
+"tl": "Ponme los jitomates en otra bolsa, por favor.",
+"en": "Put the tomatoes in another bag for me, please."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-a-como-01",
+"type": "phrase",
+"tl": "¿A cómo?",
+"en": "How much (per unit)?",
+"accept": [
+"How much is it?",
+"What's the price?"
+],
+"accept_tl": [
+"¿A cuánto?",
+"¿A cómo el kilo?"
+],
+"pos": "expr",
+"topic": "food",
+"tier": 1,
+"notes": "Market/street-stand question for price per kilo or per piece: '¿A cómo el kilo de mango?' Answer: 'A treinta el kilo.' Also '¿A cuánto?'",
+"examples": [
+{
+"tl": "¿A cómo el kilo de aguacate?",
+"en": "How much is a kilo of avocados?"
+},
+{
+"tl": "—¿A cómo los tacos? —A quince cada uno, joven.",
+"en": "—How much are the tacos? —Fifteen each, sir."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-cuanto-es-01",
+"type": "phrase",
+"tl": "¿Cuánto es?",
+"en": "How much is it (total)?",
+"accept": [
+"How much is it?",
+"How much do I owe you?"
+],
+"accept_tl": [
+"¿Cuánto le debo?",
+"¿Qué se debe?",
+"¿Cuánto cuesta?"
+],
+"pos": "expr",
+"topic": "food",
+"tier": 1,
+"notes": "Asks the total when paying. '¿Cuánto le debo?' is the polite version; '¿Cuánto cuesta?' asks the price of one item before buying.",
+"examples": [
+{
+"tl": "¿Cuánto es por todo?",
+"en": "How much is it for everything?"
+},
+{
+"tl": "—¿Cuánto le debo? —Son ochenta y cinco.",
+"en": "—How much do I owe you? —It's eighty-five."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-medio-kilo-01",
+"type": "phrase",
+"tl": "medio kilo",
+"en": "half a kilo",
+"accept": [
+"half kilo",
+"500 grams"
+],
+"pos": "expr",
+"topic": "food",
+"tier": 2,
+"notes": "Latin America sells by kilo (2.2 lb), not pounds. 'Un cuarto' = 250 g; 'kilo y medio' = 1.5 kg. Tortillas and meat are ordered this way.",
+"examples": [
+{
+"tl": "Medio kilo de tortillas y un cuarto de queso.",
+"en": "Half a kilo of tortillas and a quarter kilo of cheese."
+},
+{
+"tl": "Me da medio kilo de carne para asar.",
+"en": "Give me half a kilo of meat for grilling."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-docena-01",
+"type": "phrase",
+"tl": "una docena",
+"en": "a dozen",
+"pos": "expr",
+"topic": "food",
+"tier": 3,
+"notes": "'Media docena' = half a dozen. Eggs are also sold by the kilo or individually ('por pieza') at tienditas.",
+"examples": [
+{
+"tl": "Una docena de huevos y un litro de leche.",
+"en": "A dozen eggs and a liter of milk."
+},
+{
+"tl": "Media docena de bolillos, por favor.",
+"en": "Half a dozen rolls, please."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-puesto-01",
+"type": "vocab",
+"tl": "el puesto",
+"en": "street stand",
+"accept": [
+"stall",
+"stand",
+"food stand"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 2,
+"notes": "Any market stall or street-food stand ('puesto de tacos', 'puesto de jugos'). Also 'job/position'. Rule of thumb: eat where there's a line.",
+"examples": [
+{
+"tl": "El puesto de tacos de la esquina abre a las ocho de la noche.",
+"en": "The taco stand on the corner opens at eight at night."
+},
+{
+"tl": "Compré la fruta en un puesto del mercado.",
+"en": "I bought the fruit at a stall in the market."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-fonda-01",
+"type": "vocab",
+"tl": "la fonda",
+"en": "small family restaurant",
+"accept": [
+"fonda",
+"lunch spot",
+"diner"
+],
+"accept_tl": [
+"la cocina económica",
+"el comedor"
+],
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 2,
+"notes": "Mexican mom-and-pop eatery serving 'comida corrida' (set lunch: sopa, arroz, guisado, agua, postre) for 80-150 pesos. 'Cocina económica' is the same idea.",
+"examples": [
+{
+"tl": "En la fonda de abajo la comida corrida cuesta cien pesos.",
+"en": "At the fonda downstairs the set lunch costs a hundred pesos."
+},
+{
+"tl": "¿Qué guisados hay hoy? —Chile relleno, tinga y bistec.",
+"en": "What dishes are there today? —Stuffed pepper, tinga and steak."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-comida-corrida-01",
+"type": "vocab",
+"tl": "la comida corrida",
+"en": "set lunch menu",
+"accept": [
+"lunch special",
+"set menu"
+],
+"accept_tl": [
+"el menú del día",
+"el menú ejecutivo",
+"el almuerzo ejecutivo"
+],
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 3,
+"notes": "Mexican fixed-price lunch at fondas: sopa + arroz/pasta + guisado + agua de sabor + postre. Colombia: 'almuerzo ejecutivo' or 'corrientazo'.",
+"examples": [
+{
+"tl": "¿Tiene comida corrida? —Sí, con sopa, guisado y agua.",
+"en": "Do you have the set lunch? —Yes, with soup, main and a drink."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-pagar-01",
+"type": "vocab",
+"tl": "pagar",
+"en": "to pay",
+"accept": [
+"pay"
+],
+"pos": "verb",
+"topic": "food",
+"tier": 1,
+"notes": "Regular -ar (pret. yo: pagué). '¿Con tarjeta o en efectivo?' you'll be asked. Street stands and tienditas are usually 'solo efectivo'.",
+"examples": [
+{
+"tl": "¿Puedo pagar con tarjeta? —Solo efectivo, joven.",
+"en": "Can I pay by card? —Cash only, sir."
+},
+{
+"tl": "Yo pago, tú pagaste la vez pasada.",
+"en": "I'll pay, you paid last time."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-efectivo-01",
+"type": "vocab",
+"tl": "el efectivo",
+"en": "cash",
+"accept_tl": [
+"la plata (Col.)",
+"la lana (Mex.)"
+],
+"pos": "noun",
+"gender": "m",
+"topic": "food",
+"tier": 1,
+"notes": "'En efectivo' = in cash. Slang: lana, varo (Mexico), plata (South America). Carry small bills for taquerías and markets.",
+"examples": [
+{
+"tl": "No traigo efectivo, ¿hay cajero cerca?",
+"en": "I don't have cash on me, is there an ATM nearby?"
+},
+{
+"tl": "Aquí solo aceptan efectivo.",
+"en": "Here they only take cash."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-tarjeta-01",
+"type": "vocab",
+"tl": "la tarjeta",
+"en": "card (debit/credit)",
+"accept": [
+"card",
+"credit card"
+],
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 1,
+"notes": "'Tarjeta de crédito/débito'. '¿Aceptan tarjeta?' before ordering. The waiter brings 'la terminal' (card reader) to the table and asks about propina.",
+"examples": [
+{
+"tl": "¿Aceptan tarjeta o solo efectivo?",
+"en": "Do you take cards or cash only?"
+},
+{
+"tl": "Páselo con tarjeta y agrégale el diez por ciento.",
+"en": "Run it on the card and add ten percent."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-barato-01",
+"type": "vocab",
+"tl": "barato / barata",
+"en": "cheap",
+"accept": [
+"inexpensive"
+],
+"pos": "adj",
+"topic": "food",
+"tier": 2,
+"notes": "Opposite: caro/cara (expensive). 'Más barato' = cheaper. 'Está regalado' = it's a steal.",
+"examples": [
+{
+"tl": "Los tacos de canasta son los más baratos.",
+"en": "Basket tacos are the cheapest."
+},
+{
+"tl": "En el tianguis la fruta está más barata que en el súper.",
+"en": "At the street market fruit is cheaper than at the supermarket."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-caro-01",
+"type": "vocab",
+"tl": "caro / cara",
+"en": "expensive",
+"accept": [
+"pricey"
+],
+"pos": "adj",
+"topic": "food",
+"tier": 2,
+"notes": "'Qué caro' = so expensive. 'Cara' also = face. 'Carero/a' = a vendor who overcharges (Mexico).",
+"examples": [
+{
+"tl": "Ese restaurante está muy caro para lo que dan.",
+"en": "That restaurant is really expensive for what they give you."
+},
+{
+"tl": "¿Cuatrocientos por dos tacos? ¡Qué caro!",
+"en": "Four hundred for two tacos? That's so expensive!"
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-mesa-01",
+"type": "vocab",
+"tl": "la mesa",
+"en": "table",
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 1,
+"notes": "'Una mesa para dos' = a table for two. 'Poner la mesa' = set the table. 'Mesa afuera / adentro' = outside/inside.",
+"examples": [
+{
+"tl": "Una mesa para cuatro, por favor, afuera si hay.",
+"en": "A table for four, please, outside if there is one."
+},
+{
+"tl": "¿Tienen que esperar? —Como quince minutos por mesa.",
+"en": "Do we have to wait? —About fifteen minutes for a table."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-domicilio-01",
+"type": "vocab",
+"tl": "a domicilio",
+"en": "delivery (to your home)",
+"accept": [
+"delivery",
+"home delivery"
+],
+"accept_tl": [
+"servicio a domicilio",
+"el delivery"
+],
+"pos": "expr",
+"topic": "food",
+"tier": 2,
+"notes": "'Servicio a domicilio' = delivery. Apps: Rappi, Uber Eats, DiDi Food. The driver is 'el repartidor'; 'ya viene en camino' = it's on the way.",
+"examples": [
+{
+"tl": "¿Tienen servicio a domicilio? —Sí, por Rappi o directo.",
+"en": "Do you deliver? —Yes, through Rappi or direct."
+},
+{
+"tl": "Pedí a domicilio y el repartidor ya viene en camino.",
+"en": "I ordered delivery and the driver is on his way."
+}
+],
+"confidence": "high"
+},
+{
+"id": "food-reservacion-01",
+"type": "vocab",
+"tl": "la reservación",
+"en": "reservation",
+"accept": [
+"booking"
+],
+"accept_tl": [
+"la reserva"
+],
+"pos": "noun",
+"gender": "f",
+"topic": "food",
+"tier": 3,
+"notes": "Mexico/Central America: reservación. South America/Spain: reserva. '¿Tiene reservación?' at the door; 'a nombre de…' = under the name of.",
+"examples": [
+{
+"tl": "Tengo una reservación a nombre de Johnson para las ocho.",
+"en": "I have a reservation under Johnson for eight."
+},
+{
+"tl": "¿Hay que hacer reservación o llegamos directo?",
+"en": "Do we need a reservation or can we just show up?"
+}
+],
+"confidence": "high"
+}
+]

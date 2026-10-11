@@ -100,6 +100,16 @@ def merge_into(keep, other):
         if not keep.get(k) and other.get(k): keep[k] = other[k]
     if other.get('confidence') == 'check': keep['confidence'] = 'check'
 
+ART = re.compile(r'^(el|la|los|las|un|una)\s+(?=\S)', re.I)
+def strip_article(n):
+    """Spanish nouns: keep the bare noun as the headword, accept the article form as an alternative."""
+    if n.get('type') != 'vocab' or not n.get('gender'): return
+    m = ART.match(n['tl'])
+    if not m: return
+    full = n['tl']; n['tl'] = n['tl'][m.end():]
+    n.setdefault('accept_tl', [])
+    if full not in n['accept_tl']: n['accept_tl'].insert(0, full)
+
 def same_sense(a, b):
     """Same headword and overlapping meaning (shared content word, or verb vs vocab tagged as verb)."""
     if a['type'] in ('cloze', 'grammar') or b['type'] in ('cloze', 'grammar'): return False
@@ -114,6 +124,7 @@ def cmd_build(args):
         pr = problems(n)
         if pr: bad += 1; print(f"skip {n.get('id', '?') if isinstance(n, dict) else '?'} ({n.get('_src') if isinstance(n, dict) else ''}): {'; '.join(pr)}", file=sys.stderr); continue
         n.pop('_src', None)
+        strip_article(n)
         tl = norm_tl(n['tl'])
         target = next((m for m in by_tl.get(tl, []) if same_sense(m, n)), None)
         if target is not None:
