@@ -2,7 +2,7 @@
 """Salita deck tools: validate, merge and summarize note files.
 
   python3 tools/deck_tools.py validate FILE [FILE...]
-  python3 tools/deck_tools.py build  -o deck.json --name "Salita starter deck" SRC_DIR_OR_FILES...
+  python3 tools/deck_tools.py build  -o decks/tagalog.json --name "Salita starter deck" decks-src/tagalog
   python3 tools/deck_tools.py stats  deck.json
 
 Notes follow DECK_SCHEMA.md. `build` concatenates all input arrays, checks every note,
@@ -13,6 +13,7 @@ import json, sys, os, re, argparse, datetime
 
 TYPES = {'vocab', 'phrase', 'verb', 'grammar', 'cloze'}
 ASPECTS = ('infinitive', 'completed', 'incompleted', 'contemplated')
+ES_FORMS = ('infinitive', 'pres_yo', 'pres_tu', 'pres_el', 'pres_nos', 'pres_ellos', 'pret_yo', 'pret_tu', 'pret_el', 'pret_nos', 'pret_ellos', 'gerund', 'participle')
 ID_RE = re.compile(r'^[a-z0-9]+(-[a-z0-9]+)*$')
 
 def problems(n):
@@ -34,8 +35,11 @@ def problems(n):
             if not isinstance(e, dict) or not e.get('tl') or not e.get('en'): p.append('example needs tl and en')
     if n['type'] in ('vocab', 'verb', 'phrase') and not ex: p.append('needs at least one example')
     if n['type'] == 'verb':
-        a = n.get('aspects')
-        if not isinstance(a, dict) or not all(a.get(k) for k in ASPECTS): p.append('verb needs aspects ' + '/'.join(ASPECTS))
+        a = n.get('aspects'); f = n.get('forms')
+        if isinstance(f, dict):
+            missing = [k for k in ES_FORMS if not f.get(k)]
+            if missing: p.append('verb forms missing ' + '/'.join(missing))
+        elif not isinstance(a, dict) or not all(a.get(k) for k in ASPECTS): p.append('verb needs aspects ' + '/'.join(ASPECTS) + ' or forms')
         if not n.get('root'): p.append('verb needs root')
         if not n.get('focus'): p.append('verb needs focus')
     if n['type'] == 'cloze':
@@ -74,7 +78,10 @@ def cmd_validate(args):
 
 STOP = {'to', 'the', 'a', 'an', 'be', 'is', 'are', 'of', 'in', 'on', 'at', 'for', 'and', 'or', 'it', 'you', 'i', 'me', 'my', 'your'}
 def words(s): return {w for w in re.findall(r"[a-z']+", s.lower()) if w not in STOP}
-def norm_tl(s): return re.sub(r"[^a-z0-9ñ\s-]", '', re.sub(r'\s+', ' ', s.strip().lower()).replace("'", ''))
+import unicodedata
+def norm_tl(s):
+    s = unicodedata.normalize('NFD', s.strip().lower()); s = ''.join(c for c in s if unicodedata.category(c) != 'Mn')
+    return re.sub(r"[^a-z0-9ñ\s-]", '', re.sub(r'\s+', ' ', s).replace("'", ''))
 RANK = {'verb': 0, 'vocab': 1, 'phrase': 2, 'cloze': 3, 'grammar': 3}
 
 def merge_into(keep, other):
@@ -89,7 +96,7 @@ def merge_into(keep, other):
     for e in other.get('examples', []):
         if e['tl'].strip().lower() not in seen and len(keep.setdefault('examples', [])) < 3: keep['examples'].append(e); seen.add(e['tl'].strip().lower())
     keep['tier'] = min(keep.get('tier', 2), other.get('tier', 2))
-    for k in ('taglish', 'stress', 'notes', 'pos'):
+    for k in ('taglish', 'casual', 'stress', 'notes', 'pos', 'gender'):
         if not keep.get(k) and other.get(k): keep[k] = other[k]
     if other.get('confidence') == 'check': keep['confidence'] = 'check'
 
@@ -132,7 +139,7 @@ def cmd_stats(args):
     for label, c in (('by type', Counter(n['type'] for n in notes)), ('by topic', Counter(n['topic'] for n in notes)), ('by tier', Counter(n.get('tier', '?') for n in notes))):
         print(label + ': ' + ', '.join(f"{k} {v}" for k, v in sorted(c.items(), key=lambda kv: str(kv[0]))))
     print(f"flagged for review (confidence=check): {sum(1 for n in notes if n.get('confidence') == 'check')}")
-    print(f"with taglish: {sum(1 for n in notes if n.get('taglish') or any(e.get('taglish') for e in n.get('examples', [])))}")
+    print(f"with casual/taglish variant: {sum(1 for n in notes if n.get('taglish') or n.get('casual') or any(e.get('taglish') or e.get('casual') for e in n.get('examples', [])))}")
     return 0
 
 def main():
