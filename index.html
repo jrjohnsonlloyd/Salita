@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Salita</title>
-<meta name="description" content="Daily Tagalog and Taglish practice: spaced repetition, typed answers, verb aspect drills, listening, and progress tracking. Works offline on your phone.">
+<meta name="description" content="Daily language practice: Tagalog, Spanish and travel decks for Japanese, Thai, Dutch, Czech and German. Spaced repetition, typed answers, listening and progress tracking. Works offline on your phone.">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#0e8a78">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b3b35">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -131,6 +131,16 @@ label.t span{flex:1}
 .qhead .pill{white-space:nowrap}
 .prompt{font-family:var(--display);font-weight:700;font-size:30px;line-height:1.1;margin:6px 0 4px;overflow-wrap:anywhere}
 .prompt.small{font-size:22px}
+/* romanization line under Japanese / Thai text; taller lines for scripts with stacked marks */
+.rom{font-family:var(--body);font-size:15px;font-weight:500;color:var(--fg-2);margin-top:4px;overflow-wrap:anywhere}
+.rom b{color:var(--hot)}
+.back .rom{font-size:14px}
+.ex .rom{font-size:13px;color:var(--muted);margin-top:0}
+.item .w small{display:block;font-weight:500;font-size:12px;color:var(--muted)}
+[data-lang="th"] .prompt,[data-lang="th"] .back .ans{line-height:1.5}
+[data-lang="ja"] .prompt,[data-lang="ja"] .back .ans{line-height:1.3}
+.langsel{font:inherit;font-size:13px;font-weight:600;width:auto;max-width:136px;padding:7px 8px;border-radius:9px;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4)}
+.langsel option{color:#15201e;background:#fff}
 .prompt .blank{display:inline-block;min-width:3ch;border-bottom:3px solid var(--hot);color:var(--hot);padding:0 4px}
 .sub{color:var(--fg-2);font-size:15px;margin-top:4px}
 .hint{display:inline-block;margin-top:8px;font-size:13px;color:var(--muted);background:var(--surface-2);border-radius:8px;padding:4px 10px}
@@ -166,6 +176,7 @@ label.t span{flex:1}
 kbd{font:inherit;font-size:11px;border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:0 5px;color:var(--muted)}
 /* browse */
 .search{display:flex;gap:8px}
+.search .btn{flex:none;white-space:nowrap}
 .list{display:flex;flex-direction:column;gap:8px;margin-top:12px}
 .item{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
 .item summary{list-style:none;display:flex;gap:10px;align-items:center;cursor:pointer}
@@ -205,7 +216,7 @@ th.n{text-align:right}
 <div class="wrap" id="app">
   <header class="top">
     <div><div class="eyebrow" id="eyebrow">Tagalog · Taglish</div><h1 id="title">Salita</h1></div>
-    <div class="hbtns"><button class="btn small ghost" id="btnLang" style="color:#fff;border-color:rgba(255,255,255,.4)" type="button" title="Switch language">⇄ <span id="langOther">Spanish</span></button><button class="btn small ghost" id="btnHelp" style="color:#fff;border-color:rgba(255,255,255,.4)" type="button">Help</button></div>
+    <div class="hbtns"><select class="langsel" id="langSel" aria-label="Language" title="Switch language"></select><button class="btn small ghost" id="btnHelp" style="color:#fff;border-color:rgba(255,255,255,.4)" type="button">Help</button></div>
   </header>
   <main id="main"></main>
 </div>
@@ -222,6 +233,11 @@ th.n{text-align:right}
 /* ===================== storage ===================== */
 const LS = 'sl.';
 /* Languages: each has its own deck file and its own progress/settings in storage (keys sl.<id>.*). */
+/* Travel decks (Japanese, Thai, Dutch, Czech, German) share one topic list and have no conjugation drills.
+   rom = the deck is written in another script and every note carries a romanization, which is shown and accepted as a typed answer.
+   articles = article shown (and accepted) with a noun, by its gender code. accentOpt = "Count accents" can be switched in Settings. */
+const TRAVEL_TOPICS = { basics: 'Basics', time: 'Numbers & time', travel: 'Transport', directions: 'Directions', stay: 'Hotel', food: 'Food & drink', money: 'Shopping & money', sights: 'Sights', help: 'Help & health', chat: 'Small talk', signs: 'Signs', active: 'Hiking & running', grammar: 'Patterns', mine: 'My cards' };
+function travelLang(o){ return Object.assign({ sub: o.name + ' · Travel', input: o.id, ttsFallback: [], ttsNote: 'On iPhone: Settings › Accessibility › Spoken Content › Voices › ' + o.name + '.', casualLabel: 'Casual', casualPrompt: 'How would a friend say this?', formsLabel: 'Conjugation', formsHelp: '', accents: false, forms: [], formKeys: [], focusLabel: f => f, topics: TRAVEL_TOPICS }, o); }
 const LANGS = [
   { id: 'tl', name: 'Tagalog', sub: 'Tagalog · Taglish', file: './decks/tagalog.json', input: 'fil', tts: ['fil', 'tl'], ttsFallback: ['id'], ttsNote: 'On iPhone: Settings › Accessibility › Spoken Content › Voices. An Indonesian voice is used as an approximation if present.',
     casualLabel: 'Taglish', casualPrompt: 'How would a friend text this?', formsLabel: 'Verb aspect', formsHelp: 'Conjugate verbs: completed / incompleted / contemplated.', accents: false, sample: 'Kumusta, kumain ka na ba?',
@@ -232,7 +248,12 @@ const LANGS = [
     casualLabel: 'Casual', casualPrompt: 'How would a friend say this?', formsLabel: 'Conjugation', formsHelp: 'Conjugate verbs: present and preterite, all persons.', accents: true, sample: 'Hola, ¿ya comiste?',
     forms: [{ key: 'pres_yo', label: 'present · yo' }, { key: 'pres_tu', label: 'present · tú' }, { key: 'pres_el', label: 'present · él / ella / usted' }, { key: 'pres_nos', label: 'present · nosotros' }, { key: 'pres_ellos', label: 'present · ellos / ustedes' }, { key: 'pret_yo', label: 'preterite · yo' }, { key: 'pret_el', label: 'preterite · él / ella / usted' }],
     formKeys: ['infinitive', 'pres_yo', 'pres_tu', 'pres_el', 'pres_nos', 'pres_ellos', 'pret_yo', 'pret_tu', 'pret_el', 'pret_nos', 'pret_ellos', 'gerund', 'participle'], focusLabel: f => f.replace(/-/g, ' '),
-    topics: { core: 'Core words', daily: 'Daily life', food: 'Food', money: 'Money & admin', travel: 'Getting around', people: 'People & feelings', time: 'Time & numbers', chat: 'Casual chat', verbs: 'Verbs', grammar: 'Grammar', phrases: 'Phrases', mine: 'My cards' } }
+    topics: { core: 'Core words', daily: 'Daily life', food: 'Food', money: 'Money & admin', travel: 'Getting around', people: 'People & feelings', time: 'Time & numbers', chat: 'Casual chat', verbs: 'Verbs', grammar: 'Grammar', phrases: 'Phrases', mine: 'My cards' }, articles: { m: 'el', f: 'la' }, accentOpt: true },
+  travelLang({ id: 'ja', name: 'Japanese', file: './decks/japanese.json', tts: ['ja'], rom: 'rōmaji', nospace: true, sample: 'こんにちは。お元気ですか。' }),
+  travelLang({ id: 'th', name: 'Thai', file: './decks/thai.json', tts: ['th'], rom: 'romanization', nospace: true, sample: 'สวัสดีครับ สบายดีไหมครับ' }),
+  travelLang({ id: 'nl', name: 'Dutch', file: './decks/dutch.json', tts: ['nl-NL', 'nl'], accentOpt: true, articles: { c: 'de', n: 'het' }, sample: 'Goedemorgen, hoe gaat het?' }),
+  travelLang({ id: 'cs', name: 'Czech', file: './decks/czech.json', tts: ['cs'], accentOpt: true, sample: 'Dobrý den, jak se máte?' }),
+  travelLang({ id: 'de', name: 'German', file: './decks/german.json', tts: ['de-DE', 'de'], accents: true, accentOpt: true, articles: { m: 'der', f: 'die', n: 'das' }, sample: 'Guten Tag, wie geht es Ihnen?' })
 ];
 const GLOBAL_KEYS = { lang: 1, theme: 1 };
 let LANG = LANGS[0];
@@ -250,7 +271,7 @@ const DEFAULT_SETTINGS = { newPerDay: 15, maxReviews: 200, retention: 0.9, typin
   facets: { r: true, p: true, l: false, t: true, a: true, c: true, g: true }, topics: {} };
 function FACET_NAMES_(){ return { r: 'Recognize', p: 'Produce', l: 'Listen', t: L().casualLabel, a: L().formsLabel, c: 'Fill the blank', g: 'Grammar' }; }
 const FACET_NAMES = new Proxy({}, { get: (_, k) => FACET_NAMES_()[k], ownKeys: () => Object.keys(FACET_NAMES_()), getOwnPropertyDescriptor: () => ({ enumerable: true, configurable: true }) });
-function FACET_HELP_(){ const n = L().name; return { r: n + ' shown, you give the English.', p: 'English shown, you type the ' + n + '.', l: 'Hear it, type what you heard (needs a ' + n + ' voice).', t: 'English shown, you say it the casual way (self-graded).', a: L().formsHelp, c: 'Fill the missing word in a sentence.', g: 'Grammar drills.' }; }
+function FACET_HELP_(){ const n = L().name; return { r: n + ' shown, you give the English.', p: 'English shown, you type the ' + n + (L().rom ? ' (' + L().rom + ' is accepted).' : '.'), l: 'Hear it, type what you heard (needs a ' + n + ' voice).', t: 'English shown, you say it the casual way (self-graded).', a: L().formsHelp, c: 'Fill the missing word in a sentence.', g: 'Grammar drills.' }; }
 const FACET_HELP = new Proxy({}, { get: (_, k) => FACET_HELP_()[k] });
 const state = {
   deck: { name: 'deck', version: '', notes: [] }, extra: [], hidden: {}, cards: {}, log: [], daily: { day: '', newCount: 0 },
@@ -350,11 +371,26 @@ function newEligible(){
 function newBudget(){ const tk = todayKey(); if (state.daily.day !== tk) { state.daily = { day: tk, newCount: 0 }; save('daily'); } return Math.max(0, state.settings.newPerDay - state.daily.newCount); }
 
 /* ===================== answer grading ===================== */
-function strip(s){ return String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[’']/g, '').replace(/[^a-z0-9ñ\s-]/g, ' ').replace(/\s+/g, ' ').trim(); }
-/* like strip() but keeps accents and ñ, for the accent check */
-function stripKeep(s){ return String(s || '').normalize('NFC').toLowerCase().replace(/[’']/g, '').replace(/[^a-z0-9áéíóúüñ\s-]/g, ' ').replace(/\s+/g, ' ').trim().replace(/\b(po|ho)\b/g, '').replace(/\s+/g, ' ').trim(); }
-function normEn(s){ let t = strip(s).replace(/\(.*?\)/g, ' ').replace(/\b(to|the|a|an|is|are|be|am)\b/g, ' ').replace(/\s+/g, ' ').trim(); return t; }
-function normTl(s){ return strip(s).replace(/\bpo\b/g, '').replace(/\bho\b/g, '').replace(/\s+/g, ' ').trim(); }
+/* Latin accents are folded away; letters of every other script (kana, kanji, Thai) are kept as they are. */
+function strip(s){ return String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').normalize('NFC').toLowerCase().replace(/ß/g, 'ss').replace(/[’']/g, '').replace(/[^\p{L}\p{M}\p{N}\s-]/gu, ' ').replace(/\s+/g, ' ').trim(); }
+/* like strip() but keeps accents, for the accent check. German: ae / oe / ue / ss count as ä / ö / ü / ß. */
+function stripKeep(s){ let t = String(s || '').normalize('NFC').toLowerCase(); if (L().id === 'de') t = t.replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss'); t = t.replace(/[’']/g, '').replace(/[^\p{L}\p{M}\p{N}\s-]/gu, ' ').replace(/\s+/g, ' ').trim(); if (L().id === 'tl') t = t.replace(/\b(po|ho)\b/g, '').replace(/\s+/g, ' ').trim(); return t; }
+/* English answers: bracketed hints and little words are ignored, unless that would leave nothing to compare */
+function normEn(s){ const raw = String(s || ''), bare = strip(raw.replace(/\(.*?\)/g, ' ')); return bare.replace(/\b(to|the|a|an|is|are|be|am)\b/g, ' ').replace(/\s+/g, ' ').trim() || bare || strip(raw); }
+/* answers in the language being learned. Romanized Japanese / Thai is compared loosely: long vowels, spacing and (Thai) aspiration h are not held against you. */
+function normTl(s){ let t = strip(s); const id = L().id;
+  if (id === 'tl') t = t.replace(/\b(po|ho)\b/g, '').trim() || t;
+  if (id === 'de') t = t.replace(/([aou])e/g, '$1');
+  if (id === 'ja') t = t.replace(/ou/g, 'o').replace(/([aeiou])\1+/g, '$1').replace(/m(?=[bpm])/g, 'n');
+  if (id === 'th') t = t.replace(/([aeiou])\1+/g, '$1').replace(/aw|or(?![aeiou])/g, 'o').replace(/ae/g, 'e').replace(/oe|er(?![aeiou])/g, 'e').replace(/eu|ue/g, 'u').replace(/y(?![aeiou])/g, 'i').replace(/([kpt])h/g, '$1');
+  return (L().nospace ? t.replace(/[\s-]+/g, '') : t.replace(/\s+/g, ' ')).trim(); }
+function accentsOn(){ const v = state.settings.accents; return v == null ? !!L().accents : !!v; }
+function showRomFront(){ return state.settings.showRom !== false; }
+function romHtml(r){ return r ? '<div class="rom">' + esc(String(r).replace(/\{\{|\}\}/g, '')) + '</div>' : ''; }
+function genderName(n){ return L().id === 'nl' ? (n.gender === 'n' ? 'het-word' : 'de-word') : ({ m: 'masculine', f: 'feminine', n: 'neuter' }[n.gender] || ''); }
+function genderLine(n){ const art = (L().articles || {})[n.gender]; return (art ? art + ' ' + n.tl + ' · ' : '') + genderName(n); }
+/* every form of the answer that counts as right: the word, its romanization, article + noun, listed variants */
+function tlAnswers(n){ const a = [n.tl]; if (n.rom) a.push(n.rom); const art = n.gender && n.type === 'vocab' && (L().articles || {})[n.gender]; if (art) a.push(art + ' ' + n.tl); return a.concat(n.accept_tl || []); }
 function lev(a, b){ if (a === b) return 0; const m = a.length, n = b.length; if (!m) return n; if (!n) return m; let prev = Array.from({ length: n + 1 }, (_, i) => i), cur = new Array(n + 1);
   for (let i = 1; i <= m; i++) { cur[0] = i; for (let j = 1; j <= n; j++) { cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1)); } const t = prev; prev = cur; cur = t; } return prev[n]; }
 function similar(a, b){ const L = Math.max(a.length, b.length); return L ? 1 - lev(a, b) / L : 1; }
@@ -365,10 +401,11 @@ function gradeAnswer(typed, answers, lang){
   answers.forEach(a => { cands.push(a); String(a).split(/[;,/]|\bor\b/).forEach(p => cands.push(p)); });
   cands.forEach(a => { const n = norm(a); if (!n) return; if (n === t) best = Math.max(best, 1); else best = Math.max(best, similar(n, t)); });
   if (best >= 1) {
-    if (lang === 'tl' && L().accents) { const tk = stripKeep(typed); if (!cands.some(a => stripKeep(a) === tk)) return 'accent'; }
+    if (lang === 'tl' && accentsOn()) { const tk = stripKeep(typed); if (!cands.some(a => stripKeep(a) === tk)) return 'accent'; }
     return 'ok';
   }
-  if (best >= 0.85 || (t.length >= 4 && cands.some(a => { const n = norm(a); return n.length >= 4 && lev(n, t) <= 1; }))) return 'close';
+  /* romanizations vary from book to book, so a near miss there is judged more gently */
+  if (best >= (lang === 'tl' && L().rom ? 0.75 : 0.85) || (t.length >= 4 && cands.some(a => { const n = norm(a); return n.length >= 4 && lev(n, t) <= 1; }))) return 'close';
   if (lang === 'en' && cands.some(a => { const n = norm(a); const words = n.split(' '); return words.length > 1 && words.includes(t) && t.length > 3; })) return 'close';
   return 'bad';
 }
@@ -403,10 +440,10 @@ function cardOf(id){ const [nid, f] = splitId(id); const n = state.byId[nid]; re
 function answerFor(x){
   const n = x.n, k = facetKind(x.f);
   if (k === 'r') return { lang: 'en', answers: [n.en].concat(n.accept || []) };
-  if (k === 'p' || k === 'l') return { lang: 'tl', answers: [n.tl].concat(n.accept_tl || []) };
+  if (k === 'p' || k === 'l') return { lang: 'tl', answers: tlAnswers(n) };
   if (k === 'a') { const fm = L().forms[Number(x.f.slice(1)) - 1]; return { lang: 'tl', answers: [formsOf(n)[fm.key]], aspect: fm.key, aspectLabel: fm.label }; }
-  if (k === 'c') { const m = /\{\{(.+?)\}\}/.exec(n.tl); return { lang: 'tl', answers: [m ? m[1] : n.tl].concat(n.accept_tl || []) }; }
-  if (k === 'g') return { lang: 'tl', answers: [n.tl].concat(n.accept_tl || []) };
+  if (k === 'c') { const m = /\{\{(.+?)\}\}/.exec(n.tl), mr = n.rom ? /\{\{(.+?)\}\}/.exec(n.rom) : null; return { lang: 'tl', answers: [m ? m[1] : n.tl].concat(mr ? [mr[1]] : [], n.accept_tl || []), rom: mr ? mr[1] : '' }; }
+  if (k === 'g') return { lang: 'tl', answers: tlAnswers(n) };
   return { lang: 'tl', answers: [n.tl] };
 }
 function selfGraded(x){ return facetKind(x.f) === 't' || !state.settings.typing; }
@@ -437,17 +474,18 @@ function startSession(extraNew){ const n = buildSession(extraNew); if (!n) { toa
 const SPK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/></svg>';
 function stressOrTl(n){ return n.stress || n.tl; }
 function exampleHtml(n, opts){ opts = opts || {}; const exs = (n.examples || []).slice(0, opts.max || 2); if (!exs.length) return '';
-  return exs.map(e => '<div class="ex"><div class="tl">' + esc(e.tl) + (ttsAvailable() ? ' <button class="btn small ghost" type="button" data-say="' + esc(e.tl) + '" aria-label="Play example">' + SPK.replace('<svg', '<svg width="16" height="16"') + '</button>' : '') + '</div><div class="en">' + esc(e.en) + '</div>' + (casualEx(e) ? '<div class="tg" data-l="' + esc(L().casualLabel) + '">' + esc(casualEx(e)) + '</div>' : '') + '</div>').join('');
+  return exs.map(e => '<div class="ex"><div class="tl">' + esc(e.tl) + (ttsAvailable() ? ' <button class="btn small ghost" type="button" data-say="' + esc(e.tl) + '" aria-label="Play example">' + SPK.replace('<svg', '<svg width="16" height="16"') + '</button>' : '') + '</div>' + romHtml(e.rom) + '<div class="en">' + esc(e.en) + '</div>' + (casualEx(e) ? '<div class="tg" data-l="' + esc(L().casualLabel) + '">' + esc(casualEx(e)) + '</div>' : '') + '</div>').join('');
 }
 const FORM_LABEL = { infinitive: 'infinitive', completed: 'completed', incompleted: 'incompleted', contemplated: 'contemplated', pres_yo: 'yo', pres_tu: 'tú', pres_el: 'él / usted', pres_nos: 'nosotros', pres_ellos: 'ellos / ustedes', pret_yo: 'pret. yo', pret_tu: 'pret. tú', pret_el: 'pret. él / usted', pret_nos: 'pret. nosotros', pret_ellos: 'pret. ellos / ustedes', gerund: 'gerund', participle: 'participle' };
 function aspectHtml(n){ const f = formsOf(n); if (!f) return ''; return '<div class="asp">' + L().formKeys.filter(k => f[k]).map(k => '<div><b>' + esc(FORM_LABEL[k] || k) + '</b>' + esc(f[k]) + '</div>').join('') + '</div>'; }
 function noteBack(n, opts){ opts = opts || {};
   let h = '<div class="back">';
-  if (!opts.noAns) h += '<div class="ans">' + esc(stressOrTl(n)) + (n.pos ? '<small>' + esc(n.pos) + '</small>' : '') + '</div>';
+  if (!opts.noAns) h += '<div class="ans">' + esc(stressOrTl(n)) + (n.pos ? '<small>' + esc(n.pos) + '</small>' : '') + '</div>' + romHtml(n.rom);
+  else if (opts.rom) h += romHtml(n.rom);
   h += '<div class="meaning">' + esc(n.en) + '</div>';
   const alts = [].concat(n.accept_tl || []); if (alts.length) h += '<div class="alts">also: ' + esc(alts.join(' · ')) + '</div>';
   if (casualOf(n)) h += '<div class="ex"><div class="tg" data-l="' + esc(L().casualLabel) + '">' + esc(casualOf(n)) + '</div></div>';
-  if (n.gender) h += '<div class="alts">' + (n.gender === 'f' ? 'la' : 'el') + ' ' + esc(n.tl) + ' · ' + (n.gender === 'f' ? 'feminine' : 'masculine') + '</div>';
+  if (n.gender) h += '<div class="alts">' + esc(genderLine(n)) + '</div>';
   h += aspectHtml(n) + exampleHtml(n);
   if (n.notes) h += '<div class="note">' + esc(n.notes) + '</div>';
   if (n.explanation) h += '<div class="note">' + esc(n.explanation) + '</div>';
@@ -471,8 +509,8 @@ function renderStudy(){
   let body = '';
   if (item.mode === 'intro') {
     body = '<div class="qcard intro"><div class="qhead"><span class="pill hot">New</span><span class="pill muted">' + esc(topicLabel(n.topic)) + '</span></div>';
-    if (k === 'g') body += '<div class="sub">' + esc(n.prompt) + '</div><div class="prompt">' + esc(n.tl) + '</div><div class="sub">' + esc(n.en) + '</div><div class="note">' + esc(n.explanation || '') + '</div>';
-    else body += '<div class="prompt">' + esc(stressOrTl(n)) + (ttsAvailable() ? ' <button class="speak" type="button" data-say="' + esc(n.tl) + '" aria-label="Play">' + SPK + '</button>' : '') + '</div>' + noteBack(n, { noAns: true });
+    if (k === 'g') body += '<div class="sub">' + esc(n.prompt) + '</div><div class="prompt">' + esc(n.tl) + '</div>' + romHtml(n.rom) + '<div class="sub">' + esc(n.en) + '</div><div class="note">' + esc(n.explanation || '') + '</div>';
+    else body += '<div class="prompt">' + esc(stressOrTl(n)) + (ttsAvailable() ? ' <button class="speak" type="button" data-say="' + esc(n.tl) + '" aria-label="Play">' + SPK + '</button>' : '') + '</div>' + romHtml(n.rom) + noteBack(n, { noAns: true });
     body += '<div class="btn-row"><button class="btn primary" id="gotit" type="button">Got it, test me later</button></div></div>';
     el.innerHTML = '<div class="wrap">' + head + body + '</div>';
     el.querySelector('#gotit').onclick = introDone; bindCommon(el); return;
@@ -481,27 +519,27 @@ function renderStudy(){
   const labels = { r: 'What does it mean?', p: 'Say it in ' + L().name, l: 'Type what you hear', t: 'Say it casual (' + L().casualLabel + ')', a: 'Conjugate', c: 'Fill the blank', g: 'Grammar' };
   body = '<div class="qcard"><div class="qhead"><span class="pill">' + labels[k] + '</span><span class="pill muted">' + esc(topicLabel(n.topic)) + (item.again ? ' · again' : item.fresh ? ' · new' : '') + '</span></div>';
   let front = '';
-  if (k === 'r') front = '<div class="prompt">' + esc(stressOrTl(n)) + (ttsAvailable() ? ' <button class="speak" type="button" data-say="' + esc(n.tl) + '" aria-label="Play">' + SPK + '</button>' : '') + '</div>' + (n.pos ? '<div class="sub">' + esc(n.pos) + '</div>' : '');
-  else if (k === 'p') front = '<div class="prompt">' + esc(n.en) + '</div>' + (n.pos ? '<div class="sub">' + esc(n.pos) + (n.gender ? ' · ' + (n.gender === 'f' ? 'feminine' : 'masculine') : '') + (n.type === 'verb' && n.focus ? ' · ' + esc(L().focusLabel(n.focus)) : '') + '</div>' : '');
+  if (k === 'r') front = '<div class="prompt">' + esc(stressOrTl(n)) + (ttsAvailable() ? ' <button class="speak" type="button" data-say="' + esc(n.tl) + '" aria-label="Play">' + SPK + '</button>' : '') + '</div>' + (showRomFront() || s.revealed ? romHtml(n.rom) : '') + (n.pos ? '<div class="sub">' + esc(n.pos) + '</div>' : '');
+  else if (k === 'p') front = '<div class="prompt">' + esc(n.en) + '</div>' + (n.pos ? '<div class="sub">' + esc(n.pos) + (n.gender ? ' · ' + esc(genderName(n)) : '') + (n.type === 'verb' && n.focus ? ' · ' + esc(L().focusLabel(n.focus)) : '') + '</div>' : '');
   else if (k === 'l') front = '<button class="speak big" type="button" data-say="' + esc(n.tl) + '" id="autoSay">' + SPK + ' Tap to hear again</button>' + (s.revealed ? '' : '<div class="hint">' + esc(n.pos || n.type) + ' · ' + esc(topicLabel(n.topic)) + '</div>');
   else if (k === 't') { const ex = (n.examples || []).find(e => casualEx(e)); front = '<div class="prompt small">' + esc(ex ? ex.en : n.en) + '</div><div class="hint">' + esc(L().casualPrompt) + '</div>'; }
   else if (k === 'a') front = '<div class="sub">' + esc(n.tl) + (n.root ? ' · <b>' + esc(n.root) + '</b>' : '') + (n.focus ? ' · ' + esc(L().focusLabel(n.focus)) : '') + '</div><div class="prompt small">' + esc(a.aspectLabel) + '</div><div class="sub">' + esc(n.en) + '</div>';
-  else if (k === 'c') front = '<div class="prompt small">' + esc(n.tl).replace(/\{\{.+?\}\}/, '<span class="blank">' + (s.revealed ? esc(a.answers[0]) : '&nbsp;&nbsp;&nbsp;') + '</span>') + '</div><div class="sub">' + esc(n.en) + '</div>' + (n.hint ? '<div class="hint">' + esc(n.hint) + '</div>' : '');
+  else if (k === 'c') front = '<div class="prompt small">' + esc(n.tl).replace(/\{\{.+?\}\}/, '<span class="blank">' + (s.revealed ? esc(a.answers[0]) : '&nbsp;&nbsp;&nbsp;') + '</span>') + '</div>' + (n.rom && (s.revealed || showRomFront()) ? '<div class="rom">' + esc(n.rom).replace(/\{\{.+?\}\}/, s.revealed ? '<b>' + esc(a.rom) + '</b>' : '___') + '</div>' : '') + '<div class="sub">' + esc(n.en) + '</div>' + (n.hint ? '<div class="hint">' + esc(n.hint) + '</div>' : '');
   else if (k === 'g') front = '<div class="prompt small">' + esc(n.prompt) + '</div><div class="sub">' + esc(n.en) + '</div>';
   body += front;
   if (!s.revealed) {
-    if (typing) body += '<form id="ansForm" class="answer-row"><input id="ans" lang="' + (a.lang === 'tl' ? L().input : 'en') + '" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="' + (a.lang === 'tl' ? L().name + '…' : 'English…') + '" aria-label="Your answer"><button class="btn primary" type="submit">Check</button></form><div class="btn-row"><button class="btn ghost small" id="showIt" type="button">Show answer</button></div>';
+    if (typing) body += '<form id="ansForm" class="answer-row"><input id="ans" lang="' + (a.lang === 'tl' ? L().input : 'en') + '" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="' + (a.lang === 'tl' ? L().name + (L().rom ? ' or ' + L().rom : '') + '…' : 'English…') + '" aria-label="Your answer"><button class="btn primary" type="submit">Check</button></form><div class="btn-row"><button class="btn ghost small" id="showIt" type="button">Show answer</button></div>';
     else body += '<div class="btn-row"><button class="btn primary big" id="showIt" type="button" style="font-size:18px;padding:14px">Show answer</button></div>';
   } else {
     let sug = 3;
     if (s.verdict) { const vt = { ok: ['✓', 'Correct'], close: ['≈', 'Close'], accent: ['≈', 'Right word, check the accents'], bad: ['✗', 'Not quite'] }[s.verdict]; sug = { ok: 3, close: 2, accent: 2, bad: 1 }[s.verdict];
       body += '<div class="verdict ' + (s.verdict === 'accent' ? 'close' : s.verdict) + '"><span>' + vt[0] + '</span><div>' + vt[1] + (s.typed ? '<span class="you">you typed: ' + esc(s.typed) + '</span>' : '<span class="you">no answer</span>') + '</div></div>'; }
-    if (k === 'r') body += noteBack(n, { noAns: true });
+    if (k === 'r') body += noteBack(n, { noAns: true });   /* the romanization is already on the question side once revealed */
     else if (k === 'p' || k === 'l') body += noteBack(n);
     else if (k === 't') { const ex = (n.examples || []).find(e => casualEx(e)); body += '<div class="back"><div class="ans">' + esc(ex ? casualEx(ex) : casualOf(n)) + '</div>' + (ex ? '<div class="alts">standard: ' + esc(ex.tl) + '</div>' : '') + (n.notes ? '<div class="note">' + esc(n.notes) + '</div>' : '') + '</div>'; }
     else if (k === 'a') body += '<div class="back"><div class="ans">' + esc(a.answers[0]) + '</div>' + aspectHtml(n) + exampleHtml(n, { max: 1 }) + (n.notes ? '<div class="note">' + esc(n.notes) + '</div>' : '') + '</div>';
-    else if (k === 'c') body += '<div class="back"><div class="ans">' + esc(a.answers[0]) + '</div>' + ((n.accept_tl || []).length ? '<div class="alts">also: ' + esc(n.accept_tl.join(' · ')) + '</div>' : '') + (n.notes ? '<div class="note">' + esc(n.notes) + '</div>' : '') + '</div>';
-    else if (k === 'g') body += '<div class="back"><div class="ans">' + esc(n.tl) + '</div>' + ((n.accept_tl || []).length ? '<div class="alts">also: ' + esc(n.accept_tl.join(' · ')) + '</div>' : '') + '<div class="note">' + esc(n.explanation || '') + '</div></div>';
+    else if (k === 'c') body += '<div class="back"><div class="ans">' + esc(a.answers[0]) + '</div>' + romHtml(a.rom) + ((n.accept_tl || []).length ? '<div class="alts">also: ' + esc(n.accept_tl.join(' · ')) + '</div>' : '') + (n.notes ? '<div class="note">' + esc(n.notes) + '</div>' : '') + '</div>';
+    else if (k === 'g') body += '<div class="back"><div class="ans">' + esc(n.tl) + '</div>' + romHtml(n.rom) + ((n.accept_tl || []).length ? '<div class="alts">also: ' + esc(n.accept_tl.join(' · ')) + '</div>' : '') + '<div class="note">' + esc(n.explanation || '') + '</div></div>';
     body += gradesHtml(card, sug) + '<div class="cap" style="text-align:center">' + (typing ? '<kbd>Enter</kbd> accepts the highlighted grade · ' : '') + '<kbd>1</kbd>–<kbd>4</kbd> grade</div>';
   }
   body += '</div>';
@@ -548,7 +586,7 @@ function renderToday(main){
   h += '<section class="tiles"><div class="tile"><div class="eyebrow">Known</div><div class="v">' + notesKnown() + '<small>words</small></div><div class="c">passed at least once</div></div><div class="tile"><div class="eyebrow">In review</div><div class="v">' + c.review + '<small>cards</small></div><div class="c">' + c.learning + ' still learning</div></div><div class="tile"><div class="eyebrow">Retention</div><div class="v">' + (retention(30) == null ? '—' : Math.round(retention(30) * 100) + '<small>%</small>') + '</div><div class="c">last 30 days</div></div><div class="tile"><div class="eyebrow">Deck</div><div class="v">' + state.notes.length + '<small>notes</small></div><div class="c">' + c.new + ' cards not started</div></div></section>';
   if (!state.deck.notes.length) h += '<section class="card"><h3>Deck not loaded</h3><p class="lede">The starter deck did not load. If you are offline, open the app once online so it can be saved for offline use.</p></section>';
   const tipDay = Number(todayKey().slice(-2)) % 5;
-  const tips = [L().accents ? 'Accents count: the right word with a missing accent is graded Close.' : 'Type answers without worrying about accents: grading ignores them.', 'Hard means you got it but slowly. Again means you would not have produced it.', 'Verb conjugation cards unlock after you pass the verb once.', 'Add your own cards from Browse, or import a deck file from a Claude chat under Settings.', 'Tap ⇄ in the header to switch between Tagalog and Spanish. Each language keeps its own progress and streak.'];
+  const tips = [L().rom ? 'Type answers in ' + L().rom + ' or in ' + L().name + ' script. Both count, and tone or length marks are ignored.' : accentsOn() ? 'Accents count: the right word with a missing accent is graded Close.' : 'Type answers without worrying about accents: grading ignores them.', 'Hard means you got it but slowly. Again means you would not have produced it.', L().forms.length ? 'Verb conjugation cards unlock after you pass the verb once.' : 'Produce and Listen cards unlock after you pass the word once.', 'Add your own cards from Browse, or import a deck file from a Claude chat under Settings.', 'Use the language menu at the top to switch decks. Each language keeps its own progress and streak.'];
   h += '<section class="card"><div class="eyebrow">Tip</div><p style="margin:6px 0 0">' + tips[tipDay] + '</p></section>';
   main.innerHTML = h;
   const st = main.querySelector('#start'); if (st) st.onclick = () => startSession();
@@ -558,12 +596,12 @@ function statusOf(x){ const c = x.c; if (!c || !c.st) return 'new'; if (c.st ===
 function renderBrowse(main){
   const b = state.browse; const topics = Object.keys(state.settings.topics).sort();
   let h = '<section><div class="search"><input id="q" type="search" placeholder="Search ' + esc(L().name) + ' or English" value="' + esc(b.q) + '" aria-label="Search"><button class="btn" id="addBtn" type="button">+ Add</button></div><div class="chips">' + topics.map(t => '<button class="chip" type="button" data-topic="' + esc(t) + '" aria-pressed="' + (b.topic === t) + '">' + esc(topicLabel(t)) + '</button>').join('') + '</div></section>';
-  h += '<section id="addForm" class="card" hidden><h3>Add a card</h3><div class="row"><label class="f">' + esc(L().name) + '<input id="aTl" lang="' + L().input + '" autocapitalize="off"></label><label class="f">English<input id="aEn"></label></div><div class="row"><label class="f">Type<select id="aType"><option value="vocab">word</option><option value="phrase">phrase</option></select></label><label class="f">Topic<input id="aTopic" value="mine" list="topicList"><datalist id="topicList">' + topics.map(t => '<option value="' + esc(t) + '">').join('') + '</datalist></label></div><label class="f">' + esc(L().casualLabel) + ' / how people really say it (optional)<input id="aTg" lang="' + L().input + '" autocapitalize="off"></label><div class="row"><label class="f">Example (' + esc(L().name) + ')<input id="aExTl" lang="' + L().input + '" autocapitalize="off"></label><label class="f">Example (English)<input id="aExEn"></label></div><label class="f">Notes<input id="aNotes"></label><div class="btn-row"><button class="btn primary" id="aSave" type="button">Save card</button><button class="btn ghost" id="aCancel" type="button">Cancel</button></div></section>';
-  const q = strip(b.q); const items = state.notes.filter(n => (!b.topic || n.topic === b.topic) && (!q || strip(n.tl).includes(q) || strip(n.en).includes(q) || strip(casualOf(n)).includes(q) || strip((n.accept || []).join(' ')).includes(q))).slice(0, 120);
+  h += '<section id="addForm" class="card" hidden><h3>Add a card</h3><div class="row"><label class="f">' + esc(L().name) + '<input id="aTl" lang="' + L().input + '" autocapitalize="off"></label><label class="f">English<input id="aEn"></label></div><div class="row"><label class="f">Type<select id="aType"><option value="vocab">word</option><option value="phrase">phrase</option></select></label><label class="f">Topic<input id="aTopic" value="mine" list="topicList"><datalist id="topicList">' + topics.map(t => '<option value="' + esc(t) + '">').join('') + '</datalist></label></div>' + (L().rom ? '<label class="f">Romanization (' + esc(L().rom) + ')<input id="aRom" autocapitalize="off" autocorrect="off"></label>' : '') + '<label class="f">' + esc(L().casualLabel) + ' / how people really say it (optional)<input id="aTg" lang="' + L().input + '" autocapitalize="off"></label><div class="row"><label class="f">Example (' + esc(L().name) + ')<input id="aExTl" lang="' + L().input + '" autocapitalize="off"></label><label class="f">Example (English)<input id="aExEn"></label></div><label class="f">Notes<input id="aNotes"></label><div class="btn-row"><button class="btn primary" id="aSave" type="button">Save card</button><button class="btn ghost" id="aCancel" type="button">Cancel</button></div></section>';
+  const q = strip(b.q); const items = state.notes.filter(n => (!b.topic || n.topic === b.topic) && (!q || strip(n.tl).includes(q) || strip(n.en).includes(q) || strip(casualOf(n)).includes(q) || strip(n.rom).includes(q) || strip((n.accept || []).join(' ')).includes(q))).slice(0, 120);
   h += '<section><div class="eyebrow">' + items.length + (items.length === 120 ? '+' : '') + ' notes</div><div class="list">' + items.map(n => {
     const fs = facetsOf(n).map(f => ({ f: f, id: cardId(n, f), c: state.cards[cardId(n, f)] })); const known = fs.some(x => x.c && x.c.st === 2); const started = fs.some(x => x.c);
     const hidden = !!state.hidden[n.id];
-    return '<details class="item" data-id="' + esc(n.id) + '"><summary><span class="w">' + esc(n.type === 'grammar' ? n.prompt : n.tl) + '</span><span class="m">' + esc(n.en) + '</span><span class="st">' + (hidden ? 'suspended' : known ? 'known' : started ? 'learning' : 'new') + '</span></summary><div class="body">' + noteBack(n, { noAns: n.type === 'cloze' || n.type === 'grammar' }).replace('class="back"', 'class="back" style="border:0;margin:0;padding:0"') +
+    return '<details class="item" data-id="' + esc(n.id) + '"><summary><span class="w">' + esc(n.type === 'grammar' ? n.prompt : n.tl) + (n.rom && n.type !== 'grammar' ? '<small>' + esc(n.rom) + '</small>' : '') + '</span><span class="m">' + esc(n.en) + '</span><span class="st">' + (hidden ? 'suspended' : known ? 'known' : started ? 'learning' : 'new') + '</span></summary><div class="body">' + noteBack(n, { noAns: n.type === 'cloze' || n.type === 'grammar' }).replace('class="back"', 'class="back" style="border:0;margin:0;padding:0"') +
       '<div class="facets">' + fs.map(x => '<span><b>' + FACET_NAMES[facetKind(x.f)] + (facetKind(x.f) === 'a' ? ' ' + x.f[1] : '') + '</b></span><span>' + statusOf(x) + '</span><span>' + (x.c && x.c.st ? 'S ' + x.c.s.toFixed(1) + 'd · ' + (x.c.lapses || 0) + ' lapses' : '') + '</span>').join('') + '</div>' +
       '<div class="btn-row">' + (ttsAvailable() && n.type !== 'grammar' ? '<button class="btn small" type="button" data-say="' + esc(n.tl) + '">' + SPK.replace('<svg', '<svg width="16" height="16"') + ' Play</button>' : '') + '<button class="btn small" type="button" data-act="susp">' + (hidden ? 'Unsuspend' : 'Suspend') + '</button><button class="btn small" type="button" data-act="reset">Reset progress</button>' + (n.mine ? '<button class="btn small danger" type="button" data-act="del">Delete</button>' : '') + '</div></div></details>';
   }).join('') + '</div></section>';
@@ -577,8 +615,8 @@ function renderBrowse(main){
     else if (x.dataset.act === 'del') { if (!confirm('Delete your card "' + n.tl + '"?')) return; state.extra = state.extra.filter(e => e.id !== id); facetsOf(n).forEach(f => { delete state.cards[cardId(n, f)]; }); save('extra'); save('cards'); rebuildNotes(); toast('Deleted'); }
     renderBrowse(main); }; });
   const af = main.querySelector('#addForm'); main.querySelector('#addBtn').onclick = () => { af.hidden = !af.hidden; if (!af.hidden) main.querySelector('#aTl').focus(); }; main.querySelector('#aCancel').onclick = () => { af.hidden = true; };
-  main.querySelector('#aSave').onclick = () => { const g = id => main.querySelector('#' + id).value.trim(); const tl = g('aTl'), en = g('aEn'); if (!tl || !en) { toast('Tagalog and English are both needed'); return; }
-    const n = { id: 'mine-' + Date.now().toString(36), type: g('aType'), tl: tl, en: en, topic: g('aTopic') || 'mine', tier: 1, confidence: 'high', examples: [] }; if (g('aTg')) n.casual = g('aTg'); if (g('aNotes')) n.notes = g('aNotes'); if (g('aExTl')) n.examples.push({ tl: g('aExTl'), en: g('aExEn') });
+  main.querySelector('#aSave').onclick = () => { const g = id => main.querySelector('#' + id).value.trim(); const tl = g('aTl'), en = g('aEn'); if (!tl || !en) { toast(L().name + ' and English are both needed'); return; }
+    const n = { id: 'mine-' + Date.now().toString(36), type: g('aType'), tl: tl, en: en, topic: g('aTopic') || 'mine', tier: 1, confidence: 'high', examples: [] }; if (L().rom && g('aRom')) n.rom = g('aRom'); if (g('aTg')) n.casual = g('aTg'); if (g('aNotes')) n.notes = g('aNotes'); if (g('aExTl')) n.examples.push({ tl: g('aExTl'), en: g('aExEn') });
     state.extra.push(n); save('extra'); rebuildNotes(); save('settings'); toast('Card added'); b.q = tl; renderBrowse(main); };
 }
 function niceStep(range){ const raw = range / 5, mag = Math.pow(10, Math.floor(Math.log10(raw))), r = raw / mag; return (r <= 1 ? 1 : r <= 2 ? 2 : r <= 5 ? 5 : 10) * mag; }
@@ -613,10 +651,12 @@ function renderSettings(main){
   const s = state.settings; const voices = voiceCandidates(); const topics = Object.keys(s.topics).sort();
   let h = '<section class="card"><h3>Language</h3><label class="f">Studying<select id="setLang">' + LANGS.map(l => '<option value="' + l.id + '"' + (l.id === L().id ? ' selected' : '') + '>' + esc(l.name) + '</option>').join('') + '</select></label><p class="lede" style="font-size:13px;margin-top:8px">Each language has its own deck, progress, streak and the settings below.</p></section>';
   h += '<section class="card"><h3>Daily load</h3><div class="row"><label class="f">New cards per day<input id="setNew" type="number" min="0" max="100" value="' + s.newPerDay + '"></label><label class="f">Max reviews per session<input id="setMax" type="number" min="10" max="1000" value="' + s.maxReviews + '"></label></div><label class="f" style="margin-top:10px">Target retention: <span id="retV">' + Math.round(s.retention * 100) + '%</span><input id="setRet" type="range" min="80" max="95" step="1" value="' + Math.round(s.retention * 100) + '"></label><p class="lede" style="font-size:13px;margin-top:8px">Higher retention means more frequent reviews. 90% is the usual sweet spot.</p></section>';
-  h += '<section class="card"><h3>How you answer</h3><label class="t"><input id="setTyping" type="checkbox"' + (s.typing ? ' checked' : '') + '><span><b>Type answers</b><br><small style="color:var(--muted)">Off = flip the card and grade yourself</small></span></label></section>';
-  h += '<section class="card"><h3>Card types</h3>' + Object.keys(FACET_NAMES).map(k => '<label class="t"><input type="checkbox" data-facet="' + k + '"' + (s.facets[k] ? ' checked' : '') + (k === 'l' && !pickVoice() ? ' disabled' : '') + '><span><b>' + FACET_NAMES[k] + '</b><br><small style="color:var(--muted)">' + FACET_HELP[k] + (k === 'l' && !pickVoice() ? ' No ' + L().name + ' voice found on this device.' : '') + '</small></span></label>').join('') + '</section>';
+  h += '<section class="card"><h3>How you answer</h3><label class="t"><input id="setTyping" type="checkbox"' + (s.typing ? ' checked' : '') + '><span><b>Type answers</b><br><small style="color:var(--muted)">Off = flip the card and grade yourself</small></span></label>' +
+    (L().accentOpt ? '<label class="t"><input id="setAcc" type="checkbox"' + (accentsOn() ? ' checked' : '') + '><span><b>Count accents</b><br><small style="color:var(--muted)">On = the right word with a missing accent is graded Close. Off = accents are ignored.</small></span></label>' : '') +
+    (L().rom ? '<label class="t"><input id="setRom" type="checkbox"' + (showRomFront() ? ' checked' : '') + '><span><b>Show ' + esc(L().rom) + ' on the question</b><br><small style="color:var(--muted)">Off = you see only the ' + esc(L().name) + ' script until you answer. Typed ' + esc(L().rom) + ' is accepted either way.</small></span></label>' : '') + '</section>';
+  h += '<section class="card"><h3>Card types</h3>' + Object.keys(FACET_NAMES).filter(k => (k !== 'a' || L().forms.length) && (k !== 't' || state.notes.some(hasTaglish))).map(k => '<label class="t"><input type="checkbox" data-facet="' + k + '"' + (s.facets[k] ? ' checked' : '') + (k === 'l' && !pickVoice() ? ' disabled' : '') + '><span><b>' + FACET_NAMES[k] + '</b><br><small style="color:var(--muted)">' + FACET_HELP[k] + (k === 'l' && !pickVoice() ? ' No ' + L().name + ' voice found on this device.' : '') + '</small></span></label>').join('') + '</section>';
   h += '<section class="card"><h3>Topics</h3>' + topics.map(t => { const n = state.notes.filter(x => (x.topic || 'other') === t).length; return '<label class="t"><input type="checkbox" data-topic="' + esc(t) + '"' + (s.topics[t] ? ' checked' : '') + '><span>' + esc(topicLabel(t)) + ' <small style="color:var(--muted)">' + n + '</small></span></label>'; }).join('') + '</section>';
-  h += '<section class="card"><h3>Audio</h3><label class="t"><input id="setTts" type="checkbox"' + (s.tts ? ' checked' : '') + '><span><b>Read Tagalog aloud</b><br><small style="color:var(--muted)">' + (voices.length ? voices.length + ' usable voice' + (voices.length === 1 ? '' : 's') + ' found' : 'No ' + L().name + ' voice on this device. ' + L().ttsNote) + '</small></span></label>' + (voices.length ? '<label class="f" style="margin-top:8px">Voice<select id="setVoice">' + voices.map(v => '<option value="' + esc(v.voiceURI) + '"' + ((pickVoice() || {}).voiceURI === v.voiceURI ? ' selected' : '') + '>' + esc(v.name) + ' (' + esc(v.lang) + (L().id === 'tl' && /^id/i.test(v.lang) ? ', Indonesian, approximate' : '') + ')</option>').join('') + '</select></label><label class="f" style="margin-top:8px">Speed: <span id="rateV">' + s.ttsRate + '</span><input id="setRate" type="range" min="0.6" max="1.2" step="0.05" value="' + s.ttsRate + '"></label><div class="btn-row"><button class="btn small" id="testVoice" type="button">Test: "' + esc(L().sample) + '"</button></div>' : '') + '</section>';
+  h += '<section class="card"><h3>Audio</h3><label class="t"><input id="setTts" type="checkbox"' + (s.tts ? ' checked' : '') + '><span><b>Read ' + esc(L().name) + ' aloud</b><br><small style="color:var(--muted)">' + (voices.length ? voices.length + ' usable voice' + (voices.length === 1 ? '' : 's') + ' found' : 'No ' + L().name + ' voice on this device. ' + L().ttsNote) + '</small></span></label>' + (voices.length ? '<label class="f" style="margin-top:8px">Voice<select id="setVoice">' + voices.map(v => '<option value="' + esc(v.voiceURI) + '"' + ((pickVoice() || {}).voiceURI === v.voiceURI ? ' selected' : '') + '>' + esc(v.name) + ' (' + esc(v.lang) + (L().id === 'tl' && /^id/i.test(v.lang) ? ', Indonesian, approximate' : '') + ')</option>').join('') + '</select></label><label class="f" style="margin-top:8px">Speed: <span id="rateV">' + s.ttsRate + '</span><input id="setRate" type="range" min="0.6" max="1.2" step="0.05" value="' + s.ttsRate + '"></label><div class="btn-row"><button class="btn small" id="testVoice" type="button">Test: "' + esc(L().sample) + '"</button></div>' : '') + '</section>';
   h += '<section class="card"><h3>Appearance</h3><label class="f">Theme<select id="setTheme"><option value="auto"' + (s.theme === 'auto' ? ' selected' : '') + '>Match device</option><option value="light"' + (s.theme === 'light' ? ' selected' : '') + '>Light</option><option value="dark"' + (s.theme === 'dark' ? ' selected' : '') + '>Dark</option></select></label></section>';
   h += '<section class="card"><h3>Backup &amp; decks</h3><p class="lede" style="font-size:13px">Progress lives only on this device. One backup covers every language. Save it to Files or Drive now and then.</p><div class="btn-row">' + (navigator.share ? '<button class="btn primary" id="bkShare" type="button">Share backup</button>' : '') + '<button class="btn" id="bkDown" type="button">Download backup</button><button class="btn" id="bkRestore" type="button">Restore backup</button></div><input id="bkFile" type="file" accept="application/json,.json" hidden>' +
     '<h3 style="margin-top:16px">Import a deck file</h3><p class="lede" style="font-size:13px">Any JSON file of notes in the Salita format, such as cards Claude made from a conversation. They are added to the ' + esc(L().name) + ' deck. Existing notes with the same id are replaced; your progress on them is kept.</p><div class="btn-row"><button class="btn" id="deckImport" type="button">Import deck JSON</button><button class="btn" id="deckExport" type="button">Export my cards</button></div><input id="deckFile" type="file" accept="application/json,.json" hidden><div class="status" id="bkStatus"></div></section>';
@@ -628,6 +668,8 @@ function renderSettings(main){
   main.querySelector('#setMax').onchange = e => { s.maxReviews = clamp(Number(e.target.value) || 200, 10, 1000); upd(); };
   main.querySelector('#setRet').oninput = e => { s.retention = Number(e.target.value) / 100; main.querySelector('#retV').textContent = e.target.value + '%'; upd(); };
   main.querySelector('#setTyping').onchange = e => { s.typing = e.target.checked; upd(); };
+  const sa = main.querySelector('#setAcc'); if (sa) sa.onchange = e => { s.accents = e.target.checked; upd(); };
+  const so = main.querySelector('#setRom'); if (so) so.onchange = e => { s.showRom = e.target.checked; upd(); };
   main.querySelectorAll('[data-facet]').forEach(c => { c.onchange = () => { s.facets[c.dataset.facet] = c.checked; upd(); }; });
   main.querySelectorAll('[data-topic]').forEach(c => { c.onchange = () => { s.topics[c.dataset.topic] = c.checked; upd(); }; });
   main.querySelector('#setTts').onchange = e => { s.tts = e.target.checked; upd(); renderSettings(main); };
@@ -684,11 +726,13 @@ async function loadDeck(){
   try { const r = await fetch(L().file, { cache: 'no-cache' }); if (!r.ok) throw new Error(r.status); const d = await r.json(); state.deck = { name: d.name || 'Starter deck', version: d.version || '', notes: (d.notes || []).filter(validateNote) }; }
   catch (e) { try { const r = await caches.match(L().file); if (r) { const d = await r.json(); state.deck = { name: d.name || 'Starter deck', version: d.version || '', notes: (d.notes || []).filter(validateNote) }; } } catch (x) {} }
   rebuildNotes(); save('settings');
-  document.getElementById('eyebrow').textContent = L().sub; const other = LANGS[(LANGS.indexOf(L()) + 1) % LANGS.length]; document.getElementById('langOther').textContent = other.name;
+  document.getElementById('eyebrow').textContent = L().sub; document.getElementById('langSel').value = L().id; document.documentElement.dataset.lang = L().id;
+  /* tell the browser which language the cards are in, so kanji use Japanese letterforms rather than Chinese ones */
+  ['main', 'study'].forEach(id => { const el = document.getElementById(id); if (L().rom) el.setAttribute('lang', L().input); else el.removeAttribute('lang'); });
 }
 document.querySelectorAll('.tabs [role=tab]').forEach(b => { b.onclick = () => { state.tab = b.dataset.tab; render(); }; });
-document.getElementById('btnLang').onclick = () => { const other = LANGS[(LANGS.indexOf(L()) + 1) % LANGS.length]; switchLang(other.id); };
-document.getElementById('btnHelp').onclick = () => { alert('Salita drills a language the way a spaced-repetition app does: you see each card right before you would forget it.\n\n• New words appear once with their meaning, then get tested later in the same session.\n• Type the answer and tap Check. Punctuation is ignored; Spanish accents count. Close answers count as Hard.\n• Again = would not have produced it. Hard = got it, slowly. Good = fine. Easy = instant.\n• Production, Listening, Casual and conjugation cards unlock after you pass the word once.\n• ⇄ switches between Tagalog and Spanish; each keeps its own progress.\n• Everything stays on this phone. Back up from Settings.'); };
+(function langMenu(){ const sel = document.getElementById('langSel'); sel.innerHTML = LANGS.map(l => '<option value="' + l.id + '">' + esc(l.name) + '</option>').join(''); sel.value = L().id; sel.onchange = () => { switchLang(sel.value); }; })();
+document.getElementById('btnHelp').onclick = () => { alert('Salita drills a language the way a spaced-repetition app does: you see each card right before you would forget it.\n\n• New words appear once with their meaning, then get tested later in the same session.\n• Type the answer and tap Check. Punctuation is ignored; accents count in Spanish and German (change it in Settings). For Japanese and Thai you can type the romanization. Close answers count as Hard.\n• Again = would not have produced it. Hard = got it, slowly. Good = fine. Easy = instant.\n• Production, Listening, Casual and conjugation cards unlock after you pass the word once.\n• The menu at the top switches language: Tagalog, Spanish, and travel decks for Japanese, Thai, Dutch, Czech and German. Each keeps its own progress.\n• Everything stays on this phone. Back up from Settings.'); };
 applyTheme();
 loadDeck().then(render);
 if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('./sw.js').catch(() => {}); }); }

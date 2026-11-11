@@ -10,6 +10,11 @@ You are helping me build flashcards for Salita, my spaced-repetition app. The la
 [TAGALOG or SPANISH — say which]. For Spanish, keep every accent and ñ in the Spanish text,
 add `"gender": "m"|"f"` on nouns, use Latin American forms (ustedes, no vosotros), and
 start the file with {"lang": "es", "notes": [ ... ]}; for Tagalog use {"lang": "tl", "notes": [...]}.
+For the travel decks use "ja" (Japanese), "th" (Thai), "nl" (Dutch), "cs" (Czech) or "de" (German):
+no `verb` type (a verb is `vocab` with pos "verb"); Japanese and Thai notes and examples carry the
+native script in `tl` and a romanization in `rom` (Hepburn with macrons; Thai phrasebook style with
+tone marks); German and Czech nouns have `"gender": "m"|"f"|"n"`, Dutch nouns `"c"` (de) or `"n"` (het),
+and the headword has no article.
 Read the attached conversation / notes and extract the words, phrases and grammar
 patterns worth learning. Skip anything I clearly already know (basic greetings, numbers)
 unless the usage is interesting.
@@ -44,6 +49,8 @@ the file. The new notes join the new-card
 queue by tier. Re-importing a file with the same ids replaces those notes and keeps your
 progress on them.
 
-The full schemas are in `DECK_SCHEMA.md` (Tagalog) and `DECK_SCHEMA_ES.md` (Spanish). To check a file on a computer:
+The full schemas are in `DECK_SCHEMA.md` (Tagalog), `DECK_SCHEMA_ES.md` (Spanish) and
+`DECK_SCHEMA_TRAVEL.md` (Japanese, Thai, Dutch, Czech, German). To check a file on a computer:
 
     python3 tools/deck_tools.py validate my-cards.json
+    python3 tools/deck_tools.py validate --lang ja my-japanese-cards.json

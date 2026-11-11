@@ -1,7 +1,7 @@
 {
-  "name": "Salita — Tagalog trainer",
+  "name": "Salita — language trainer",
   "short_name": "Salita",
-  "description": "Daily Tagalog and Taglish practice with spaced repetition, typed answers and verb drills. Works offline.",
+  "description": "Daily practice for Tagalog and Spanish, plus travel decks for Japanese, Thai, Dutch, Czech and German. Spaced repetition and typed answers. Works offline.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
