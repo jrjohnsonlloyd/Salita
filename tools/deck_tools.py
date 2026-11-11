@@ -5,6 +5,8 @@
   python3 tools/deck_tools.py build  -o decks/tagalog.json --name "Salita starter deck" decks-src/tagalog
   python3 tools/deck_tools.py stats  deck.json
 
+Add --lang ja|th|nl|cs|de to validate/build for the travel decks (checks romanization and gender codes).
+
 Notes follow DECK_SCHEMA.md. `build` concatenates all input arrays, checks every note,
 merges notes that share a headword and meaning across files, de-duplicates ids by appending a suffix,
 and writes {"name", "version", "notes": [...]}.
@@ -15,6 +17,31 @@ TYPES = {'vocab', 'phrase', 'verb', 'grammar', 'cloze'}
 ASPECTS = ('infinitive', 'completed', 'incompleted', 'contemplated')
 ES_FORMS = ('infinitive', 'pres_yo', 'pres_tu', 'pres_el', 'pres_nos', 'pres_ellos', 'pret_yo', 'pret_tu', 'pret_el', 'pret_nos', 'pret_ellos', 'gerund', 'participle')
 ID_RE = re.compile(r'^[a-z0-9]+(-[a-z0-9]+)*$')
+
+ROM_LANGS = ('ja', 'th')            # decks written in another script: every note carries a romanization
+TRAVEL_LANGS = ('ja', 'th', 'nl', 'cs', 'de')
+TOPIC_ORDER = ['basics', 'chat', 'time', 'food', 'travel', 'directions', 'money', 'stay', 'signs', 'sights', 'help', 'active', 'grammar']
+GENDERS = {'es': 'mf', 'de': 'mfn', 'cs': 'mfn', 'nl': 'cn'}
+LANG = None                          # set by --lang
+BLANK = re.compile(r'\{\{.+?\}\}')
+
+def lang_problems(n):
+    """Extra checks that depend on the deck language (--lang)."""
+    p = []
+    if LANG in TRAVEL_LANGS and n['type'] == 'verb': p.append('travel decks have no verb type: use vocab with pos verb')
+    g = n.get('gender')
+    if g is not None and LANG in GENDERS and g not in GENDERS[LANG]: p.append('gender must be one of ' + '/'.join(GENDERS[LANG]))
+    if g is not None and LANG in ROM_LANGS: p.append('no gender in this language')
+    ex = n.get('examples', []) if isinstance(n.get('examples', []), list) else []
+    if LANG in ROM_LANGS:
+        if not n.get('rom') or not isinstance(n['rom'], str): p.append('missing rom')
+        elif not re.search(r'[a-z]', n['rom'].lower()): p.append('rom must be in Latin letters')
+        if n['tl'].isascii() and not re.fullmatch(r'[A-Za-z0-9 .\-]+', n['tl']): p.append('tl should be in the native script')
+        for e in ex:
+            if isinstance(e, dict) and not e.get('rom'): p.append('example needs rom')
+        if n['type'] == 'cloze' and n.get('rom') and len(BLANK.findall(n['rom'])) != 1: p.append('cloze rom needs exactly one {{blank}}')
+    elif LANG and (n.get('rom') or any(isinstance(e, dict) and e.get('rom') for e in ex)): p.append('rom is only for Japanese and Thai')
+    return p
 
 def problems(n):
     p = []
@@ -48,13 +75,15 @@ def problems(n):
     if n['type'] == 'grammar':
         if not n.get('prompt'): p.append('grammar needs prompt')
         if not n.get('explanation'): p.append('grammar needs explanation')
+    if LANG: p.extend(lang_problems(n))
     return p
 
 def load(paths):
     notes = []
     for path in paths:
         if os.path.isdir(path):
-            for f in sorted(os.listdir(path)):
+            # travel decks: the app deals new cards topic by topic in file order, so the day-one topics go first
+            for f in sorted(os.listdir(path), key=lambda f: (TOPIC_ORDER.index(f[:-5]) if LANG in TRAVEL_LANGS and f[:-5] in TOPIC_ORDER else len(TOPIC_ORDER), f)):
                 if f.endswith('.json'): notes.extend(load([os.path.join(path, f)]))
             continue
         with open(path, encoding='utf-8') as fh: data = json.load(fh)
@@ -80,8 +109,9 @@ STOP = {'to', 'the', 'a', 'an', 'be', 'is', 'are', 'of', 'in', 'on', 'at', 'for'
 def words(s): return {w for w in re.findall(r"[a-z']+", s.lower()) if w not in STOP}
 import unicodedata
 def norm_tl(s):
-    s = unicodedata.normalize('NFD', s.strip().lower()); s = ''.join(c for c in s if unicodedata.category(c) != 'Mn')
-    return re.sub(r"[^a-z0-9ñ\s-]", '', re.sub(r'\s+', ' ', s).replace("'", ''))
+    """Lower-case, drop Latin accents and punctuation. Other scripts (Japanese, Thai) are kept as they are."""
+    s = unicodedata.normalize('NFD', s.strip().lower()); s = ''.join(c for c in s if not 0x300 <= ord(c) <= 0x36f)
+    return re.sub(r"[^\w\s-]", '', re.sub(r'\s+', ' ', unicodedata.normalize('NFC', s)).replace("'", ''))
 RANK = {'verb': 0, 'vocab': 1, 'phrase': 2, 'cloze': 3, 'grammar': 3}
 
 def merge_into(keep, other):
@@ -96,14 +126,14 @@ def merge_into(keep, other):
     for e in other.get('examples', []):
         if e['tl'].strip().lower() not in seen and len(keep.setdefault('examples', [])) < 3: keep['examples'].append(e); seen.add(e['tl'].strip().lower())
     keep['tier'] = min(keep.get('tier', 2), other.get('tier', 2))
-    for k in ('taglish', 'casual', 'stress', 'notes', 'pos', 'gender'):
+    for k in ('taglish', 'casual', 'stress', 'notes', 'pos', 'gender', 'rom'):
         if not keep.get(k) and other.get(k): keep[k] = other[k]
     if other.get('confidence') == 'check': keep['confidence'] = 'check'
 
 ART = re.compile(r'^(el|la|los|las|un|una)\s+(?=\S)', re.I)
 def strip_article(n):
     """Spanish nouns: keep the bare noun as the headword, accept the article form as an alternative."""
-    if n.get('type') != 'vocab' or not n.get('gender'): return
+    if LANG not in (None, 'es') or n.get('type') != 'vocab' or not n.get('gender'): return
     m = ART.match(n['tl'])
     if not m: return
     full = n['tl']; n['tl'] = n['tl'][m.end():]
@@ -138,6 +168,7 @@ def cmd_build(args):
         seen_ids[n['id']] = 1
         out.append(n); by_tl.setdefault(tl, []).append(n)
     deck = {'name': args.name, 'version': args.version or datetime.date.today().isoformat(), 'notes': out}
+    if LANG: deck = {'name': deck['name'], 'lang': LANG, 'version': deck['version'], 'notes': out}
     with open(args.output, 'w', encoding='utf-8') as fh: json.dump(deck, fh, ensure_ascii=False, separators=(',', ':'))
     print(f"wrote {args.output}: {len(out)} notes ({merged} same-word duplicates merged, {bad} invalid skipped)")
     return 0
@@ -156,9 +187,13 @@ def cmd_stats(args):
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest='cmd', required=True)
-    v = sub.add_parser('validate'); v.add_argument('files', nargs='+'); v.set_defaults(fn=cmd_validate)
-    b = sub.add_parser('build'); b.add_argument('src', nargs='+'); b.add_argument('-o', '--output', default='deck.json'); b.add_argument('--name', default='Salita starter deck'); b.add_argument('--version', default=''); b.set_defaults(fn=cmd_build)
+    v = sub.add_parser('validate'); v.add_argument('files', nargs='+'); v.add_argument('--lang', default='', help='ja th nl cs de: turns on the checks for that language'); v.set_defaults(fn=cmd_validate)
+    b = sub.add_parser('build'); b.add_argument('src', nargs='+'); b.add_argument('-o', '--output', default='deck.json'); b.add_argument('--name', default='Salita starter deck'); b.add_argument('--version', default=''); b.add_argument('--lang', default=''); b.set_defaults(fn=cmd_build)
     s = sub.add_parser('stats'); s.add_argument('file'); s.set_defaults(fn=cmd_stats)
-    a = ap.parse_args(); sys.exit(a.fn(a))
+    a = ap.parse_args()
+    global LANG; LANG = getattr(a, 'lang', None) or None
+    try: sys.stdout.reconfigure(encoding='utf-8'); sys.stderr.reconfigure(encoding='utf-8')
+    except Exception: pass
+    sys.exit(a.fn(a))
 
 if __name__ == '__main__': main()
