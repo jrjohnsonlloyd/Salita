@@ -13,14 +13,14 @@ and writes {"name", "version", "notes": [...]}.
 """
 import json, sys, os, re, argparse, datetime
 
-TYPES = {'vocab', 'phrase', 'verb', 'grammar', 'cloze'}
+TYPES = {'vocab', 'phrase', 'verb', 'grammar', 'cloze', 'dialog'}
 ASPECTS = ('infinitive', 'completed', 'incompleted', 'contemplated')
 ES_FORMS = ('infinitive', 'pres_yo', 'pres_tu', 'pres_el', 'pres_nos', 'pres_ellos', 'pret_yo', 'pret_tu', 'pret_el', 'pret_nos', 'pret_ellos', 'gerund', 'participle')
 ID_RE = re.compile(r'^[a-z0-9]+(-[a-z0-9]+)*$')
 
 ROM_LANGS = ('ja', 'th')            # decks written in another script: every note carries a romanization
 TRAVEL_LANGS = ('ja', 'th', 'nl', 'cs', 'de')
-TOPIC_ORDER = ['basics', 'chat', 'time', 'food', 'travel', 'directions', 'money', 'stay', 'signs', 'sights', 'help', 'active', 'grammar']
+TOPIC_ORDER = ['basics', 'convo', 'chat', 'time', 'food', 'travel', 'directions', 'money', 'stay', 'signs', 'sights', 'help', 'active', 'grammar']
 GENDERS = {'es': 'mf', 'de': 'mfn', 'cs': 'mfn', 'nl': 'cn'}
 LANG = None                          # set by --lang
 BLANK = re.compile(r'\{\{.+?\}\}')
@@ -39,8 +39,9 @@ def lang_problems(n):
         if n['tl'].isascii() and not re.fullmatch(r'[A-Za-z0-9 .\-]+', n['tl']): p.append('tl should be in the native script')
         for e in ex:
             if isinstance(e, dict) and not e.get('rom'): p.append('example needs rom')
+        if n['type'] == 'dialog' and not n.get('cue_rom'): p.append('dialog needs cue_rom')
         if n['type'] == 'cloze' and n.get('rom') and len(BLANK.findall(n['rom'])) != 1: p.append('cloze rom needs exactly one {{blank}}')
-    elif LANG and (n.get('rom') or any(isinstance(e, dict) and e.get('rom') for e in ex)): p.append('rom is only for Japanese and Thai')
+    elif LANG and (n.get('rom') or n.get('cue_rom') or any(isinstance(e, dict) and e.get('rom') for e in ex)): p.append('rom is only for Japanese and Thai')
     return p
 
 def problems(n):
@@ -72,6 +73,10 @@ def problems(n):
     if n['type'] == 'cloze':
         if len(re.findall(r'\{\{.+?\}\}', n['tl'])) != 1: p.append('cloze needs exactly one {{blank}}')
         if not n.get('hint'): p.append('cloze needs hint')
+    if n['type'] == 'dialog':
+        # a line the app says (cue) and the reply the learner speaks (tl)
+        if not n.get('cue') or not isinstance(n['cue'], str): p.append('dialog needs cue')
+        if not n.get('cue_en') or not isinstance(n['cue_en'], str): p.append('dialog needs cue_en')
     if n['type'] == 'grammar':
         if not n.get('prompt'): p.append('grammar needs prompt')
         if not n.get('explanation'): p.append('grammar needs explanation')
@@ -112,7 +117,7 @@ def norm_tl(s):
     """Lower-case, drop Latin accents and punctuation. Other scripts (Japanese, Thai) are kept as they are."""
     s = unicodedata.normalize('NFD', s.strip().lower()); s = ''.join(c for c in s if not 0x300 <= ord(c) <= 0x36f)
     return re.sub(r"[^\w\s-]", '', re.sub(r'\s+', ' ', unicodedata.normalize('NFC', s)).replace("'", ''))
-RANK = {'verb': 0, 'vocab': 1, 'phrase': 2, 'cloze': 3, 'grammar': 3}
+RANK = {'verb': 0, 'vocab': 1, 'phrase': 2, 'cloze': 3, 'grammar': 3, 'dialog': 3}
 
 def merge_into(keep, other):
     """Fold `other` into `keep`: union accept lists and examples, keep the lower tier and any taglish/stress/notes missing."""
@@ -142,7 +147,7 @@ def strip_article(n):
 
 def same_sense(a, b):
     """Same headword and overlapping meaning (shared content word, or verb vs vocab tagged as verb)."""
-    if a['type'] in ('cloze', 'grammar') or b['type'] in ('cloze', 'grammar'): return False
+    if a['type'] in ('cloze', 'grammar', 'dialog') or b['type'] in ('cloze', 'grammar', 'dialog'): return False
     ea, eb = words(a['en']), words(b['en'])
     if ea & eb: return True
     return {a['type'], b['type']} == {'verb', 'vocab'} and (a.get('pos') == 'verb' or b.get('pos') == 'verb')

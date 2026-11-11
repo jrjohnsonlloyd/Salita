@@ -54,6 +54,13 @@ dictionary form (Japanese: the ます form, e.g. 食べます, with the plain fo
 
 Type-specific rules:
 
+- `dialog` (file `convo.json`, topic `convo`, all seven languages): one exchange for the
+  speaking cards. `cue` is the line the app says, `cue_en` its English, `tl` the reply the
+  learner speaks, `en` the reply in English, `scene` a one-word setting ("Hotel"). For
+  ja / th also `cue_rom` and `rom`. No `examples`. Keep `tl` short and standard: it is the
+  reference text his pronunciation is scored against. `accept_tl` lists other replies that
+  count as understood.
+
 - `phrase`: `tl` is a set phrase or a whole useful sentence ("Where is the toilet?"); `en` its
   meaning; one example showing it in a short exchange or a variation.
 - `cloze`: `tl` is a full sentence with exactly one blank in double braces:
