@@ -208,6 +208,29 @@ td.n{font-variant-numeric:tabular-nums;text-align:right}
 th.n{text-align:right}
 .bar-cell{display:flex;align-items:center;gap:8px}
 .bar-cell i{height:8px;background:var(--s2);border-radius:4px;display:inline-block}
+/* speaking cards: the line the app says, the microphone, and the per-word result */
+.cue{background:var(--surface-2);border-radius:14px;padding:12px 14px;margin-bottom:14px}
+.cue .who{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.cue .line{font-family:var(--display);font-weight:700;font-size:22px;line-height:1.2;margin-top:4px;overflow-wrap:anywhere;display:flex;gap:10px;align-items:center;justify-content:space-between}
+.cue .line .speak{width:40px;height:40px}
+.cue .en{color:var(--fg-2);font-size:14px;margin-top:4px}
+[data-lang="th"] .cue .line{line-height:1.5}
+.mic{font:inherit;font-family:var(--display);font-weight:800;font-size:20px;width:100%;margin-top:16px;padding:16px;border-radius:14px;border:1px solid var(--accent);background:var(--accent);color:var(--accent-fg);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:var(--shadow)}
+.mic svg{width:24px;height:24px;flex:none}
+.mic.again{background:var(--surface);color:var(--accent);box-shadow:none;font-size:16px;padding:12px}
+.mic.rec{background:var(--critical);border-color:var(--critical);color:#fff}
+.mic:disabled{opacity:.6;cursor:default}
+.level{height:6px;background:var(--grid);border-radius:999px;overflow:hidden;margin-top:10px}
+.level i{display:block;height:100%;width:0;background:var(--critical);border-radius:999px;transition:width .08s}
+.verdict .score{font-family:var(--display);font-size:30px;font-weight:800;line-height:1;min-width:1.6em;text-align:center}
+.words{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.words span{font-weight:600;font-size:15px;padding:4px 9px;border-radius:8px;border:1px solid transparent}
+.words .good{background:var(--good-soft);color:var(--good)}
+.words .mid{background:var(--warn-soft);color:var(--warn)}
+.words .off{background:var(--critical-soft);color:var(--critical)}
+.words .miss{background:var(--surface-2);color:var(--muted);text-decoration:line-through;border-color:var(--line)}
+.words .extra{background:var(--surface-2);color:var(--muted);border-style:dashed;border-color:var(--line)}
+.words .extra::before{content:"+ "}
 .toast{position:fixed;left:50%;bottom:calc(92px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:10px 16px;border-radius:999px;font-size:13px;font-weight:600;z-index:50;box-shadow:var(--shadow);max-width:90vw;text-align:center}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 </style>
@@ -235,25 +258,26 @@ const LS = 'sl.';
 /* Languages: each has its own deck file and its own progress/settings in storage (keys sl.<id>.*). */
 /* Travel decks (Japanese, Thai, Dutch, Czech, German) share one topic list and have no conjugation drills.
    rom = the deck is written in another script and every note carries a romanization, which is shown and accepted as a typed answer.
-   articles = article shown (and accepted) with a noun, by its gender code. accentOpt = "Count accents" can be switched in Settings. */
-const TRAVEL_TOPICS = { basics: 'Basics', time: 'Numbers & time', travel: 'Transport', directions: 'Directions', stay: 'Hotel', food: 'Food & drink', money: 'Shopping & money', sights: 'Sights', help: 'Help & health', chat: 'Small talk', signs: 'Signs', active: 'Hiking & running', grammar: 'Patterns', mine: 'My cards' };
+   articles = article shown (and accepted) with a noun, by its gender code. accentOpt = "Count accents" can be switched in Settings.
+   stt = the Azure Speech locale used for spoken replies. pa = Azure can score pronunciation in it (otherwise the words heard are compared with the reply). */
+const TRAVEL_TOPICS = { basics: 'Basics', time: 'Numbers & time', travel: 'Transport', directions: 'Directions', stay: 'Hotel', food: 'Food & drink', money: 'Shopping & money', sights: 'Sights', help: 'Help & health', chat: 'Small talk', convo: 'Conversations', signs: 'Signs', active: 'Hiking & running', grammar: 'Patterns', mine: 'My cards' };
 function travelLang(o){ return Object.assign({ sub: o.name + ' · Travel', input: o.id, ttsFallback: [], ttsNote: 'On iPhone: Settings › Accessibility › Spoken Content › Voices › ' + o.name + '.', casualLabel: 'Casual', casualPrompt: 'How would a friend say this?', formsLabel: 'Conjugation', formsHelp: '', accents: false, forms: [], formKeys: [], focusLabel: f => f, topics: TRAVEL_TOPICS }, o); }
 const LANGS = [
-  { id: 'tl', name: 'Tagalog', sub: 'Tagalog · Taglish', file: './decks/tagalog.json', input: 'fil', tts: ['fil', 'tl'], ttsFallback: ['id'], ttsNote: 'On iPhone: Settings › Accessibility › Spoken Content › Voices. An Indonesian voice is used as an approximation if present.',
+  { id: 'tl', name: 'Tagalog', sub: 'Tagalog · Taglish', file: './decks/tagalog.json', input: 'fil', stt: 'fil-PH', pa: false, tts: ['fil', 'tl'], ttsFallback: ['id'], ttsNote: 'On iPhone: Settings › Accessibility › Spoken Content › Voices. An Indonesian voice is used as an approximation if present.',
     casualLabel: 'Taglish', casualPrompt: 'How would a friend text this?', formsLabel: 'Verb aspect', formsHelp: 'Conjugate verbs: completed / incompleted / contemplated.', accents: false, sample: 'Kumusta, kumain ka na ba?',
     forms: [{ key: 'completed', label: 'completed (did / have done)' }, { key: 'incompleted', label: 'incompleted (doing / do regularly)' }, { key: 'contemplated', label: 'contemplated (will do)' }],
     formKeys: ['infinitive', 'completed', 'incompleted', 'contemplated'], focusLabel: f => f + ' focus',
-    topics: { core: 'Core words', daily: 'Daily life', food: 'Food', money: 'Money & admin', travel: 'Getting around', people: 'People & feelings', time: 'Time & numbers', chat: 'Taglish chat', verbs: 'Verbs', grammar: 'Grammar', phrases: 'Phrases', mine: 'My cards' } },
-  { id: 'es', name: 'Spanish', sub: 'Spanish · Latin America', file: './decks/spanish.json', input: 'es', tts: ['es-MX', 'es-US', 'es-419', 'es-CO', 'es'], ttsFallback: [], ttsNote: 'On iPhone: Settings › Accessibility › Spoken Content › Voices › Spanish.',
+    topics: { core: 'Core words', daily: 'Daily life', food: 'Food', money: 'Money & admin', travel: 'Getting around', people: 'People & feelings', time: 'Time & numbers', chat: 'Taglish chat', convo: 'Conversations', verbs: 'Verbs', grammar: 'Grammar', phrases: 'Phrases', mine: 'My cards' } },
+  { id: 'es', name: 'Spanish', sub: 'Spanish · Latin America', file: './decks/spanish.json', input: 'es', stt: 'es-MX', pa: true, tts: ['es-MX', 'es-US', 'es-419', 'es-CO', 'es'], ttsFallback: [], ttsNote: 'On iPhone: Settings › Accessibility › Spoken Content › Voices › Spanish.',
     casualLabel: 'Casual', casualPrompt: 'How would a friend say this?', formsLabel: 'Conjugation', formsHelp: 'Conjugate verbs: present and preterite, all persons.', accents: true, sample: 'Hola, ¿ya comiste?',
     forms: [{ key: 'pres_yo', label: 'present · yo' }, { key: 'pres_tu', label: 'present · tú' }, { key: 'pres_el', label: 'present · él / ella / usted' }, { key: 'pres_nos', label: 'present · nosotros' }, { key: 'pres_ellos', label: 'present · ellos / ustedes' }, { key: 'pret_yo', label: 'preterite · yo' }, { key: 'pret_el', label: 'preterite · él / ella / usted' }],
     formKeys: ['infinitive', 'pres_yo', 'pres_tu', 'pres_el', 'pres_nos', 'pres_ellos', 'pret_yo', 'pret_tu', 'pret_el', 'pret_nos', 'pret_ellos', 'gerund', 'participle'], focusLabel: f => f.replace(/-/g, ' '),
-    topics: { core: 'Core words', daily: 'Daily life', food: 'Food', money: 'Money & admin', travel: 'Getting around', people: 'People & feelings', time: 'Time & numbers', chat: 'Casual chat', verbs: 'Verbs', grammar: 'Grammar', phrases: 'Phrases', mine: 'My cards' }, articles: { m: 'el', f: 'la' }, accentOpt: true },
-  travelLang({ id: 'ja', name: 'Japanese', file: './decks/japanese.json', tts: ['ja'], rom: 'rōmaji', nospace: true, sample: 'こんにちは。お元気ですか。' }),
-  travelLang({ id: 'th', name: 'Thai', file: './decks/thai.json', tts: ['th'], rom: 'romanization', nospace: true, sample: 'สวัสดีครับ สบายดีไหมครับ' }),
-  travelLang({ id: 'nl', name: 'Dutch', file: './decks/dutch.json', tts: ['nl-NL', 'nl'], accentOpt: true, articles: { c: 'de', n: 'het' }, sample: 'Goedemorgen, hoe gaat het?' }),
-  travelLang({ id: 'cs', name: 'Czech', file: './decks/czech.json', tts: ['cs'], accentOpt: true, sample: 'Dobrý den, jak se máte?' }),
-  travelLang({ id: 'de', name: 'German', file: './decks/german.json', tts: ['de-DE', 'de'], accents: true, accentOpt: true, articles: { m: 'der', f: 'die', n: 'das' }, sample: 'Guten Tag, wie geht es Ihnen?' })
+    topics: { core: 'Core words', daily: 'Daily life', food: 'Food', money: 'Money & admin', travel: 'Getting around', people: 'People & feelings', time: 'Time & numbers', chat: 'Casual chat', convo: 'Conversations', verbs: 'Verbs', grammar: 'Grammar', phrases: 'Phrases', mine: 'My cards' }, articles: { m: 'el', f: 'la' }, accentOpt: true },
+  travelLang({ id: 'ja', name: 'Japanese', file: './decks/japanese.json', tts: ['ja'], stt: 'ja-JP', pa: true, rom: 'rōmaji', nospace: true, sample: 'こんにちは。お元気ですか。' }),
+  travelLang({ id: 'th', name: 'Thai', file: './decks/thai.json', tts: ['th'], stt: 'th-TH', pa: true, rom: 'romanization', nospace: true, sample: 'สวัสดีครับ สบายดีไหมครับ' }),
+  travelLang({ id: 'nl', name: 'Dutch', file: './decks/dutch.json', tts: ['nl-NL', 'nl'], stt: 'nl-NL', pa: true, accentOpt: true, articles: { c: 'de', n: 'het' }, sample: 'Goedemorgen, hoe gaat het?' }),
+  travelLang({ id: 'cs', name: 'Czech', file: './decks/czech.json', tts: ['cs'], stt: 'cs-CZ', pa: false, accentOpt: true, sample: 'Dobrý den, jak se máte?' }),
+  travelLang({ id: 'de', name: 'German', file: './decks/german.json', tts: ['de-DE', 'de'], stt: 'de-DE', pa: true, accents: true, accentOpt: true, articles: { m: 'der', f: 'die', n: 'das' }, sample: 'Guten Tag, wie geht es Ihnen?' })
 ];
 const GLOBAL_KEYS = { lang: 1, theme: 1 };
 let LANG = LANGS[0];
@@ -268,10 +292,10 @@ function lsPut(k, v){ return lsPutRaw(skey(k), v); }
 LANG = LANGS.find(l => l.id === lsGetRaw('lang', 'tl')) || LANGS[0];
 const DAY = 86400000;
 const DEFAULT_SETTINGS = { newPerDay: 15, maxReviews: 200, retention: 0.9, typing: true, tts: true, ttsRate: 0.9, voice: '', theme: 'auto',
-  facets: { r: true, p: true, l: false, t: true, a: true, c: true, g: true }, topics: {} };
-function FACET_NAMES_(){ return { r: 'Recognize', p: 'Produce', l: 'Listen', t: L().casualLabel, a: L().formsLabel, c: 'Fill the blank', g: 'Grammar' }; }
+  facets: { r: true, p: true, l: false, t: true, a: true, c: true, g: true, s: true }, topics: {} };
+function FACET_NAMES_(){ return { r: 'Recognize', p: 'Produce', l: 'Listen', t: L().casualLabel, a: L().formsLabel, c: 'Fill the blank', g: 'Grammar', s: 'Speak' }; }
 const FACET_NAMES = new Proxy({}, { get: (_, k) => FACET_NAMES_()[k], ownKeys: () => Object.keys(FACET_NAMES_()), getOwnPropertyDescriptor: () => ({ enumerable: true, configurable: true }) });
-function FACET_HELP_(){ const n = L().name; return { r: n + ' shown, you give the English.', p: 'English shown, you type the ' + n + (L().rom ? ' (' + L().rom + ' is accepted).' : '.'), l: 'Hear it, type what you heard (needs a ' + n + ' voice).', t: 'English shown, you say it the casual way (self-graded).', a: L().formsHelp, c: 'Fill the missing word in a sentence.', g: 'Grammar drills.' }; }
+function FACET_HELP_(){ const n = L().name; return { r: n + ' shown, you give the English.', p: 'English shown, you type the ' + n + (L().rom ? ' (' + L().rom + ' is accepted).' : '.'), l: 'Hear it, type what you heard (needs a ' + n + ' voice).', t: 'English shown, you say it the casual way (self-graded).', a: L().formsHelp, c: 'Fill the missing word in a sentence.', g: 'Grammar drills.', s: 'The app says a line, you answer out loud and your reply is scored.' }; }
 const FACET_HELP = new Proxy({}, { get: (_, k) => FACET_HELP_()[k] });
 const state = {
   deck: { name: 'deck', version: '', notes: [] }, extra: [], hidden: {}, cards: {}, log: [], daily: { day: '', newCount: 0 },
@@ -331,7 +355,8 @@ function previewInterval(card, g){ const c = Object.assign({}, card); const rq =
 /* ===================== deck → cards ===================== */
 function facetsOf(n){
   const f = [];
-  if (n.type === 'cloze') f.push('c');
+  if (n.type === 'dialog') f.push('s');
+  else if (n.type === 'cloze') f.push('c');
   else if (n.type === 'grammar') f.push('g');
   else { f.push('r', 'p', 'l'); if (n.type === 'verb' && formsOf(n)) L().forms.forEach((_, i) => f.push('a' + (i + 1))); if (hasTaglish(n)) f.push('t'); }
   return f;
@@ -352,11 +377,12 @@ function facetEnabled(n, f){
   const k = facetKind(f), s = state.settings;
   if (!s.facets[k]) return false;
   if (k === 'l' && !ttsAvailable()) return false;
+  if (k === 's' && !speechReady()) return false;
   if (!s.topics[n.topic || 'other']) return false;
   if (state.hidden[cardId(n, f)] || state.hidden[n.id]) return false;
   return true;
 }
-function prereqMet(n, f){ const k = facetKind(f); if (k === 'r' || k === 'c' || k === 'g') return true; const r = state.cards[cardId(n, 'r')]; return !!(r && r.st === 2); }
+function prereqMet(n, f){ const k = facetKind(f); if (k === 'r' || k === 'c' || k === 'g' || k === 's') return true; const r = state.cards[cardId(n, 'r')]; return !!(r && r.st === 2); }
 function allCards(){ const out = []; state.notes.forEach(n => facetsOf(n).forEach(f => { if (facetEnabled(n, f)) out.push({ n: n, f: f, id: cardId(n, f), c: state.cards[cardId(n, f)] }); })); return out; }
 function dueCards(limit){ const eod = endOfToday(); return allCards().filter(x => x.c && x.c.st && x.c.due <= eod).sort((a, b) => a.c.due - b.c.due); }
 function newEligible(){
@@ -417,13 +443,154 @@ function pickVoice(){ if (!('speechSynthesis' in window)) return null; const c =
 function speak(text){ if (!('speechSynthesis' in window)) return false; const v = pickVoice(); if (!v) return false; try { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(String(text).replace(/\{\{|\}\}/g, '')); u.voice = v; u.lang = v.lang; u.rate = state.settings.ttsRate || 0.9; speechSynthesis.speak(u); return true; } catch (e) { return false; } }
 if ('speechSynthesis' in window) { loadVoices(); speechSynthesis.addEventListener('voiceschanged', () => { loadVoices(); if (state.tab === 'settings' && !state.sess) render(); }); }
 
+/* ===================== speaking (Azure Speech) ===================== */
+/* A spoken reply is recorded here, converted to 16 kHz mono WAV and sent to the user's own Azure Speech resource.
+   The key is kept in this device's storage only (sl.speech) and is never written to a backup. */
+const MIC = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>';
+function speechCfg(){ const c = lsGetRaw('speech', null); return c && c.key && c.region ? c : null; }
+function micSupported(){ return !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && (window.AudioContext || window.webkitAudioContext)); }
+function speechReady(){ return !!(L().stt && speechCfg() && micSupported()); }
+function hasDialogs(){ return state.notes.some(n => n.type === 'dialog'); }
+/* region: a region name ("southeastasia") or the endpoint address shown in the Azure portal. Only Microsoft hosts are ever contacted. */
+function speechUrl(region, locale){
+  let r = String(region || '').trim(), base;
+  if (/^https?:\/\//i.test(r)) {
+    let host = ''; try { host = new URL(r).host.toLowerCase(); } catch (e) {}
+    const m = /^([a-z0-9]+)\.(api\.cognitive|stt\.speech)\.microsoft\.com$/.exec(host);
+    if (m) base = 'https://' + m[1] + '.stt.speech.microsoft.com/speech';
+    else if (/^[a-z0-9-]+\.cognitiveservices\.azure\.com$/.test(host)) base = 'https://' + host + '/stt/speech';
+    else throw new Error('That address is not an Azure Speech endpoint.');
+  } else { r = r.toLowerCase().replace(/[^a-z0-9]/g, ''); if (!r) throw new Error('The region is missing.'); base = 'https://' + r + '.stt.speech.microsoft.com/speech'; }
+  return base + '/recognition/conversation/cognitiveservices/v1?language=' + encodeURIComponent(locale) + '&format=detailed';
+}
+/* --- recording: raw samples from the microphone, stopped by a tap or by a pause after speech --- */
+const rec = { on: false };
+function recStop(){
+  if (!rec.on) return null; rec.on = false;
+  try { rec.node.onaudioprocess = null; rec.node.disconnect(); rec.src.disconnect(); } catch (e) {}
+  try { rec.stream.getTracks().forEach(t => t.stop()); } catch (e) {}
+  try { rec.ctx.close(); } catch (e) {}
+  return { chunks: rec.chunks, rate: rec.rate };
+}
+async function recStart(onAuto){
+  if (rec.on) return; try { speechSynthesis.cancel(); } catch (e) {}
+  const AC = window.AudioContext || window.webkitAudioContext; const ctx = new AC(); try { ctx.resume(); } catch (e) {}   /* made inside the tap, before the permission prompt */
+  let stream;
+  try { stream = await navigator.mediaDevices.getUserMedia({ audio: { channelCount: 1, echoCancellation: true, noiseSuppression: true } }); }
+  catch (e) { try { ctx.close(); } catch (x) {} throw new Error(e && (e.name === 'NotAllowedError' || e.name === 'SecurityError') ? 'Microphone access was refused. Allow the microphone for this app, then try again.' : 'No microphone could be opened.'); }
+  const src = ctx.createMediaStreamSource(stream), node = ctx.createScriptProcessor(4096, 1, 1), mute = ctx.createGain(); mute.gain.value = 0;
+  Object.assign(rec, { on: true, ctx: ctx, stream: stream, src: src, node: node, chunks: [], rate: ctx.sampleRate, heard: false, quiet: 0, total: 0, floor: 1 });
+  node.onaudioprocess = e => {
+    if (!rec.on) return; const d = e.inputBuffer.getChannelData(0); rec.chunks.push(new Float32Array(d));
+    let sum = 0; for (let i = 0; i < d.length; i++) sum += d[i] * d[i]; const rms = Math.sqrt(sum / d.length), dt = d.length / rec.rate; rec.total += dt;
+    rec.floor = Math.min(rec.floor, Math.max(rms, 0.002));   /* quietest moment so far = the room */
+    if (rms > Math.max(0.012, Math.min(rec.floor, 0.03) * 3.5)) { rec.heard = true; rec.quiet = 0; } else rec.quiet += dt;
+    const lv = document.getElementById('micLevel'); if (lv) lv.style.width = Math.min(100, Math.round(rms * 500)) + '%';
+    if ((rec.heard && rec.quiet >= 1.4) || (!rec.heard && rec.total >= 7) || rec.total >= 15) onAuto();
+  };
+  src.connect(node); node.connect(mute); mute.connect(ctx.destination);
+}
+function toWav16k(chunks, rate){
+  let len = 0; chunks.forEach(c => { len += c.length; }); const all = new Float32Array(len); let o = 0; chunks.forEach(c => { all.set(c, o); o += c.length; });
+  const ratio = rate / 16000, outLen = Math.floor(len / ratio), buf = new ArrayBuffer(44 + outLen * 2), v = new DataView(buf);
+  const str = (at, t) => { for (let i = 0; i < t.length; i++) v.setUint8(at + i, t.charCodeAt(i)); };
+  str(0, 'RIFF'); v.setUint32(4, 36 + outLen * 2, true); str(8, 'WAVE'); str(12, 'fmt '); v.setUint32(16, 16, true); v.setUint16(20, 1, true); v.setUint16(22, 1, true);
+  v.setUint32(24, 16000, true); v.setUint32(28, 32000, true); v.setUint16(32, 2, true); v.setUint16(34, 16, true); str(36, 'data'); v.setUint32(40, outLen * 2, true);
+  let peak = 0; for (let i = 0; i < len; i++) { const a = Math.abs(all[i]); if (a > peak) peak = a; }
+  const gain = peak > 0.001 && peak < 0.5 ? Math.min(8, 0.7 / peak) : 1;   /* a quiet recording is brought up */
+  for (let i = 0; i < outLen; i++) { const a = Math.floor(i * ratio), b = Math.min(len, Math.max(a + 1, Math.floor((i + 1) * ratio))); let t = 0; for (let j = a; j < b; j++) t += all[j]; v.setInt16(44 + i * 2, Math.round(clamp(t / Math.max(1, b - a) * gain, -1, 1) * 32767), true); }
+  return { wav: buf, secs: outLen / 16000 };
+}
+/* --- scoring --- */
+function b64utf8(t){ const b = new TextEncoder().encode(t); let o = ''; for (let i = 0; i < b.length; i++) o += String.fromCharCode(b[i]); return btoa(o); }
+async function azureListen(wav, refText){
+  const cfg = speechCfg(); if (!cfg) throw new Error('No speech key is set. Add one in Settings.');
+  const url = speechUrl(cfg.region, L().stt);
+  const headers = { 'Ocp-Apim-Subscription-Key': cfg.key, 'Content-Type': 'audio/wav; codecs=audio/pcm; samplerate=16000', 'Accept': 'application/json' };
+  if (refText) headers['Pronunciation-Assessment'] = b64utf8(JSON.stringify({ ReferenceText: refText, GradingSystem: 'HundredMark', Granularity: 'Word', Dimension: 'Comprehensive', EnableMiscue: 'True' }));
+  const ctl = new AbortController(), to = setTimeout(() => ctl.abort(), 25000); let r;
+  try { r = await fetch(url, { method: 'POST', headers: headers, body: wav, signal: ctl.signal }); }
+  catch (e) { throw new Error(e && e.name === 'AbortError' ? 'The speech service took too long. Try again.' : 'Could not reach the speech service. Check the connection, and the region in Settings.'); }
+  finally { clearTimeout(to); }
+  if (r.status === 401 || r.status === 403) throw new Error('The speech key or region was not accepted. Check them in Settings.');
+  if (r.status === 429) throw new Error('The speech service is over its limit for now: the free allowance is used up, or too many requests at once.');
+  if (!r.ok) throw new Error('The speech service returned an error (' + r.status + ').');
+  return r.json();
+}
+/* Azure's answer → { heard, v: ok|close|bad, pron, acc, flu, comp, words } or { none: true } when nothing was recognized */
+function speechResult(d, n){
+  if (!d || d.RecognitionStatus !== 'Success') return { none: true };
+  const nb = (d.NBest || [])[0] || {}, pa = nb.PronunciationAssessment || nb, heard = String(nb.Display || d.DisplayText || '').trim();
+  if (!heard && !(nb.Words || []).length) return { none: true };
+  const rank = { ok: 3, accent: 3, close: 2, bad: 1 };
+  const textMatch = answers => { let best = 'bad'; [heard, nb.Lexical, nb.ITN].filter(Boolean).forEach(t => { const g = gradeAnswer(t, answers, 'tl'); if (rank[g] > rank[best]) best = g === 'accent' ? 'ok' : g; }); return best; };
+  if (L().pa && pa.PronScore != null) {
+    const words = (nb.Words || []).map(w => { const wp = w.PronunciationAssessment || w; return { w: w.Word, s: wp.AccuracyScore == null ? 0 : wp.AccuracyScore, e: wp.ErrorType || 'None' }; });
+    const pron = Math.round(pa.PronScore), comp = pa.CompletenessScore == null ? 100 : pa.CompletenessScore;
+    let v = comp < 50 || pron < 55 ? 'bad' : pron < 75 || comp < 80 ? 'close' : 'ok';
+    /* he said one of the other accepted replies: it cannot be scored against the main one, so it counts as understood */
+    if (v !== 'ok' && (n.accept_tl || []).length && textMatch(n.accept_tl) === 'ok') return { heard: heard, v: 'ok', alt: true };
+    return { heard: heard, v: v, pron: pron, acc: Math.round(pa.AccuracyScore || 0), flu: Math.round(pa.FluencyScore || 0), comp: Math.round(comp), words: words };
+  }
+  return { heard: heard, v: textMatch(tlAnswers(n)) };
+}
+function spkResultHtml(res){
+  if (res.pron != null) {
+    const lab = res.pron >= 85 && res.v === 'ok' ? 'Clear' : res.v === 'ok' ? 'Good' : res.v === 'close' ? 'Understandable, keep at it' : 'Not there yet';
+    const cls = w => w.e === 'Omission' ? 'miss' : w.e === 'Insertion' ? 'extra' : (w.e === 'Mispronunciation' || w.s < 60) ? 'off' : w.s < 80 ? 'mid' : 'good';
+    const tip = w => w.e === 'Omission' ? 'missed' : w.e === 'Insertion' ? 'extra word' : Math.round(w.s) + ' / 100';
+    return '<div class="verdict ' + res.v + '"><span class="score">' + res.pron + '</span><div>' + lab + '<span class="you">accuracy ' + res.acc + ' · fluency ' + res.flu + ' · ' + res.comp + '% of the reply said</span>' + (res.heard ? '<span class="you">heard: ' + esc(res.heard) + '</span>' : '') + '</div></div>' +
+      (res.words.length ? '<div class="words">' + res.words.map(w => '<span class="' + cls(w) + '" title="' + esc(tip(w)) + '">' + esc(w.w) + '</span>').join('') + '</div><div class="cap">Green clear · amber a little off · red unclear · crossed out missed · + extra</div>' : '');
+  }
+  const vt = { ok: ['✓', res.alt ? 'Understood (another accepted reply)' : 'Understood'], close: ['≈', 'Close'], bad: ['✗', 'Heard something else'] }[res.v];
+  return '<div class="verdict ' + res.v + '"><span>' + vt[0] + '</span><div>' + vt[1] + '<span class="you">heard: ' + esc(res.heard || 'nothing') + '</span>' + (L().pa ? '' : '<span class="you">Azure does not score ' + esc(L().name) + ' pronunciation, so this checks that your words were understood.</span>') + '</div></div>';
+}
+function spkPanel(sp, revealed){
+  if (sp.phase === 'rec') return '<button class="mic rec" id="micBtn" type="button">' + MIC + ' Listening… tap when done</button><div class="level"><i id="micLevel"></i></div>';
+  if (sp.phase === 'scoring') return '<button class="mic" type="button" disabled>Scoring…</button>';
+  let h = '';
+  if (sp.phase === 'error') h += '<div class="verdict bad"><span>!</span><div>' + esc(sp.err) + '</div></div>';
+  if (sp.phase === 'done') h += spkResultHtml(sp.res);
+  return h + '<button class="mic' + (sp.phase !== 'idle' || revealed ? ' again' : '') + '" id="micBtn" type="button">' + MIC + (sp.phase !== 'idle' ? ' Try again' : revealed ? ' Say it now' : ' Tap and answer') + '</button>';
+}
+async function spkStart(){
+  const s = state.sess; if (!s) return; if (s.spk && (s.spk.phase === 'rec' || s.spk.phase === 'scoring')) return;
+  const at = s.i; s.spk = { phase: 'rec' }; renderStudy();
+  try { await recStart(() => spkStop()); } catch (e) { if (state.sess === s && s.i === at) { s.spk = { phase: 'error', err: e.message }; renderStudy(); } return; }
+  if (state.sess !== s || s.i !== at || !s.spk || s.spk.phase !== 'rec') recStop();   /* left the card while the permission prompt was up */
+}
+async function spkStop(){
+  const s = state.sess; if (!s || !s.spk || s.spk.phase !== 'rec' || !rec.on) return;
+  const at = s.i, item = current(), x = item && cardOf(item.id), r = recStop(); if (!x || !r) return;
+  const audio = toWav16k(r.chunks, r.rate);
+  if (audio.secs < 0.4) { s.spk = { phase: 'error', err: 'That was too short to score. Tap the microphone and try again.' }; renderStudy(); return; }
+  s.spk = { phase: 'scoring' }; renderStudy();
+  let res = null, err = '';
+  try { res = speechResult(await azureListen(audio.wav, L().pa ? x.n.tl : ''), x.n); } catch (e) { err = e.message || 'Scoring failed.'; }
+  if (state.sess !== s || s.i !== at) return;   /* moved on while waiting */
+  if (err) s.spk = { phase: 'error', err: err };
+  else if (res.none) s.spk = { phase: 'error', err: 'Nothing was recognized. Try again a little louder, with the phone closer.' };
+  else { s.spk = { phase: 'done', res: res }; s.revealed = true; s.verdict = null; }
+  renderStudy();
+}
+/* "Can't speak now": drop the speaking cards from this session; they stay due for later */
+function skipSpeak(){ const s = state.sess; if (!s) return; recStop(); s.q = s.q.filter((it, i) => i < s.i || splitId(it.id)[1] !== 's'); s.spk = null; s.revealed = false; toast('Speaking cards left for later'); renderStudy(); }
+async function testSpeechKey(){
+  const set = (m, c) => { const st = document.getElementById('spStatus'); if (st) { st.textContent = m; st.className = 'status ' + (c || ''); } }; set('Checking…');
+  try { const d = await azureListen(toWav16k([new Float32Array(9600)], 16000).wav, ''); if (d && d.RecognitionStatus) set('The key works. ' + L().name + ' speaking cards are ready.', 'ok'); else set('Azure answered, but not in the expected form.', 'warn'); }
+  catch (e) { set(e.message, 'warn'); }
+}
+/* the line the other person says, shown above a speaking card */
+function cueHtml(n, showEn){ return '<div class="cue"><div class="who">' + esc(n.scene ? n.scene + ' · they say' : 'They say') + '</div><div class="line"><span>' + esc(n.cue) + '</span>' + (ttsAvailable() ? '<button class="speak" type="button" data-say="' + esc(n.cue) + '" aria-label="Play the line">' + SPK + '</button>' : '') + '</div>' + (showEn || showRomFront() ? romHtml(n.cue_rom) : '') + (showEn && n.cue_en ? '<div class="en">' + esc(n.cue_en) + '</div>' : '') + '</div>'; }
+
 /* ===================== session ===================== */
-function buildSession(extraNew){
-  const s = state.settings; const due = dueCards().slice(0, s.maxReviews);
-  const budget = extraNew != null ? extraNew : newBudget(); const fresh = newEligible().slice(0, budget);
+function buildSession(extraNew, only){
+  /* only = a card kind: a session of just that kind (speaking practice) */
+  const s = state.settings; const pick = x => !only || facetKind(x.f) === only; const due = dueCards().filter(pick).slice(0, s.maxReviews);
+  const budget = extraNew != null ? extraNew : newBudget(); const fresh = newEligible().filter(pick).slice(0, budget);
   const q = shuffle(due.map(x => ({ id: x.id, mode: 'test' })));
-  /* weave new items in: intro first, test ~5 later (facets other than recognize/grammar skip the intro) */
-  const introFacet = f => facetKind(f) === 'r' || facetKind(f) === 'g';
+  /* weave new items in: intro first, test ~5 later (facets other than recognize/grammar/speak skip the intro) */
+  const introFacet = f => facetKind(f) === 'r' || facetKind(f) === 'g' || facetKind(f) === 's';
   let pos = Math.min(2, q.length); const pending = [];
   fresh.forEach(x => {
     if (introFacet(x.f)) { const at = Math.min(pos, q.length); q.splice(at, 0, { id: x.id, mode: 'intro' }); pending.push({ at: at, item: { id: x.id, mode: 'test', fresh: true } }); }
@@ -443,17 +610,17 @@ function answerFor(x){
   if (k === 'p' || k === 'l') return { lang: 'tl', answers: tlAnswers(n) };
   if (k === 'a') { const fm = L().forms[Number(x.f.slice(1)) - 1]; return { lang: 'tl', answers: [formsOf(n)[fm.key]], aspect: fm.key, aspectLabel: fm.label }; }
   if (k === 'c') { const m = /\{\{(.+?)\}\}/.exec(n.tl), mr = n.rom ? /\{\{(.+?)\}\}/.exec(n.rom) : null; return { lang: 'tl', answers: [m ? m[1] : n.tl].concat(mr ? [mr[1]] : [], n.accept_tl || []), rom: mr ? mr[1] : '' }; }
-  if (k === 'g') return { lang: 'tl', answers: tlAnswers(n) };
+  if (k === 'g' || k === 's') return { lang: 'tl', answers: tlAnswers(n) };
   return { lang: 'tl', answers: [n.tl] };
 }
-function selfGraded(x){ return facetKind(x.f) === 't' || !state.settings.typing; }
+function selfGraded(x){ const k = facetKind(x.f); return k === 't' || k === 's' || !state.settings.typing; }
 function submitAnswer(){
   const s = state.sess, item = current(); if (!item || s.revealed) return; const x = cardOf(item.id); if (!x) return;
   const inp = document.getElementById('ans'); const typed = inp ? inp.value : '';
   const a = answerFor(x); const v = gradeAnswer(typed, a.answers, a.lang);
   s.typed = typed; s.verdict = v; s.revealed = true; renderStudy();
 }
-function reveal(){ const s = state.sess; if (!s || s.revealed) return; s.revealed = true; s.verdict = null; renderStudy(); }
+function reveal(){ const s = state.sess; if (!s || s.revealed) return; recStop(); if (s.spk && s.spk.phase !== 'done') s.spk = null; const it = current(); if (it && splitId(it.id)[1] === 's') s.peeked = s.i; s.revealed = true; s.verdict = null; renderStudy(); }
 function applyGrade(g){
   const s = state.sess, item = current(); if (!item) return; const x = cardOf(item.id); if (!x) return;
   const card = state.cards[item.id] || (state.cards[item.id] = { st: 0 });
@@ -464,11 +631,11 @@ function applyGrade(g){
   s.done++; if (g >= 3) s.ok++;
   if (requeue) s.q.splice(Math.min(s.i + 5, s.q.length), 0, { id: item.id, mode: 'test', again: true });
   save('cards'); save('log');
-  s.i++; s.revealed = false; s.verdict = null; s.typed = ''; renderStudy();
+  s.i++; s.revealed = false; s.verdict = null; s.typed = ''; s.spk = null; renderStudy();
 }
-function introDone(){ const s = state.sess; s.i++; s.newIntroduced++; s.revealed = false; renderStudy(); }
-function endSession(){ state.sess = null; document.getElementById('study').hidden = true; document.body.style.overflow = ''; render(); }
-function startSession(extraNew){ const n = buildSession(extraNew); if (!n) { toast('Nothing to study right now'); state.sess = null; return; } document.getElementById('study').hidden = false; document.body.style.overflow = 'hidden'; renderStudy(); }
+function introDone(){ const s = state.sess; s.i++; s.newIntroduced++; s.revealed = false; s.spk = null; renderStudy(); }
+function endSession(){ recStop(); state.sess = null; document.getElementById('study').hidden = true; document.body.style.overflow = ''; render(); }
+function startSession(extraNew, only){ const n = buildSession(extraNew, only); if (!n) { toast('Nothing to study right now'); state.sess = null; return; } document.getElementById('study').hidden = false; document.body.style.overflow = 'hidden'; renderStudy(); }
 
 /* ===================== study rendering ===================== */
 const SPK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/></svg>';
@@ -480,6 +647,7 @@ const FORM_LABEL = { infinitive: 'infinitive', completed: 'completed', incomplet
 function aspectHtml(n){ const f = formsOf(n); if (!f) return ''; return '<div class="asp">' + L().formKeys.filter(k => f[k]).map(k => '<div><b>' + esc(FORM_LABEL[k] || k) + '</b>' + esc(f[k]) + '</div>').join('') + '</div>'; }
 function noteBack(n, opts){ opts = opts || {};
   let h = '<div class="back">';
+  if (opts.cue && n.cue) h += cueHtml(n, true);
   if (!opts.noAns) h += '<div class="ans">' + esc(stressOrTl(n)) + (n.pos ? '<small>' + esc(n.pos) + '</small>' : '') + '</div>' + romHtml(n.rom);
   else if (opts.rom) h += romHtml(n.rom);
   h += '<div class="meaning">' + esc(n.en) + '</div>';
@@ -510,13 +678,14 @@ function renderStudy(){
   if (item.mode === 'intro') {
     body = '<div class="qcard intro"><div class="qhead"><span class="pill hot">New</span><span class="pill muted">' + esc(topicLabel(n.topic)) + '</span></div>';
     if (k === 'g') body += '<div class="sub">' + esc(n.prompt) + '</div><div class="prompt">' + esc(n.tl) + '</div>' + romHtml(n.rom) + '<div class="sub">' + esc(n.en) + '</div><div class="note">' + esc(n.explanation || '') + '</div>';
+    else if (k === 's') body += cueHtml(n, true) + '<div class="sub">You reply</div><div class="prompt small">' + esc(n.tl) + (ttsAvailable() ? ' <button class="speak" type="button" data-say="' + esc(n.tl) + '" aria-label="Play the reply">' + SPK + '</button>' : '') + '</div>' + romHtml(n.rom) + noteBack(n, { noAns: true });
     else body += '<div class="prompt">' + esc(stressOrTl(n)) + (ttsAvailable() ? ' <button class="speak" type="button" data-say="' + esc(n.tl) + '" aria-label="Play">' + SPK + '</button>' : '') + '</div>' + romHtml(n.rom) + noteBack(n, { noAns: true });
     body += '<div class="btn-row"><button class="btn primary" id="gotit" type="button">Got it, test me later</button></div></div>';
     el.innerHTML = '<div class="wrap">' + head + body + '</div>';
     el.querySelector('#gotit').onclick = introDone; bindCommon(el); return;
   }
   const a = answerFor(x); const typing = !selfGraded(x);
-  const labels = { r: 'What does it mean?', p: 'Say it in ' + L().name, l: 'Type what you hear', t: 'Say it casual (' + L().casualLabel + ')', a: 'Conjugate', c: 'Fill the blank', g: 'Grammar' };
+  const labels = { r: 'What does it mean?', p: 'Say it in ' + L().name, l: 'Type what you hear', t: 'Say it casual (' + L().casualLabel + ')', a: 'Conjugate', c: 'Fill the blank', g: 'Grammar', s: 'Reply out loud' };
   body = '<div class="qcard"><div class="qhead"><span class="pill">' + labels[k] + '</span><span class="pill muted">' + esc(topicLabel(n.topic)) + (item.again ? ' · again' : item.fresh ? ' · new' : '') + '</span></div>';
   let front = '';
   if (k === 'r') front = '<div class="prompt">' + esc(stressOrTl(n)) + (ttsAvailable() ? ' <button class="speak" type="button" data-say="' + esc(n.tl) + '" aria-label="Play">' + SPK + '</button>' : '') + '</div>' + (showRomFront() || s.revealed ? romHtml(n.rom) : '') + (n.pos ? '<div class="sub">' + esc(n.pos) + '</div>' : '');
@@ -526,36 +695,45 @@ function renderStudy(){
   else if (k === 'a') front = '<div class="sub">' + esc(n.tl) + (n.root ? ' · <b>' + esc(n.root) + '</b>' : '') + (n.focus ? ' · ' + esc(L().focusLabel(n.focus)) : '') + '</div><div class="prompt small">' + esc(a.aspectLabel) + '</div><div class="sub">' + esc(n.en) + '</div>';
   else if (k === 'c') front = '<div class="prompt small">' + esc(n.tl).replace(/\{\{.+?\}\}/, '<span class="blank">' + (s.revealed ? esc(a.answers[0]) : '&nbsp;&nbsp;&nbsp;') + '</span>') + '</div>' + (n.rom && (s.revealed || showRomFront()) ? '<div class="rom">' + esc(n.rom).replace(/\{\{.+?\}\}/, s.revealed ? '<b>' + esc(a.rom) + '</b>' : '___') + '</div>' : '') + '<div class="sub">' + esc(n.en) + '</div>' + (n.hint ? '<div class="hint">' + esc(n.hint) + '</div>' : '');
   else if (k === 'g') front = '<div class="prompt small">' + esc(n.prompt) + '</div><div class="sub">' + esc(n.en) + '</div>';
+  else if (k === 's') front = cueHtml(n, s.revealed) + '<div class="sub">Your reply</div><div class="prompt small">' + esc(n.en) + '</div>';
   body += front;
+  const sp = k === 's' ? (s.spk || { phase: 'idle' }) : null, busy = !!sp && (sp.phase === 'rec' || sp.phase === 'scoring');
+  if (sp) body += spkPanel(sp, s.revealed);
   if (!s.revealed) {
-    if (typing) body += '<form id="ansForm" class="answer-row"><input id="ans" lang="' + (a.lang === 'tl' ? L().input : 'en') + '" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="' + (a.lang === 'tl' ? L().name + (L().rom ? ' or ' + L().rom : '') + '…' : 'English…') + '" aria-label="Your answer"><button class="btn primary" type="submit">Check</button></form><div class="btn-row"><button class="btn ghost small" id="showIt" type="button">Show answer</button></div>';
+    if (sp) body += busy ? '' : '<div class="btn-row"><button class="btn ghost small" id="showIt" type="button">Show the reply</button><button class="btn ghost small" id="skipSpk" type="button">Can\'t speak now</button></div>';
+    else if (typing) body += '<form id="ansForm" class="answer-row"><input id="ans" lang="' + (a.lang === 'tl' ? L().input : 'en') + '" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="' + (a.lang === 'tl' ? L().name + (L().rom ? ' or ' + L().rom : '') + '…' : 'English…') + '" aria-label="Your answer"><button class="btn primary" type="submit">Check</button></form><div class="btn-row"><button class="btn ghost small" id="showIt" type="button">Show answer</button></div>';
     else body += '<div class="btn-row"><button class="btn primary big" id="showIt" type="button" style="font-size:18px;padding:14px">Show answer</button></div>';
   } else {
     let sug = 3;
+    if (sp && sp.phase === 'done') sug = Math.min({ ok: 3, close: 2, bad: 1 }[sp.res.v], s.peeked === s.i ? 2 : 3);   /* a reply read off the screen is Hard at best */
     if (s.verdict) { const vt = { ok: ['✓', 'Correct'], close: ['≈', 'Close'], accent: ['≈', 'Right word, check the accents'], bad: ['✗', 'Not quite'] }[s.verdict]; sug = { ok: 3, close: 2, accent: 2, bad: 1 }[s.verdict];
       body += '<div class="verdict ' + (s.verdict === 'accent' ? 'close' : s.verdict) + '"><span>' + vt[0] + '</span><div>' + vt[1] + (s.typed ? '<span class="you">you typed: ' + esc(s.typed) + '</span>' : '<span class="you">no answer</span>') + '</div></div>'; }
     if (k === 'r') body += noteBack(n, { noAns: true });   /* the romanization is already on the question side once revealed */
-    else if (k === 'p' || k === 'l') body += noteBack(n);
+    else if (k === 'p' || k === 'l' || k === 's') body += noteBack(n);
     else if (k === 't') { const ex = (n.examples || []).find(e => casualEx(e)); body += '<div class="back"><div class="ans">' + esc(ex ? casualEx(ex) : casualOf(n)) + '</div>' + (ex ? '<div class="alts">standard: ' + esc(ex.tl) + '</div>' : '') + (n.notes ? '<div class="note">' + esc(n.notes) + '</div>' : '') + '</div>'; }
     else if (k === 'a') body += '<div class="back"><div class="ans">' + esc(a.answers[0]) + '</div>' + aspectHtml(n) + exampleHtml(n, { max: 1 }) + (n.notes ? '<div class="note">' + esc(n.notes) + '</div>' : '') + '</div>';
     else if (k === 'c') body += '<div class="back"><div class="ans">' + esc(a.answers[0]) + '</div>' + romHtml(a.rom) + ((n.accept_tl || []).length ? '<div class="alts">also: ' + esc(n.accept_tl.join(' · ')) + '</div>' : '') + (n.notes ? '<div class="note">' + esc(n.notes) + '</div>' : '') + '</div>';
     else if (k === 'g') body += '<div class="back"><div class="ans">' + esc(n.tl) + '</div>' + romHtml(n.rom) + ((n.accept_tl || []).length ? '<div class="alts">also: ' + esc(n.accept_tl.join(' · ')) + '</div>' : '') + '<div class="note">' + esc(n.explanation || '') + '</div></div>';
-    body += gradesHtml(card, sug) + '<div class="cap" style="text-align:center">' + (typing ? '<kbd>Enter</kbd> accepts the highlighted grade · ' : '') + '<kbd>1</kbd>–<kbd>4</kbd> grade</div>';
+    if (!busy) body += gradesHtml(card, sug) + '<div class="cap" style="text-align:center">' + (typing ? '<kbd>Enter</kbd> accepts the highlighted grade · ' : '') + '<kbd>1</kbd>–<kbd>4</kbd> grade</div>';
   }
   body += '</div>';
   el.innerHTML = '<div class="wrap">' + head + body + '</div>';
   bindCommon(el);
   const f = el.querySelector('#ansForm'); if (f) { f.onsubmit = e => { e.preventDefault(); submitAnswer(); }; const i = el.querySelector('#ans'); if (i && !/Mobi|iPhone|Android/i.test(navigator.userAgent)) i.focus(); }
   const sh = el.querySelector('#showIt'); if (sh) sh.onclick = reveal;
+  const mb = el.querySelector('#micBtn'); if (mb) mb.onclick = () => { if (state.sess && state.sess.spk && state.sess.spk.phase === 'rec') spkStop(); else spkStart(); };
+  const sk = el.querySelector('#skipSpk'); if (sk) sk.onclick = skipSpeak;
   el.querySelectorAll('.grades button').forEach(b => { b.onclick = () => applyGrade(Number(b.dataset.g)); });
   if (k === 'l' && !s.revealed && s.shown !== s.i) { s.shown = s.i; setTimeout(() => speak(n.tl), 150); }
-  if (s.revealed && (k === 'p' || k === 'l' || k === 'a') && state.settings.tts && s.shown !== 'b' + s.i) { s.shown = 'b' + s.i; setTimeout(() => speak(a.answers[0]), 100); }
+  if (k === 's' && !s.revealed && !s.spk && s.shown !== s.i) { s.shown = s.i; setTimeout(() => { if (!rec.on) speak(n.cue); }, 150); }
+  if (s.revealed && !busy && (k === 'p' || k === 'l' || k === 'a' || k === 's') && state.settings.tts && s.shown !== 'b' + s.i) { s.shown = 'b' + s.i; setTimeout(() => speak(a.answers[0]), 100); }
 }
 function bindCommon(el){ el.querySelector('#xStudy').onclick = endSession; el.querySelectorAll('[data-say]').forEach(b => { b.onclick = e => { e.preventDefault(); speak(b.dataset.say); }; }); }
 document.addEventListener('keydown', e => {
   const s = state.sess; if (!s || document.getElementById('study').hidden) return; const item = current(); if (!item) return;
   if (e.target && e.target.tagName === 'INPUT') { return; }
   if (item.mode === 'intro') { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); introDone(); } return; }
+  if (s.spk && (s.spk.phase === 'rec' || s.spk.phase === 'scoring')) return;
   if (!s.revealed) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); reveal(); } return; }
   if (/^[1-4]$/.test(e.key)) { e.preventDefault(); applyGrade(Number(e.key)); }
   else if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); const sug = document.querySelector('.grades .sug'); applyGrade(sug ? Number(sug.dataset.g) : 3); }
@@ -580,28 +758,32 @@ function renderToday(main){
   const c = counts(), budget = newBudget(), fresh = Math.min(budget, newEligible().length), todayN = reviewsByDay()[todayKey()] || 0, streak = streakDays();
   const goal = Math.max(1, c.due + fresh + todayN); const pct = todayN / goal;
   const nothing = !c.due && !fresh;
+  const spk = speechReady() ? allCards().filter(x => facetKind(x.f) === 's') : [], spDue = spk.filter(x => x.c && x.c.st && x.c.due <= endOfToday()).length, spNew = Math.min(3, spk.filter(x => !x.c).length);
   let h = '<section><div class="card hero"><div class="txt"><div class="eyebrow">Today</div><h2 style="margin:4px 0 6px">' + (nothing ? (todayN ? 'All done for today' : 'Nothing due yet') : (c.due + ' due · ' + fresh + ' new')) + '</h2><p class="lede" style="margin:0">' + (streak ? streak + '-day streak' : 'Start a streak today') + (todayN ? ' · ' + todayN + ' reviewed today' : '') + '</p></div>' + ring(pct, 'today', todayN) + '</div>' +
     '<div class="btn-row"><button class="btn primary big" id="start" type="button"' + (nothing ? ' disabled' : '') + '>' + (nothing ? 'Done for today' : 'Study now') + '</button></div>' +
-    (nothing && newEligible().length ? '<div class="btn-row"><button class="btn" id="extraNew" type="button">Learn 10 more new words</button></div>' : '') + '</section>';
+    (nothing && newEligible().length ? '<div class="btn-row"><button class="btn" id="extraNew" type="button">Learn 10 more new words</button></div>' : '') +
+    (spDue || spNew ? '<div class="btn-row"><button class="btn" id="speakOnly" type="button">' + MIC + ' Speaking practice · ' + (spDue ? spDue + ' due' : '') + (spDue && spNew ? ' · ' : '') + (spNew ? spNew + ' new' : '') + '</button></div>' : '') + '</section>';
   h += '<section class="tiles"><div class="tile"><div class="eyebrow">Known</div><div class="v">' + notesKnown() + '<small>words</small></div><div class="c">passed at least once</div></div><div class="tile"><div class="eyebrow">In review</div><div class="v">' + c.review + '<small>cards</small></div><div class="c">' + c.learning + ' still learning</div></div><div class="tile"><div class="eyebrow">Retention</div><div class="v">' + (retention(30) == null ? '—' : Math.round(retention(30) * 100) + '<small>%</small>') + '</div><div class="c">last 30 days</div></div><div class="tile"><div class="eyebrow">Deck</div><div class="v">' + state.notes.length + '<small>notes</small></div><div class="c">' + c.new + ' cards not started</div></div></section>';
   if (!state.deck.notes.length) h += '<section class="card"><h3>Deck not loaded</h3><p class="lede">The starter deck did not load. If you are offline, open the app once online so it can be saved for offline use.</p></section>';
-  const tipDay = Number(todayKey().slice(-2)) % 5;
   const tips = [L().rom ? 'Type answers in ' + L().rom + ' or in ' + L().name + ' script. Both count, and tone or length marks are ignored.' : accentsOn() ? 'Accents count: the right word with a missing accent is graded Close.' : 'Type answers without worrying about accents: grading ignores them.', 'Hard means you got it but slowly. Again means you would not have produced it.', L().forms.length ? 'Verb conjugation cards unlock after you pass the verb once.' : 'Produce and Listen cards unlock after you pass the word once.', 'Add your own cards from Browse, or import a deck file from a Claude chat under Settings.', 'Use the language menu at the top to switch decks. Each language keeps its own progress and streak.'];
+  if (hasDialogs()) tips.push(speechCfg() ? 'Speaking cards: answer out loud, then keep or change the suggested grade. Tap Speaking practice for a session of only those.' : 'Conversation cards can score your spoken replies. Add an Azure Speech key under Settings › Speaking to turn them on.');
+  const tipDay = Number(todayKey().slice(-2)) % tips.length;
   h += '<section class="card"><div class="eyebrow">Tip</div><p style="margin:6px 0 0">' + tips[tipDay] + '</p></section>';
   main.innerHTML = h;
   const st = main.querySelector('#start'); if (st) st.onclick = () => startSession();
   const ex = main.querySelector('#extraNew'); if (ex) ex.onclick = () => startSession(10);
+  const so = main.querySelector('#speakOnly'); if (so) so.onclick = () => startSession(3, 's');
 }
 function statusOf(x){ const c = x.c; if (!c || !c.st) return 'new'; if (c.st === 2) return c.due <= Date.now() ? 'due' : fmtDays(c.due); return 'learning'; }
 function renderBrowse(main){
   const b = state.browse; const topics = Object.keys(state.settings.topics).sort();
   let h = '<section><div class="search"><input id="q" type="search" placeholder="Search ' + esc(L().name) + ' or English" value="' + esc(b.q) + '" aria-label="Search"><button class="btn" id="addBtn" type="button">+ Add</button></div><div class="chips">' + topics.map(t => '<button class="chip" type="button" data-topic="' + esc(t) + '" aria-pressed="' + (b.topic === t) + '">' + esc(topicLabel(t)) + '</button>').join('') + '</div></section>';
   h += '<section id="addForm" class="card" hidden><h3>Add a card</h3><div class="row"><label class="f">' + esc(L().name) + '<input id="aTl" lang="' + L().input + '" autocapitalize="off"></label><label class="f">English<input id="aEn"></label></div><div class="row"><label class="f">Type<select id="aType"><option value="vocab">word</option><option value="phrase">phrase</option></select></label><label class="f">Topic<input id="aTopic" value="mine" list="topicList"><datalist id="topicList">' + topics.map(t => '<option value="' + esc(t) + '">').join('') + '</datalist></label></div>' + (L().rom ? '<label class="f">Romanization (' + esc(L().rom) + ')<input id="aRom" autocapitalize="off" autocorrect="off"></label>' : '') + '<label class="f">' + esc(L().casualLabel) + ' / how people really say it (optional)<input id="aTg" lang="' + L().input + '" autocapitalize="off"></label><div class="row"><label class="f">Example (' + esc(L().name) + ')<input id="aExTl" lang="' + L().input + '" autocapitalize="off"></label><label class="f">Example (English)<input id="aExEn"></label></div><label class="f">Notes<input id="aNotes"></label><div class="btn-row"><button class="btn primary" id="aSave" type="button">Save card</button><button class="btn ghost" id="aCancel" type="button">Cancel</button></div></section>';
-  const q = strip(b.q); const items = state.notes.filter(n => (!b.topic || n.topic === b.topic) && (!q || strip(n.tl).includes(q) || strip(n.en).includes(q) || strip(casualOf(n)).includes(q) || strip(n.rom).includes(q) || strip((n.accept || []).join(' ')).includes(q))).slice(0, 120);
+  const q = strip(b.q); const items = state.notes.filter(n => (!b.topic || n.topic === b.topic) && (!q || strip(n.tl).includes(q) || strip(n.en).includes(q) || strip(casualOf(n)).includes(q) || strip(n.rom).includes(q) || strip(n.cue).includes(q) || strip((n.accept || []).join(' ')).includes(q))).slice(0, 120);
   h += '<section><div class="eyebrow">' + items.length + (items.length === 120 ? '+' : '') + ' notes</div><div class="list">' + items.map(n => {
     const fs = facetsOf(n).map(f => ({ f: f, id: cardId(n, f), c: state.cards[cardId(n, f)] })); const known = fs.some(x => x.c && x.c.st === 2); const started = fs.some(x => x.c);
     const hidden = !!state.hidden[n.id];
-    return '<details class="item" data-id="' + esc(n.id) + '"><summary><span class="w">' + esc(n.type === 'grammar' ? n.prompt : n.tl) + (n.rom && n.type !== 'grammar' ? '<small>' + esc(n.rom) + '</small>' : '') + '</span><span class="m">' + esc(n.en) + '</span><span class="st">' + (hidden ? 'suspended' : known ? 'known' : started ? 'learning' : 'new') + '</span></summary><div class="body">' + noteBack(n, { noAns: n.type === 'cloze' || n.type === 'grammar' }).replace('class="back"', 'class="back" style="border:0;margin:0;padding:0"') +
+    return '<details class="item" data-id="' + esc(n.id) + '"><summary><span class="w">' + esc(n.type === 'grammar' ? n.prompt : n.tl) + (n.rom && n.type !== 'grammar' ? '<small>' + esc(n.rom) + '</small>' : '') + '</span><span class="m">' + esc(n.en) + '</span><span class="st">' + (hidden ? 'suspended' : known ? 'known' : started ? 'learning' : 'new') + '</span></summary><div class="body">' + noteBack(n, { noAns: n.type === 'cloze' || n.type === 'grammar', cue: true }).replace('class="back"', 'class="back" style="border:0;margin:0;padding:0"') +
       '<div class="facets">' + fs.map(x => '<span><b>' + FACET_NAMES[facetKind(x.f)] + (facetKind(x.f) === 'a' ? ' ' + x.f[1] : '') + '</b></span><span>' + statusOf(x) + '</span><span>' + (x.c && x.c.st ? 'S ' + x.c.s.toFixed(1) + 'd · ' + (x.c.lapses || 0) + ' lapses' : '') + '</span>').join('') + '</div>' +
       '<div class="btn-row">' + (ttsAvailable() && n.type !== 'grammar' ? '<button class="btn small" type="button" data-say="' + esc(n.tl) + '">' + SPK.replace('<svg', '<svg width="16" height="16"') + ' Play</button>' : '') + '<button class="btn small" type="button" data-act="susp">' + (hidden ? 'Unsuspend' : 'Suspend') + '</button><button class="btn small" type="button" data-act="reset">Reset progress</button>' + (n.mine ? '<button class="btn small danger" type="button" data-act="del">Delete</button>' : '') + '</div></div></details>';
   }).join('') + '</div></section>';
@@ -654,13 +836,19 @@ function renderSettings(main){
   h += '<section class="card"><h3>How you answer</h3><label class="t"><input id="setTyping" type="checkbox"' + (s.typing ? ' checked' : '') + '><span><b>Type answers</b><br><small style="color:var(--muted)">Off = flip the card and grade yourself</small></span></label>' +
     (L().accentOpt ? '<label class="t"><input id="setAcc" type="checkbox"' + (accentsOn() ? ' checked' : '') + '><span><b>Count accents</b><br><small style="color:var(--muted)">On = the right word with a missing accent is graded Close. Off = accents are ignored.</small></span></label>' : '') +
     (L().rom ? '<label class="t"><input id="setRom" type="checkbox"' + (showRomFront() ? ' checked' : '') + '><span><b>Show ' + esc(L().rom) + ' on the question</b><br><small style="color:var(--muted)">Off = you see only the ' + esc(L().name) + ' script until you answer. Typed ' + esc(L().rom) + ' is accepted either way.</small></span></label>' : '') + '</section>';
-  h += '<section class="card"><h3>Card types</h3>' + Object.keys(FACET_NAMES).filter(k => (k !== 'a' || L().forms.length) && (k !== 't' || state.notes.some(hasTaglish))).map(k => '<label class="t"><input type="checkbox" data-facet="' + k + '"' + (s.facets[k] ? ' checked' : '') + (k === 'l' && !pickVoice() ? ' disabled' : '') + '><span><b>' + FACET_NAMES[k] + '</b><br><small style="color:var(--muted)">' + FACET_HELP[k] + (k === 'l' && !pickVoice() ? ' No ' + L().name + ' voice found on this device.' : '') + '</small></span></label>').join('') + '</section>';
+  h += '<section class="card"><h3>Card types</h3>' + Object.keys(FACET_NAMES).filter(k => (k !== 'a' || L().forms.length) && (k !== 't' || state.notes.some(hasTaglish)) && (k !== 's' || hasDialogs())).map(k => '<label class="t"><input type="checkbox" data-facet="' + k + '"' + (s.facets[k] ? ' checked' : '') + ((k === 'l' && !pickVoice()) || (k === 's' && !speechReady()) ? ' disabled' : '') + '><span><b>' + FACET_NAMES[k] + '</b><br><small style="color:var(--muted)">' + FACET_HELP[k] + (k === 'l' && !pickVoice() ? ' No ' + L().name + ' voice found on this device.' : '') + (k === 's' && !speechReady() ? ' Off until a speech key is saved under Speaking, below.' : '') + '</small></span></label>').join('') + '</section>';
   h += '<section class="card"><h3>Topics</h3>' + topics.map(t => { const n = state.notes.filter(x => (x.topic || 'other') === t).length; return '<label class="t"><input type="checkbox" data-topic="' + esc(t) + '"' + (s.topics[t] ? ' checked' : '') + '><span>' + esc(topicLabel(t)) + ' <small style="color:var(--muted)">' + n + '</small></span></label>'; }).join('') + '</section>';
   h += '<section class="card"><h3>Audio</h3><label class="t"><input id="setTts" type="checkbox"' + (s.tts ? ' checked' : '') + '><span><b>Read ' + esc(L().name) + ' aloud</b><br><small style="color:var(--muted)">' + (voices.length ? voices.length + ' usable voice' + (voices.length === 1 ? '' : 's') + ' found' : 'No ' + L().name + ' voice on this device. ' + L().ttsNote) + '</small></span></label>' + (voices.length ? '<label class="f" style="margin-top:8px">Voice<select id="setVoice">' + voices.map(v => '<option value="' + esc(v.voiceURI) + '"' + ((pickVoice() || {}).voiceURI === v.voiceURI ? ' selected' : '') + '>' + esc(v.name) + ' (' + esc(v.lang) + (L().id === 'tl' && /^id/i.test(v.lang) ? ', Indonesian, approximate' : '') + ')</option>').join('') + '</select></label><label class="f" style="margin-top:8px">Speed: <span id="rateV">' + s.ttsRate + '</span><input id="setRate" type="range" min="0.6" max="1.2" step="0.05" value="' + s.ttsRate + '"></label><div class="btn-row"><button class="btn small" id="testVoice" type="button">Test: "' + esc(L().sample) + '"</button></div>' : '') + '</section>';
+  const sc = speechCfg(), nDlg = state.notes.filter(n => n.type === 'dialog').length;
+  h += '<section class="card"><h3>Speaking</h3><p class="lede" style="font-size:13px">Conversation cards say a line and score your spoken reply. That needs your own Azure Speech key (the free tier is enough). Each recording is sent to Microsoft Azure to be scored; nothing else leaves the phone. The key is stored on this device only and is left out of backups.</p>' +
+    '<label class="f">Azure Speech key<input id="spKey" type="password" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="' + (sc ? 'saved · paste a new one to replace it' : 'paste Key 1 from the Azure portal') + '"></label>' +
+    '<label class="f" style="margin-top:8px">Region<input id="spRegion" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="southeastasia" value="' + esc(sc ? sc.region : '') + '"></label>' +
+    '<div class="btn-row"><button class="btn primary" id="spSave" type="button">Save</button>' + (sc ? '<button class="btn" id="spTest" type="button">Test the key</button><button class="btn danger" id="spDel" type="button">Remove key</button>' : '') + '</div>' +
+    '<div class="status" id="spStatus">' + esc(!micSupported() ? 'This browser cannot record from the microphone.' : !sc ? 'No key saved: speaking cards are off.' : nDlg + ' conversation lines in the ' + L().name + ' deck. ' + (L().pa ? 'Pronunciation is scored out of 100.' : 'Azure does not score ' + L().name + ' pronunciation, so replies are checked for being understood.')) + '</div></section>';
   h += '<section class="card"><h3>Appearance</h3><label class="f">Theme<select id="setTheme"><option value="auto"' + (s.theme === 'auto' ? ' selected' : '') + '>Match device</option><option value="light"' + (s.theme === 'light' ? ' selected' : '') + '>Light</option><option value="dark"' + (s.theme === 'dark' ? ' selected' : '') + '>Dark</option></select></label></section>';
   h += '<section class="card"><h3>Backup &amp; decks</h3><p class="lede" style="font-size:13px">Progress lives only on this device. One backup covers every language. Save it to Files or Drive now and then.</p><div class="btn-row">' + (navigator.share ? '<button class="btn primary" id="bkShare" type="button">Share backup</button>' : '') + '<button class="btn" id="bkDown" type="button">Download backup</button><button class="btn" id="bkRestore" type="button">Restore backup</button></div><input id="bkFile" type="file" accept="application/json,.json" hidden>' +
     '<h3 style="margin-top:16px">Import a deck file</h3><p class="lede" style="font-size:13px">Any JSON file of notes in the Salita format, such as cards Claude made from a conversation. They are added to the ' + esc(L().name) + ' deck. Existing notes with the same id are replaced; your progress on them is kept.</p><div class="btn-row"><button class="btn" id="deckImport" type="button">Import deck JSON</button><button class="btn" id="deckExport" type="button">Export my cards</button></div><input id="deckFile" type="file" accept="application/json,.json" hidden><div class="status" id="bkStatus"></div></section>';
-  h += '<section class="card"><h3>About</h3><p class="lede" style="font-size:13px">Starter deck: ' + esc(state.deck.name) + (state.deck.version ? ' (' + esc(state.deck.version) + ')' : '') + ' · ' + state.deck.notes.length + ' notes · ' + state.extra.length + ' of your own. Scheduling by FSRS-4.5. Nothing leaves your phone.</p><div class="btn-row"><button class="btn danger" id="resetAll" type="button">Reset all progress</button></div></section>';
+  h += '<section class="card"><h3>About</h3><p class="lede" style="font-size:13px">Starter deck: ' + esc(state.deck.name) + (state.deck.version ? ' (' + esc(state.deck.version) + ')' : '') + ' · ' + state.deck.notes.length + ' notes · ' + state.extra.length + ' of your own. Scheduling by FSRS-4.5. Nothing leaves your phone, except recordings sent to Azure for scoring if you turn on Speaking.</p><div class="btn-row"><button class="btn danger" id="resetAll" type="button">Reset all progress</button></div></section>';
   main.innerHTML = h;
   const upd = () => { save('settings'); };
   main.querySelector('#setLang').onchange = e => { switchLang(e.target.value); };
@@ -675,6 +863,9 @@ function renderSettings(main){
   main.querySelector('#setTts').onchange = e => { s.tts = e.target.checked; upd(); renderSettings(main); };
   const sv = main.querySelector('#setVoice'); if (sv) sv.onchange = e => { s.voice = e.target.value; upd(); };
   const sr = main.querySelector('#setRate'); if (sr) sr.oninput = e => { s.ttsRate = Number(e.target.value); main.querySelector('#rateV').textContent = e.target.value; upd(); };
+  main.querySelector('#spSave').onclick = () => { const k = main.querySelector('#spKey').value.trim(), r = main.querySelector('#spRegion').value.trim(), cur = speechCfg(), key = k || (cur ? cur.key : ''); if (!key || !r) { toast('Both the key and the region are needed'); return; } try { speechUrl(r, 'en-US'); } catch (e) { toast(e.message); return; } try { lsPutRaw('speech', { key: key, region: r }); } catch (e) { toast('Could not save: ' + e.message); return; } toast('Speech key saved on this phone'); renderSettings(main); };
+  const spT = main.querySelector('#spTest'); if (spT) spT.onclick = testSpeechKey;
+  const spD = main.querySelector('#spDel'); if (spD) spD.onclick = () => { if (!confirm('Remove the speech key from this phone? Speaking cards turn off; their progress is kept.')) return; lsPutRaw('speech', null); toast('Speech key removed'); renderSettings(main); };
   const tv = main.querySelector('#testVoice'); if (tv) tv.onclick = () => { if (!speak(L().sample)) toast('No voice available'); };
   main.querySelector('#setTheme').onchange = e => { state.settings.theme = e.target.value; lsPutRaw('theme', e.target.value); upd(); applyTheme(); };
   const sh = main.querySelector('#bkShare'); if (sh) sh.onclick = shareBackup; main.querySelector('#bkDown').onclick = downloadBackup;
@@ -711,7 +902,7 @@ async function restoreFromFile(file){
     rebuildNotes(); setStatus('Restored. ' + parts.join(' · '), 'ok'); }
   catch (e) { setStatus('Restore failed: ' + e.message, 'warn'); }
 }
-function validateNote(n){ if (!n || typeof n !== 'object' || !n.id || !n.tl || !n.en) return false; if (!n.type) n.type = 'vocab'; if (!n.topic) n.topic = 'mine'; if (!n.tier) n.tier = 2; return true; }
+function validateNote(n){ if (!n || typeof n !== 'object' || !n.id || !n.tl || !n.en) return false; if (n.type === 'dialog' && !n.cue) return false; if (!n.type) n.type = 'vocab'; if (!n.topic) n.topic = 'mine'; if (!n.tier) n.tier = 2; return true; }
 async function importDeckFile(file){
   try { const data = await readJsonFile(file); const notes = Array.isArray(data) ? data : (data && Array.isArray(data.notes) ? data.notes : null); if (!notes) throw new Error('expected a JSON array of notes or {"notes": [...]}');
     if (data && data.lang && data.lang !== L().id) throw new Error('this file is for ' + ((LANGS.find(l => l.id === data.lang) || {}).name || data.lang) + '; switch language first');
@@ -732,7 +923,7 @@ async function loadDeck(){
 }
 document.querySelectorAll('.tabs [role=tab]').forEach(b => { b.onclick = () => { state.tab = b.dataset.tab; render(); }; });
 (function langMenu(){ const sel = document.getElementById('langSel'); sel.innerHTML = LANGS.map(l => '<option value="' + l.id + '">' + esc(l.name) + '</option>').join(''); sel.value = L().id; sel.onchange = () => { switchLang(sel.value); }; })();
-document.getElementById('btnHelp').onclick = () => { alert('Salita drills a language the way a spaced-repetition app does: you see each card right before you would forget it.\n\n• New words appear once with their meaning, then get tested later in the same session.\n• Type the answer and tap Check. Punctuation is ignored; accents count in Spanish and German (change it in Settings). For Japanese and Thai you can type the romanization. Close answers count as Hard.\n• Again = would not have produced it. Hard = got it, slowly. Good = fine. Easy = instant.\n• Production, Listening, Casual and conjugation cards unlock after you pass the word once.\n• The menu at the top switches language: Tagalog, Spanish, and travel decks for Japanese, Thai, Dutch, Czech and German. Each keeps its own progress.\n• Everything stays on this phone. Back up from Settings.'); };
+document.getElementById('btnHelp').onclick = () => { alert('Salita drills a language the way a spaced-repetition app does: you see each card right before you would forget it.\n\n• New words appear once with their meaning, then get tested later in the same session.\n• Type the answer and tap Check. Punctuation is ignored; accents count in Spanish and German (change it in Settings). For Japanese and Thai you can type the romanization. Close answers count as Hard.\n• Again = would not have produced it. Hard = got it, slowly. Good = fine. Easy = instant.\n• Production, Listening, Casual and conjugation cards unlock after you pass the word once.\n• The menu at the top switches language: Tagalog, Spanish, and travel decks for Japanese, Thai, Dutch, Czech and German. Each keeps its own progress.\n• Conversation cards say a line and score your spoken reply, once a speech key is saved under Settings › Speaking. Those recordings go to Microsoft Azure for scoring.\n• Everything else stays on this phone. Back up from Settings.'); };
 applyTheme();
 loadDeck().then(render);
 if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('./sw.js').catch(() => {}); }); }

@@ -5,9 +5,10 @@ Latin American Spanish. Five travel decks for getting by as a visitor: Japanese,
 Dutch, Czech and German. Switch with the language menu at the top; each language keeps
 its own progress, streak and settings. Spaced repetition (FSRS-4.5), typed
 answers with forgiving grading, verb aspect drills, fill-the-blank and grammar cards,
-Taglish "how would a friend text this" cards, optional listening cards, streaks and
-progress charts. Everything runs in one HTML file and works offline. Nothing leaves the
-phone.
+Taglish "how would a friend text this" cards, optional listening cards, optional speaking
+cards that score a spoken reply, streaks and progress charts. Everything runs in one HTML
+file and works offline. Nothing leaves the phone, except voice recordings sent to Azure
+for scoring if you turn the speaking cards on.
 
 Live: https://jrjohnsonlloyd.github.io/Salita/
 
@@ -36,11 +37,37 @@ or Drive). Restore merges, so restoring an old backup never loses newer progress
   Hard = got it, slowly. Good = fine. Easy = instant. The buttons show the next interval.
 - **Card types** per note: Recognize (Tagalog → English), Produce (English → Tagalog),
   Listen (hear it, type it), Taglish (self-graded), Verb aspect (completed /
-  incompleted / contemplated), Fill the blank, Grammar. Produce, Listen, Taglish and
+  incompleted / contemplated), Fill the blank, Grammar, Speak (answer a line out loud). Produce, Listen, Taglish and
   aspect cards unlock after the Recognize card has been passed once. Turn any type or
   topic off in Settings.
 - **Daily load** defaults to 15 new cards a day plus whatever is due. "Learn 10 more"
   on the summary screen adds extra new cards when you want them.
+
+### Speaking cards
+
+Every deck has a Conversations topic: about 37 short exchanges (greetings, small talk,
+ordering, shops, taxi, hotel, help). The app says a line ("What would you like to
+order?"), shows in English what to reply, and you answer out loud. The reply is recorded,
+sent to Microsoft Azure Speech, and comes back with a score. Japanese, Thai, Dutch,
+German and Spanish get a pronunciation score out of 100 with each word marked; Azure does
+not score Czech or Tagalog pronunciation, so those replies are checked for being
+understood. The score suggests a grade and you keep or change it. Speaking cards are
+scheduled, counted in the streak and charted like every other card. "Speaking practice"
+on the Today screen runs a session of only these; "Can't speak now" inside a session
+leaves them for later.
+
+They stay off until a speech key is saved:
+
+1. Create an Azure account, then a **Speech** resource on the **Free F0** tier
+   (https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices).
+2. Open the resource's *Keys and Endpoint* page.
+3. In Salita: Settings → Speaking → paste Key 1 and the region (for example
+   `southeastasia`) → Save → Test the key.
+
+The key is stored on the phone only and is left out of backups. Recordings go straight
+from the phone to Azure; the first time, the phone asks for microphone access. A voice
+for the language (see below) is needed for the app to say its line aloud; without one
+the line is shown as text.
 
 ### Listening cards and audio
 
