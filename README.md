@@ -7,8 +7,8 @@ its own progress, streak and settings. Spaced repetition (FSRS-4.5), typed
 answers with forgiving grading, verb aspect drills, fill-the-blank and grammar cards,
 Taglish "how would a friend text this" cards, optional listening cards, optional speaking
 cards that score a spoken reply, streaks and progress charts. Everything runs in one HTML
-file and works offline. Nothing leaves the phone, except voice recordings sent to Azure
-for scoring if you turn the speaking cards on.
+file and works offline. Nothing leaves the phone, except voice recordings sent to
+Google or Microsoft for scoring if you turn the speaking cards on.
 
 Live: https://jrjohnsonlloyd.github.io/Salita/
 
@@ -47,27 +47,30 @@ or Drive). Restore merges, so restoring an old backup never loses newer progress
 
 Every deck has a Conversations topic: about 37 short exchanges (greetings, small talk,
 ordering, shops, taxi, hotel, help). The app says a line ("What would you like to
-order?"), shows in English what to reply, and you answer out loud. The reply is recorded,
-sent to Microsoft Azure Speech, and comes back with a score. Japanese, Thai, Dutch,
-German and Spanish get a pronunciation score out of 100 with each word marked; Azure does
-not score Czech or Tagalog pronunciation, so those replies are checked for being
-understood. The score suggests a grade and you keep or change it. Speaking cards are
-scheduled, counted in the streak and charted like every other card. "Speaking practice"
-on the Today screen runs a session of only these; "Can't speak now" inside a session
-leaves them for later.
+order?"), shows in English what to reply, and you answer out loud. The reply is recorded
+and sent to a scoring service, and the result suggests a grade that you keep or change.
+Speaking cards are scheduled, counted in the streak and charted like every other card.
+"Speaking practice" on the Today screen runs a session of only these; "Can't speak now"
+inside a session leaves them for later.
 
-They stay off until a speech key is saved:
+They stay off until a key for one of two services is saved under Settings → Speaking:
 
-1. Create an Azure account, then a **Speech** resource on the **Free F0** tier
-   (https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices).
-2. Open the resource's *Keys and Endpoint* page.
-3. In Salita: Settings → Speaking → paste Key 1 and the region (for example
-   `southeastasia`) → Save → Test the key.
+- **Google Gemini** (no card needed). Create a key at https://aistudio.google.com/apikey
+  and paste it in. Gemini listens to the recording and returns what it heard, a rough
+  score out of 100 and one tip, in every language. It also accepts a different reply
+  that still fits the line. On Google's free tier, what you send may be used to improve
+  its products.
+- **Microsoft Azure Speech**. Create a Speech resource on the Free F0 tier
+  (https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices), then
+  paste Key 1 and the region (for example `southeastasia`). Japanese, Thai, Dutch,
+  German and Spanish get a pronunciation score with each word marked; Azure does not
+  score Czech or Tagalog pronunciation, so those replies are checked for being
+  understood.
 
-The key is stored on the phone only and is left out of backups. Recordings go straight
-from the phone to Azure; the first time, the phone asks for microphone access. A voice
-for the language (see below) is needed for the app to say its line aloud; without one
-the line is shown as text.
+Then tap **Test the key**. The key is stored on the phone only and is left out of
+backups. Recordings go straight from the phone to the chosen service; the first time,
+the phone asks for microphone access. A voice for the language (see below) is needed for
+the app to say its line aloud; without one the line is shown as text.
 
 ### Listening cards and audio
 

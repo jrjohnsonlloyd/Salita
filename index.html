@@ -443,13 +443,14 @@ function pickVoice(){ if (!('speechSynthesis' in window)) return null; const c =
 function speak(text){ if (!('speechSynthesis' in window)) return false; const v = pickVoice(); if (!v) return false; try { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(String(text).replace(/\{\{|\}\}/g, '')); u.voice = v; u.lang = v.lang; u.rate = state.settings.ttsRate || 0.9; speechSynthesis.speak(u); return true; } catch (e) { return false; } }
 if ('speechSynthesis' in window) { loadVoices(); speechSynthesis.addEventListener('voiceschanged', () => { loadVoices(); if (state.tab === 'settings' && !state.sess) render(); }); }
 
-/* ===================== speaking (Azure Speech) ===================== */
-/* A spoken reply is recorded here, converted to 16 kHz mono WAV and sent to the user's own Azure Speech resource.
+/* ===================== speaking (Google Gemini or Azure Speech) ===================== */
+/* A spoken reply is recorded here, converted to 16 kHz mono WAV and sent to the service the user set up with their own key:
+   Google Gemini (a rough score and a tip, every language) or Azure Speech (per-word pronunciation scores where Azure has them).
    The key is kept in this device's storage only (sl.speech) and is never written to a backup. */
 const MIC = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>';
-function speechCfg(){ const c = lsGetRaw('speech', null); return c && c.key && c.region ? c : null; }
+function speechCfg(){ const c = lsGetRaw('speech', null); if (!c || !c.key) return null; if (!c.provider) c.provider = 'azure'; return c.provider === 'gemini' || c.region ? c : null; }
 function micSupported(){ return !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && (window.AudioContext || window.webkitAudioContext)); }
-function speechReady(){ return !!(L().stt && speechCfg() && micSupported()); }
+function speechReady(){ const c = speechCfg(); return !!(c && micSupported() && (c.provider === 'gemini' || L().stt)); }
 function hasDialogs(){ return state.notes.some(n => n.type === 'dialog'); }
 /* region: a region name ("southeastasia") or the endpoint address shown in the Azure portal. Only Microsoft hosts are ever contacted. */
 function speechUrl(region, locale){
@@ -470,7 +471,7 @@ function recStop(){
   try { rec.node.onaudioprocess = null; rec.node.disconnect(); rec.src.disconnect(); } catch (e) {}
   try { rec.stream.getTracks().forEach(t => t.stop()); } catch (e) {}
   try { rec.ctx.close(); } catch (e) {}
-  return { chunks: rec.chunks, rate: rec.rate };
+  return { chunks: rec.chunks, rate: rec.rate, heard: rec.heard };
 }
 async function recStart(onAuto){
   if (rec.on) return; try { speechSynthesis.cancel(); } catch (e) {}
@@ -517,6 +518,66 @@ async function azureListen(wav, refText){
   if (!r.ok) throw new Error('The speech service returned an error (' + r.status + ').');
   return r.json();
 }
+/* --- Google Gemini: the model listens to the recording and returns what it heard, a rough score and one tip --- */
+const GEM_URL = 'https://generativelanguage.googleapis.com/v1beta/';
+const GEM_MODELS = ['gemini-3.8-flash', 'gemini-3.6-flash', 'gemini-3.5-flash-lite'];
+const GEM_SCHEMA = { type: 'object', properties: { heard: { type: 'string' }, match: { type: 'string', enum: ['same', 'variant', 'fits', 'wrong', 'nothing'] }, score: { type: 'integer' }, tip: { type: 'string' } }, required: ['heard', 'match', 'score', 'tip'] };
+function b64buf(buf){ const b = new Uint8Array(buf); let o = ''; for (let i = 0; i < b.length; i += 0x8000) o += String.fromCharCode.apply(null, b.subarray(i, i + 0x8000)); return btoa(o); }
+/* the reply text, wherever this version of the API puts it */
+function gemText(d){
+  if (Array.isArray(d)) d = d[0]; if (!d) return ''; if (typeof d.output_text === 'string') return d.output_text; let t = '';
+  (d.steps || d.outputs || []).forEach(st => { if (st.type && st.type !== 'model_output' && st.type !== 'text') return; if (typeof st.text === 'string') t += st.text; (st.content || []).forEach(c => { if (typeof c.text === 'string' && (!c.type || c.type === 'text')) t += c.text; }); });
+  const cand = (d.candidates || [])[0]; ((cand && cand.content && cand.content.parts) || []).forEach(pt => { if (typeof pt.text === 'string' && !pt.thought) t += pt.text; });
+  return t;
+}
+function gemError(d){ if (Array.isArray(d)) d = d[0]; const e = (d && d.error) || {}; return { msg: String(e.message || ''), reason: ((e.details || []).find(x => x && x.reason) || {}).reason || '', status: e.status || '' }; }
+/* Three request shapes, newest first: the Interactions API with a JSON schema, the same without extras, then generateContent.
+   The first combination of model and shape that answers is remembered, so later replies take one request. */
+function gemRequest(model, shape, sys, text, audioB64, json){
+  if (shape === 2) { const parts = [{ text: text }]; if (audioB64) parts.push({ inlineData: { mimeType: 'audio/wav', data: audioB64 } });
+    const body = { systemInstruction: { parts: [{ text: sys }] }, contents: [{ role: 'user', parts: parts }] }; if (json) body.generationConfig = { responseMimeType: 'application/json' };
+    return { url: GEM_URL + 'models/' + model + ':generateContent', body: body }; }
+  const input = [{ type: 'text', text: shape === 1 ? sys + '\n\n' + text : text }]; if (audioB64) input.push({ type: 'audio', data: audioB64, mime_type: 'audio/wav' });
+  const body = { model: model, input: input, store: false };
+  if (shape === 0) { body.system_instruction = sys; body.generation_config = { thinking_level: 'low' }; if (json) body.response_format = { type: 'text', mime_type: 'application/json', schema: GEM_SCHEMA }; }
+  return { url: GEM_URL + 'interactions', body: body };
+}
+async function geminiCall(sys, text, audioB64, json){
+  const cfg = speechCfg(); if (!cfg) throw new Error('No speech key is set. Add one in Settings.');
+  const known = lsGetRaw('speechOk', null); let tries = []; GEM_MODELS.forEach(m => [0, 1, 2].forEach(sh => tries.push({ m: m, sh: sh })));
+  if (known && known.m) tries = [known].concat(tries.filter(t => !(t.m === known.m && t.sh === known.sh)));
+  let last = 'The speech service did not answer.', skip = '';
+  for (const t of tries) {
+    if (t.m === skip) continue;
+    const rq = gemRequest(t.m, t.sh, sys, text, audioB64, json), ctl = new AbortController(), to = setTimeout(() => ctl.abort(), 30000); let r, d = null;
+    try { r = await fetch(rq.url, { method: 'POST', headers: { 'x-goog-api-key': cfg.key, 'Content-Type': 'application/json' }, body: JSON.stringify(rq.body), signal: ctl.signal }); }
+    catch (e) { clearTimeout(to); throw new Error(e && e.name === 'AbortError' ? 'Gemini took too long. Try again.' : 'Could not reach Gemini. Check the connection.'); }
+    clearTimeout(to); try { d = await r.json(); } catch (e) {}
+    if (r.ok) { const out = gemText(d); if (out.trim()) { try { lsPutRaw('speechOk', { m: t.m, sh: t.sh }); } catch (e) {} return { text: out, model: t.m }; } last = 'Gemini answered with nothing. Try again.'; continue; }
+    const er = gemError(d);
+    if (er.reason === 'API_KEY_INVALID' || r.status === 401 || /api key/i.test(er.msg)) throw new Error('The Gemini key was not accepted. Check it in Settings.');
+    if (r.status === 403) throw new Error('Gemini refused this key' + (er.msg ? ': ' + er.msg : '.'));
+    if (r.status === 429) { skip = t.m; last = 'Gemini is over its free limit for now. Wait a minute and try again; the daily allowance resets overnight.'; continue; }   /* each model has its own allowance: try the next */
+    last = r.status >= 500 ? 'Gemini is busy right now. Try again in a moment.' : 'Gemini could not handle the request' + (er.msg ? ': ' + er.msg.slice(0, 140) : ' (' + r.status + ').');
+  }
+  throw new Error(last);
+}
+async function geminiScore(wav, n){
+  const nm = L().name;
+  const sys = 'You are a strict but fair pronunciation coach for an adult English speaker learning ' + nm + ' for travel. You receive a short recording of the learner answering a line in a role-play. Listen to the audio itself and answer with JSON only, with these fields. ' +
+    '"heard": exactly what the learner said, written in ' + nm + ' the way it is normally written, without correcting mistakes; an empty string if there is no speech. ' +
+    '"match": "same" if they said the expected reply (small slips allowed); "variant" if they said one of the other accepted replies; "fits" if they said something else that is still a natural, polite answer to the line; "wrong" if it does not answer the line or is not in ' + nm + '; "nothing" if there is no speech. ' +
+    '"score": pronunciation from 0 to 100, judged from the sound: 90 or more is near native, 75 to 89 clear with an accent, 55 to 74 understandable with effort, under 55 hard to understand. Judge the sounds, and vowel length, tones or stress where ' + nm + ' has them. Never give a high score only because the words are right. ' +
+    '"tip": one short sentence in English, 18 words at most, naming the most useful fix; an empty string if nothing needs fixing.';
+  const text = 'Line said to the learner: ' + n.cue + (n.cue_en ? ' (' + n.cue_en + ')' : '') + '\nExpected reply: ' + n.tl + (n.rom ? ' [' + n.rom + ']' : '') + ' = ' + n.en + ((n.accept_tl || []).length ? '\nOther accepted replies: ' + n.accept_tl.join(' / ') : '') + '\nThe recording follows.';
+  const out = await geminiCall(sys, text, b64buf(wav), true); let j = null;
+  try { const m = /\{[\s\S]*\}/.exec(out.text); j = JSON.parse(m ? m[0] : out.text); } catch (e) {}
+  if (!j || typeof j !== 'object') throw new Error('Gemini answered in a form the app could not read. Try again.');
+  const match = String(j.match || '').toLowerCase(), heard = String(j.heard || '').trim();
+  if (match === 'nothing' || !heard) return { none: true };
+  const est = clamp(Math.round(Number(j.score) || 0), 0, 100);
+  return { heard: heard, est: est, v: match === 'wrong' ? 'bad' : est >= 75 ? 'ok' : est >= 55 ? 'close' : 'bad', wrong: match === 'wrong', fits: match === 'fits', alt: match === 'variant', tip: String(j.tip || '').trim().slice(0, 200) };
+}
 /* Azure's answer → { heard, v: ok|close|bad, pron, acc, flu, comp, words } or { none: true } when nothing was recognized */
 function speechResult(d, n){
   if (!d || d.RecognitionStatus !== 'Success') return { none: true };
@@ -535,6 +596,10 @@ function speechResult(d, n){
   return { heard: heard, v: textMatch(tlAnswers(n)) };
 }
 function spkResultHtml(res){
+  if (res.est != null) {
+    const lab = res.wrong ? 'Does not answer the line' : res.est >= 85 ? 'Clear' : res.v === 'ok' ? 'Good' : res.v === 'close' ? 'Understandable, keep at it' : 'Not there yet';
+    return '<div class="verdict ' + res.v + '"><span class="score">' + res.est + '</span><div>' + lab + '<span class="you">heard: ' + esc(res.heard) + '</span>' + (res.fits ? '<span class="you">A different reply that also fits.</span>' : res.alt ? '<span class="you">Another accepted reply.</span>' : '') + (res.tip ? '<span class="you">Tip: ' + esc(res.tip) + '</span>' : '') + '</div></div><div class="cap">A rough estimate from Google Gemini, not an exact measurement.</div>';
+  }
   if (res.pron != null) {
     const lab = res.pron >= 85 && res.v === 'ok' ? 'Clear' : res.v === 'ok' ? 'Good' : res.v === 'close' ? 'Understandable, keep at it' : 'Not there yet';
     const cls = w => w.e === 'Omission' ? 'miss' : w.e === 'Insertion' ? 'extra' : (w.e === 'Mispronunciation' || w.s < 60) ? 'off' : w.s < 80 ? 'mid' : 'good';
@@ -564,9 +629,11 @@ async function spkStop(){
   const at = s.i, item = current(), x = item && cardOf(item.id), r = recStop(); if (!x || !r) return;
   const audio = toWav16k(r.chunks, r.rate);
   if (audio.secs < 0.4) { s.spk = { phase: 'error', err: 'That was too short to score. Tap the microphone and try again.' }; renderStudy(); return; }
-  s.spk = { phase: 'scoring' }; renderStudy();
   let res = null, err = '';
-  try { res = speechResult(await azureListen(audio.wav, L().pa ? x.n.tl : ''), x.n); } catch (e) { err = e.message || 'Scoring failed.'; }
+  const gem = (speechCfg() || {}).provider === 'gemini';
+  if (gem && !r.heard) { s.spk = { phase: 'error', err: 'No speech was picked up. Tap the microphone and try again, a little louder.' }; renderStudy(); return; }
+  s.spk = { phase: 'scoring' }; renderStudy();
+  try { res = gem ? await geminiScore(audio.wav, x.n) : speechResult(await azureListen(audio.wav, L().pa ? x.n.tl : ''), x.n); } catch (e) { err = e.message || 'Scoring failed.'; }
   if (state.sess !== s || s.i !== at) return;   /* moved on while waiting */
   if (err) s.spk = { phase: 'error', err: err };
   else if (res.none) s.spk = { phase: 'error', err: 'Nothing was recognized. Try again a little louder, with the phone closer.' };
@@ -577,7 +644,8 @@ async function spkStop(){
 function skipSpeak(){ const s = state.sess; if (!s) return; recStop(); s.q = s.q.filter((it, i) => i < s.i || splitId(it.id)[1] !== 's'); s.spk = null; s.revealed = false; toast('Speaking cards left for later'); renderStudy(); }
 async function testSpeechKey(){
   const set = (m, c) => { const st = document.getElementById('spStatus'); if (st) { st.textContent = m; st.className = 'status ' + (c || ''); } }; set('Checking…');
-  try { const d = await azureListen(toWav16k([new Float32Array(9600)], 16000).wav, ''); if (d && d.RecognitionStatus) set('The key works. ' + L().name + ' speaking cards are ready.', 'ok'); else set('Azure answered, but not in the expected form.', 'warn'); }
+  try { if (speechCfg().provider === 'gemini') { const o = await geminiCall('You are a connection test.', 'Reply with the single word OK.', '', false); set('The key works (' + o.model + '). Speaking cards are ready.', 'ok'); return; }
+    const d = await azureListen(toWav16k([new Float32Array(9600)], 16000).wav, ''); if (d && d.RecognitionStatus) set('The key works. ' + L().name + ' speaking cards are ready.', 'ok'); else set('Azure answered, but not in the expected form.', 'warn'); }
   catch (e) { set(e.message, 'warn'); }
 }
 /* the line the other person says, shown above a speaking card */
@@ -766,7 +834,7 @@ function renderToday(main){
   h += '<section class="tiles"><div class="tile"><div class="eyebrow">Known</div><div class="v">' + notesKnown() + '<small>words</small></div><div class="c">passed at least once</div></div><div class="tile"><div class="eyebrow">In review</div><div class="v">' + c.review + '<small>cards</small></div><div class="c">' + c.learning + ' still learning</div></div><div class="tile"><div class="eyebrow">Retention</div><div class="v">' + (retention(30) == null ? '—' : Math.round(retention(30) * 100) + '<small>%</small>') + '</div><div class="c">last 30 days</div></div><div class="tile"><div class="eyebrow">Deck</div><div class="v">' + state.notes.length + '<small>notes</small></div><div class="c">' + c.new + ' cards not started</div></div></section>';
   if (!state.deck.notes.length) h += '<section class="card"><h3>Deck not loaded</h3><p class="lede">The starter deck did not load. If you are offline, open the app once online so it can be saved for offline use.</p></section>';
   const tips = [L().rom ? 'Type answers in ' + L().rom + ' or in ' + L().name + ' script. Both count, and tone or length marks are ignored.' : accentsOn() ? 'Accents count: the right word with a missing accent is graded Close.' : 'Type answers without worrying about accents: grading ignores them.', 'Hard means you got it but slowly. Again means you would not have produced it.', L().forms.length ? 'Verb conjugation cards unlock after you pass the verb once.' : 'Produce and Listen cards unlock after you pass the word once.', 'Add your own cards from Browse, or import a deck file from a Claude chat under Settings.', 'Use the language menu at the top to switch decks. Each language keeps its own progress and streak.'];
-  if (hasDialogs()) tips.push(speechCfg() ? 'Speaking cards: answer out loud, then keep or change the suggested grade. Tap Speaking practice for a session of only those.' : 'Conversation cards can score your spoken replies. Add an Azure Speech key under Settings › Speaking to turn them on.');
+  if (hasDialogs()) tips.push(speechCfg() ? 'Speaking cards: answer out loud, then keep or change the suggested grade. Tap Speaking practice for a session of only those.' : 'Conversation cards can score your spoken replies. Add a free Google Gemini key under Settings › Speaking to turn them on.');
   const tipDay = Number(todayKey().slice(-2)) % tips.length;
   h += '<section class="card"><div class="eyebrow">Tip</div><p style="margin:6px 0 0">' + tips[tipDay] + '</p></section>';
   main.innerHTML = h;
@@ -839,16 +907,18 @@ function renderSettings(main){
   h += '<section class="card"><h3>Card types</h3>' + Object.keys(FACET_NAMES).filter(k => (k !== 'a' || L().forms.length) && (k !== 't' || state.notes.some(hasTaglish)) && (k !== 's' || hasDialogs())).map(k => '<label class="t"><input type="checkbox" data-facet="' + k + '"' + (s.facets[k] ? ' checked' : '') + ((k === 'l' && !pickVoice()) || (k === 's' && !speechReady()) ? ' disabled' : '') + '><span><b>' + FACET_NAMES[k] + '</b><br><small style="color:var(--muted)">' + FACET_HELP[k] + (k === 'l' && !pickVoice() ? ' No ' + L().name + ' voice found on this device.' : '') + (k === 's' && !speechReady() ? ' Off until a speech key is saved under Speaking, below.' : '') + '</small></span></label>').join('') + '</section>';
   h += '<section class="card"><h3>Topics</h3>' + topics.map(t => { const n = state.notes.filter(x => (x.topic || 'other') === t).length; return '<label class="t"><input type="checkbox" data-topic="' + esc(t) + '"' + (s.topics[t] ? ' checked' : '') + '><span>' + esc(topicLabel(t)) + ' <small style="color:var(--muted)">' + n + '</small></span></label>'; }).join('') + '</section>';
   h += '<section class="card"><h3>Audio</h3><label class="t"><input id="setTts" type="checkbox"' + (s.tts ? ' checked' : '') + '><span><b>Read ' + esc(L().name) + ' aloud</b><br><small style="color:var(--muted)">' + (voices.length ? voices.length + ' usable voice' + (voices.length === 1 ? '' : 's') + ' found' : 'No ' + L().name + ' voice on this device. ' + L().ttsNote) + '</small></span></label>' + (voices.length ? '<label class="f" style="margin-top:8px">Voice<select id="setVoice">' + voices.map(v => '<option value="' + esc(v.voiceURI) + '"' + ((pickVoice() || {}).voiceURI === v.voiceURI ? ' selected' : '') + '>' + esc(v.name) + ' (' + esc(v.lang) + (L().id === 'tl' && /^id/i.test(v.lang) ? ', Indonesian, approximate' : '') + ')</option>').join('') + '</select></label><label class="f" style="margin-top:8px">Speed: <span id="rateV">' + s.ttsRate + '</span><input id="setRate" type="range" min="0.6" max="1.2" step="0.05" value="' + s.ttsRate + '"></label><div class="btn-row"><button class="btn small" id="testVoice" type="button">Test: "' + esc(L().sample) + '"</button></div>' : '') + '</section>';
-  const sc = speechCfg(), nDlg = state.notes.filter(n => n.type === 'dialog').length;
-  h += '<section class="card"><h3>Speaking</h3><p class="lede" style="font-size:13px">Conversation cards say a line and score your spoken reply. That needs your own Azure Speech key (the free tier is enough). Each recording is sent to Microsoft Azure to be scored; nothing else leaves the phone. The key is stored on this device only and is left out of backups.</p>' +
-    '<label class="f">Azure Speech key<input id="spKey" type="password" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="' + (sc ? 'saved · paste a new one to replace it' : 'paste Key 1 from the Azure portal') + '"></label>' +
-    '<label class="f" style="margin-top:8px">Region<input id="spRegion" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="southeastasia" value="' + esc(sc ? sc.region : '') + '"></label>' +
-    '<div class="btn-row"><button class="btn primary" id="spSave" type="button">Save</button>' + (sc ? '<button class="btn" id="spTest" type="button">Test the key</button><button class="btn danger" id="spDel" type="button">Remove key</button>' : '') + '</div>' +
-    '<div class="status" id="spStatus">' + esc(!micSupported() ? 'This browser cannot record from the microphone.' : !sc ? 'No key saved: speaking cards are off.' : nDlg + ' conversation lines in the ' + L().name + ' deck. ' + (L().pa ? 'Pronunciation is scored out of 100.' : 'Azure does not score ' + L().name + ' pronunciation, so replies are checked for being understood.')) + '</div></section>';
+  const sc = speechCfg(), nDlg = state.notes.filter(n => n.type === 'dialog').length, prov = state.spProv || (sc ? sc.provider : 'gemini'), same = !!sc && sc.provider === prov;
+  h += '<section class="card"><h3>Speaking</h3><p class="lede" style="font-size:13px">Conversation cards say a line and score your spoken reply. That needs your own key for one of two services. The key is stored on this device only and is left out of backups. Nothing but the recording of your reply (and the line it answers) is sent.</p>' +
+    '<label class="f">Scoring service<select id="spProv"><option value="gemini"' + (prov === 'gemini' ? ' selected' : '') + '>Google Gemini: no card needed, rough score</option><option value="azure"' + (prov === 'azure' ? ' selected' : '') + '>Microsoft Azure Speech: per-word scores</option></select></label>' +
+    '<p class="lede" style="font-size:13px;margin-top:8px">' + (prov === 'gemini' ? 'Get a free key at aistudio.google.com/apikey. Gemini listens to the recording and gives a rough score out of 100 and one tip, in every language. On the free tier Google may use what you send to improve its products.' : 'Needs an Azure account and a Speech resource (Free F0 tier). Pronunciation is scored word by word for Japanese, Thai, Dutch, German and Spanish; Czech and Tagalog are only checked for being understood.') + '</p>' +
+    '<label class="f">' + (prov === 'gemini' ? 'Gemini API key' : 'Azure Speech key') + '<input id="spKey" type="password" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="' + (same ? 'saved · paste a new one to replace it' : prov === 'gemini' ? 'paste the key from Google AI Studio' : 'paste Key 1 from the Azure portal') + '"></label>' +
+    (prov === 'azure' ? '<label class="f" style="margin-top:8px">Region<input id="spRegion" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="southeastasia" value="' + esc(same ? sc.region || '' : '') + '"></label>' : '') +
+    '<div class="btn-row"><button class="btn primary" id="spSave" type="button">Save</button>' + (same ? '<button class="btn" id="spTest" type="button">Test the key</button>' : '') + (sc ? '<button class="btn danger" id="spDel" type="button">Remove key</button>' : '') + '</div>' +
+    '<div class="status" id="spStatus">' + esc(!micSupported() ? 'This browser cannot record from the microphone.' : !sc ? 'No key saved: speaking cards are off.' : (sc.provider === 'gemini' ? 'Google Gemini key saved. ' : 'Azure key saved. ') + nDlg + ' conversation lines in the ' + L().name + ' deck. ' + (sc.provider === 'gemini' ? 'Replies get a rough score out of 100.' : L().pa ? 'Pronunciation is scored out of 100.' : 'Azure does not score ' + L().name + ' pronunciation, so replies are checked for being understood.')) + '</div></section>';
   h += '<section class="card"><h3>Appearance</h3><label class="f">Theme<select id="setTheme"><option value="auto"' + (s.theme === 'auto' ? ' selected' : '') + '>Match device</option><option value="light"' + (s.theme === 'light' ? ' selected' : '') + '>Light</option><option value="dark"' + (s.theme === 'dark' ? ' selected' : '') + '>Dark</option></select></label></section>';
   h += '<section class="card"><h3>Backup &amp; decks</h3><p class="lede" style="font-size:13px">Progress lives only on this device. One backup covers every language. Save it to Files or Drive now and then.</p><div class="btn-row">' + (navigator.share ? '<button class="btn primary" id="bkShare" type="button">Share backup</button>' : '') + '<button class="btn" id="bkDown" type="button">Download backup</button><button class="btn" id="bkRestore" type="button">Restore backup</button></div><input id="bkFile" type="file" accept="application/json,.json" hidden>' +
     '<h3 style="margin-top:16px">Import a deck file</h3><p class="lede" style="font-size:13px">Any JSON file of notes in the Salita format, such as cards Claude made from a conversation. They are added to the ' + esc(L().name) + ' deck. Existing notes with the same id are replaced; your progress on them is kept.</p><div class="btn-row"><button class="btn" id="deckImport" type="button">Import deck JSON</button><button class="btn" id="deckExport" type="button">Export my cards</button></div><input id="deckFile" type="file" accept="application/json,.json" hidden><div class="status" id="bkStatus"></div></section>';
-  h += '<section class="card"><h3>About</h3><p class="lede" style="font-size:13px">Starter deck: ' + esc(state.deck.name) + (state.deck.version ? ' (' + esc(state.deck.version) + ')' : '') + ' · ' + state.deck.notes.length + ' notes · ' + state.extra.length + ' of your own. Scheduling by FSRS-4.5. Nothing leaves your phone, except recordings sent to Azure for scoring if you turn on Speaking.</p><div class="btn-row"><button class="btn danger" id="resetAll" type="button">Reset all progress</button></div></section>';
+  h += '<section class="card"><h3>About</h3><p class="lede" style="font-size:13px">Starter deck: ' + esc(state.deck.name) + (state.deck.version ? ' (' + esc(state.deck.version) + ')' : '') + ' · ' + state.deck.notes.length + ' notes · ' + state.extra.length + ' of your own. Scheduling by FSRS-4.5. Nothing leaves your phone, except recordings of your replies, sent to Google or Microsoft for scoring if you turn on Speaking.</p><div class="btn-row"><button class="btn danger" id="resetAll" type="button">Reset all progress</button></div></section>';
   main.innerHTML = h;
   const upd = () => { save('settings'); };
   main.querySelector('#setLang').onchange = e => { switchLang(e.target.value); };
@@ -863,9 +933,12 @@ function renderSettings(main){
   main.querySelector('#setTts').onchange = e => { s.tts = e.target.checked; upd(); renderSettings(main); };
   const sv = main.querySelector('#setVoice'); if (sv) sv.onchange = e => { s.voice = e.target.value; upd(); };
   const sr = main.querySelector('#setRate'); if (sr) sr.oninput = e => { s.ttsRate = Number(e.target.value); main.querySelector('#rateV').textContent = e.target.value; upd(); };
-  main.querySelector('#spSave').onclick = () => { const k = main.querySelector('#spKey').value.trim(), r = main.querySelector('#spRegion').value.trim(), cur = speechCfg(), key = k || (cur ? cur.key : ''); if (!key || !r) { toast('Both the key and the region are needed'); return; } try { speechUrl(r, 'en-US'); } catch (e) { toast(e.message); return; } try { lsPutRaw('speech', { key: key, region: r }); } catch (e) { toast('Could not save: ' + e.message); return; } toast('Speech key saved on this phone'); renderSettings(main); };
+  main.querySelector('#spProv').onchange = e => { state.spProv = e.target.value; renderSettings(main); };
+  main.querySelector('#spSave').onclick = () => { const pv = main.querySelector('#spProv').value, cur = speechCfg(), k = main.querySelector('#spKey').value.trim(), key = k || (cur && cur.provider === pv ? cur.key : ''), rg = main.querySelector('#spRegion'), r = rg ? rg.value.trim() : '';
+    if (!key) { toast('Paste the key first'); return; } if (pv === 'azure') { if (!r) { toast('The region is needed too'); return; } try { speechUrl(r, 'en-US'); } catch (e) { toast(e.message); return; } }
+    try { lsPutRaw('speech', pv === 'azure' ? { provider: pv, key: key, region: r } : { provider: pv, key: key }); lsPutRaw('speechOk', null); } catch (e) { toast('Could not save: ' + e.message); return; } state.spProv = pv; toast('Speech key saved on this phone'); renderSettings(main); };
   const spT = main.querySelector('#spTest'); if (spT) spT.onclick = testSpeechKey;
-  const spD = main.querySelector('#spDel'); if (spD) spD.onclick = () => { if (!confirm('Remove the speech key from this phone? Speaking cards turn off; their progress is kept.')) return; lsPutRaw('speech', null); toast('Speech key removed'); renderSettings(main); };
+  const spD = main.querySelector('#spDel'); if (spD) spD.onclick = () => { if (!confirm('Remove the speech key from this phone? Speaking cards turn off; their progress is kept.')) return; lsPutRaw('speech', null); lsPutRaw('speechOk', null); toast('Speech key removed'); renderSettings(main); };
   const tv = main.querySelector('#testVoice'); if (tv) tv.onclick = () => { if (!speak(L().sample)) toast('No voice available'); };
   main.querySelector('#setTheme').onchange = e => { state.settings.theme = e.target.value; lsPutRaw('theme', e.target.value); upd(); applyTheme(); };
   const sh = main.querySelector('#bkShare'); if (sh) sh.onclick = shareBackup; main.querySelector('#bkDown').onclick = downloadBackup;
@@ -923,7 +996,7 @@ async function loadDeck(){
 }
 document.querySelectorAll('.tabs [role=tab]').forEach(b => { b.onclick = () => { state.tab = b.dataset.tab; render(); }; });
 (function langMenu(){ const sel = document.getElementById('langSel'); sel.innerHTML = LANGS.map(l => '<option value="' + l.id + '">' + esc(l.name) + '</option>').join(''); sel.value = L().id; sel.onchange = () => { switchLang(sel.value); }; })();
-document.getElementById('btnHelp').onclick = () => { alert('Salita drills a language the way a spaced-repetition app does: you see each card right before you would forget it.\n\n• New words appear once with their meaning, then get tested later in the same session.\n• Type the answer and tap Check. Punctuation is ignored; accents count in Spanish and German (change it in Settings). For Japanese and Thai you can type the romanization. Close answers count as Hard.\n• Again = would not have produced it. Hard = got it, slowly. Good = fine. Easy = instant.\n• Production, Listening, Casual and conjugation cards unlock after you pass the word once.\n• The menu at the top switches language: Tagalog, Spanish, and travel decks for Japanese, Thai, Dutch, Czech and German. Each keeps its own progress.\n• Conversation cards say a line and score your spoken reply, once a speech key is saved under Settings › Speaking. Those recordings go to Microsoft Azure for scoring.\n• Everything else stays on this phone. Back up from Settings.'); };
+document.getElementById('btnHelp').onclick = () => { alert('Salita drills a language the way a spaced-repetition app does: you see each card right before you would forget it.\n\n• New words appear once with their meaning, then get tested later in the same session.\n• Type the answer and tap Check. Punctuation is ignored; accents count in Spanish and German (change it in Settings). For Japanese and Thai you can type the romanization. Close answers count as Hard.\n• Again = would not have produced it. Hard = got it, slowly. Good = fine. Easy = instant.\n• Production, Listening, Casual and conjugation cards unlock after you pass the word once.\n• The menu at the top switches language: Tagalog, Spanish, and travel decks for Japanese, Thai, Dutch, Czech and German. Each keeps its own progress.\n• Conversation cards say a line and score your spoken reply, once a speech key is saved under Settings › Speaking. Those recordings go to the service you chose there (Google Gemini or Microsoft Azure) for scoring.\n• Everything else stays on this phone. Back up from Settings.'); };
 applyTheme();
 loadDeck().then(render);
 if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('./sw.js').catch(() => {}); }); }
