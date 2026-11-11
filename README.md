@@ -9,7 +9,7 @@ Taglish "how would a friend text this" cards, optional listening cards, streaks 
 progress charts. Everything runs in one HTML file and works offline. Nothing leaves the
 phone.
 
-Live: https://jrjohnsonlloyd.github.io/salita/
+Live: https://jrjohnsonlloyd.github.io/Salita/
 
 ## Install on iPhone
 
